@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>Plotly test</title>
+
+    <style type="text/css">
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #myDiv {
+            display: block;
+            width: 700px;
+            height: 700px;
+        }
+    </style>
+
+    <!--
+    <script type="text/javascript" src="Scripts/plotly/plotly.min.js"></script>    
+    -->
+    
+    <script type="text/javascript" src="Scripts/plotly/plotly.js" charset="utf-8"></script>
+</head>
+<body>
+    <div id="myDiv"></div>
+
+    <script type="text/javascript">
+        
+        async function main() {
+            console.log(Plotly.version);
+
+            var data = [
+                {
+                    z: [[1, 20, 30], [20, 1, 60], [30, 60, 1]],
+                    type: 'heatmap'
+                }
+            ];
+
+            Plotly.newPlot('myDiv', data);
+        }
+
+        main();
+    </script>
+
+   
+</body>
+</html>
