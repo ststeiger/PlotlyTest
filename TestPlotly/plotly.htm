@@ -23,22 +23,39 @@
             width: 700px;
             height: 700px;
         }
+
+        #myDiv2 {
+            display: block;
+            width: 900px;
+            height: 600px;
+        }
+
+        svg {
+            background-color: transparent !important;
+        }
+
+        #myDiv, #myDiv2 {
+            background-color:hotpink;
+        }
+
     </style>
 
     <!--
     <script type="text/javascript" src="Scripts/plotly/plotly.min.js"></script>    
     -->
-    
     <script type="text/javascript" src="Scripts/plotly/plotly.js" charset="utf-8"></script>
 </head>
 <body>
     <div id="myDiv"></div>
+    <br />
+    <div id="myDiv2"></div>
 
     <script type="text/javascript">
         
         async function main() {
             console.log(Plotly.version);
 
+            // https://plot.ly/javascript/heatmaps/
             var data = [
                 {
                     z: [[1, 20, 30], [20, 1, 60], [30, 60, 1]],
@@ -47,6 +64,17 @@
             ];
 
             Plotly.newPlot('myDiv', data);
+
+            var data2 = [
+                {
+                    z: [[1, 20, 30, 50, 1], [20, 1, 60, 80, 30], [30, 60, 1, -10, 20]],
+                    x: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                    y: ['Morning', 'Afternoon', 'Evening'],
+                    type: 'heatmap'
+                }
+            ];
+
+            Plotly.newPlot('myDiv2', data2);
         }
 
         main();
