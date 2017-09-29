@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="gl.htm" />
+    <Content Include="leaflet2.htm" />
     <Content Include="leaflet.htm" />
     <Content Include="plotly.htm" />
     <Content Include="Scripts\leaflet\images\layers-2x.png" />
