@@ -53,7 +53,16 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="gl.htm" />
+    <Content Include="leaflet.htm" />
     <Content Include="plotly.htm" />
+    <Content Include="Scripts\leaflet\images\layers-2x.png" />
+    <Content Include="Scripts\leaflet\images\layers.png" />
+    <Content Include="Scripts\leaflet\images\marker-icon-2x.png" />
+    <Content Include="Scripts\leaflet\images\marker-icon.png" />
+    <Content Include="Scripts\leaflet\images\marker-shadow.png" />
+    <Content Include="Scripts\leaflet\leaflet-src.js" />
+    <Content Include="Scripts\leaflet\leaflet.css" />
+    <Content Include="Scripts\leaflet\leaflet.js" />
     <Content Include="Scripts\plotly\plotly-basic.js" />
     <Content Include="Scripts\plotly\plotly-basic.min.js" />
     <Content Include="Scripts\plotly\plotly-cartesian.js" />
@@ -72,6 +81,10 @@
     <Content Include="Scripts\plotly\plotly-with-meta.js" />
     <Content Include="Scripts\plotly\plotly.js" />
     <Content Include="Scripts\plotly\plotly.min.js" />
+    <Content Include="Scripts\polyfills\common.js" />
+    <Content Include="Scripts\polyfills\console.js" />
+    <Content Include="Scripts\polyfills\es6-promise-2.0.0.min.js" />
+    <Content Include="Scripts\polyfills\md5.js" />
     <Content Include="Scripts\require\require.js" />
     <Content Include="Scripts\webGL\webGL.js" />
     <Content Include="Web.config" />
@@ -82,6 +95,8 @@
   <ItemGroup>
     <Content Include="Scripts\plotly.js-1.30.1.zip" />
     <Content Include="tsconfig.json" />
+    <Content Include="Scripts\leaflet\leaflet-src.js.map" />
+    <Content Include="Scripts\leaflet\leaflet.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -94,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\leaflet\v1_1_0\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

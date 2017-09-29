@@ -19,6 +19,16 @@
         }
     </style>
 
+    <script type="text/javascript" src="Scripts/polyfills/console.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Scripts/polyfills/es6-promise-2.0.0.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        <!--
+        // https://www.typescriptlang.org/docs/handbook/compiler-options.html
+        // http://kangax.github.io/compat-table/es5/
+        // http://kangax.github.io/compat-table/es6/
+        var Promise = Promise || ES6Promise.Promise; // Promises for IE 11
+    </script>
+
     <script type="text/javascript" src="Scripts/webGL/webGL.js" charset="utf-8"></script>
     
 </head>
