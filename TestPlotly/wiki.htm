@@ -33,6 +33,26 @@
             height: 100%;
         }
 
+        #zoom-level 
+        {
+            margin: 10px;
+            padding: 10px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            background: #ddd;
+            display: none;
+        }
+
+        .my-div-icon {
+            display: block;
+        }
+
+        .leaflet-tooltip-top {
+            margin-top: -19px !important;
+        }
+
 
         /*
         .leaflet-popup-content {
@@ -57,53 +77,91 @@
     -->
     
     <link href="Scripts/leaflet/leaflet.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="Scripts/leaflet/token.js" charset="utf-8"></script>
     <script type="text/javascript" src="Scripts/leaflet/leaflet.js" charset="utf-8"></script>
 </head>
 <body>
+    <div id="zoom-level">Zoom Level: 18</div>
     <div id="swissMap"></div>
 
     <script type="text/javascript">
         
-        var mymap = null;
-
-
-        function onMapClick(e) {
-            var popup = L.popup();
-
-            popup
-                .setLatLng(e.latlng)
-                .setContent("You clicked the map at " + e.latlng.toString())
-                .openOn(mymap);
+        function bracketDevicePixelRatio() {
+            var brackets = [1, 1.3, 1.5, 2, 2.6, 3],
+                baseRatio = window.devicePixelRatio || 1;
+            for (var i = 0; i < brackets.length; i++) {
+                var scale = brackets[i];
+                if (scale >= baseRatio || (baseRatio - scale) < 0.1) {
+                    return scale;
+                }
+            }
+            return brackets[brackets.length - 1];
         }
 
-
-
-
-        function onMarkerClick(e, uid) {
-            var popup = L.popup();
-            //console.log("onMarkerClick");
-            //console.log(e);
-            //console.log(arguments);
-            //console.log("UID:");
-            //console.log(uid);
-
-            //popup
-            //    .setLatLng(e.latlng)
-            //    .setContent("You clicked the map at " + e.latlng.toString())
-            //    .openOn(mymap);
-
-
-            popup
-                .setLatLng(e.latlng)
-                .setContent("You clicked the map at " + e.latlng.toString() + "\r\n" + "Opening GB " + uid)
-                .openOn(mymap);
-        }
-
-
-
+        // https://maps.wikimedia.org
+        // https://maps.wikimedia.org/main.js
         function initMap()
         {
+            // Create a map
+            var map = L.map('swissMap').setView([47.317390, 8.520293], 18); // SwissRe Soodring 33, Adliswil
+
+            // scale:
+            // Optional scale for the high- resolution screens such as Retina. 
+            // Supported scales are 1.3, 1.5, 2, 2.6, 3
+            var scale = bracketDevicePixelRatio();
+            var scalex = (scale === 1) ? '' : ('@' + scale + 'x');
+
+            // Add a map layer
+            L.tileLayer("{server}/{style}/{z}/{x}/{y}{scalex}.png",
+                {
+                    maxZoom: 18
+                    , attribution: '<a href="https://www.mediawiki.org/wiki/Maps/Technical_Implementation">Wikimedia maps beta</a> | Map data &copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+                    , server: "https://maps.wikimedia.org"
+                    , style: "osm-intl" // "osm" // Map style to use.Use "osm-intl" for map with labels, "osm" for map without labels.
+                    , scalex: scalex
+                }
+            ).addTo(map);
+
+            
+            
+
+            // Add a km/miles scale
+            L.control.scale().addTo(map);
+
+            // Update the zoom level label
+            map.on('zoomend', function ()
+            {
+                document.getElementById('zoom-level').innerHTML = 'Zoom Level: ' + map.getZoom();
+            });
+
+            // Add current location to URL hash
+            // var hash = new L.Hash(map);
+            var marker = L.marker([47.552096, 9.226189]).addTo(map);
+            marker
+                .bindTooltip("COR Managementsysteme GmbH",
+                    {
+                        permanent: true,
+                        direction: 'top'
+                        //direction: 'right'
+                    }
+                )
+                .bindPopup("<b>COR Managementsysteme GmbH</b><br />Fabrikstrasse 1<br />8586 Erlen/TG<br />+41 (0)71 649 22 46")
+                .openPopup()
+            ;
+
+            /*
+            var mk = new L.Marker([47.552096, 9.226189], {
+                icon: new L.DivIcon({
+                    className: 'my-div-icon',
+                    html: '<span class="my-div-span">COR</span>'
+                    // <img class="my-div-image" src="http://png-3.vector.me/files/images/4/0/402272/aiga_air_transportation_bg_thumb"/>' +
+                })
+            });
+            mk.addTo(map);
+            */
+
+
+            /*
+
             // mymap = L.map('swissMap').setView([51.505, -0.09], 13); // London
             // mymap = L.map('swissMap').setView([47.317390, 8.520293], 13); // SwissRe Soodring 33, Adliswil
             mymap = L.map('swissMap').setView([47.544411, 9.216229], 13); // Höhenweg 4, 8586 Erlen, Riedt b. Erlen/TG
@@ -118,10 +176,11 @@
                     //,id: 'mapbox.streets'
                     //,id: 'mapbox.satellite',
                     ,id: 'mapbox.streets-satellite' 
-                    ,accessToken: myLeaflet.token // 'your.mapbox.access.token'
+                    ,accessToken: mytoken // 'your.mapbox.access.token'
                 }
             ).addTo(mymap);
-            
+            */
+            /*
             var marker = L.marker([47.552096, 9.226189]).addTo(mymap);
 
             var circle = L.circle([47.544411, 9.216229],
@@ -134,44 +193,7 @@
             ).addTo(mymap);
 
             marker.bindPopup("<b>COR Managementsysteme GmbH</b><br />Fabrikstrasse 1<br />8586 Erlen/TG<br />+41 (0)71 649 22 46").openPopup();
-            circle.bindPopup("Hanspeter's Home");
-            
-            var la = 47.544411;
-            var lo = 9.216229;
-
-            /*
-            var longitudes = [];
-            for (var i = 0; i < 10; ++i)
-            {
-                longitudes.push(
-                    L.marker([la + i, 9.226189]).addTo(mymap)
-                );
-
-                longitudes[i].bindPopup("<b>COR Managementsysteme GmbH</b><br />Fabrikstrasse 1<br />8586 Erlen/TG<br />+41 (0)71 649 22 46"); //.openPopup();
-            }
-
-            var parallels = [];
-            for (var i = 0; i < 10; ++i)
-            {
-                parallels.push(
-                    L.marker([la, lo + i]).addTo(mymap)
-                );
-
-                parallels[i].bindPopup("<b>COR Managementsysteme GmbH</b><br />Fabrikstrasse 1<br />8586 Erlen/TG<br />+41 (0)71 649 22 46"); //.openPopup();
-            }
             */
-
-            // mymap.on('click', onMapClick);
-            //marker.on('click', onMarkerClick);
-
-            marker.on("click", function (e)
-                {
-                    onMarkerClick(e, "Nr. 0815");
-                }
-            );  
-
-            // https://gis.stackexchange.com/questions/77132/go-to-the-url-when-clicked-on-leaflet-marker
-
         }
         
         initMap();
