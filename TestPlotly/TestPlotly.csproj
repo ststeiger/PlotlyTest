@@ -65,6 +65,8 @@
     <Content Include="images\leaflet\Lat_Long.gif" />
     <Content Include="Libs\Newtonsoft.json\8.0.3\Newtonsoft.Json.dll" />
     <Content Include="Scripts\leaflet\token.js" />
+    <EmbeddedResource Include="SQL\Marker_GB.sql" />
+    <EmbeddedResource Include="SQL\Marker_SO.sql" />
     <Content Include="wiki.htm" />
     <Content Include="leaflet2.htm" />
     <Content Include="leaflet.htm" />
@@ -107,6 +109,8 @@
     <Compile Include="ajax\mapMarker.ashx.cs">
       <DependentUpon>mapMarker.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Code\IntrospectionExtensions.cs" />
+    <Compile Include="Code\ResourceLoader.cs" />
     <Compile Include="Code\SQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +128,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\ea\EasyAjax.ts" />
     <TypeScriptCompile Include="Scripts\webGL\webGL.ts" />
   </ItemGroup>
   <ItemGroup>

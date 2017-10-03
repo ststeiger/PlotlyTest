@@ -11,6 +11,7 @@ namespace TestPlotly
 
         private static System.Data.Common.DbProviderFactory fact = System.Data.Common.DbProviderFactories.GetFactory(typeof(System.Data.SqlClient.SqlClientFactory).Namespace);
 
+
         public static string GetConnectionString()
         {
             System.Data.SqlClient.SqlConnectionStringBuilder csb = new System.Data.SqlClient.SqlConnectionStringBuilder();
@@ -24,7 +25,7 @@ namespace TestPlotly
                 csb.UserID = "ApertureWebServicesDE";
                 csb.Password = "TOP_Secret";
             }
-            
+
 
             return csb.ToString();
         }
@@ -46,6 +47,15 @@ namespace TestPlotly
             return cmd;
         }
 
+
+        public static System.Data.Common.DbCommand fromFile(string resourceName)
+        {
+            System.Data.Common.DbCommand cmd = fact.CreateCommand();
+            cmd.CommandText = ResourceLoader.ReadEmbeddedResource(typeof(SQL), resourceName); ;
+
+            return cmd;
+        }
+        
 
         public static System.Data.Common.DbDataReader GetDataReader(System.Data.Common.DbCommand cmd)
         {
@@ -83,19 +93,107 @@ namespace TestPlotly
         }
 
 
-        public static void SerializeLargeDataset(System.Data.Common.DbCommand cmd, System.Web.HttpContext context)
+        public static void Serialize(object obj, System.Web.HttpContext context)
+        {
+#if DEBUG 
+            Serialize(obj, context, true);
+#else
+            Serialize(obj, context, false);
+#endif
+        }
+
+
+        public static void Serialize(object obj, System.Web.HttpContext context, bool pretty)
         {
             Newtonsoft.Json.JsonSerializer ser = new Newtonsoft.Json.JsonSerializer();
 
             using (Newtonsoft.Json.JsonTextWriter jsonWriter = new Newtonsoft.Json.JsonTextWriter(context.Response.Output))
             {
-                jsonWriter.Formatting = Newtonsoft.Json.Formatting.Indented;
+                ser.Serialize(jsonWriter, obj);
+            }
+        }
+        
+
+        public static void WriteAssociativeArray(Newtonsoft.Json.JsonTextWriter jsonWriter, System.Data.Common.DbDataReader dr)
+        {
+            WriteAssociativeArray(jsonWriter, dr, false);
+        }
+
+
+        public static void WriteAssociativeArray(Newtonsoft.Json.JsonTextWriter jsonWriter, System.Data.Common.DbDataReader dr, bool dataType)
+        {
+            // JSON: 
+            //{
+            //     "column_1":{ "index":0,"fieldType":"int"}
+            //    ,"column_2":{ "index":1,"fieldType":"int"}
+            //}
+
+            jsonWriter.WriteStartObject();
+
+            for (int i = 0; i < dr.FieldCount; ++i)
+            {
+                jsonWriter.WritePropertyName(dr.GetName(i));
+                jsonWriter.WriteStartObject();
+
+                jsonWriter.WritePropertyName("index");
+                jsonWriter.WriteValue(i);
+
+#if false
+                jsonWriter.WritePropertyName("columnName");
+                jsonWriter.WriteValue(dr.GetName(i));
+#endif
+
+                if (dataType)
+                {
+                    jsonWriter.WritePropertyName("fieldType");
+                    jsonWriter.WriteValue(GetAssemblyQualifiedNoVersionName(dr.GetFieldType(i)));
+                }
+                
+                jsonWriter.WriteEndObject();
+            }
+
+            jsonWriter.WriteEndObject();
+        }
+
+
+        public static void WriteArray(Newtonsoft.Json.JsonTextWriter jsonWriter, System.Data.Common.DbDataReader dr)
+        {
+            jsonWriter.WriteStartArray();
+
+            for (int i = 0; i < dr.FieldCount; ++i)
+            {
+                jsonWriter.WriteStartObject();
+
+                jsonWriter.WritePropertyName("index");
+                jsonWriter.WriteValue(i);
+
+                jsonWriter.WritePropertyName("columnName");
+                jsonWriter.WriteValue(dr.GetName(i));
+
+                jsonWriter.WritePropertyName("fieldType");
+                jsonWriter.WriteValue(GetAssemblyQualifiedNoVersionName(dr.GetFieldType(i)));
+
+                jsonWriter.WriteEndObject();
+            } // Next i 
+
+            jsonWriter.WriteEndArray();
+        }
+
+
+        public static void SerializeLargeDataset(System.Data.Common.DbCommand cmd, System.Web.HttpContext context, bool pretty)
+        {
+            Newtonsoft.Json.JsonSerializer ser = new Newtonsoft.Json.JsonSerializer();
+
+            using (Newtonsoft.Json.JsonTextWriter jsonWriter = new Newtonsoft.Json.JsonTextWriter(context.Response.Output))
+            {
+                if (pretty)
+                    jsonWriter.Formatting = Newtonsoft.Json.Formatting.Indented;
 
                 jsonWriter.WriteStartObject();
 
-                jsonWriter.WritePropertyName("Tables");
+                jsonWriter.WritePropertyName("tables");
                 jsonWriter.WriteStartArray();
-                
+
 
                 using (System.Data.Common.DbConnection con = GetConnection())
                 {
@@ -113,25 +211,14 @@ namespace TestPlotly
                         {
                             jsonWriter.WriteStartObject(); // tbl = new Table();
 
-                            jsonWriter.WritePropertyName("Columns");
-                            jsonWriter.WriteStartArray();
+                            jsonWriter.WritePropertyName("columns");
+
+                            // WriteArray(jsonWriter, dr);
+                            WriteAssociativeArray(jsonWriter, dr);
+                            
 
 
-                            for (int i = 0; i < dr.FieldCount; ++i)
-                            {
-                                jsonWriter.WriteStartObject();
-
-                                jsonWriter.WritePropertyName("ColumnName");
-                                jsonWriter.WriteValue(dr.GetName(i));
-
-                                jsonWriter.WritePropertyName("FieldType");
-                                jsonWriter.WriteValue(GetAssemblyQualifiedNoVersionName(dr.GetFieldType(i)));
-
-                                jsonWriter.WriteEndObject();
-                            } // Next i 
-                            jsonWriter.WriteEndArray();
-
-                            jsonWriter.WritePropertyName("Rows");
+                            jsonWriter.WritePropertyName("rows");
                             jsonWriter.WriteStartArray();
 
                             if (dr.HasRows)
@@ -174,6 +261,15 @@ namespace TestPlotly
         } // End Sub SerializeLargeDataset 
 
 
+        public static void SerializeLargeDataset(System.Data.Common.DbCommand cmd, System.Web.HttpContext context)
+        {
+#if DEBUG 
+            SerializeLargeDataset(cmd, context, true);
+#else
+            SerializeLargeDataset(cmd, context, false);
+#endif
+        } // End Sub SerializeLargeDataset 
+
 
         public static string GetAssemblyQualifiedNoVersionName(System.Type type)
         {
@@ -202,5 +298,8 @@ namespace TestPlotly
             return input.Substring(0, i);
         } // End Function GetAssemblyQualifiedNoVersionName
 
+
     }
+
+
 }

@@ -1,4 +1,4 @@
 
 var myLeaflet = {
-    token: "abc"
+    token: "123"
 };
