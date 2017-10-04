@@ -16,7 +16,12 @@ namespace TestPlotly
         {
             System.Data.SqlClient.SqlConnectionStringBuilder csb = new System.Data.SqlClient.SqlConnectionStringBuilder();
 
-            csb.DataSource = System.Environment.MachineName + @"\SqlExpress";
+            csb.DataSource = System.Environment.MachineName;
+            if(System.StringComparer.OrdinalIgnoreCase.Equals("COR", System.Environment.UserDomainName))
+            {
+                csb.DataSource += @"\SqlExpress";
+            }
+
             csb.InitialCatalog = "COR_Basic_Demo_V4";
 
             csb.IntegratedSecurity = true;
@@ -25,7 +30,6 @@ namespace TestPlotly
                 csb.UserID = "ApertureWebServicesDE";
                 csb.Password = "TOP_Secret";
             }
-
 
             return csb.ToString();
         }

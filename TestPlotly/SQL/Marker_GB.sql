@@ -1,10 +1,14 @@
 
-DECLARE @__stichtag datetime 
-DECLARE @__user_id int 
+-- DECLARE @BE_ID varchar(50) 
+-- SET @BE_ID = (SELECT TOP 1 CAST(BE_ID  AS varchar(50)) FROM T_Benutzer WHERE BE_User = 'administrator') 
+-- SET @BE_ID = (SELECT TOP 1 BE_Hash FROM T_Benutzer WHERE BE_User = 'administrator') 
 
-SET @__stichtag = CAST(FLOOR(CAST(CURRENT_TIMESTAMP AS float)) AS datetime) 
+
+DECLARE @__user_id int 
 SET @__user_id = (SELECT TOP 1 BE_ID FROM T_Benutzer WHERE BE_User = 'administrator') 
 
+DECLARE @__stichtag datetime 
+SET @__stichtag = CAST(FLOOR(CAST(CURRENT_TIMESTAMP AS float)) AS datetime) 
 
 
 SELECT 
@@ -45,6 +49,10 @@ SELECT
 	--,T_AP_Standort.SO_Nr 
 FROM T_AP_Gebaeude 
 
+INNER JOIN T_Benutzer 
+	ON T_Benutzer.BE_ID = @__user_id 
+	AND T_Benutzer.BE_Status = 1 
+
 INNER JOIN T_OV_Ref_ObjektTyp -- GRU, SO, GB 
 	ON T_OV_Ref_ObjektTyp.OBJT_Code = 'GB' 
 	AND T_OV_Ref_ObjektTyp.OBJT_Status = 1 
@@ -66,7 +74,7 @@ INNER JOIN T_COR_Objekte
 				FROM T_Benutzer_Benutzergruppen
 				INNER JOIN T_COR_ZO_ObjektRechte_Lesen 
 					ON T_COR_ZO_ObjektRechte_Lesen.ZO_OBJR_ID = T_Benutzer_Benutzergruppen.BEBG_BG
-					AND (T_Benutzer_Benutzergruppen.BEBG_BE = @__user_id)
+					AND (T_Benutzer_Benutzergruppen.BEBG_BE = T_Benutzer.BE_ID)
 					AND (T_COR_ZO_ObjektRechte_Lesen.ZO_OBJR_OBJ_OBJT_Code = T_COR_Objekte.OBJ_OBJT_Code) 
 				WHERE T_COR_ZO_ObjektRechte_Lesen.ZO_OBJR_OBJ_UID = T_COR_Objekte.OBJ_UID 
             )
