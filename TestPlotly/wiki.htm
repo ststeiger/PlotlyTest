@@ -84,7 +84,7 @@
 
     <script type="text/javascript" src="Scripts/ea/EasyAjax.js" charset="utf-8"></script>
     <link href="Scripts/leaflet/leaflet.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="Scripts/leaflet/leaflet.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Scripts/leaflet/leaflet.js?v=1" charset="utf-8"></script>
     <!--
     <link href="Scripts/leaflet/leaflet_embed.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="Scripts/leaflet/leaflet-src.js" charset="utf-8"></script>
@@ -282,7 +282,7 @@
             L.tileLayer("{server}/{style}/{z}/{x}/{y}{scalex}.png",
                 {
                     maxZoom: 18
-                    , attribution: '<a href="https://www.mediawiki.org/wiki/Maps/Technical_Implementation">Wikimedia maps beta</a> | Map data &copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+                    , attribution: '<a target="blank" href="https://www.mediawiki.org/wiki/Maps/Technical_Implementation">Wikimedia maps beta</a> | Map data &copy; <a target="blank" href="http://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
                     , server: "https://maps.wikimedia.org"
                     , style: "osm-intl" // "osm" // Map style to use.Use "osm-intl" for map with labels, "osm" for map without labels.
                     , scalex: scalex
