@@ -57,6 +57,7 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="gl.htm" />
+    <Content Include="Global.asax" />
     <Content Include="images\leaflet\bocholt_rathaus_geodatenportal_erdkugel_mit_koordinaten_01.gif" />
     <Content Include="images\leaflet\Grad-201100278207.jpg" />
     <Content Include="images\leaflet\grade.gif" />
@@ -65,6 +66,7 @@
     <Content Include="images\leaflet\Lat_Long.gif" />
     <Content Include="Libs\Newtonsoft.json\8.0.3\Newtonsoft.Json.dll" />
     <Content Include="osm.htm" />
+    <Content Include="Scripts\leaflet\leaflet_embed.css" />
     <Content Include="Scripts\leaflet\token.js" />
     <EmbeddedResource Include="SQL\Marker_GB.sql" />
     <EmbeddedResource Include="SQL\Marker_SO.sql" />
@@ -113,6 +115,9 @@
     <Compile Include="Code\IntrospectionExtensions.cs" />
     <Compile Include="Code\ResourceLoader.cs" />
     <Compile Include="Code\SQL.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

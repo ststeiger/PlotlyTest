@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
@@ -10,7 +11,7 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
 
-    <title>Leaflet test</title>
+    <title>WikiMaps test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
 
     <style type="text/css">
@@ -81,6 +82,10 @@
     <script type="text/javascript" src="Scripts/ea/EasyAjax.js" charset="utf-8"></script>
     <link href="Scripts/leaflet/leaflet.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="Scripts/leaflet/leaflet.js" charset="utf-8"></script>
+    <!--
+    <link href="Scripts/leaflet/leaflet_embed.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/leaflet/leaflet-src.js" charset="utf-8"></script>
+    -->
 </head>
 <body>
     <div id="zoom-level">Zoom Level: 18</div>
@@ -88,6 +93,31 @@
 
     <script type="text/javascript">
         var map = null;
+
+        
+        function onMarkerClick(e, open_args) 
+        {
+            // console.log(open_args);
+
+            var popup = L.popup();
+            //console.log("onMarkerClick");
+            //console.log(e);
+            //console.log(arguments);
+            //console.log("UID:");
+            //console.log(uid);
+
+            //popup
+            //    .setLatLng(e.latlng)
+            //    .setContent("You clicked the map at " + e.latlng.toString())
+            //    .openOn(mymap);
+
+
+            popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString() + "\r\n" + "Opening "+open_args.objt + " " + open_args.uid)
+                .openOn(map);
+        }
+
 
         function addMarkers()
         {
@@ -137,6 +167,20 @@
                                     //direction: 'right'
                                 }
                             ).bindPopup(label);
+
+                            marker.on("click", function (e)
+                            {
+                                var open_args = {
+                                    "uid": uid
+                                    , "objt": code
+                                    , "label": label
+                                    , "latitude": latitude
+                                    , "longitude": longitude
+                                };
+
+                                onMarkerClick(e, open_args);
+                            });
+
                         } // End if (label != null) 
 
                     } // next i 

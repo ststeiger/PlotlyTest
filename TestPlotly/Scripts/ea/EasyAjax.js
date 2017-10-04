@@ -150,12 +150,26 @@ var Http;
                     return;
                 if (!(req.status != 200 && req.status != 304 && req.status != 0)) {
                     if (onSuccess) {
-                        if (contentType.toLowerCase().indexOf("application/json") !== -1)
-                            onSuccess(JSON.parse(req.responseText));
-                        else
-                            onSuccess(req.responseText);
-                    }
-                }
+                        if (contentType.toLowerCase().indexOf("application/json") !== -1) {
+                            try {
+                                var obj = JSON.parse(req.responseText);
+                                onSuccess(obj);
+                            }
+                            catch (e) {
+                                console.log(e.name);
+                                console.log(e.message);
+                                console.log(e.stack);
+                                console.log(e);
+                                console.log(req.responseText);
+                                if (onError)
+                                    onError(req);
+                                else {
+                                    alert('HTTP error ' + req.status);
+                                }
+                            } // End Catch 
+                        } // End if (contentType.toLowerCase().indexOf("application/json") !== -1) 
+                    } // End if (onSuccess)
+                } // End if (!(req.status != 200 && req.status != 304 && req.status != 0)) 
                 if (req.status != 200 && req.status != 304 && req.status != 0) {
                     if (onError)
                         onError(req);
