@@ -79,6 +79,9 @@
     crossorigin=""></script>
     -->
 
+    <!--<link rel="shortcut icon" type="image/png" href="favicon.png" />-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
     <script type="text/javascript" src="Scripts/ea/EasyAjax.js" charset="utf-8"></script>
     <link href="Scripts/leaflet/leaflet.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="Scripts/leaflet/leaflet.js" charset="utf-8"></script>
@@ -94,7 +97,45 @@
     <script type="text/javascript">
         var map = null;
 
-        
+
+        function latLongToString(latlng)
+        {
+            var x = latlng.lat;
+            var y = latlng.lng;
+            // console.log("lat: ", latlng.lat, "long: " + latlng.lng);
+            // console.log(latlng.lat, ",", latlng.lng);
+
+            var prefix1 = x < 0 ? "S" : "N";
+            var prefix2 = y < 0 ? "W" : "E";
+
+            x = Math.abs(x);
+            y = Math.abs(y);
+
+            var grad1 = Math.trunc(x);
+            x = (x - grad1) * 60;
+            var grad2 = Math.trunc(y);
+            y = (y - grad2) * 60;
+
+            var min1 = Math.trunc(x);
+            var min2 = Math.trunc(y);
+
+            var sec1 = ((x - min1) * 60).toFixed(1);
+            var sec2 = ((y - min2) * 60).toFixed(1);
+
+            min1 = (min1 < 10 ? "0" : "") + min1;
+            min2 = (min2 < 10 ? "0" : "") + min2;
+
+            sec1 = (sec1 < 10 ? "0" : "") + sec1;
+            sec2 = (sec2 < 10 ? "0" : "") + sec2;
+
+            // console.log("Prefix1:", prefix1, "Grad: ", grad1, "Min: ", min1, "sec: ", sec1);
+            // console.log("Prefix2:", prefix2, "Grad: ", grad2, "Min: ", min2, "sec: ", sec2);
+
+            var res = grad1 + "°" + min1 + "'" + sec1 + '"' + prefix1 + " " + grad2 + "°" + min2 + "'" + sec2 + '"' + prefix2;
+            return res;
+        }
+
+
         function onMarkerClick(e, open_args) 
         {
             // console.log(open_args);
@@ -112,9 +153,13 @@
             //    .openOn(mymap);
 
 
+            // console.log(e.latlng.toString());
+            // 10.5^2: 10°30'00.0"N 10°30'00.0"E
+            //console.log(latLongToString(e.latlng));
+
             popup
                 .setLatLng(e.latlng)
-                .setContent("You clicked the map at " + e.latlng.toString() + "\r\n" + "Opening "+open_args.objt + " " + open_args.uid)
+                .setContent("Markierung geklickt<br />Position auf Karte: " + latLongToString(e.latlng) + "<br />" + "TODO Rico: <br />Öffnen " + open_args.objt + " " + open_args.uid)
                 .openOn(map);
         }
 
@@ -171,11 +216,11 @@
                             marker.on("click", function (e)
                             {
                                 var open_args = {
-                                    "uid": uid
-                                    , "objt": code
-                                    , "label": label
-                                    , "latitude": latitude
-                                    , "longitude": longitude
+                                     "uid": uid
+                                    ,"objt": code
+                                    ,"label": label
+                                    ,"latitude": latitude
+                                    ,"longitude": longitude
                                 };
 
                                 onMarkerClick(e, open_args);
@@ -255,6 +300,21 @@
             {
                 document.getElementById('zoom-level').innerHTML = 'Zoom Level: ' + map.getZoom();
             });
+
+
+            map.on("click", function (e)
+            {
+                var open_args = {
+                    "uid": "uid"
+                    , "objt": "code"
+                    , "label": "label"
+                    , "latitude": "latitude"
+                    , "longitude": "longitude"
+                };
+
+                onMarkerClick(e, open_args);
+            });
+
 
             // Add current location to URL hash
             // var hash = new L.Hash(map);
