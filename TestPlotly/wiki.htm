@@ -97,6 +97,108 @@
     <script type="text/javascript">
         var map = null;
 
+        
+        Math.radians = function (degrees)
+        {
+            return degrees * Math.PI / 180.0;
+        };
+
+
+        // https://gis.stackexchange.com/a/816/3997
+        function polygonArea()
+        {
+            var poly = [
+                [47.3612503, 8.5351944],
+                [47.3612252, 8.5342631],
+                [47.3610145, 8.5342755],
+                [47.3610212, 8.5345227],
+                [47.3606405, 8.5345451],
+                [47.3606350, 8.5343411],
+                [47.3604067, 8.5343545],
+                [47.3604120, 8.5345623],
+                [47.3604308, 8.5352457],
+                [47.3606508, 8.5352328],
+                [47.3606413, 8.5348784],
+                [47.3610383, 8.5348551],
+                [47.3610477, 8.5352063],
+                [47.3612503, 8.5351944]
+            ];
+
+
+            var area = 0.0;
+            var len = poly.length;
+
+            if (len > 2)
+            {
+
+                var p1, p2;
+
+                for (var i = 0; i < len - 1; i++)
+                {
+
+                    p1 = poly[i];
+                    p2 = poly[i + 1];
+
+                    area += Math.radians(p2[0] - p1[0]) *
+                        (
+                            2
+                            + Math.sin(Math.radians(p1[1]))
+                            + Math.sin(Math.radians(p2[1]))
+                        );
+                }
+
+                // https://en.wikipedia.org/wiki/Earth_radius#Equatorial_radius
+                // https://en.wikipedia.org/wiki/Earth_ellipsoid
+                // The radius you are using, 6378137.0 m corresponds to the equatorial radius of the Earth.
+                var equatorial_radius = 6378137; // m
+                var polar_radius = 6356752.3142; // m
+                var mean_radius = 6371008.8; // m
+                var authalic_radius = 6371007.2; // m (radius of perfect sphere with same surface as reference ellipsoid)
+                var volumetric_radius = 6371000.8 // m (radius of a sphere of volume equal to the ellipsoid)
+                // geodetic latitude φ
+                var siteLatitude = Math.radians(poly[0][0]);
+
+
+                // https://en.wikipedia.org/wiki/Semi-major_and_semi-minor_axes
+                // https://en.wikipedia.org/wiki/World_Geodetic_System
+                var a = 6378137; // m
+                var b = 6356752.3142; // m
+                // where a and b are, respectively, the equatorial radius and the polar radius.
+
+                var R1 = Math.pow(a * a * Math.cos(siteLatitude), 2) + Math.pow(b * b * Math.sin(siteLatitude), 2)
+                var R2 = Math.pow(a * Math.cos(siteLatitude), 2) + Math.pow(b * Math.sin(siteLatitude), 2);
+
+                // https://en.wikipedia.org/wiki/Earth_radius#Radius_at_a_given_geodetic_latitude
+                // Geocentric radius
+                var R = Math.sqrt(R1 / R2);
+                // var merid_radius = ((a * a) * (b * b)) / Math.pow(Math.pow(a * Math.cos(siteLatitude), 2) + Math.pow(b * Math.sin(siteLatitude), 2), 3/2)
+
+
+
+                // console.log(R);
+                // var hrad = polar_radius + (90 - Math.abs(siteLatitude)) / 90 * (equatorial_radius - polar_radius);
+                var radius = mean_radius;
+
+                area = area * radius * radius / 2.0;
+            } // End if len > 0
+
+            // equatorial_radius: 6391.565558418869 m2
+            // mean_radius:       6377.287126172337m2
+            // authalic_radius:   6377.283923019292 m2
+            // volumetric_radius: 6377.271110415153 m2
+            // merid_radius:      6375.314923754325 m2
+            // polar_radius:      6348.777989748668 m2
+            // R:                 6368.48180842528 m2
+            // hrad:              6391.171919886588 m2
+
+            // http://postgis.net/docs/doxygen/2.2/dc/d52/geography__measurement_8c_a1a7c48d59bcf4ed56522ab26c142f61d.html
+            // ST_Area(false)     6379.25032051953
+            // ST_Area(true)      6350.65051177517
+
+            // return area;
+            return area.toFixed(2);
+        }
+
 
         function latLongToString(latlng)
         {
@@ -314,6 +416,51 @@
 
                 onMarkerClick(e, open_args);
             });
+
+
+            map.on("dblclick", function (e)
+                {
+                    alert("doubleClicked");
+                }
+            );
+
+
+                            
+            var polygon = L.polygon([
+            [47.3612503, 8.5351944],
+                [47.3612252, 8.5342631],
+                [47.3610145, 8.5342755],
+                [47.3610212, 8.5345227],
+                [47.3606405, 8.5345451],
+                [47.3606350, 8.5343411],
+                [47.3604067, 8.5343545],
+                [47.3604120, 8.5345623],
+                [47.3604308, 8.5352457],
+                [47.3606508, 8.5352328],
+                [47.3606413, 8.5348784],
+                [47.3610383, 8.5348551],
+                [47.3610477, 8.5352063],
+                [47.3612503, 8.5351944]
+            ]);
+
+            /*
+            polygon.setStyle({
+            fillColor: '#FF00FF'
+            ,fillOpacity: 0.7
+            ,color: 'white'  //Outline color
+            ,weight: 2
+            ,opacity: 1
+            });
+            */
+
+            polygon
+                .addTo(map)
+                .bindPopup("<b>Hallo</b><br />Ich bin das blaue SwissRe-Gebäude am Mythenquai mit einer Fläche von " + polygonArea() + " m<sup>2</sup>")
+                .openPopup()
+                ;
+
+
+
 
 
             // Add current location to URL hash
