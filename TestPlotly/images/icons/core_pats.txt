@@ -1,0 +1,69 @@
+
+Agreed. 
+Microsoft doesn't love open-source. 
+Microsoft loves headlines that make it appear they love open-source.
+The reality is Microsoft's open-source efforts have always been completely underwhelming.
+
+Remember these headlines: MS contributes 20000 lines of code, and MS is 17th largest kernel contributor?
+Reality: The code was for Linux HyperV drivers that only Windows users will ever use. 
+The multiple submission attempts to get those drivers up to acceptable Linux kernel standards 
+pushed MS to 17th place. All for drivers that only benefit HyperV users.
+
+How about MS announces the Mono project, an open-source, cross-platform, .Net compatible framework?
+Reality: .Net apps made for Mono run on .Net just fine, however, .Net apps that include 3rd party extensions (i.e. almost all), 
+don't run on Mono because the 3rd party extensions are only available for Windows. So it is a one way street.
+
+Here's another: MS and Novell announce Moonlight, a cross-platform Silverlight compatible media streamer.
+Reality: Moonlight was not allowed to include Silverlight's DRM, so Moonlight was pretty much useless.
+
+And finally, Linux guests on Azure.
+Reality: Microsoft only agreed to run Linux clients on Azure
+ because Redhat insisted on it as part of the agreement to run Windows on Redhat clusters.
+
+As to these recent announcements, I'll reserve judgment until I see the reality. I am not hopeful.
+
+
+
+Most of the patents revolve around 8.3/long filenames on FAT filesystems.
+Microsoft gets a new patent every time the File Allocation Table gets bigger. 
+The only difference between FAT (FAT8), FAT16, and FAT32 is the table size, but each version gets a new patent, so it just goes on, and on.
+
+
+How doubling the number of bytes of one number qualifies as a completely new, never done before idea, 
+worthy of a new patent is beyond any normal person's comprehension. 
+We would ask the people at the Patent Office, but they are apparently too busy counting Microsoft bucks to answer.
+
+
+----------------------------------------------------------------------
+https://github.com/dotnet/coreclr/issues/375
+https://github.com/dotnet/corefx/blob/master/PATENTS.TXT
+http://endsoftpatents.org/2014/11/ms-net/
+https://www.fsf.org/news/2009-07-mscp-mono
+https://news.ycombinator.com/item?id=8692446
+----------------------------------------------------------------------
+
+
+
+So register patents for FAT 64, FAT 128 and FAT 256 before Microsoft does and put them in the public domain.
+
+They build on their predecessors so licensees will still need to licence the previous patents, but when the previous patents finish, then that's it.
+
+
+---------------------
+I'm totally angry at the idiots who run the patent system. 
+Actually, I'm angry at the morons who enacted it. The whole of it. 
+And I'm even more angry at these misfits, looney tunes and squalid criminals that haven't abolished it yet. 
+
+
+------------
+MS is a noises ninja.
+Gates said 15 years ago he was "betting the farm" on .NET. It failed, and monopoly farm is thriving. Ignore everything they say, it's just PR.
+
+----------------------------------
+
+
+Which would be funny, if it wasn't so sad, considering Oracle:
+
+1) Re-brands Redhat Enterprise Linux as Oracle Enterprise Linux, without compensating, or even crediting, Redhat.
+
+2) Nearly killed both OpenOffice and MySQL after acquiring the open source projects.

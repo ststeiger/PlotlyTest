@@ -284,6 +284,9 @@
                     var index_latitude = table.columns["OBJ_Lat"].index;
                     var index_longitude = table.columns["OBJ_Long"].index;
 
+
+                    var objs = [];
+
                     for (var i = 0; i < table.rows.length; ++i)
                     {
                         var uid = table.rows[i][index_uid];
@@ -301,7 +304,25 @@
                         if (latitude == null || longitude == null)
                             continue;
 
-                        var marker = L.marker([latitude, longitude]).addTo(map);
+                        
+                        var markerHtmlStyles = "background-color: #583470;\n  width: 3rem;\n  height: 3rem;\n  display: block;\n  left: -1.5rem;\n  top: -1.5rem;\n  position: relative;\n  border-radius: 3rem 3rem 0;\n  transform: rotate(45deg);\n  border: 1px solid #FFFFFF";
+                        var greenIcon = L.divIcon({
+                            className: "MapElement",
+                            iconAnchor: [0, 24],
+                            labelAnchor: [-6, 0],
+                            popupAnchor: [0, -36],
+                            html: "<span style=\"" + markerHtmlStyles + "\" />"
+                        });
+                        
+
+                        
+                        
+                        // var marker = L.marker([latitude, longitude]).addTo(map);
+                        var marker = L.marker([latitude, longitude], { icon: greenIcon }).addTo(map);
+
+
+
+                        objs.push([latitude, longitude]);
 
                         if (label != null)
                         {
@@ -325,12 +346,32 @@
                                     ,"longitude": longitude
                                 };
 
+                                
+
+                                map.setView(e.latlng, 16, { animate: true });
+
                                 onMarkerClick(e, open_args);
                             });
 
                         } // End if (label != null) 
 
                     } // next i 
+
+
+
+
+                    // https://stackoverflow.com/questions/16845614/zoom-to-fit-all-markers-in-mapbox-or-leaflet
+                    //var group = new L.featureGroup([marker1, marker2, marker3]);
+                    //var group = new L.featureGroup(objs);
+                    // console.log(objs);
+                    var aaaa = L.latLngBounds(objs);
+                    // markersLayer.getBounds().getCenter());
+                    // console.log(aaaa);
+                    map.fitBounds(aaaa);
+
+                     //map.fitBounds(group.getBounds());
+
+
 
                 } // End delegate success
                 ).send()
