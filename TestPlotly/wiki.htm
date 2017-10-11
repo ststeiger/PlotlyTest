@@ -45,16 +45,19 @@
             display: none;
         }
 
+
+        /*
         .my-div-icon
         {
             display: block;
         }
 
+        
         .leaflet-tooltip-top
         {
             margin-top: -19px !important;
         }
-
+        */
 
         /*
         .leaflet-popup-content 
@@ -67,6 +70,12 @@
             background-color: hotpink !important;
         }
         */
+
+        *
+        {
+            cursor: default !important;
+        }
+
     </style>
 
     <!--
@@ -83,12 +92,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
     <script type="text/javascript" src="Scripts/ea/EasyAjax.js" charset="utf-8"></script>
+    <!--
     <link href="Scripts/leaflet/leaflet.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="Scripts/leaflet/leaflet.js?v=1" charset="utf-8"></script>
-    <!--
-    <link href="Scripts/leaflet/leaflet_embed.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="Scripts/leaflet/leaflet-src.js" charset="utf-8"></script>
     -->
+    <!--
+    <link href="Scripts/leaflet/leaflet_embed.css" rel="stylesheet" type="text/css" />    
+    -->
+    <link href="Scripts/leaflet/leaflet.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/leaflet/leaflet-src.js?v=4" charset="utf-8"></script>
+    
 </head>
 <body>
     <div id="zoom-level">Zoom Level: 18</div>
@@ -192,8 +205,9 @@
             // hrad:              6391.171919886588 m2
 
             // http://postgis.net/docs/doxygen/2.2/dc/d52/geography__measurement_8c_a1a7c48d59bcf4ed56522ab26c142f61d.html
-            // ST_Area(false)     6379.25032051953
-            // ST_Area(true)      6350.65051177517
+            // ST_Area(g)               5.21556075001092E-07
+            // ST_Area(g, false)     6379.25032051953
+            // ST_Area(g, true)      6350.65051177517
 
             // return area;
             return area.toFixed(2);
@@ -287,6 +301,18 @@
 
                     var objs = [];
 
+                    
+                    table.rows.push([
+                          "uid"
+                        , "code"
+                        , "label"
+                        , 1.345733633103394 // lat
+                        , 103.83649706840517 // long
+                    ]);
+                    
+
+
+
                     for (var i = 0; i < table.rows.length; ++i)
                     {
                         var uid = table.rows[i][index_uid];
@@ -305,15 +331,44 @@
                             continue;
 
                         
-                        var markerHtmlStyles = "background-color: #583470;\n  width: 3rem;\n  height: 3rem;\n  display: block;\n  left: -1.5rem;\n  top: -1.5rem;\n  position: relative;\n  border-radius: 3rem 3rem 0;\n  transform: rotate(45deg);\n  border: 1px solid #FFFFFF";
+                        //var markerHtmlStyles = "background-color: #583470;\n  width: 16px;\n  height: 16px;\n  display: block;\n  left: -8px;\n  top: -8px;\n  position: relative;\n  border-radius: 16px 16px 0;\n transform: rotate(45deg); \n  border: 1px solid #FFFFFF";
+                        var markerHtmlStyles = "background-color: #583470;\n  width: 16px;\n  height: 16px;\n  display: block;\n  left: -8px;\n  top: -8px;\n  position: relative;\n  border-radius: 16px 16px 0;\n transform: rotate(45deg); \n  border: 1px solid #FFFFFF";
+                        var markerHtmlStyles = "display: block; margin-left: -15px; margin-top: -15px; width: 0; \n  height: 0; \n  border-left: 20px solid transparent;\n  border-right: 20px solid transparent;\n  \n  border-top: 20px solid #f00;\n  ";
+
+
+
                         var greenIcon = L.divIcon({
                             className: "MapElement",
-                            iconAnchor: [0, 24],
-                            labelAnchor: [-6, 0],
-                            popupAnchor: [0, -36],
+                            // iconAnchor: [0, 24],
+                            // labelAnchor: [-6, 0],
+                            //popupAnchor: [0, -36],
                             html: "<span style=\"" + markerHtmlStyles + "\" />"
                         });
+
                         
+                        var options = {
+                            iconUrl: 'marker-icon.png',
+                            iconRetinaUrl: 'marker-icon-2x.png',
+                            shadowUrl: 'marker-shadow.png',
+                            iconSize: [25, 411],
+                            iconAnchor: [12, 41],
+                            popupAnchor: [1, -340],
+                            tooltipAnchor: [16, -228],
+                            shadowSize: [41, 41]
+                        };
+
+
+                        var greenIcon = L.divIcon(
+                            {
+                                className: "customIcon",
+                                iconAnchor: [12, 12],
+                                tooltipAnchor: [120, 0],
+                                popupAnchor: [1, 111],
+                                html: "<img src=\"images/icons/gm_SR.png\" />"
+                            }
+                        );
+                        
+
 
                         
                         
@@ -328,14 +383,25 @@
                         {
                             label = label.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
+
+                            var popup = L.popup({
+                                maxWidth: 400
+                                , popupAnchor: [1, 11] 
+                            });
+
+                            marker.bindPopup(popup);
+                            /*
                             marker.bindTooltip(label,
                                 {
                                     permanent: true,
-                                    direction: 'top'
+                                    direction: 'top',
                                     //direction: 'right'
+                                    tooltipAnchor: [0, -110]
                                 }
-                            ).bindPopup(label);
+                            ).bindPopup(label, { _anchor: [0, -110]});
+                            */
 
+                            /*
                             marker.on("click", function (e)
                             {
                                 var open_args = {
@@ -351,7 +417,7 @@
                                 map.setView(e.latlng, 16, { animate: true });
 
                                 onMarkerClick(e, open_args);
-                            });
+                            });*/
 
                         } // End if (label != null) 
 
@@ -444,7 +510,7 @@
                 document.getElementById('zoom-level').innerHTML = 'Zoom Level: ' + map.getZoom();
             });
 
-
+            /*
             map.on("click", function (e)
             {
                 var open_args = {
@@ -455,6 +521,7 @@
                     , "longitude": "longitude"
                 };
 
+                console.log(e.latlng);
                 onMarkerClick(e, open_args);
             });
 
@@ -464,6 +531,8 @@
                     alert("doubleClicked");
                 }
             );
+            */
+
 
 
                             
