@@ -303,6 +303,292 @@ namespace TestPlotly
         } // End Function GetAssemblyQualifiedNoVersionName
 
 
+
+
+
+
+
+        public static string JoinArray<T>(string separator, T[] inputTypeArray)
+        {
+            return JoinArray<T>(separator, inputTypeArray, object.ReferenceEquals(typeof(T), typeof(string)));
+        }
+
+
+        public static string JoinArray<T>(string separator, T[] inputTypeArray, bool sqlEscapeString)
+        {
+            string strRetValue = null;
+            System.Collections.Generic.List<string> ls = new System.Collections.Generic.List<string>();
+
+            for (int i = 0; i < inputTypeArray.Length; ++i)
+            {
+                string str = System.Convert.ToString(inputTypeArray[i], System.Globalization.CultureInfo.InvariantCulture);
+
+                if (!string.IsNullOrEmpty(str))
+                {
+                    // SQL-Escape
+                    if (sqlEscapeString)
+                        str = str.Replace("'", "''");
+
+                    ls.Add(str);
+                } // End if (!string.IsNullOrEmpty(str))
+
+            } // Next i 
+
+            strRetValue = string.Join(separator, ls.ToArray());
+            ls.Clear();
+            ls = null;
+
+            return strRetValue;
+        } // End Function JoinArray
+
+
+        
+        public static void AddArrayParameter<T>(System.Data.IDbCommand command, string strParameterName, params T[] values)
+        {
+            if (values == null)
+                return;
+
+            if (!strParameterName.StartsWith("@"))
+                strParameterName = "@" + strParameterName;
+
+            string strSqlInStatement = JoinArray<T>(",", values);
+
+            command.CommandText = command.CommandText.Replace(strParameterName, strSqlInStatement);
+        } // End Function AddArrayParameter
+
+
+
+        public static void ResetParameter(System.Data.IDbCommand cmd2, string parameterName, object objValue)
+        {
+            System.Data.Common.DbCommand cmd = (System.Data.Common.DbCommand)cmd2;
+
+            if (!parameterName.StartsWith("@"))
+                parameterName = "@" + parameterName;
+
+            if (!cmd.Parameters.Contains(parameterName))
+            {
+                AddParameter(cmd, parameterName, objValue);
+                return;
+            }
+
+            if (objValue == null)
+                objValue = System.DBNull.Value;
+
+            cmd.Parameters[parameterName].Value = objValue;
+        }
+
+
+
+        public static void SetParameter(object param, object objValue)
+        {
+            SetParameter((System.Data.IDbDataParameter)param, objValue);
+        }
+
+
+        public static void SetParameter(System.Data.IDbDataParameter param, object objValue)
+        {
+            if (objValue == null)
+                param.Value = System.DBNull.Value;
+            else
+                param.Value = objValue;
+        }
+
+
+        public static T GetParameterValue<T>(System.Data.IDbCommand idbc, string strParameterName)
+        {
+            if (!strParameterName.StartsWith("@"))
+            {
+                strParameterName = "@" + strParameterName;
+            }
+
+            return (T)(((System.Data.IDbDataParameter)idbc.Parameters[strParameterName]).Value);
+        } // End Function GetParameterValue<T>
+
+
+        // From Type to DBType
+        protected static System.Data.DbType GetDbType(System.Type type)
+        {
+            // http://social.msdn.microsoft.com/Forums/en/winforms/thread/c6f3ab91-2198-402a-9a18-66ce442333a6
+            string strTypeName = type.Name;
+            System.Data.DbType dbType = System.Data.DbType.String; // default value
+
+            try
+            {
+                if (object.ReferenceEquals(type, typeof(System.DBNull)))
+                {
+                    return dbType;
+                }
+
+                if (object.ReferenceEquals(type, typeof(System.Byte[])))
+                {
+                    return System.Data.DbType.Binary;
+                }
+
+                dbType = (System.Data.DbType)System.Enum.Parse(typeof(System.Data.DbType), strTypeName, true);
+
+                // Es ist keine Zuordnung von DbType UInt64 zu einem bekannten SqlDbType vorhanden.
+                // http://msdn.microsoft.com/en-us/library/bbw6zyha(v=vs.71).aspx
+                if (dbType == System.Data.DbType.UInt64)
+                    dbType = System.Data.DbType.Int64;
+            }
+            catch (System.Exception)
+            {
+                // add error handling to suit your taste
+            }
+
+            return dbType;
+        } // End Function GetDbType
+
+        public static System.Data.IDbDataParameter AddParameter(System.Data.IDbCommand command, string strParameterName, object objValue)
+        {
+            return AddParameter(command, strParameterName, objValue, System.Data.ParameterDirection.Input);
+        } // End Function AddParameter
+
+
+        
+        public static System.Data.IDbDataParameter AddParameter(System.Data.IDbCommand command, string strParameterName, object objValue, System.Data.ParameterDirection pad)
+        {
+            if (objValue == null)
+            {
+                //throw new ArgumentNullException("objValue");
+                objValue = System.DBNull.Value;
+            } // End if (objValue == null)
+
+            System.Type tDataType = objValue.GetType();
+            System.Data.DbType dbType = GetDbType(tDataType);
+
+            return AddParameter(command, strParameterName, objValue, pad, dbType);
+        } // End Function AddParameter
+
+
+        public static System.Data.IDbDataParameter AddParameter(System.Data.IDbCommand command, string strParameterName, object objValue, System.Data.ParameterDirection pad, System.Data.DbType dbType)
+        {
+            System.Data.IDbDataParameter parameter = command.CreateParameter();
+
+            if (!strParameterName.StartsWith("@"))
+            {
+                strParameterName = "@" + strParameterName;
+            } // End if (!strParameterName.StartsWith("@"))
+
+            parameter.ParameterName = strParameterName;
+            parameter.DbType = dbType;
+            parameter.Direction = pad;
+
+            // Es ist keine Zuordnung von DbType UInt64 zu einem bekannten SqlDbType vorhanden.
+            // No association  DbType UInt64 to a known SqlDbType
+            SetParameter(parameter, objValue);
+
+            command.Parameters.Add(parameter);
+            return parameter;
+        } // End Function AddParameter
+
+
+
+
+
+
+        public delegate void callbackAddData_t<T>(System.Data.IDbCommand cmd, T thisItem);
+
+
+        public static void InsertList<T>(System.Data.IDbCommand cmd
+            , System.Collections.Generic.IEnumerable<T> listToInsert
+            , callbackAddData_t<T> addDataCallback)
+        {
+            using (System.Data.Common.DbConnection conn = GetConnection())
+            {
+                if (conn.State != System.Data.ConnectionState.Open)
+                    conn.Open();
+
+                cmd.Connection = conn;
+
+
+                using (System.Data.Common.DbTransaction transact = conn.BeginTransaction())
+                {
+                    cmd.Transaction = transact;
+
+                    try
+                    {
+                        foreach (T thisItem in listToInsert)
+                        {
+                            addDataCallback(cmd, thisItem);
+
+                            if (cmd.ExecuteNonQuery() != 1)
+                            {
+                                //'handled as needed, 
+                                //' but this snippet will throw an exception to force a rollback
+                                throw new System.InvalidProgramException();
+                            }
+                        } // Next thisObject
+                        transact.Commit();
+                    } // End Try 
+                    catch (System.Exception)
+                    {
+                        transact.Rollback();
+                        throw;
+                    } // End Catch 
+                    finally
+                    {
+                        if (conn.State != System.Data.ConnectionState.Closed)
+                            conn.Close();
+                    } // End Finally
+
+                } // End Using transact 
+
+            } // End Using conn 
+
+        } // End Sub 
+
+
+        public static string QuoteObject(string objectName)
+        {
+            if (string.IsNullOrEmpty(objectName))
+                throw new System.ArgumentNullException("objectName");
+
+            return "\"" + objectName.Replace("\"", "\"\"") + "\"";
+        }
+
+
+        public static void InsertUpdateDataTable(string tableSchema, string tableName, System.Data.DataTable dt)
+        {
+            string strSQL = "SELECT * FROM ";
+
+            if (tableSchema != null)
+            {
+                strSQL += QuoteObject(tableSchema) + ".";
+            }
+
+            strSQL += QuoteObject(tableName) + " WHERE (1 = 2) ";
+
+            using (System.Data.Common.DbConnection connection = GetConnection())
+            {
+
+                using (System.Data.Common.DbDataAdapter daInsertUpdate = fact.CreateDataAdapter())
+                {
+
+                    using (System.Data.Common.DbCommand cmdSelect = connection.CreateCommand())
+                    {
+                        cmdSelect.CommandText = strSQL;
+
+                        System.Data.Common.DbCommandBuilder cb = fact.CreateCommandBuilder();
+                        cb.DataAdapter = daInsertUpdate;
+
+                        daInsertUpdate.SelectCommand = cmdSelect;
+                        daInsertUpdate.InsertCommand = cb.GetInsertCommand();
+                        daInsertUpdate.UpdateCommand = cb.GetUpdateCommand();
+                        daInsertUpdate.DeleteCommand = cb.GetDeleteCommand();
+
+                        daInsertUpdate.Update(dt);
+                    } // End Using cmdSelect
+
+                } // End Using daInsertUpdate
+
+            } // End Using connection 
+
+        } // End Sub InsertUpdateDataTable 
+
+
+
+
     }
 
 

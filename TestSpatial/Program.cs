@@ -1,98 +1,169 @@
 ﻿
-using DotSpatial.Projections;
-using DotSpatial.Topology;
+using TestPlotly;
 
 
 namespace TestSpatial
 {
 
 
+    public class Wgs84Point
+    {
+        public decimal Lat;
+        public decimal Long;
+        public int Sort;
+
+        public Wgs84Point(decimal pLatitude, decimal pLongitude, int pSort)
+        {
+            this.Lat = pLatitude;
+            this.Long = pLongitude;
+            this.Sort = pSort;
+        } // End Constructor 
+
+
+    } // End Class Wgs84Point 
+
+
     static class Program
     {
+        private static readonly System.Globalization.NumberFormatInfo s_webNumberFormat = CreateWebNumberFormat();
 
-        // https://stackoverflow.com/questions/46159499/calculate-area-of-polygon-having-wgs-coordinates-using-dotspatial
-        // pfff wrong...
-        public static void TestPolygonArea()
+
+
+        private static System.Globalization.NumberFormatInfo CreateWebNumberFormat()
         {
-            // this feature can be see visually here http://www.allhx.ca/on/toronto/westmount-park-road/25/
-            string feature = "-79.525542519049552,43.691278124243432 -79.525382520578987,43.691281097414787 -79.525228855617627,43.69124858593392 -79.525096151437353,43.691183664769774 -79.52472799258571,43.690927163079735 -79.525379447437814,43.690771996666641 -79.525602330675355,43.691267524226838 -79.525542519049552,43.691278124243432";
-            feature = "47.3612503,8.5351944 47.3612252,8.5342631 47.3610145,8.5342755 47.3610212,8.5345227 47.3606405,8.5345451 47.3606350,8.5343411 47.3604067,8.5343545 47.3604120,8.5345623 47.3604308,8.5352457 47.3606508,8.5352328 47.3606413,8.5348784 47.3610383,8.5348551 47.3610477,8.5352063 47.3612503,8.5351944";
-
-            string[] coordinates = feature.Split(' ');
-            // System.Array.Reverse(coordinates);
-
-
-            // dotspatial takes the x,y in a single array, and z in a separate array.  I'm sure there's a 
-            // reason for this, but I don't know what it is.
-            double[] xy = new double[coordinates.Length * 2];
-            double[] z = new double[coordinates.Length];
-            for (int i = 0; i < coordinates.Length; i++)
+            System.Globalization.NumberFormatInfo nfi = new System.Globalization.NumberFormatInfo()
             {
-                double lon = double.Parse(coordinates[i].Split(',')[0]);
-                double lat = double.Parse(coordinates[i].Split(',')[1]);
-                xy[i * 2] = lon;
-                xy[i * 2 + 1] = lat;
-                z[i] = 0;
-            }
+                NumberGroupSeparator = "",
+                NumberDecimalSeparator = ".",
+                CurrencyGroupSeparator = "",
+                CurrencyDecimalSeparator = ".",
+                CurrencySymbol = ""
+            };
 
-            double area = CalculateArea(xy);
-            System.Console.WriteLine(area);
-        }
-
+            return nfi;
+        } // End Function SetupNumberFormatInfo
 
 
-        public static double CalculateArea(double[] latLonPoints)
+        // https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL
+        public static string GetQuery(int distance, decimal latitude, decimal longitude)
         {
-            // source projection is WGS1984
-            // https://productforums.google.com/forum/#!msg/gec-data-discussions/FxwUP7bd59g/02tvMDD3vtEJ
-            // https://epsg.io/3857
-            ProjectionInfo projFrom = KnownCoordinateSystems.Geographic.World.WGS1984;
-            
-            // most complicated problem - you have to find most suitable projection
-            ProjectionInfo projTo = KnownCoordinateSystems.Projected.UtmWgs1984.WGS1984UTMZone37N;
-            projTo = KnownCoordinateSystems.Projected.Europe.EuropeAlbersEqualAreaConic; // 6350.9772005155683
-            // projTo= KnownCoordinateSystems.Geographic.World.WGS1984; // 5.215560750019806E-07
-            projTo = KnownCoordinateSystems.Projected.WorldSpheroid.EckertIVsphere; // 6377.26664171461
-            projTo = KnownCoordinateSystems.Projected.World.EckertIVworld; // 6391.5626849671826
-            projTo = KnownCoordinateSystems.Projected.World.CylindricalEqualAreaworld; // 6350.6506013739854
-            /*
-            projTo = KnownCoordinateSystems.Projected.WorldSpheroid.CylindricalEqualAreasphere; // 6377.2695087222382
-            projTo = KnownCoordinateSystems.Projected.WorldSpheroid.EquidistantCylindricalsphere; // 6448.6818862780929
-            projTo = KnownCoordinateSystems.Projected.World.Polyconicworld; // 8483.7701716953889
-            projTo = KnownCoordinateSystems.Projected.World.EquidistantCylindricalworld; // 6463.1380225215107
-            projTo = KnownCoordinateSystems.Projected.World.EquidistantConicworld; // 8197.4427198320627
-            projTo = KnownCoordinateSystems.Projected.World.VanderGrintenIworld; // 6537.3942984174937
-            projTo = KnownCoordinateSystems.Projected.World.WebMercator; // 6535.5119516421109
-            projTo = KnownCoordinateSystems.Projected.World.Mercatorworld; // 6492.7180733950809
-            projTo = KnownCoordinateSystems.Projected.SpheroidBased.Lambert2; // 9422.0631835013628
-            projTo = KnownCoordinateSystems.Projected.SpheroidBased.Lambert2Wide; // 9422.0614012926817
-            projTo = KnownCoordinateSystems.Projected.TransverseMercator.WGS1984lo33; // 6760.01638841012
-            projTo = KnownCoordinateSystems.Projected.Europe.EuropeAlbersEqualAreaConic; // 6350.9772005155683
-            projTo = KnownCoordinateSystems.Projected.UtmOther.EuropeanDatum1950UTMZone37N; // 6480.7883094931021
-            */
+            System.Globalization.NumberFormatInfo nfi = new System.Globalization.NumberFormatInfo()
+            {
+                NumberGroupSeparator = "",
+                NumberDecimalSeparator = ".",
+                CurrencyGroupSeparator = "",
+                CurrencyDecimalSeparator = ".",
+                CurrencySymbol = ""
+            };
 
+            // [out: json];
+            // way(around:25, 47.360867, 8.534703)["building"];
+            // out ids geom meta;
 
-            // ST_Area(g, false)     6379.25032051953
-            // ST_Area(g, true)      6350.65051177517
-            // ST_Area(g)            5.21556075001092E-07
+            string oqlQuery = @"[out:json];
+way(around:" + distance.ToString(nfi) + ", "
+    + latitude.ToString(nfi) + ", " + longitude.ToString(nfi)
+    + @")[""building""];
+out ids geom;"; // ohne meta - ist minimal
 
-
-            // prepare for ReprojectPoints (it's mutate array)
-            double[] z = new double[latLonPoints.Length / 2];
-            // double[] pointsArray = latLonPoints.ToArray();
-
-            // Reproject.ReprojectPoints(latLonPoints, z, projFrom, projTo, 0, latLonPoints.Length / 2);
-
-            // assemblying new points array to create polygon
-            System.Collections.Generic.List<Coordinate> points = 
-                new System.Collections.Generic.List<Coordinate>(latLonPoints.Length / 2);
-
-            for (int i = 0; i < latLonPoints.Length / 2; i++)
-                points.Add(new Coordinate(latLonPoints[i * 2], latLonPoints[i * 2 + 1]));
-
-            Polygon poly = new Polygon(points);
-            return poly.Area;
+            return oqlQuery;
         }
+
+
+        public static void GetBuildingData(int distance, decimal latitude, decimal longitude)
+        {
+            System.Collections.Generic.List<Wgs84Point> ls = null;
+
+            // https://wiki.openstreetmap.org/wiki/Overpass_API
+            string URI = "http://overpass.osm.ch/api/interpreter";
+            URI = "http://overpass-api.de/api/interpreter";
+
+
+            System.Collections.Specialized.NameValueCollection reqparm = new System.Collections.Specialized.NameValueCollection();
+            reqparm.Add("data", GetQuery(distance, latitude, longitude));
+
+
+            using (System.Net.WebClient wc = new System.Net.WebClient())
+            {
+                wc.Headers[System.Net.HttpRequestHeader.Pragma] = "no-cache";
+
+                // wc.Headers[System.Net.HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                // string myParameters = "param1=value1&param2=value2&param3=value3";
+                // string HtmlResult = wc.UploadString(URI, myParameters);
+
+                byte[] responsebytes = wc.UploadValues(URI, "POST", reqparm);
+                string resp = System.Text.Encoding.UTF8.GetString(responsebytes);
+                System.IO.File.WriteAllText(@"D:\username\Documents\visual studio 2017\Projects\TestPlotly\TestSpatial\testResponse.json", resp, System.Text.Encoding.UTF8);
+                System.Console.WriteLine(resp);
+
+                ls = GetWgs84Points(resp);
+            } // End Using wc 
+
+
+            using (System.Data.Common.DbCommand cmd = SQL.fromFile("Insert_WGS84.sql"))
+            {
+                // SQL.AddParameter(cmd, "ZO_OBJ_WGS84_UID", System.Guid.NewGuid());
+                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GB_UID", System.Guid.NewGuid().ToString());
+                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_SO_UID", System.Guid.NewGuid().ToString());
+
+                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_Sort", 123);
+                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GM_Lat", ls[0].Lat);
+                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GM_Lng", ls[0].Long);
+
+                SQL.InsertList<Wgs84Point>(cmd, ls, delegate (System.Data.IDbCommand cmd2, Wgs84Point p)
+                {
+                    SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_SO_UID", "87EA0418-C8FA-4F14-B28D-120D47F3F482");
+                    SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GB_UID", "39DF8C49-F877-437B-BA9A-026A052F3616");
+
+                    SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_Sort", ls[0].Sort);
+                    SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GM_Lat", ls[0].Lat);
+                    SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GM_Lng", ls[0].Long);
+                }
+                );
+
+            } // End Using cmd 
+
+
+        } // End Function GetBuildingData 
+
+
+        public static void GetBuildingData()
+        {
+            int distance = 25;
+            decimal latitude = 47.360867M;
+            decimal longitude = 8.534703M;
+
+            GetBuildingData(distance, latitude, longitude);
+        }
+
+
+        public static System.Collections.Generic.List<Wgs84Point> GetWgs84Points(string resp)
+        {
+            System.Collections.Generic.List<Wgs84Point> ls = null;
+
+            Overpass.Building.BuildingInfo ro = Overpass.Building.BuildingInfo.FromJson(resp);
+
+            if (ro != null && ro.Elements != null && ro.Elements.Count > 0 && ro.Elements[0].Geometry != null)
+            {
+                ls = new System.Collections.Generic.List<Wgs84Point>();
+
+                for (int i = 0; i < ro.Elements[0].Geometry.Count; ++i)
+                {
+                    ls.Add(new Wgs84Point(ro.Elements[0].Geometry[i].Latitude, ro.Elements[0].Geometry[i].Longitude, i));
+                } // Next i 
+
+            } // End if (ro != null && ro.Elements != null && ro.Elements.Count > 0 && ro.Elements[0].Geometry != null) 
+
+            return ls;
+        } // End Function GetWgs84Points 
+
+
+        public static void Test()
+        {
+            string resp = System.IO.File.ReadAllText(@"D:\username\Documents\visual studio 2017\Projects\TestPlotly\TestSpatial\testResponse.json", System.Text.Encoding.UTF8);
+            System.Collections.Generic.List<Wgs84Point> ls = GetWgs84Points(resp);
+            System.Console.WriteLine(ls);
+        } // End Sub Test 
 
 
         [System.STAThread]
@@ -103,8 +174,11 @@ namespace TestSpatial
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 #endif
+            // TestPolygonArea.Test();
+            GetBuildingData();
 
-            TestPolygonArea();
+            Test();
+            
 
             System.Console.WriteLine(System.Environment.NewLine);
             System.Console.WriteLine(" --- Press any key to continue --- ");

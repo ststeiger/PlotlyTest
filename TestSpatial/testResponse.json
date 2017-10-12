@@ -1,0 +1,38 @@
+﻿{
+  "version": 0.6,
+  "generator": "Overpass API",
+  "osm3s": {
+    "timestamp_osm_base": "2017-10-12T15:30:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "way",
+  "id": 29858799,
+  "bounds": {
+    "minlat": 47.3604067,
+    "minlon": 8.5342631,
+    "maxlat": 47.3612503,
+    "maxlon": 8.5352457
+  },
+  "geometry": [
+    { "lat": 47.3612503, "lon": 8.5351944 },
+    { "lat": 47.3612252, "lon": 8.5342631 },
+    { "lat": 47.3610145, "lon": 8.5342755 },
+    { "lat": 47.3610212, "lon": 8.5345227 },
+    { "lat": 47.3606405, "lon": 8.5345451 },
+    { "lat": 47.3606350, "lon": 8.5343411 },
+    { "lat": 47.3604067, "lon": 8.5343545 },
+    { "lat": 47.3604120, "lon": 8.5345623 },
+    { "lat": 47.3604308, "lon": 8.5352457 },
+    { "lat": 47.3606508, "lon": 8.5352328 },
+    { "lat": 47.3606413, "lon": 8.5348784 },
+    { "lat": 47.3610383, "lon": 8.5348551 },
+    { "lat": 47.3610477, "lon": 8.5352063 },
+    { "lat": 47.3612503, "lon": 8.5351944 }
+  ]
+}
+
+  ]
+}

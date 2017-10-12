@@ -15,6 +15,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.00, minimum-scale=1.00, maximum-scale=1.00" />
 
     <style type="text/css">
+
+        *
+        {
+            cursor: default !important;
+        }
+
         html, body
         {
             margin: 0px;
@@ -35,13 +41,24 @@
 
         #zoom-level
         {
+            display: none;
+            position: absolute;
             margin: 10px;
             padding: 10px;
-            position: absolute;
-            right: 0;
             top: 0;
+            right: 0;
             z-index: 1000;
             background: #ddd;
+        }
+
+
+        .leaflet-tooltip-top
+        {
+            margin-top: -19px !important;
+        }
+
+        .leaflet-control-attribution
+        {
             display: none;
         }
 
@@ -53,10 +70,6 @@
         }
 
         
-        .leaflet-tooltip-top
-        {
-            margin-top: -19px !important;
-        }
         */
 
         /*
@@ -70,11 +83,6 @@
             background-color: hotpink !important;
         }
         */
-
-        *
-        {
-            cursor: default !important;
-        }
 
     </style>
 
@@ -110,6 +118,12 @@
     <script type="text/javascript">
         var map = null;
 
+
+        Math.trunc = Math.trunc || function (x)
+        {
+            var n = x - x % 1;
+            return n === 0 && (x < 0 || (x === 0 && (1 / x !== 1 / 0))) ? -0 : n;
+        };
         
         Math.radians = function (degrees)
         {
@@ -118,45 +132,32 @@
 
 
         // https://gis.stackexchange.com/a/816/3997
-        function polygonArea()
+        // https://jsfiddle.net/xwaocc00/
+        function polygonArea(poly)
         {
-            var poly = [
-                [47.3612503, 8.5351944],
-                [47.3612252, 8.5342631],
-                [47.3610145, 8.5342755],
-                [47.3610212, 8.5345227],
-                [47.3606405, 8.5345451],
-                [47.3606350, 8.5343411],
-                [47.3604067, 8.5343545],
-                [47.3604120, 8.5345623],
-                [47.3604308, 8.5352457],
-                [47.3606508, 8.5352328],
-                [47.3606413, 8.5348784],
-                [47.3610383, 8.5348551],
-                [47.3610477, 8.5352063],
-                [47.3612503, 8.5351944]
-            ];
-
-
+            var p1, p2, i;
             var area = 0.0;
             var len = poly.length;
+
 
             if (len > 2)
             {
 
-                var p1, p2;
-
-                for (var i = 0; i < len - 1; i++)
+                for (i = 0; i < len; i++)
                 {
+                    poly[i] = poly[i].map(Math.radians)
+                }
 
+                for (i = 0; i < len - 1; i++)
+                {
                     p1 = poly[i];
                     p2 = poly[i + 1];
-
-                    area += Math.radians(p2[0] - p1[0]) *
+                    
+                    area += (p2[0] - p1[0]) *
                         (
                             2
-                            + Math.sin(Math.radians(p1[1]))
-                            + Math.sin(Math.radians(p2[1]))
+                            + Math.sin(p1[1])
+                            + Math.sin(p2[1])
                         );
                 }
 
@@ -168,24 +169,21 @@
                 var mean_radius = 6371008.8; // m
                 var authalic_radius = 6371007.2; // m (radius of perfect sphere with same surface as reference ellipsoid)
                 var volumetric_radius = 6371000.8 // m (radius of a sphere of volume equal to the ellipsoid)
-                // geodetic latitude φ
-                var siteLatitude = Math.radians(poly[0][0]);
-
-
+                
                 // https://en.wikipedia.org/wiki/Semi-major_and_semi-minor_axes
                 // https://en.wikipedia.org/wiki/World_Geodetic_System
-                var a = 6378137; // m
-                var b = 6356752.3142; // m
+                // var a = 6378137; // m
+                // var b = 6356752.3142; // m
                 // where a and b are, respectively, the equatorial radius and the polar radius.
 
-                var R1 = Math.pow(a * a * Math.cos(siteLatitude), 2) + Math.pow(b * b * Math.sin(siteLatitude), 2)
-                var R2 = Math.pow(a * Math.cos(siteLatitude), 2) + Math.pow(b * Math.sin(siteLatitude), 2);
+                // var siteLatitude = poly[0][0]; // geodetic latitude φ
+                // var R1 = Math.pow(a * a * Math.cos(siteLatitude), 2) + Math.pow(b * b * Math.sin(siteLatitude), 2)
+                // var R2 = Math.pow(a * Math.cos(siteLatitude), 2) + Math.pow(b * Math.sin(siteLatitude), 2);
 
                 // https://en.wikipedia.org/wiki/Earth_radius#Radius_at_a_given_geodetic_latitude
                 // Geocentric radius
-                var R = Math.sqrt(R1 / R2);
+                // var R = Math.sqrt(R1 / R2);
                 // var merid_radius = ((a * a) * (b * b)) / Math.pow(Math.pow(a * Math.cos(siteLatitude), 2) + Math.pow(b * Math.sin(siteLatitude), 2), 3/2)
-
 
 
                 // console.log(R);
@@ -252,34 +250,6 @@
         }
 
 
-        function onMarkerClick(e, open_args) 
-        {
-            // console.log(open_args);
-
-            var popup = L.popup();
-            //console.log("onMarkerClick");
-            //console.log(e);
-            //console.log(arguments);
-            //console.log("UID:");
-            //console.log(uid);
-
-            //popup
-            //    .setLatLng(e.latlng)
-            //    .setContent("You clicked the map at " + e.latlng.toString())
-            //    .openOn(mymap);
-
-
-            // console.log(e.latlng.toString());
-            // 10.5^2: 10°30'00.0"N 10°30'00.0"E
-            //console.log(latLongToString(e.latlng));
-
-            popup
-                .setLatLng(e.latlng)
-                .setContent("Markierung geklickt<br />Position auf Karte: " + latLongToString(e.latlng) + "<br />" + "TODO Rico: <br />Öffnen " + open_args.objt + " " + open_args.uid)
-                .openOn(map);
-        }
-
-
         function addMarkers()
         {
             new Http.Json("ajax/mapMarker.ashx", null)
@@ -299,7 +269,7 @@
                     var index_longitude = table.columns["OBJ_Long"].index;
 
 
-                    var objs = [];
+                    var allCoors = [];
 
                     
                     table.rows.push([
@@ -312,7 +282,7 @@
                     
 
 
-
+                    
                     for (var i = 0; i < table.rows.length; ++i)
                     {
                         var uid = table.rows[i][index_uid];
@@ -321,16 +291,46 @@
                         var latitude = table.rows[i][index_latitude];
                         var longitude = table.rows[i][index_longitude];
 
+                        var poly = [
+                            [47.3612503, 8.5351944],
+                            [47.3612252, 8.5342631],
+                            [47.3610145, 8.5342755],
+                            [47.3610212, 8.5345227],
+                            [47.3606405, 8.5345451],
+                            [47.3606350, 8.5343411],
+                            [47.3604067, 8.5343545],
+                            [47.3604120, 8.5345623],
+                            [47.3604308, 8.5352457],
+                            [47.3606508, 8.5352328],
+                            [47.3606413, 8.5348784],
+                            [47.3610383, 8.5348551],
+                            [47.3610477, 8.5352063],
+                            [47.3612503, 8.5351944]
+                        ];
+
                         // console.log(uid);
                         // console.log(code);
                         // console.log(label);
                         // console.log(latitude);
                         // console.log(longitude);
+                        // console.log(poly);
+
+
+                        if (label == null)
+                            label = "";
+
+                        label = label.replace(/(?:\r\n|\r|\n)/g, '<br />');
+                        // console.log(label);
+
 
                         if (latitude == null || longitude == null)
                             continue;
 
-                        
+
+                        allCoors.push([latitude, longitude]);
+                        var latlng = L.latLng(latitude, longitude);
+
+
                         //var markerHtmlStyles = "background-color: #583470;\n  width: 16px;\n  height: 16px;\n  display: block;\n  left: -8px;\n  top: -8px;\n  position: relative;\n  border-radius: 16px 16px 0;\n transform: rotate(45deg); \n  border: 1px solid #FFFFFF";
                         var markerHtmlStyles = "background-color: #583470;\n  width: 16px;\n  height: 16px;\n  display: block;\n  left: -8px;\n  top: -8px;\n  position: relative;\n  border-radius: 16px 16px 0;\n transform: rotate(45deg); \n  border: 1px solid #FFFFFF";
                         var markerHtmlStyles = "display: block; margin-left: -15px; margin-top: -15px; width: 0; \n  height: 0; \n  border-left: 20px solid transparent;\n  border-right: 20px solid transparent;\n  \n  border-top: 20px solid #f00;\n  ";
@@ -352,7 +352,7 @@
                             shadowUrl: 'marker-shadow.png',
                             iconSize: [25, 411],
                             iconAnchor: [12, 41],
-                            popupAnchor: [1, -340],
+                            popupAnchor: [1, -120],
                             tooltipAnchor: [16, -228],
                             shadowSize: [41, 41]
                         };
@@ -362,82 +362,72 @@
                             {
                                 className: "customIcon",
                                 iconAnchor: [12, 12],
-                                tooltipAnchor: [120, 0],
-                                popupAnchor: [1, 111],
+                                // tooltipAnchor: [1120, 0],
+                                // labelAnchor: [1120, 0],
+                                popupAnchor: [0, 0],
                                 html: "<img src=\"images/icons/gm_SR.png\" />"
                             }
                         );
-                        
 
 
-                        
-                        
                         // var marker = L.marker([latitude, longitude]).addTo(map);
                         var marker = L.marker([latitude, longitude], { icon: greenIcon }).addTo(map);
 
 
-
-                        objs.push([latitude, longitude]);
-
-                        if (label != null)
-                        {
-                            label = label.replace(/(?:\r\n|\r|\n)/g, '<br />');
-
-
-                            var popup = L.popup({
-                                maxWidth: 400
-                                , popupAnchor: [1, 11] 
-                            });
-
-                            marker.bindPopup(popup);
-                            /*
-                            marker.bindTooltip(label,
+                        
+                        var tt = L.tooltip(
                                 {
                                     permanent: true,
-                                    direction: 'top',
-                                    //direction: 'right'
-                                    tooltipAnchor: [0, -110]
+                                    direction: 'top'
+                                    // direction: 'right'
+                                    //tooltipAnchor: [1120, 1120]
+                                    // , _anchor: [0, -110]
                                 }
-                            ).bindPopup(label, { _anchor: [0, -110]});
-                            */
+                            )
+                            .setContent(label)
+                            ;
 
-                            /*
-                            marker.on("click", function (e)
-                            {
-                                var open_args = {
-                                     "uid": uid
-                                    ,"objt": code
-                                    ,"label": label
-                                    ,"latitude": latitude
-                                    ,"longitude": longitude
-                                };
+                        // marker.bindTooltip(tt);
+                        
+                        var contentString = "Markierung geklickt<br />Position auf Karte: " + latLongToString(latlng) + "<br />" + "TODO Rico: <br />Öffnen " + code + " " + uid;
+                        // contentString = contentString + "<br />Fläche: " + polygonArea(poly) + " m<sup>2</sup>";
+                        var popup = new L.Popup()
+                            .setLatLng(latlng)
+                            .setContent(contentString)
+                            //.openOn(map)
+                        ;
 
-                                
+                        // marker.bindPopup(popup, { offset: L.Point(0, 16) }).addTo(m)
+                        marker
+                            .bindPopup(popup)
+                            .addTo(map)
+                            ;
 
-                                map.setView(e.latlng, 16, { animate: true });
+                        marker.on("click", function (e)
+                        {
+                            // console.log("onclick");
+                            
+                            map.setView(e.latlng, 18, { animate: true });
+                            // marker.popup();
 
-                                onMarkerClick(e, open_args);
-                            });*/
-
-                        } // End if (label != null) 
-
+                            var ml = window.parent.document.querySelector('#iMenuLeft');
+                            if (ml) ml.contentWindow.Portal.Drawing.navigateTo(uid, function (r) { return r });
+                        });
+                        
                     } // next i 
 
 
-
-
                     // https://stackoverflow.com/questions/16845614/zoom-to-fit-all-markers-in-mapbox-or-leaflet
-                    //var group = new L.featureGroup([marker1, marker2, marker3]);
-                    //var group = new L.featureGroup(objs);
-                    // console.log(objs);
-                    var aaaa = L.latLngBounds(objs);
+                    // var group = new L.featureGroup([marker1, marker2, marker3]);
+                    // var group = new L.featureGroup(allCoors);
+                    // map.fitBounds(group.getBounds());
+
+
+                    // console.log(allCoors);
+                    var initialBounds = L.latLngBounds(allCoors);
                     // markersLayer.getBounds().getCenter());
-                    // console.log(aaaa);
-                    map.fitBounds(aaaa);
-
-                     //map.fitBounds(group.getBounds());
-
-
+                    // console.log(initialBounds);
+                    map.fitBounds(initialBounds);
 
                 } // End delegate success
                 ).send()
@@ -461,6 +451,7 @@
             }
             return brackets[brackets.length - 1];
         }
+
 
         // https://maps.wikimedia.org
         // https://maps.wikimedia.org/main.js
@@ -513,31 +504,18 @@
             /*
             map.on("click", function (e)
             {
-                var open_args = {
-                    "uid": "uid"
-                    , "objt": "code"
-                    , "label": "label"
-                    , "latitude": "latitude"
-                    , "longitude": "longitude"
-                };
-
                 console.log(e.latlng);
-                onMarkerClick(e, open_args);
             });
 
 
             map.on("dblclick", function (e)
-                {
-                    alert("doubleClicked");
-                }
-            );
+            {
+                console.log("doubleClicked");
+            });
             */
 
-
-
-                            
-            var polygon = L.polygon([
-            [47.3612503, 8.5351944],
+            var coords = [
+                [47.3612503, 8.5351944],
                 [47.3612252, 8.5342631],
                 [47.3610145, 8.5342755],
                 [47.3610212, 8.5345227],
@@ -551,7 +529,10 @@
                 [47.3610383, 8.5348551],
                 [47.3610477, 8.5352063],
                 [47.3612503, 8.5351944]
-            ]);
+            ];
+
+                            
+            var polygon = L.polygon(coords);
 
             /*
             polygon.setStyle({
@@ -565,8 +546,8 @@
 
             polygon
                 .addTo(map)
-                .bindPopup("<b>Hallo</b><br />Ich bin das blaue SwissRe-Gebäude am Mythenquai mit einer Fläche von " + polygonArea() + " m<sup>2</sup>")
-                .openPopup()
+                .bindPopup("<b>Hallo</b><br />Ich bin das blaue SwissRe-Gebäude am Mythenquai")
+                // .openPopup()
                 ;
 
 

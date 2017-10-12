@@ -151,15 +151,17 @@ var Http;
                 if (!(req.status != 200 && req.status != 304 && req.status != 0)) {
                     if (onSuccess) {
                         if (contentType.toLowerCase().indexOf("application/json") !== -1) {
+                            var jsonParseSuccessful = false;
                             try {
                                 var obj = JSON.parse(req.responseText);
-                                onSuccess(obj);
+                                jsonParseSuccessful = true;
                             }
                             catch (e) {
                                 console.log(e.name);
                                 console.log(e.message);
                                 console.log(e.stack);
                                 console.log(e);
+                                console.log(req);
                                 console.log(req.responseText);
                                 if (onError)
                                     onError(req);
@@ -167,6 +169,8 @@ var Http;
                                     alert('HTTP error ' + req.status);
                                 }
                             } // End Catch 
+                            if (jsonParseSuccessful)
+                                onSuccess(obj);
                         } // End if (contentType.toLowerCase().indexOf("application/json") !== -1) 
                     } // End if (onSuccess)
                 } // End if (!(req.status != 200 && req.status != 304 && req.status != 0)) 

@@ -96,6 +96,7 @@
     <Content Include="Scripts\leaflet\token.js" />
     <EmbeddedResource Include="SQL\Marker_GB.sql" />
     <EmbeddedResource Include="SQL\Marker_SO.sql" />
+    <EmbeddedResource Include="SQL\Insert_WGS84.sql" />
     <Content Include="wiki.htm" />
     <Content Include="mapbox.htm" />
     <Content Include="leaflet.htm" />
