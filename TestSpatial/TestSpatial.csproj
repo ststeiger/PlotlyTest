@@ -80,6 +80,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GeoCode.cs" />
+    <Compile Include="GeoCodeHelper.cs" />
     <Compile Include="OVconv.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +95,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="geoCodeResponse.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -113,6 +116,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="..\TestPlotly\SQL\Marker_SO.sql">
       <Link>SQL\Marker_SO.sql</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\TestPlotly\SQL\Get_GeocodeInfo_Building.sql">
+      <Link>SQL\Get_GeocodeInfo_Building.sql</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\TestPlotly\SQL\Update_Building_Coordinates.sql">
+      <Link>SQL\Update_Building_Coordinates.sql</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\TestPlotly\SQL\GetBuildingsToGeocode.sql">
+      <Link>SQL\GetBuildingsToGeocode.sql</Link>
     </EmbeddedResource>
     <Content Include="Lib\DotSpatial.Projections.dll" />
     <Content Include="Lib\DotSpatial.Serialization.dll" />

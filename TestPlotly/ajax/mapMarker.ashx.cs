@@ -77,7 +77,8 @@ namespace TestPlotly.ajax
 
             // SQL.Serialize(dict, context);
 
-            using (System.Data.Common.DbCommand cmd = SQL.fromFile("Marker_SO.sql"))
+            //using (System.Data.Common.DbCommand cmd = SQL.fromFile("Marker_SO.sql"))
+            using (System.Data.Common.DbCommand cmd = SQL.fromFile("Marker_GB.sql"))
             {
                 SQL.SerializeLargeDataset(cmd, context);
             } // End Using cmd 
@@ -93,33 +94,6 @@ namespace TestPlotly.ajax
             //    ID = int.Parse(context.Request.Params["ID"]),
             //    OtherData = context.Request.Params["OtherData"]
             //};
-
-            System.Collections.Generic.List<Wgs84Point> ls = null;
-
-            using (System.Data.Common.DbCommand cmd = SQL.fromFile("Insert_WGS84.sql"))
-            {
-                // SQL.AddParameter(cmd, "ZO_OBJ_WGS84_UID", System.Guid.NewGuid());
-                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GB_UID", System.Guid.NewGuid());
-                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_SO_UID", System.Guid.NewGuid());
-
-                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_Sort", 123);
-                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GM_Lat", ls[0].Lat);
-                SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GM_Lng", ls[0].Long);
-
-                SQL.InsertList<Wgs84Point>(cmd, ls, delegate (System.Data.IDbCommand cmd2, Wgs84Point p)
-                    {
-                        SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GB_UID", System.Guid.NewGuid());
-                        SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_SO_UID", System.Guid.NewGuid());
-
-                        SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_Sort", ls[0].Sort);
-                        SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GM_Lat", ls[0].Lat);
-                        SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GM_Lng", ls[0].Long);
-                    }
-                );
-
-            } // End Using cmd 
-
-
 
             // https://stackoverflow.com/questions/6298191/keep-processing-after-returning-a-response-to-the-client
             context.Response.Flush();
@@ -138,9 +112,38 @@ namespace TestPlotly.ajax
                     var data = (Data)state;
                     // CalculateTheOriginOfTheLife(data.ID, data.OtherData);
 
-                    System.Console.WriteLine("Finsihed");
-                    System.Threading.Thread.Sleep(15000);
+                    System.Console.WriteLine("Begin");
 
+                    // System.Threading.Thread.Sleep(15000);
+
+                    System.Console.WriteLine("Finsihed");
+
+
+                    System.Collections.Generic.List<Wgs84Point> ls = null;
+                    /*
+                    using (System.Data.Common.DbCommand cmd = SQL.fromFile("Insert_WGS84.sql"))
+                    {
+                        // SQL.AddParameter(cmd, "ZO_OBJ_WGS84_UID", System.Guid.NewGuid());
+                        SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GB_UID", System.Guid.NewGuid());
+                        SQL.AddParameter(cmd, "ZO_OBJ_WGS84_SO_UID", System.Guid.NewGuid());
+
+                        SQL.AddParameter(cmd, "ZO_OBJ_WGS84_Sort", 123);
+                        SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GM_Lat", ls[0].Lat);
+                        SQL.AddParameter(cmd, "ZO_OBJ_WGS84_GM_Lng", ls[0].Long);
+
+                        SQL.InsertList<Wgs84Point>(cmd, ls, delegate (System.Data.IDbCommand cmd2, Wgs84Point p)
+                            {
+                                SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GB_UID", System.Guid.NewGuid());
+                                SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_SO_UID", System.Guid.NewGuid());
+
+                                SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_Sort", ls[0].Sort);
+                                SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GM_Lat", ls[0].Lat);
+                                SQL.ResetParameter(cmd, "ZO_OBJ_WGS84_GM_Lng", ls[0].Long);
+                            }
+                        );
+
+                    } // End Using cmd 
+                    */
 
                     System.Console.WriteLine("hellow ");
                 }

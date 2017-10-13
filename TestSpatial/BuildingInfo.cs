@@ -122,6 +122,9 @@ namespace Overpass.Building
 
         public static BuildingInfo FromJson(string json)
         {
+            if (json == null)
+                return null;
+
             return JsonConvert.DeserializeObject<BuildingInfo>(json, Converter.ReadSettings);
         }
 

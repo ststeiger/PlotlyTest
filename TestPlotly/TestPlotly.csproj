@@ -71,6 +71,8 @@
     <Content Include="images\icons\gm_i.jpg" />
     <Content Include="images\icons\gm_SR.png" />
     <Content Include="images\icons\GRU.gif" />
+    <Content Include="images\icons\helvetia.png" />
+    <Content Include="images\icons\helvetia23.png" />
     <Content Include="images\icons\layers.svg" />
     <Content Include="images\icons\marker.svg" />
     <Content Include="images\icons\pdf-icon-png-2072.png" />
@@ -97,6 +99,9 @@
     <EmbeddedResource Include="SQL\Marker_GB.sql" />
     <EmbeddedResource Include="SQL\Marker_SO.sql" />
     <EmbeddedResource Include="SQL\Insert_WGS84.sql" />
+    <EmbeddedResource Include="SQL\Update_Building_Coordinates.sql" />
+    <EmbeddedResource Include="SQL\Get_GeocodeInfo_Building.sql" />
+    <EmbeddedResource Include="SQL\GetBuildingsToGeocode.sql" />
     <Content Include="wiki.htm" />
     <Content Include="mapbox.htm" />
     <Content Include="leaflet.htm" />

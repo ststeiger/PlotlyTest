@@ -267,18 +267,14 @@
                     var index_label = table.columns["OBJ_Label"].index;
                     var index_latitude = table.columns["OBJ_Lat"].index;
                     var index_longitude = table.columns["OBJ_Long"].index;
+                    var index_poly = table.columns["OBJ_Polygon"].index;
 
 
-                    var allCoors = [];
+                    var allCoords = [];
 
                     
-                    table.rows.push([
-                          "uid"
-                        , "code"
-                        , "label"
-                        , 1.345733633103394 // lat
-                        , 103.83649706840517 // long
-                    ]);
+                    // Singapur
+                    // table.rows.push(["uid", "code", "label", 1.345733633103394 , 103.83649706840517 ]);
                     
 
 
@@ -290,24 +286,8 @@
                         var label = table.rows[i][index_label];
                         var latitude = table.rows[i][index_latitude];
                         var longitude = table.rows[i][index_longitude];
-
-                        var poly = [
-                            [47.3612503, 8.5351944],
-                            [47.3612252, 8.5342631],
-                            [47.3610145, 8.5342755],
-                            [47.3610212, 8.5345227],
-                            [47.3606405, 8.5345451],
-                            [47.3606350, 8.5343411],
-                            [47.3604067, 8.5343545],
-                            [47.3604120, 8.5345623],
-                            [47.3604308, 8.5352457],
-                            [47.3606508, 8.5352328],
-                            [47.3606413, 8.5348784],
-                            [47.3610383, 8.5348551],
-                            [47.3610477, 8.5352063],
-                            [47.3612503, 8.5351944]
-                        ];
-
+                        var poly = table.rows[i][index_poly];
+                        
                         // console.log(uid);
                         // console.log(code);
                         // console.log(label);
@@ -327,7 +307,7 @@
                             continue;
 
 
-                        allCoors.push([latitude, longitude]);
+                        allCoords.push([latitude, longitude]);
                         var latlng = L.latLng(latitude, longitude);
 
 
@@ -365,7 +345,9 @@
                                 // tooltipAnchor: [1120, 0],
                                 // labelAnchor: [1120, 0],
                                 popupAnchor: [0, 0],
-                                html: "<img src=\"images/icons/gm_SR.png\" />"
+                                //html: "<img src=\"images/icons/gm_SR.png\" />"
+                                //html: "<img src=\"images/icons/GB.png\" />"
+                                html: "<img src=\"images/icons/helvetia23.png\" />"
                             }
                         );
 
@@ -413,18 +395,51 @@
                             var ml = window.parent.document.querySelector('#iMenuLeft');
                             if (ml) ml.contentWindow.Portal.Drawing.navigateTo(uid, function (r) { return r });
                         });
-                        
+
+
+                        // poly = poly.split(',').map( x => x.split(' ')); // f*ck IE 
+                        poly = poly.split(',').map(function (x) { return x.split(' ') } );
+
+                        latlng
+                        var circle = L.circle(latlng,
+                            {
+                                color: 'red'
+                                , fillColor: '#f03'
+                                , fillOpacity: 0.5
+                                , radius: 15
+                            }
+                        ).addTo(map);
+
+
+                        var polygon = L.polygon(poly);
+
+                        /*
+                        polygon.setStyle({
+                        fillColor: '#FF00FF'
+                        ,fillOpacity: 0.7
+                        ,color: 'white'  //Outline color
+                        ,weight: 2
+                        ,opacity: 1
+                        });
+                        */
+
+                        polygon
+                            .addTo(map)
+                            .bindPopup("<b>Hallo</b><br />Ich bin das blaue Gebäude")
+                            // .openPopup()
+                            ;
+
                     } // next i 
 
 
                     // https://stackoverflow.com/questions/16845614/zoom-to-fit-all-markers-in-mapbox-or-leaflet
                     // var group = new L.featureGroup([marker1, marker2, marker3]);
-                    // var group = new L.featureGroup(allCoors);
+                    // var group = new L.featureGroup(allCoords);
                     // map.fitBounds(group.getBounds());
 
 
-                    // console.log(allCoors);
-                    var initialBounds = L.latLngBounds(allCoors);
+                    // console.log(allCoords);
+                    var initialBounds = L.latLngBounds(allCoords);
                     // markersLayer.getBounds().getCenter());
                     // console.log(initialBounds);
                     map.fitBounds(initialBounds);

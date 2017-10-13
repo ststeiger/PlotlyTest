@@ -1,0 +1,75 @@
+﻿{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "16",
+               "short_name" : "16",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Route de Colovrex",
+               "short_name" : "Route de Colovrex",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Le Grand-Saconnex",
+               "short_name" : "Le Grand-Saconnex",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Genève",
+               "short_name" : "Genève",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Genève",
+               "short_name" : "GE",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Switzerland",
+               "short_name" : "CH",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "1218",
+               "short_name" : "1218",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Route de Colovrex 16, 1218 Le Grand-Saconnex, Switzerland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 46.23549999999999,
+                  "lng" : 6.125748499999999
+               },
+               "southwest" : {
+                  "lat" : 46.2351019,
+                  "lng" : 6.125283100000001
+               }
+            },
+            "location" : {
+               "lat" : 46.235301,
+               "lng" : 6.1255158
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 46.23664993029149,
+                  "lng" : 6.126864780291503
+               },
+               "southwest" : {
+                  "lat" : 46.23395196970849,
+                  "lng" : 6.124166819708498
+               }
+            }
+         },
+         "partial_match" : true,
+         "place_id" : "ChIJoTrvMvVkjEcR9VIjsosnhWA",
+         "types" : [ "premise" ]
+      }
+   ],
+   "status" : "OK"
+}
