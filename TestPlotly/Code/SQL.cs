@@ -24,12 +24,13 @@ namespace TestPlotly
 
             csb.InitialCatalog = "COR_Basic_Demo_V4";
             csb.InitialCatalog = "COR_Basic_Helvetia_IS";
-
-            csb.IntegratedSecurity = true;
+            
+            
+            csb.IntegratedSecurity = System.StringComparer.OrdinalIgnoreCase.Equals(System.Environment.UserDomainName, "COR");
             if (!csb.IntegratedSecurity)
             {
                 csb.UserID = "ApertureWebServicesDE";
-                csb.Password = "TOP_Secret";
+                csb.Password = "TOP_SECRET";
             }
 
             return csb.ToString();
