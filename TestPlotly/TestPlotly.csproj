@@ -141,6 +141,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ajax\AnySelect.ashx.cs">
+      <DependentUpon>AnySelect.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ajax\mapMarker.ashx.cs">
       <DependentUpon>mapMarker.ashx</DependentUpon>
     </Compile>
@@ -158,6 +161,7 @@
     <Content Include="Scripts\leaflet\leaflet-src.js.map" />
     <Content Include="Scripts\leaflet\leaflet.js.map" />
     <Content Include="ajax\mapMarker.ashx" />
+    <Content Include="ajax\AnySelect.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -46,7 +46,7 @@ namespace TestSpatial
 #if HAVE_NO_API_KEY 
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}"; ;
 #else
-            string YOUR_API_KEY = "abc";
+            string YOUR_API_KEY = "mykey";
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={YOUR_API_KEY}";
 #endif
 
@@ -62,8 +62,7 @@ namespace TestSpatial
                     throw new System.Exception(adr.ErrorMessage);
                 else
                     throw new System.Exception("You have exceeded your daily request quota for this API.");
-            }
-                
+            } // End if (adr != null && System.StringComparer.OrdinalIgnoreCase.Equals(adr.Status, "OVER_QUERY_LIMIT"))
 
 
             if (adr == null

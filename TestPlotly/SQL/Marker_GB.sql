@@ -1,11 +1,11 @@
 
-DECLARE @__stichtag varchar(50) 
-SET @__stichtag = '31.12.2017'
+-- DECLARE @__stichtag varchar(50) 
+-- SET @__stichtag = '31.12.2017'
 
 
-DECLARE @BE_ID varchar(50) 
+-- DECLARE @BE_ID varchar(50) 
 -- SET @BE_ID = (SELECT TOP 1 CAST(BE_ID  AS varchar(50)) FROM T_Benutzer WHERE BE_User = 'administrator') 
-SET @BE_ID = (SELECT TOP 1 BE_Hash FROM T_Benutzer WHERE BE_User = 'administrator') 
+-- SET @BE_ID = (SELECT TOP 1 BE_Hash FROM T_Benutzer WHERE BE_User = 'administrator') 
 
 
 ;WITH CTE AS 

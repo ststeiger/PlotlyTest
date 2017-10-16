@@ -84,6 +84,32 @@
         }
         */
 
+
+        .leg
+        {
+            width: 0.5cm;
+            height: 0.5cm;
+            opacity: 1;
+        }
+
+        .legende
+        {
+            position: absolute;
+            display: block;
+            right: 0px;
+            top: 0px;
+            z-index: 999;
+            padding: 0.25cm;
+            font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+        .cont
+        {
+            padding-left: 0.25cm;
+            font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+
     </style>
 
     <!--
@@ -114,6 +140,36 @@
 <body>
     <div id="zoom-level">Zoom Level: 18</div>
     <div id="swissMap"></div>
+
+
+    <div class="legende">
+        <table>
+            <tr>
+                <td class="leg" style="background-color: #FF0000;"></td>
+                <td class="cont">Hauptsitz</td>
+            </tr>
+            <tr>
+                <td class="leg" style="background-color: #FF7F00;"></td>
+                <td class="cont">Generalagentur</td>
+            </tr>
+            <tr>
+                <td class="leg" style="background-color: #007FFF;"></td>
+                <td class="cont">Hauptagentur</td>
+            </tr>
+            <tr>
+                <td class="leg" style="background-color: #00FF00;"></td>
+                <td class="cont">Agentur</td>
+            </tr>
+            <tr>
+                <td class="leg" style="background-color: #00FFFF;"></td>
+                <td class="cont">Hubs</td>
+            </tr>
+            <tr>
+                <td class="leg" style="background-color: #FFFF00;"></td>
+                <td class="cont">Spezial</td>
+            </tr>
+        </table>
+    </div>
 
     <script type="text/javascript">
         var map = null;
@@ -252,7 +308,7 @@
 
         function addMarkers()
         {
-            new Http.Json("ajax/mapMarker.ashx", null)
+            new Http.Json("../ajax/AnySelect.ashx?sql=FMS_Maps_Marker_GB.sql&BE_ID=12435", null)
                 .success(
                 function (result)
                 {
@@ -267,6 +323,8 @@
                     var index_label = table.columns["OBJ_Label"].index;
                     var index_latitude = table.columns["OBJ_Lat"].index;
                     var index_longitude = table.columns["OBJ_Long"].index;
+                    var index_category = table.columns["OBJ_Kategorie"].index;
+                    var index_color = table.columns["OBJ_Color"].index;
                     var index_poly = table.columns["OBJ_Polygon"].index;
 
 
@@ -286,6 +344,8 @@
                         var label = table.rows[i][index_label];
                         var latitude = table.rows[i][index_latitude];
                         var longitude = table.rows[i][index_longitude];
+                        var category = table.rows[i][index_category];
+                        var color = table.rows[i][index_color];
                         var poly = table.rows[i][index_poly];
                         
                         // console.log(uid);
@@ -337,6 +397,7 @@
                             shadowSize: [41, 41]
                         };
 
+                        var houseImage = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\"\n   viewBox=\"0 0 512 512\" width=\"22px\" height=\"22px\">\n<path\n d=\"M256,69.972L50,275.814h42.507v166.214h326.985V275.814H462L256,69.972z M374.492,397.028  h-73.768v-86.495h-89.451v86.495h-73.768V251.99L256,133.587l118.492,118.402V397.028z\"\n  fill=\"{@col1}\" />\n<path\n fill=\"{@col2}\" opacity=\"0.4\" \n d=\"M 137.505,251.99 256,133.587 374.492,251.989 v 145.039 h -73.768 v -86.495 h -89.451 v 86.495 h -73.768 z\" />\n</svg>";
 
                         var greenIcon = L.divIcon(
                             {
@@ -347,7 +408,8 @@
                                 popupAnchor: [0, 0],
                                 //html: "<img src=\"images/icons/gm_SR.png\" />"
                                 //html: "<img src=\"images/icons/GB.png\" />"
-                                html: "<img src=\"images/icons/helvetia23.png\" />"
+                                //html: "<img src=\"images/icons/helvetia23.png\" />"
+                                html: houseImage.replace("{@col1}", color).replace("{@col2}", color)
                             }
                         );
 
