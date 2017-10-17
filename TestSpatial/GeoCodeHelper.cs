@@ -11,10 +11,42 @@ namespace TestSpatial
         public decimal Latitude;
         public decimal Longitude;
 
+
+        public decimal MinLatitude;
+        public decimal MinLongitude;
+
+        public decimal MaxLatitude;
+        public decimal MaxLongitude;
+
         public Wgs84Coordinates(decimal pLatitude, decimal pLongitude)
         {
             this.Latitude = pLatitude;
             this.Longitude = pLongitude;
+        }
+
+        public Wgs84Coordinates(decimal pMinLatitude, decimal pMinLongitude
+            , decimal pMaxLatitude, decimal pMaxLongitude)
+        {
+            this.MinLatitude = pMinLatitude;
+            this.MinLongitude = pMinLongitude;
+
+            this.MaxLatitude = pMaxLatitude;
+            this.MaxLongitude = pMaxLongitude;
+        }
+
+
+        public Wgs84Coordinates(decimal pLatitude, decimal pLongitude
+            ,decimal pMinLatitude, decimal pMinLongitude
+            , decimal pMaxLatitude, decimal pMaxLongitude)
+        {
+            this.Latitude = pLatitude;
+            this.Longitude = pLongitude;
+
+            this.MinLatitude = pMinLatitude;
+            this.MinLongitude = pMinLongitude;
+
+            this.MaxLatitude = pMaxLatitude;
+            this.MaxLongitude = pMaxLongitude;
         }
     }
 
@@ -46,7 +78,7 @@ namespace TestSpatial
 #if HAVE_NO_API_KEY 
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}"; ;
 #else
-            string YOUR_API_KEY = "mykey";
+            string YOUR_API_KEY = "abc";
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={YOUR_API_KEY}";
 #endif
 
@@ -80,6 +112,16 @@ namespace TestSpatial
             decimal lat = adr.Results[0].Geometry.Location.Latitude;
             decimal lng = adr.Results[0].Geometry.Location.Longitude;
 
+            if (adr.Results[0].Geometry.Bounds != null)
+            {
+                decimal minLat = adr.Results[0].Geometry.Bounds.Southwest.Latitude;
+                decimal minLng = adr.Results[0].Geometry.Bounds.Southwest.Longitude;
+
+                decimal maxLat = adr.Results[0].Geometry.Bounds.Northeast.Latitude;
+                decimal maxLng = adr.Results[0].Geometry.Bounds.Northeast.Longitude;
+                return new Wgs84Coordinates(lat, lng, minLat, minLng, maxLat, maxLng);
+            }
+
             return new Wgs84Coordinates(lat, lng);
         }
         
@@ -94,7 +136,7 @@ namespace TestSpatial
 
         public static System.Collections.Generic.List<Wgs84Point> GetWgs84PolygonPoints(int distance, decimal latitude, decimal longitude)
         {
-            string[] globalzers = new string[] {
+            string[] overpass_services = new string[] {
                 "http://overpass.osm.ch/api/interpreter",
                 "http://overpass.openstreetmap.fr/api/interpreter",
                 "http://overpass-api.de/api/interpreter",
@@ -104,7 +146,7 @@ namespace TestSpatial
 
             // string url = "http://overpass.osm.ch/api/interpreter";
             // string url = "http://overpass-api.de/api/interpreter";
-            string url = globalzers[s_rnd.Next(0, globalzers.Length)];
+            string url = overpass_services[s_rnd.Next(0, overpass_services.Length)];
 
 
             System.Collections.Specialized.NameValueCollection reqparm = new System.Collections.Specialized.NameValueCollection();
@@ -237,10 +279,10 @@ namespace TestSpatial
             // out ids geom meta;
 
             string oqlQuery = @"[out:json];
-way(around:" + distance.ToString(nfi) + ", "
-    + latitude.ToString(nfi) + ", " + longitude.ToString(nfi)
-    + @")[""building""];
-out ids geom;"; // ohne meta - ist minimal
+        way(around:" + distance.ToString(nfi) + ", "
+        + latitude.ToString(nfi) + ", " + longitude.ToString(nfi)
+        + @")[""building""];
+        out ids geom;"; // ohne meta - ist minimal
 
             return oqlQuery;
         }

@@ -39,7 +39,85 @@ namespace TestSpatial
             // TestPolygonArea.Test();
             // Wgs84Coordinates coords = Helper.GeoCode("Route de Colovrex 16, 1218 Le Grand-Sacconex");
 
-#if false
+
+#if UPDATE_COUNTRY_COORDINATES
+
+            System.Collections.Generic.List<CountryImport.CountryData> ls = CountryImport.CountryData
+                .FromJsonFile(@"d:\username\documents\visual studio 2017\Projects\TestPlotly\TestSpatial\countryBoundsData.json");
+
+            System.Console.WriteLine(ls);
+
+
+            using (System.Data.Common.DbCommand cmd = SQL.fromFile("InsertCountryBounds.sql"))
+            {
+                SQL.AddParameter(cmd, "long", ls[0].Long);
+                SQL.AddParameter(cmd, "short", ls[0].Short);
+
+                SQL.AddParameter(cmd, "CTRP_Min_Lat", ls[0].LatMin);
+                SQL.AddParameter(cmd, "CTRP_Min_Lng", ls[0].LongMin);
+
+                SQL.AddParameter(cmd, "CTRP_MAX_Lat", ls[0].LatMax);
+                SQL.AddParameter(cmd, "CTRP_MAX_Lng", ls[0].LongMax);
+
+
+                SQL.InsertList<CountryImport.CountryData>(cmd, ls,
+                    delegate (System.Data.IDbCommand cmd2, CountryImport.CountryData cd)
+                    {
+                        SQL.ResetParameter(cmd, "long", cd.Long);
+                        SQL.ResetParameter(cmd, "short", cd.Short);
+
+                        SQL.ResetParameter(cmd, "CTRP_Min_Lat", cd.LatMin);
+                        SQL.ResetParameter(cmd, "CTRP_Min_Lng", cd.LongMin);
+
+                        SQL.ResetParameter(cmd, "CTRP_MAX_Lat", cd.LatMax);
+                        SQL.ResetParameter(cmd, "CTRP_MAX_Lng", cd.LongMax);
+                    }
+                );
+
+            } // End Using cmd 
+#endif
+
+
+
+#if true // UPDATE_ORT_Coordinates
+
+            using (System.Data.IDbCommand cmd = SQL.fromFile("GetLocationGeocode.sql"))
+            {
+                using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
+                {
+                    foreach (System.Data.DataRow dr in dt.Rows)
+                    {
+                        string uid = System.Convert.ToString(dr["OBJ_UID"]);
+                        string geocodeName = System.Convert.ToString(dr["Location"]);
+
+                        Wgs84Coordinates coords = Helper.GeoCode(geocodeName);
+                        
+                        using (System.Data.IDbCommand cmd2 = SQL.fromFile("UpdateLocationGeocode.sql"))
+                        {
+                            SQL.AddParameter(cmd2, "obj_uid", uid);
+                            SQL.AddParameter(cmd2, "lat", coords.Latitude);
+                            SQL.AddParameter(cmd2, "lng", coords.Longitude);
+
+
+                            SQL.AddParameter(cmd2, "latMin", coords.MinLatitude);
+                            SQL.AddParameter(cmd2, "lngMin", coords.MinLongitude);
+
+                            SQL.AddParameter(cmd2, "latMax", coords.MaxLatitude);
+                            SQL.AddParameter(cmd2, "lngMax", coords.MaxLongitude);
+
+                            SQL.ExecuteNonQuery(cmd2);
+                        }
+
+                        System.Threading.Thread.Sleep(1000);
+                    } // Next dr 
+
+                } // End Using dt 
+
+            } // End using cmd 
+#endif
+
+
+#if Update_Building_Coordinates
             using (System.Data.IDbCommand cmd = SQL.fromFile("GetBuildingsToGeocode.sql"))
             {
                 using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
@@ -61,10 +139,14 @@ namespace TestSpatial
             } // End using cmd 
 
 #endif
-             
+
+#if false
             Helper.InsertBuildingData("A1C10E45-CA2B-4796-BCB7-931546D44667", "Bahnhofstrasse 4, 3073 Gümligen"
                 ,new Wgs84Coordinates(46.93459319999999000000M, 7.50623670000000100000M)
                 );
+#endif
+
+
 
 
             System.Console.WriteLine(System.Environment.NewLine);

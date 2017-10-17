@@ -102,6 +102,12 @@
     <EmbeddedResource Include="SQL\Update_Building_Coordinates.sql" />
     <EmbeddedResource Include="SQL\Get_GeocodeInfo_Building.sql" />
     <EmbeddedResource Include="SQL\GetBuildingsToGeocode.sql" />
+    <EmbeddedResource Include="SQL\GetLocationGeocode.sql" />
+    <EmbeddedResource Include="SQL\UpdateLocationGeocode.sql" />
+    <EmbeddedResource Include="SQL\Update_SO_Geocode.sql" />
+    <EmbeddedResource Include="SQL\GetSO_Geocode.sql" />
+    <EmbeddedResource Include="SQL\FMS_Maps_ObjectBounds.sql" />
+    <EmbeddedResource Include="SQL\InsertCountryBounds.sql" />
     <Content Include="wiki.htm" />
     <Content Include="mapbox.htm" />
     <Content Include="leaflet.htm" />

@@ -1,0 +1,1443 @@
+﻿[
+  {
+    "short": "AF",
+    "long": "Afghanistan",
+    "latMin": 29.318572496,
+    "longMin": 60.5284298033,
+    "latMax": 38.4862816432,
+    "longMax": 75.1580277851
+  },
+  {
+    "short": "AO",
+    "long": "Angola",
+    "latMin": -17.9306364885,
+    "longMin": 11.6400960629,
+    "latMax": -4.43802336998,
+    "longMax": 24.0799052263
+  },
+  {
+    "short": "AL",
+    "long": "Albania",
+    "latMin": 39.624997667,
+    "longMin": 19.3044861183,
+    "latMax": 42.6882473822,
+    "longMax": 21.0200403175
+  },
+  {
+    "short": "AE",
+    "long": "United Arab Emirates",
+    "latMin": 22.4969475367,
+    "longMin": 51.5795186705,
+    "latMax": 26.055464179,
+    "longMax": 56.3968473651
+  },
+  {
+    "short": "AR",
+    "long": "Argentina",
+    "latMin": -55.25,
+    "longMin": -73.4154357571,
+    "latMax": -21.8323104794,
+    "longMax": -53.628348965
+  },
+  {
+    "short": "AM",
+    "long": "Armenia",
+    "latMin": 38.7412014837,
+    "longMin": 43.5827458026,
+    "latMax": 41.2481285671,
+    "longMax": 46.5057198423
+  },
+  {
+    "short": "AQ",
+    "long": "Antarctica",
+    "latMin": -90,
+    "longMin": -180,
+    "latMax": -63.2706604895,
+    "longMax": 180
+  },
+  {
+    "short": "TF",
+    "long": "Fr. S. and Antarctic Lands",
+    "latMin": -49.775,
+    "longMin": 68.72,
+    "latMax": -48.625,
+    "longMax": 70.56
+  },
+  {
+    "short": "AU",
+    "long": "Australia",
+    "latMin": -43.6345972634,
+    "longMin": 113.338953078,
+    "latMax": -10.6681857235,
+    "longMax": 153.569469029
+  },
+  {
+    "short": "AT",
+    "long": "Austria",
+    "latMin": 46.4318173285,
+    "longMin": 9.47996951665,
+    "latMax": 49.0390742051,
+    "longMax": 16.9796667823
+  },
+  {
+    "short": "AZ",
+    "long": "Azerbaijan",
+    "latMin": 38.2703775091,
+    "longMin": 44.7939896991,
+    "latMax": 41.8606751572,
+    "longMax": 50.3928210793
+  },
+  {
+    "short": "BI",
+    "long": "Burundi",
+    "latMin": -4.49998341229,
+    "longMin": 29.0249263852,
+    "latMax": -2.34848683025,
+    "longMax": 30.752262811
+  },
+  {
+    "short": "BE",
+    "long": "Belgium",
+    "latMin": 49.5294835476,
+    "longMin": 2.51357303225,
+    "latMax": 51.4750237087,
+    "longMax": 6.15665815596
+  },
+  {
+    "short": "BJ",
+    "long": "Benin",
+    "latMin": 6.14215770103,
+    "longMin": 0.772335646171,
+    "latMax": 12.2356358912,
+    "longMax": 3.79711225751
+  },
+  {
+    "short": "BF",
+    "long": "Burkina Faso",
+    "latMin": 9.61083486576,
+    "longMin": -5.47056494793,
+    "latMax": 15.1161577418,
+    "longMax": 2.17710778159
+  },
+  {
+    "short": "BD",
+    "long": "Bangladesh",
+    "latMin": 20.670883287,
+    "longMin": 88.0844222351,
+    "latMax": 26.4465255803,
+    "longMax": 92.6727209818
+  },
+  {
+    "short": "BG",
+    "long": "Bulgaria",
+    "latMin": 41.2344859889,
+    "longMin": 22.3805257504,
+    "latMax": 44.2349230007,
+    "longMax": 28.5580814959
+  },
+  {
+    "short": "BS",
+    "long": "Bahamas",
+    "latMin": 23.71,
+    "longMin": -78.98,
+    "latMax": 27.04,
+    "longMax": -77
+  },
+  {
+    "short": "BA",
+    "long": "Bosnia and Herz.",
+    "latMin": 42.65,
+    "longMin": 15.7500260759,
+    "latMax": 45.2337767604,
+    "longMax": 19.59976
+  },
+  {
+    "short": "BY",
+    "long": "Belarus",
+    "latMin": 51.3195034857,
+    "longMin": 23.1994938494,
+    "latMax": 56.1691299506,
+    "longMax": 32.6936430193
+  },
+  {
+    "short": "BZ",
+    "long": "Belize",
+    "latMin": 15.8869375676,
+    "longMin": -89.2291216703,
+    "latMax": 18.4999822047,
+    "longMax": -88.1068129138
+  },
+  {
+    "short": "BO",
+    "long": "Bolivia",
+    "latMin": -22.8729187965,
+    "longMin": -69.5904237535,
+    "latMax": -9.76198780685,
+    "longMax": -57.4983711412
+  },
+  {
+    "short": "BR",
+    "long": "Brazil",
+    "latMin": -33.7683777809,
+    "longMin": -73.9872354804,
+    "latMax": 5.24448639569,
+    "longMax": -34.7299934555
+  },
+  {
+    "short": "BN",
+    "long": "Brunei",
+    "latMin": 4.007636827,
+    "longMin": 114.204016555,
+    "latMax": 5.44772980389,
+    "longMax": 115.450710484
+  },
+  {
+    "short": "BT",
+    "long": "Bhutan",
+    "latMin": 26.7194029811,
+    "longMin": 88.8142484883,
+    "latMax": 28.2964385035,
+    "longMax": 92.1037117859
+  },
+  {
+    "short": "BW",
+    "long": "Botswana",
+    "latMin": -26.8285429827,
+    "longMin": 19.8954577979,
+    "latMax": -17.6618156877,
+    "longMax": 29.4321883481
+  },
+  {
+    "short": "CF",
+    "long": "Central African Rep.",
+    "latMin": 2.2676396753,
+    "longMin": 14.4594071794,
+    "latMax": 11.1423951278,
+    "longMax": 27.3742261085
+  },
+  {
+    "short": "CA",
+    "long": "Canada",
+    "latMin": 41.6751050889,
+    "longMin": -140.99778,
+    "latMax": 83.23324,
+    "longMax": -52.6480987209
+  },
+  {
+    "short": "CH",
+    "long": "Switzerland",
+    "latMin": 45.7769477403,
+    "longMin": 6.02260949059,
+    "latMax": 47.8308275417,
+    "longMax": 10.4427014502
+  },
+  {
+    "short": "CL",
+    "long": "Chile",
+    "latMin": -55.61183,
+    "longMin": -75.6443953112,
+    "latMax": -17.5800118954,
+    "longMax": -66.95992
+  },
+  {
+    "short": "CN",
+    "long": "China",
+    "latMin": 18.197700914,
+    "longMin": 73.6753792663,
+    "latMax": 53.4588044297,
+    "longMax": 135.026311477
+  },
+  {
+    "short": "CI",
+    "long": "Ivory Coast",
+    "latMin": 4.33828847902,
+    "longMin": -8.60288021487,
+    "latMax": 10.5240607772,
+    "longMax": -2.56218950033
+  },
+  {
+    "short": "CM",
+    "long": "Cameroon",
+    "latMin": 1.72767263428,
+    "longMin": 8.48881554529,
+    "latMax": 12.8593962671,
+    "longMax": 16.0128524106
+  },
+  {
+    "short": "CD",
+    "long": "Congo Kinshasa}",
+    "latMin": -13.2572266578,
+    "longMin": 12.1823368669,
+    "latMax": 5.25608775474,
+    "longMax": 31.1741492042
+  },
+  {
+    "short": "CG",
+    "long": "Congo Brazzaville}",
+    "latMin": -5.03798674888,
+    "longMin": 11.0937728207,
+    "latMax": 3.72819651938,
+    "longMax": 18.4530652198
+  },
+  {
+    "short": "CO",
+    "long": "Colombia",
+    "latMin": -4.29818694419,
+    "longMin": -78.9909352282,
+    "latMax": 12.4373031682,
+    "longMax": -66.8763258531
+  },
+  {
+    "short": "CR",
+    "long": "Costa Rica",
+    "latMin": 8.22502798099,
+    "longMin": -85.94172543,
+    "latMax": 11.2171192489,
+    "longMax": -82.5461962552
+  },
+  {
+    "short": "CU",
+    "long": "Cuba",
+    "latMin": 19.8554808619,
+    "longMin": -84.9749110583,
+    "latMax": 23.1886107447,
+    "longMax": -74.1780248685
+  },
+  {
+    "short": "CY",
+    "long": "Cyprus",
+    "latMin": 34.5718694118,
+    "longMin": 32.2566671079,
+    "latMax": 35.1731247015,
+    "longMax": 34.0048808123
+  },
+  {
+    "short": "CZ",
+    "long": "Czech Rep.",
+    "latMin": 48.5553052842,
+    "longMin": 12.2401111182,
+    "latMax": 51.1172677679,
+    "longMax": 18.8531441586
+  },
+  {
+    "short": "DE",
+    "long": "Germany",
+    "latMin": 47.3024876979,
+    "longMin": 5.98865807458,
+    "latMax": 54.983104153,
+    "longMax": 15.0169958839
+  },
+  {
+    "short": "DJ",
+    "long": "Djibouti",
+    "latMin": 10.9268785669,
+    "longMin": 41.66176,
+    "latMax": 12.6996385767,
+    "longMax": 43.3178524107
+  },
+  {
+    "short": "DK",
+    "long": "Denmark",
+    "latMin": 54.8000145534,
+    "longMin": 8.08997684086,
+    "latMax": 57.730016588,
+    "longMax": 12.6900061378
+  },
+  {
+    "short": "DO",
+    "long": "Dominican Rep.",
+    "latMin": 17.598564358,
+    "longMin": -71.9451120673,
+    "latMax": 19.8849105901,
+    "longMax": -68.3179432848
+  },
+  {
+    "short": "DZ",
+    "long": "Algeria",
+    "latMin": 19.0573642034,
+    "longMin": -8.68439978681,
+    "latMax": 37.1183806422,
+    "longMax": 11.9995056495
+  },
+  {
+    "short": "EC",
+    "long": "Ecuador",
+    "latMin": -4.95912851321,
+    "longMin": -80.9677654691,
+    "latMax": 1.3809237736,
+    "longMax": -75.2337227037
+  },
+  {
+    "short": "EG",
+    "long": "Egypt",
+    "latMin": 22,
+    "longMin": 24.70007,
+    "latMax": 31.58568,
+    "longMax": 36.86623
+  },
+  {
+    "short": "ER",
+    "long": "Eritrea",
+    "latMin": 12.4554157577,
+    "longMin": 36.3231889178,
+    "latMax": 17.9983074,
+    "longMax": 43.0812260272
+  },
+  {
+    "short": "ES",
+    "long": "Spain",
+    "latMin": 35.946850084,
+    "longMin": -9.39288367353,
+    "latMax": 43.7483377142,
+    "longMax": 3.03948408368
+  },
+  {
+    "short": "EE",
+    "long": "Estonia",
+    "latMin": 57.4745283067,
+    "longMin": 23.3397953631,
+    "latMax": 59.6110903998,
+    "longMax": 28.1316992531
+  },
+  {
+    "short": "ET",
+    "long": "Ethiopia",
+    "latMin": 3.42206,
+    "longMin": 32.95418,
+    "latMax": 14.95943,
+    "longMax": 47.78942
+  },
+  {
+    "short": "FI",
+    "long": "Finland",
+    "latMin": 59.846373196,
+    "longMin": 20.6455928891,
+    "latMax": 70.1641930203,
+    "longMax": 31.5160921567
+  },
+  {
+    "short": "FJ",
+    "long": "Fiji",
+    "latMin": -18.28799,
+    "longMin": -180,
+    "latMax": -16.0208822567,
+    "longMax": 180
+  },
+  {
+    "short": "FK",
+    "long": "Falkland Is.",
+    "latMin": -52.3,
+    "longMin": -61.2,
+    "latMax": -51.1,
+    "longMax": -57.75
+  },
+  {
+    "short": "FR",
+    "long": "France",
+    "latMin": 2.05338918702,
+    "longMin": -54.5247541978,
+    "latMax": 51.1485061713,
+    "longMax": 9.56001631027
+  },
+  {
+    "short": "GA",
+    "long": "Gabon",
+    "latMin": -3.97882659263,
+    "longMin": 8.79799563969,
+    "latMax": 2.32675751384,
+    "longMax": 14.4254557634
+  },
+  {
+    "short": "GB",
+    "long": "United Kingdom",
+    "latMin": 49.959999905,
+    "longMin": -7.57216793459,
+    "latMax": 58.6350001085,
+    "longMax": 1.68153079591
+  },
+  {
+    "short": "GE",
+    "long": "Georgia",
+    "latMin": 41.0644446885,
+    "longMin": 39.9550085793,
+    "latMax": 43.553104153,
+    "longMax": 46.6379081561
+  },
+  {
+    "short": "GH",
+    "long": "Ghana",
+    "latMin": 4.71046214438,
+    "longMin": -3.24437008301,
+    "latMax": 11.0983409693,
+    "longMax": 1.0601216976
+  },
+  {
+    "short": "GN",
+    "long": "Guinea",
+    "latMin": 7.3090373804,
+    "longMin": -15.1303112452,
+    "latMax": 12.5861829696,
+    "longMax": -7.83210038902
+  },
+  {
+    "short": "GM",
+    "long": "Gambia",
+    "latMin": 13.1302841252,
+    "longMin": -16.8415246241,
+    "latMax": 13.8764918075,
+    "longMax": -13.8449633448
+  },
+  {
+    "short": "GW",
+    "long": "Guinea Bissau",
+    "latMin": 11.0404116887,
+    "longMin": -16.6774519516,
+    "latMax": 12.6281700708,
+    "longMax": -13.7004760401
+  },
+  {
+    "short": "GQ",
+    "long": "Eq. Guinea",
+    "latMin": 1.01011953369,
+    "longMin": 9.3056132341,
+    "latMax": 2.28386607504,
+    "longMax": 11.285078973
+  },
+  {
+    "short": "GR",
+    "long": "Greece",
+    "latMin": 34.9199876979,
+    "longMin": 20.1500159034,
+    "latMax": 41.8269046087,
+    "longMax": 26.6041955909
+  },
+  {
+    "short": "GL",
+    "long": "Greenland",
+    "latMin": 60.03676,
+    "longMin": -73.297,
+    "latMax": 83.64513,
+    "longMax": -12.20855
+  },
+  {
+    "short": "GT",
+    "long": "Guatemala",
+    "latMin": 13.7353376327,
+    "longMin": -92.2292486234,
+    "latMax": 17.8193260767,
+    "longMax": -88.2250227526
+  },
+  {
+    "short": "GY",
+    "long": "Guyana",
+    "latMin": 1.26808828369,
+    "longMin": -61.4103029039,
+    "latMax": 8.36703481692,
+    "longMax": -56.5393857489
+  },
+  {
+    "short": "HN",
+    "long": "Honduras",
+    "latMin": 12.9846857772,
+    "longMin": -89.3533259753,
+    "latMax": 16.0054057886,
+    "longMax": -83.147219001
+  },
+  {
+    "short": "HR",
+    "long": "Croatia",
+    "latMin": 42.47999136,
+    "longMin": 13.6569755388,
+    "latMax": 46.5037509222,
+    "longMax": 19.3904757016
+  },
+  {
+    "short": "HT",
+    "long": "Haiti",
+    "latMin": 18.0309927434,
+    "longMin": -74.4580336168,
+    "latMax": 19.9156839055,
+    "longMax": -71.6248732164
+  },
+  {
+    "short": "HU",
+    "long": "Hungary",
+    "latMin": 45.7594811061,
+    "longMin": 16.2022982113,
+    "latMax": 48.6238540716,
+    "longMax": 22.710531447
+  },
+  {
+    "short": "ID",
+    "long": "Indonesia",
+    "latMin": -10.3599874813,
+    "longMin": 95.2930261576,
+    "latMax": 5.47982086834,
+    "longMax": 141.03385176
+  },
+  {
+    "short": "IN",
+    "long": "India",
+    "latMin": 7.96553477623,
+    "longMin": 68.1766451354,
+    "latMax": 35.4940095078,
+    "longMax": 97.4025614766
+  },
+  {
+    "short": "IE",
+    "long": "Ireland",
+    "latMin": 51.6693012559,
+    "longMin": -9.97708574059,
+    "latMax": 55.1316222195,
+    "longMax": -6.03298539878
+  },
+  {
+    "short": "IR",
+    "long": "Iran",
+    "latMin": 25.0782370061,
+    "longMin": 44.1092252948,
+    "latMax": 39.7130026312,
+    "longMax": 63.3166317076
+  },
+  {
+    "short": "IQ",
+    "long": "Iraq",
+    "latMin": 29.0990251735,
+    "longMin": 38.7923405291,
+    "latMax": 37.3852635768,
+    "longMax": 48.5679712258
+  },
+  {
+    "short": "IS",
+    "long": "Iceland",
+    "latMin": 63.4963829617,
+    "longMin": -24.3261840479,
+    "latMax": 66.5267923041,
+    "longMax": -13.609732225
+  },
+  {
+    "short": "IL",
+    "long": "Israel",
+    "latMin": 29.5013261988,
+    "longMin": 34.2654333839,
+    "latMax": 33.2774264593,
+    "longMax": 35.8363969256
+  },
+  {
+    "short": "IT",
+    "long": "Italy",
+    "latMin": 36.619987291,
+    "longMin": 6.7499552751,
+    "latMax": 47.1153931748,
+    "longMax": 18.4802470232
+  },
+  {
+    "short": "JM",
+    "long": "Jamaica",
+    "latMin": 17.7011162379,
+    "longMin": -78.3377192858,
+    "latMax": 18.5242184514,
+    "longMax": -76.1996585761
+  },
+  {
+    "short": "JO",
+    "long": "Jordan",
+    "latMin": 29.1974946152,
+    "longMin": 34.9226025734,
+    "latMax": 33.3786864284,
+    "longMax": 39.1954683774
+  },
+  {
+    "short": "JP",
+    "long": "Japan",
+    "latMin": 31.0295791692,
+    "longMin": 129.408463169,
+    "latMax": 45.5514834662,
+    "longMax": 145.543137242
+  },
+  {
+    "short": "KZ",
+    "long": "Kazakhstan",
+    "latMin": 40.6623245306,
+    "longMin": 46.4664457538,
+    "latMax": 55.3852501491,
+    "longMax": 87.3599703308
+  },
+  {
+    "short": "KE",
+    "long": "Kenya",
+    "latMin": -4.67677,
+    "longMin": 33.8935689697,
+    "latMax": 5.506,
+    "longMax": 41.8550830926
+  },
+  {
+    "short": "KG",
+    "long": "Kyrgyzstan",
+    "latMin": 39.2794632025,
+    "longMin": 69.464886916,
+    "latMax": 43.2983393418,
+    "longMax": 80.2599902689
+  },
+  {
+    "short": "KH",
+    "long": "Cambodia",
+    "latMin": 10.4865436874,
+    "longMin": 102.3480994,
+    "latMax": 14.5705838078,
+    "longMax": 107.614547968
+  },
+  {
+    "short": "KR",
+    "long": "S. Korea",
+    "latMin": 34.3900458847,
+    "longMin": 126.117397903,
+    "latMax": 38.6122429469,
+    "longMax": 129.468304478
+  },
+  {
+    "short": "KW",
+    "long": "Kuwait",
+    "latMin": 28.5260627304,
+    "longMin": 46.5687134133,
+    "latMax": 30.0590699326,
+    "longMax": 48.4160941913
+  },
+  {
+    "short": "LA",
+    "long": "Laos",
+    "latMin": 13.88109101,
+    "longMin": 100.115987583,
+    "latMax": 22.4647531194,
+    "longMax": 107.564525181
+  },
+  {
+    "short": "LB",
+    "long": "Lebanon",
+    "latMin": 33.0890400254,
+    "longMin": 35.1260526873,
+    "latMax": 34.6449140488,
+    "longMax": 36.6117501157
+  },
+  {
+    "short": "LR",
+    "long": "Liberia",
+    "latMin": 4.35575511313,
+    "longMin": -11.4387794662,
+    "latMax": 8.54105520267,
+    "longMax": -7.53971513511
+  },
+  {
+    "short": "LY",
+    "long": "Libya",
+    "latMin": 19.58047,
+    "longMin": 9.31941084152,
+    "latMax": 33.1369957545,
+    "longMax": 25.16482
+  },
+  {
+    "short": "LK",
+    "long": "Sri Lanka",
+    "latMin": 5.96836985923,
+    "longMin": 79.6951668639,
+    "latMax": 9.82407766361,
+    "longMax": 81.7879590189
+  },
+  {
+    "short": "LS",
+    "long": "Lesotho",
+    "latMin": -30.6451058896,
+    "longMin": 26.9992619158,
+    "latMax": -28.6475017229,
+    "longMax": 29.3251664568
+  },
+  {
+    "short": "LT",
+    "long": "Lithuania",
+    "latMin": 53.9057022162,
+    "longMin": 21.0558004086,
+    "latMax": 56.3725283881,
+    "longMax": 26.5882792498
+  },
+  {
+    "short": "LU",
+    "long": "Luxembourg",
+    "latMin": 49.4426671413,
+    "longMin": 5.67405195478,
+    "latMax": 50.1280516628,
+    "longMax": 6.24275109216
+  },
+  {
+    "short": "LV",
+    "long": "Latvia",
+    "latMin": 55.61510692,
+    "longMin": 21.0558004086,
+    "latMax": 57.9701569688,
+    "longMax": 28.1767094256
+  },
+  {
+    "short": "MA",
+    "long": "Morocco",
+    "latMin": 21.4207341578,
+    "longMin": -17.0204284327,
+    "latMax": 35.7599881048,
+    "longMax": -1.12455115397
+  },
+  {
+    "short": "MD",
+    "long": "Moldova",
+    "latMin": 45.4882831895,
+    "longMin": 26.6193367856,
+    "latMax": 48.4671194525,
+    "longMax": 30.0246586443
+  },
+  {
+    "short": "MG",
+    "long": "Madagascar",
+    "latMin": -25.6014344215,
+    "longMin": 43.2541870461,
+    "latMax": -12.0405567359,
+    "longMax": 50.4765368996
+  },
+  {
+    "short": "MX",
+    "long": "Mexico",
+    "latMin": 14.5388286402,
+    "longMin": -117.12776,
+    "latMax": 32.72083,
+    "longMax": -86.811982388
+  },
+  {
+    "short": "MK",
+    "long": "Macedonia",
+    "latMin": 40.8427269557,
+    "longMin": 20.46315,
+    "latMax": 42.3202595078,
+    "longMax": 22.9523771502
+  },
+  {
+    "short": "ML",
+    "long": "Mali",
+    "latMin": 10.0963607854,
+    "longMin": -12.1707502914,
+    "latMax": 24.9745740829,
+    "longMax": 4.27020999514
+  },
+  {
+    "short": "MM",
+    "long": "Myanmar",
+    "latMin": 9.93295990645,
+    "longMin": 92.3032344909,
+    "latMax": 28.335945136,
+    "longMax": 101.180005324
+  },
+  {
+    "short": "ME",
+    "long": "Montenegro",
+    "latMin": 41.87755,
+    "longMin": 18.45,
+    "latMax": 43.52384,
+    "longMax": 20.3398
+  },
+  {
+    "short": "MN",
+    "long": "Mongolia",
+    "latMin": 41.5974095729,
+    "longMin": 87.7512642761,
+    "latMax": 52.0473660345,
+    "longMax": 119.772823928
+  },
+  {
+    "short": "MZ",
+    "long": "Mozambique",
+    "latMin": -26.7421916643,
+    "longMin": 30.1794812355,
+    "latMax": -10.3170960425,
+    "longMax": 40.7754752948
+  },
+  {
+    "short": "MR",
+    "long": "Mauritania",
+    "latMin": 14.6168342147,
+    "longMin": -17.0634232243,
+    "latMax": 27.3957441269,
+    "longMax": -4.92333736817
+  },
+  {
+    "short": "MW",
+    "long": "Malawi",
+    "latMin": -16.8012997372,
+    "longMin": 32.6881653175,
+    "latMax": -9.23059905359,
+    "longMax": 35.7719047381
+  },
+  {
+    "short": "MY",
+    "long": "Malaysia",
+    "latMin": 0.773131415201,
+    "longMin": 100.085756871,
+    "latMax": 6.92805288332,
+    "longMax": 119.181903925
+  },
+  {
+    "short": "NA",
+    "long": "Namibia",
+    "latMin": -29.045461928,
+    "longMin": 11.7341988461,
+    "latMax": -16.9413428687,
+    "longMax": 25.0844433937
+  },
+  {
+    "short": "NC",
+    "long": "New Caledonia",
+    "latMin": -22.3999760881,
+    "longMin": 164.029605748,
+    "latMax": -20.1056458473,
+    "longMax": 167.120011428
+  },
+  {
+    "short": "NE",
+    "long": "Niger",
+    "latMin": 11.6601671412,
+    "longMin": 0.295646396495,
+    "latMax": 23.4716684026,
+    "longMax": 15.9032466977
+  },
+  {
+    "short": "NG",
+    "long": "Nigeria",
+    "latMin": 4.24059418377,
+    "longMin": 2.69170169436,
+    "latMax": 13.8659239771,
+    "longMax": 14.5771777686
+  },
+  {
+    "short": "NI",
+    "long": "Nicaragua",
+    "latMin": 10.7268390975,
+    "longMin": -87.6684934151,
+    "latMax": 15.0162671981,
+    "longMax": -83.147219001
+  },
+  {
+    "short": "NL",
+    "long": "Netherlands",
+    "latMin": 50.803721015,
+    "longMin": 3.31497114423,
+    "latMax": 53.5104033474,
+    "longMax": 7.09205325687
+  },
+  {
+    "short": "NO",
+    "long": "Norway",
+    "latMin": 58.0788841824,
+    "longMin": 4.99207807783,
+    "latMax": 80.6571442736,
+    "longMax": 31.29341841
+  },
+  {
+    "short": "NP",
+    "long": "Nepal",
+    "latMin": 26.3978980576,
+    "longMin": 80.0884245137,
+    "latMax": 30.4227169866,
+    "longMax": 88.1748043151
+  },
+  {
+    "short": "NZ",
+    "long": "New Zealand",
+    "latMin": -46.641235447,
+    "longMin": 166.509144322,
+    "latMax": -34.4506617165,
+    "longMax": 178.517093541
+  },
+  {
+    "short": "OM",
+    "long": "Oman",
+    "latMin": 16.6510511337,
+    "longMin": 52.0000098,
+    "latMax": 26.3959343531,
+    "longMax": 59.8080603372
+  },
+  {
+    "short": "PK",
+    "long": "Pakistan",
+    "latMin": 23.6919650335,
+    "longMin": 60.8742484882,
+    "latMax": 37.1330309108,
+    "longMax": 77.8374507995
+  },
+  {
+    "short": "PA",
+    "long": "Panama",
+    "latMin": 7.2205414901,
+    "longMin": -82.9657830472,
+    "latMax": 9.61161001224,
+    "longMax": -77.2425664944
+  },
+  {
+    "short": "PE",
+    "long": "Peru",
+    "latMin": -18.3479753557,
+    "longMin": -81.4109425524,
+    "latMax": -0.0572054988649,
+    "longMax": -68.6650797187
+  },
+  {
+    "short": "PH",
+    "long": "Philippines",
+    "latMin": 5.58100332277,
+    "longMin": 117.17427453,
+    "latMax": 18.5052273625,
+    "longMax": 126.537423944
+  },
+  {
+    "short": "PG",
+    "long": "Papua New Guinea",
+    "latMin": -10.6524760881,
+    "longMin": 141.000210403,
+    "latMax": -2.50000212973,
+    "longMax": 156.019965448
+  },
+  {
+    "short": "PL",
+    "long": "Poland",
+    "latMin": 49.0273953314,
+    "longMin": 14.0745211117,
+    "latMax": 54.8515359564,
+    "longMax": 24.0299857927
+  },
+  {
+    "short": "PR",
+    "long": "Puerto Rico",
+    "latMin": 17.946553453,
+    "longMin": -67.2424275377,
+    "latMax": 18.5206011011,
+    "longMax": -65.5910037909
+  },
+  {
+    "short": "KP",
+    "long": "N. Korea",
+    "latMin": 37.669070543,
+    "longMin": 124.265624628,
+    "latMax": 42.9853868678,
+    "longMax": 130.780007359
+  },
+  {
+    "short": "PT",
+    "long": "Portugal",
+    "latMin": 36.838268541,
+    "longMin": -9.52657060387,
+    "latMax": 42.280468655,
+    "longMax": -6.3890876937
+  },
+  {
+    "short": "PY",
+    "long": "Paraguay",
+    "latMin": -27.5484990374,
+    "longMin": -62.6850571357,
+    "latMax": -19.3427466773,
+    "longMax": -54.2929595608
+  },
+  {
+    "short": "QA",
+    "long": "Qatar",
+    "latMin": 24.5563308782,
+    "longMin": 50.7439107603,
+    "latMax": 26.1145820175,
+    "longMax": 51.6067004738
+  },
+  {
+    "short": "RO",
+    "long": "Romania",
+    "latMin": 43.6884447292,
+    "longMin": 20.2201924985,
+    "latMax": 48.2208812526,
+    "longMax": 29.62654341
+  },
+  {
+    "short": "RU",
+    "long": "Russia",
+    "latMin": 41.151416124,
+    "longMin": -180,
+    "latMax": 81.2504,
+    "longMax": 180
+  },
+  {
+    "short": "RW",
+    "long": "Rwanda",
+    "latMin": -2.91785776125,
+    "longMin": 29.0249263852,
+    "latMax": -1.13465911215,
+    "longMax": 30.8161348813
+  },
+  {
+    "short": "SA",
+    "long": "Saudi Arabia",
+    "latMin": 16.3478913436,
+    "longMin": 34.6323360532,
+    "latMax": 32.161008816,
+    "longMax": 55.6666593769
+  },
+  {
+    "short": "SD",
+    "long": "Sudan",
+    "latMin": 8.61972971293,
+    "longMin": 21.93681,
+    "latMax": 22,
+    "longMax": 38.4100899595
+  },
+  {
+    "short": "SS",
+    "long": "S. Sudan",
+    "latMin": 3.50917,
+    "longMin": 23.8869795809,
+    "latMax": 12.2480077571,
+    "longMax": 35.2980071182
+  },
+  {
+    "short": "SN",
+    "long": "Senegal",
+    "latMin": 12.332089952,
+    "longMin": -17.6250426905,
+    "latMax": 16.5982636581,
+    "longMax": -11.4678991358
+  },
+  {
+    "short": "SB",
+    "long": "Solomon Is.",
+    "latMin": -10.8263672828,
+    "longMin": 156.491357864,
+    "latMax": -6.59933847415,
+    "longMax": 162.398645868
+  },
+  {
+    "short": "SL",
+    "long": "Sierra Leone",
+    "latMin": 6.78591685631,
+    "longMin": -13.2465502588,
+    "latMax": 10.0469839543,
+    "longMax": -10.2300935531
+  },
+  {
+    "short": "SV",
+    "long": "El Salvador",
+    "latMin": 13.1490168319,
+    "longMin": -90.0955545723,
+    "latMax": 14.4241327987,
+    "longMax": -87.7235029772
+  },
+  {
+    "short": "SO",
+    "long": "Somalia",
+    "latMin": -1.68325,
+    "longMin": 40.98105,
+    "latMax": 12.02464,
+    "longMax": 51.13387
+  },
+  {
+    "short": "RS",
+    "long": "Serbia",
+    "latMin": 42.2452243971,
+    "longMin": 18.82982,
+    "latMax": 46.1717298447,
+    "longMax": 22.9860185076
+  },
+  {
+    "short": "SR",
+    "long": "Suriname",
+    "latMin": 1.81766714112,
+    "longMin": -58.0446943834,
+    "latMax": 6.0252914494,
+    "longMax": -53.9580446031
+  },
+  {
+    "short": "SK",
+    "long": "Slovakia",
+    "latMin": 47.7584288601,
+    "longMin": 16.8799829444,
+    "latMax": 49.5715740017,
+    "longMax": 22.5581376482
+  },
+  {
+    "short": "SI",
+    "long": "Slovenia",
+    "latMin": 45.4523163926,
+    "longMin": 13.6981099789,
+    "latMax": 46.8523859727,
+    "longMax": 16.5648083839
+  },
+  {
+    "short": "SE",
+    "long": "Sweden",
+    "latMin": 55.3617373725,
+    "longMin": 11.0273686052,
+    "latMax": 69.1062472602,
+    "longMax": 23.9033785336
+  },
+  {
+    "short": "SZ",
+    "long": "Swaziland",
+    "latMin": -27.2858794085,
+    "longMin": 30.6766085141,
+    "latMax": -25.660190525,
+    "longMax": 32.0716654803
+  },
+  {
+    "short": "SY",
+    "long": "Syria",
+    "latMin": 32.312937527,
+    "longMin": 35.7007979673,
+    "latMax": 37.2298725449,
+    "longMax": 42.3495910988
+  },
+  {
+    "short": "TD",
+    "long": "Chad",
+    "latMin": 7.42192454674,
+    "longMin": 13.5403935076,
+    "latMax": 23.40972,
+    "longMax": 23.88689
+  },
+  {
+    "short": "TG",
+    "long": "Togo",
+    "latMin": 5.92883738853,
+    "longMin": -0.0497847151599,
+    "latMax": 11.0186817489,
+    "longMax": 1.86524051271
+  },
+  {
+    "short": "TH",
+    "long": "Thailand",
+    "latMin": 5.69138418215,
+    "longMin": 97.3758964376,
+    "latMax": 20.4178496363,
+    "longMax": 105.589038527
+  },
+  {
+    "short": "TJ",
+    "long": "Tajikistan",
+    "latMin": 36.7381712916,
+    "longMin": 67.4422196796,
+    "latMax": 40.9602133245,
+    "longMax": 74.9800024759
+  },
+  {
+    "short": "TM",
+    "long": "Turkmenistan",
+    "latMin": 35.2706639674,
+    "longMin": 52.5024597512,
+    "latMax": 42.7515510117,
+    "longMax": 66.5461503437
+  },
+  {
+    "short": "TL",
+    "long": "East Timor",
+    "latMin": -9.39317310958,
+    "longMin": 124.968682489,
+    "latMax": -8.27334482181,
+    "longMax": 127.335928176
+  },
+  {
+    "short": "TT",
+    "long": "Trinidad and Tobago",
+    "latMin": 10,
+    "longMin": -61.95,
+    "latMax": 10.89,
+    "longMax": -60.895
+  },
+  {
+    "short": "TN",
+    "long": "Tunisia",
+    "latMin": 30.3075560572,
+    "longMin": 7.52448164229,
+    "latMax": 37.3499944118,
+    "longMax": 11.4887874691
+  },
+  {
+    "short": "TR",
+    "long": "Turkey",
+    "latMin": 35.8215347357,
+    "longMin": 26.0433512713,
+    "latMax": 42.1414848903,
+    "longMax": 44.7939896991
+  },
+  {
+    "short": "TW",
+    "long": "Taiwan",
+    "latMin": 21.9705713974,
+    "longMin": 120.106188593,
+    "latMax": 25.2954588893,
+    "longMax": 121.951243931
+  },
+  {
+    "short": "TZ",
+    "long": "Tanzania",
+    "latMin": -11.7209380022,
+    "longMin": 29.3399975929,
+    "latMax": -0.95,
+    "longMax": 40.31659
+  },
+  {
+    "short": "UG",
+    "long": "Uganda",
+    "latMin": -1.44332244223,
+    "longMin": 29.5794661801,
+    "latMax": 4.24988494736,
+    "longMax": 35.03599
+  },
+  {
+    "short": "UA",
+    "long": "Ukraine",
+    "latMin": 44.3614785833,
+    "longMin": 22.0856083513,
+    "latMax": 52.3350745713,
+    "longMax": 40.0807890155
+  },
+  {
+    "short": "UY",
+    "long": "Uruguay",
+    "latMin": -34.9526465797,
+    "longMin": -58.4270741441,
+    "latMax": -30.1096863746,
+    "longMax": -53.209588996
+  },
+  {
+    "short": "US",
+    "long": "United States",
+    "latMin": 18.91619,
+    "longMin": -171.791110603,
+    "latMax": 71.3577635769,
+    "longMax": -66.96466
+  },
+  {
+    "short": "UZ",
+    "long": "Uzbekistan",
+    "latMin": 37.1449940049,
+    "longMin": 55.9289172707,
+    "latMax": 45.5868043076,
+    "longMax": 73.055417108
+  },
+  {
+    "short": "VE",
+    "long": "Venezuela",
+    "latMin": 0.724452215982,
+    "longMin": -73.3049515449,
+    "latMax": 12.1623070337,
+    "longMax": -59.7582848782
+  },
+  {
+    "short": "VN",
+    "long": "Vietnam",
+    "latMin": 8.59975962975,
+    "longMin": 102.170435826,
+    "latMax": 23.3520633001,
+    "longMax": 109.33526981
+  },
+  {
+    "short": "VU",
+    "long": "Vanuatu",
+    "latMin": -16.5978496233,
+    "longMin": 166.629136998,
+    "latMax": -14.6264970842,
+    "longMax": 167.844876744
+  },
+  {
+    "short": "PS",
+    "long": "West Bank",
+    "latMin": 31.3534353704,
+    "longMin": 34.9274084816,
+    "latMax": 32.5325106878,
+    "longMax": 35.5456653175
+  },
+  {
+    "short": "YE",
+    "long": "Yemen",
+    "latMin": 12.5859504257,
+    "longMin": 42.6048726743,
+    "latMax": 19.0000033635,
+    "longMax": 53.1085726255
+  },
+  {
+    "short": "ZA",
+    "long": "South Africa",
+    "latMin": -34.8191663551,
+    "longMin": 16.3449768409,
+    "latMax": -22.0913127581,
+    "longMax": 32.830120477
+  },
+  {
+    "short": "ZM",
+    "long": "Zambia",
+    "latMin": -17.9612289364,
+    "longMin": 21.887842645,
+    "latMax": -8.23825652429,
+    "longMax": 33.4856876971
+  },
+  {
+    "short": "ZW",
+    "long": "Zimbabwe",
+    "latMin": -22.2716118303,
+    "longMin": 25.2642257016,
+    "latMax": -15.5077869605,
+    "longMax": 32.8498608742
+  },
+  {
+    "short": "LI",
+    "long": "Liechtenstein",
+    "latMin": 47.05000000000000000000,
+    "longMin": 9.50000000000000000000,
+    "latMax": 47.25000000000000000000,
+    "longMax": 9.75000000000000000000
+  },
+  {
+    "short": "KY",
+    "long": "Cayman Islands",
+    "latMin": 19.24176500000000000000,
+    "longMin": -81.43356500000000000000,
+    "latMax": 19.40892200000000000000,
+    "longMax": -81.03996200000000000000
+  },
+  {
+    "short": "MC",
+    "long": "Monaco",
+    "latMin": 43.722560,
+    "longMin": 7.404126,
+    "latMax": 43.753512,
+    "longMax": 7.441742
+  },
+  {
+    "short": "SG",
+    "long": "Singapore",
+    "latMin": 1.118923,
+    "longMin": 103.570856,
+    "latMax": 1.529380,
+    "longMax": 104.123683
+  },
+  {
+    "short": "BH",
+    "long": "Bahrain",
+    "latMin": 25.764938,
+    "longMin": 50.297099,
+    "latMax": 26.347862,
+    "longMax": 50.754808
+  },
+  {
+    "short": "CN",
+    "long": "People's Republic of China",
+    "latMin": 18.197700914,
+    "longMin": 73.6753792663,
+    "latMax": 53.4588044297,
+    "longMax": 135.026311477
+  },
+  {
+    "short": "RU",
+    "long": "Russian Federation",
+    "latMin": 41.151416124,
+    "longMin": -180,
+    "latMax": 81.2504,
+    "longMax": 180
+  }
+
+]

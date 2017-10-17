@@ -4,6 +4,8 @@ using System.Web;
 
 namespace TestPlotly.ajax
 {
+
+
     /// <summary>
     /// Zusammenfassungsbeschreibung für AnySelect
     /// </summary>
@@ -47,6 +49,7 @@ namespace TestPlotly.ajax
 
         } // End Property ScriptName
 
+
         public void AddPassedParameters(System.Data.IDbCommand cmd, HttpContext context)
         {
             string userId = GetUserId();
@@ -56,33 +59,29 @@ namespace TestPlotly.ajax
                 string queryValue = context.Request.QueryString[queryKey];
 
                 SQL.AddParameter(cmd, queryKey, queryValue);
-            }
+            } // Next queryKey 
 
             foreach (string formKey in context.Request.Form.AllKeys)
             {
                 string formValue = context.Request.Form[formKey];
 
                 SQL.AddParameter(cmd, formKey, formValue);
-            }
+            } // Next formKey 
 
 
             try
             {
                 SQL.AddParameter(cmd, "__user_id", userId);
-
             }
             catch (System.Exception ex)
-            {
-            }
+            { }
 
             try
             {
                 SQL.AddParameter(cmd, "__stichtag", System.DateTime.Today.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture));
-
             }
             catch (System.Exception ex)
-            {
-            }
+            { }
 
         } // End Sub AddPassedParameters 
 
@@ -107,10 +106,10 @@ namespace TestPlotly.ajax
             {
                 return false;
             }
-        }
+        } // End Property IsReusable 
 
 
-    }
+    } // End Class AnySelect 
 
 
-}
+} // End Namespace TestPlotly.ajax 
