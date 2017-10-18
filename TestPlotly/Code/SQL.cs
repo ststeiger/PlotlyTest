@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-
+﻿
 namespace TestPlotly
 {
 
@@ -25,12 +22,11 @@ namespace TestPlotly
             csb.InitialCatalog = "COR_Basic_Demo_V4";
             csb.InitialCatalog = "COR_Basic_Helvetia_IS";
             
-            
             csb.IntegratedSecurity = System.StringComparer.OrdinalIgnoreCase.Equals(System.Environment.UserDomainName, "COR");
             if (!csb.IntegratedSecurity)
             {
-                csb.UserID = "ApertureWebServicesDE";
-                csb.Password = "TOP_SECRET";
+                csb.UserID = SecretManager.GetSecret<string>("DefaultDbUser");
+                csb.Password = SecretManager.GetSecret<string>("DefaultDbPassword");
             }
 
             return csb.ToString();
@@ -499,7 +495,7 @@ namespace TestPlotly
         public static T ExecuteScalar<T>(System.Data.IDbCommand cmd)
         {
             string strReturnValue = null;
-            Type tReturnType = null;
+            System.Type tReturnType = typeof(T);
             object objReturnValue = null;
 
             lock (cmd)
@@ -514,8 +510,6 @@ namespace TestPlotly
 
                         try
                         {
-                            tReturnType = typeof(T);
-
                             if (cmd.Connection.State != System.Data.ConnectionState.Open)
                                 cmd.Connection.Open();
 
@@ -627,10 +621,10 @@ namespace TestPlotly
 
                     return InlineTypeAssignHelper<T>(new System.Guid(strReturnValue));
                 } // End if GUID
-                else if (object.ReferenceEquals(tReturnType, typeof(DateTime)))
+                else if (object.ReferenceEquals(tReturnType, typeof(System.DateTime)))
                 {
-                    DateTime bReturnValue = DateTime.Now;
-                    bool bSuccess = DateTime.TryParse(strReturnValue, out bReturnValue);
+                    System.DateTime bReturnValue = System.DateTime.Now;
+                    bool bSuccess = System.DateTime.TryParse(strReturnValue, out bReturnValue);
 
                     if (bSuccess)
                         return InlineTypeAssignHelper<T>(bReturnValue);
@@ -642,11 +636,11 @@ namespace TestPlotly
                 } // End if datetime
                 else // No datatype matches
                 {
-                    throw new NotImplementedException("ExecuteScalar<T>: This type is not yet defined.");
+                    throw new System.NotImplementedException("ExecuteScalar<T>: This type is not yet defined.");
                 } // End else of if tReturnType = datatype
 
             } // End Try
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 // LogError("claSQL.cs ==> SQL.ExecuteScalar (2)", ex, cmd);
                 throw;
@@ -830,9 +824,7 @@ namespace TestPlotly
         } // End Sub InsertUpdateDataTable 
 
 
+    } // End Class SQL 
 
 
-    }
-
-
-}
+} // End Namespace TestPlotly

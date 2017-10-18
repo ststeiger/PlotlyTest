@@ -78,7 +78,7 @@ namespace TestSpatial
 #if HAVE_NO_API_KEY 
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}"; ;
 #else
-            string YOUR_API_KEY = "abc";
+            string YOUR_API_KEY = TestPlotly.SecretManager.GetSecret<string>("GoogleGeoCodingApiKey");
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={YOUR_API_KEY}";
 #endif
 

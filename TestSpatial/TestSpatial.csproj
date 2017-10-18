@@ -70,6 +70,9 @@
     <Compile Include="..\TestPlotly\Code\ResourceLoader.cs">
       <Link>External\ResourceLoader.cs</Link>
     </Compile>
+    <Compile Include="..\TestPlotly\Code\SecretManager.cs">
+      <Link>External\SecretManager.cs</Link>
+    </Compile>
     <Compile Include="..\TestPlotly\Code\SQL.cs">
       <Link>External\SQL.cs</Link>
     </Compile>

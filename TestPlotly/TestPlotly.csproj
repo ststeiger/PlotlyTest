@@ -95,7 +95,6 @@
     <Content Include="Libs\Newtonsoft.json\8.0.3\Newtonsoft.Json.dll" />
     <Content Include="osm.htm" />
     <Content Include="Scripts\leaflet\leaflet_embed.css" />
-    <Content Include="Scripts\leaflet\token.js" />
     <EmbeddedResource Include="SQL\Marker_GB.sql" />
     <EmbeddedResource Include="SQL\Marker_SO.sql" />
     <EmbeddedResource Include="SQL\Insert_WGS84.sql" />
@@ -155,11 +154,15 @@
     </Compile>
     <Compile Include="Code\IntrospectionExtensions.cs" />
     <Compile Include="Code\ResourceLoader.cs" />
+    <Compile Include="Code\SecretManager.cs" />
     <Compile Include="Code\SQL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\leaflet\token.ashx.cs">
+      <DependentUpon>token.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\plotly.js-1.30.1.zip" />
@@ -168,6 +171,7 @@
     <Content Include="Scripts\leaflet\leaflet.js.map" />
     <Content Include="ajax\mapMarker.ashx" />
     <Content Include="ajax\AnySelect.ashx" />
+    <Content Include="Scripts\leaflet\token.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
