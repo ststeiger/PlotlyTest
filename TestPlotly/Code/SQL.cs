@@ -28,19 +28,19 @@ namespace TestPlotly
                 csb.UserID = SecretManager.GetSecret<string>("DefaultDbUser");
                 csb.Password = SecretManager.GetSecret<string>("DefaultDbPassword");
             }
-
+            
             return csb.ToString();
         }
-
-
+        
+        
         public static System.Data.Common.DbConnection GetConnection()
         {
             System.Data.Common.DbConnection con = fact.CreateConnection();
             con.ConnectionString = GetConnectionString();
             return con;
         }
-
-
+        
+        
         public static System.Data.Common.DbCommand CreateCommand(string sql)
         {
             System.Data.Common.DbCommand cmd = fact.CreateCommand();
