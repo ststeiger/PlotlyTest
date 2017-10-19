@@ -58,25 +58,17 @@ namespace TestPlotly
             if(System.IO.File.Exists(p))
                 obj = System.IO.File.ReadAllText(p, System.Text.Encoding.Default);
 
-            if (obj != null && obj.EndsWith("\n"))
+            if(obj == null)
+                return ObjectToGeneric<T>((object)obj);
+
+            // || obj.EndsWith(" ") || obj.EndsWith("\t") 
+            while ( obj.EndsWith("\r") || obj.EndsWith("\n") )
                 obj = obj.Substring(0, obj.Length - 1);
-            
+
             return ObjectToGeneric<T>((object)obj);
         } // End Function GetRegistryKey 
 
 
-        private static T InlineTypeAssignHelper<T>(object UTO)
-        {
-            if (UTO == null)
-            {
-                T NullSubstitute = default(T);
-                return NullSubstitute;
-            } // End if (UTO == null) 
-
-            return (T)UTO;
-        } // End Template InlineTypeAssignHelper
-        
-        
         private static object GetRegistryKey(string key, string value)
         {
             object objReturnValue = null;
@@ -95,6 +87,18 @@ namespace TestPlotly
 
             return objReturnValue;
         } // End Function GetRegistryKey 
+        
+
+        private static T InlineTypeAssignHelper<T>(object UTO)
+        {
+            if (UTO == null)
+            {
+                T NullSubstitute = default(T);
+                return NullSubstitute;
+            } // End if (UTO == null) 
+
+            return (T)UTO;
+        } // End Template InlineTypeAssignHelper
 
 
         private static T ObjectToGeneric<T>(object objReturnValue)

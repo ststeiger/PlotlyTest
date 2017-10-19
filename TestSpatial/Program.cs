@@ -6,24 +6,9 @@ namespace TestSpatial
 {
 
 
-    static class Program
+    public static class Program
     {
         private static readonly System.Globalization.NumberFormatInfo s_webNumberFormat = CreateWebNumberFormat();
-
-
-        private static System.Globalization.NumberFormatInfo CreateWebNumberFormat()
-        {
-            System.Globalization.NumberFormatInfo nfi = new System.Globalization.NumberFormatInfo()
-            {
-                NumberGroupSeparator = "",
-                NumberDecimalSeparator = ".",
-                CurrencyGroupSeparator = "",
-                CurrencyDecimalSeparator = ".",
-                CurrencySymbol = ""
-            };
-
-            return nfi;
-        } // End Function SetupNumberFormatInfo
 
 
         [System.STAThread]
@@ -144,14 +129,30 @@ namespace TestSpatial
             Helper.InsertBuildingData("A1C10E45-CA2B-4796-BCB7-931546D44667", "Bahnhofstrasse 4, 3073 Gümligen"
                 ,new Wgs84Coordinates(46.93459319999999000000M, 7.50623670000000100000M)
                 );
-#endif
-
-
-
+#endif    
 
             System.Console.WriteLine(System.Environment.NewLine);
             System.Console.WriteLine(" --- Press any key to continue --- ");
             System.Console.ReadKey();
-        }
-    }
-}
+        } // End Sub Main 
+        
+
+        private static System.Globalization.NumberFormatInfo CreateWebNumberFormat()
+        {
+            System.Globalization.NumberFormatInfo nfi = new System.Globalization.NumberFormatInfo()
+            {
+                NumberGroupSeparator = "",
+                NumberDecimalSeparator = ".",
+                CurrencyGroupSeparator = "",
+                CurrencyDecimalSeparator = ".",
+                CurrencySymbol = ""
+            };
+
+            return nfi;
+        } // End Function SetupNumberFormatInfo
+
+
+    } // End Class Program 
+
+
+} // End Namespace TestSpatial 

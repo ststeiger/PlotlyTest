@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-
+﻿
 namespace TestPlotly.Scripts.leaflet
 {
+
+
     /// <summary>
     /// Zusammenfassungsbeschreibung für token
     /// </summary>
-    public class token : IHttpHandler
+    public class token : System.Web.IHttpHandler
     {
 
-        public void ProcessRequest(HttpContext context)
+        public void ProcessRequest(System.Web.HttpContext context)
         {
             context.Response.ContentType = "application/javascript";
 
@@ -23,7 +22,8 @@ var myLeaflet = {
 };
 
 ");
-        }
+        } // End Sub ProcessRequest 
+
 
         public bool IsReusable
         {
@@ -31,6 +31,10 @@ var myLeaflet = {
             {
                 return false;
             }
-        }
-    }
-}
+        } // End Property IsReusable 
+
+
+    } // End Class token : System.Web.IHttpHandler 
+
+
+} // End Namespace TestPlotly.Scripts.leaflet 
