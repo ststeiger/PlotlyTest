@@ -85,15 +85,20 @@
     <Content Include="images\icons\xls.png" />
     <Content Include="images\icons\xlsx.png" />
     <Content Include="images\leaflet\5-90cec33595.jpg" />
+    <Content Include="images\leaflet\azimuth.jpg" />
     <Content Include="images\leaflet\bocholt_rathaus_geodatenportal_erdkugel_mit_koordinaten_01.gif" />
     <Content Include="images\leaflet\Grad-201100278207.jpg" />
     <Content Include="images\leaflet\grade.gif" />
     <Content Include="images\leaflet\image025.jpg" />
     <Content Include="images\leaflet\image027.png" />
     <Content Include="images\leaflet\Lat_Long.gif" />
+    <Content Include="images\leaflet\mercator_lambert.jpg" />
+    <Content Include="images\leaflet\mercator_lamber_difference.png" />
+    <Content Include="images\leaflet\meridian_ellipse.jpg" />
     <Content Include="images\leaflet\no-facebook-200x64.png" />
     <Content Include="Libs\Newtonsoft.json\8.0.3\Newtonsoft.Json.dll" />
     <Content Include="osm.htm" />
+    <Content Include="Scripts\leaflet\leaflet_details.txt" />
     <Content Include="Scripts\leaflet\leaflet_embed.css" />
     <EmbeddedResource Include="SQL\Marker_GB.sql" />
     <EmbeddedResource Include="SQL\Marker_SO.sql" />
@@ -107,6 +112,7 @@
     <EmbeddedResource Include="SQL\GetSO_Geocode.sql" />
     <EmbeddedResource Include="SQL\FMS_Maps_ObjectBounds.sql" />
     <EmbeddedResource Include="SQL\InsertCountryBounds.sql" />
+    <Content Include="Scripts\leaflet\mapbox_cnd_install.txt" />
     <Content Include="wiki.htm" />
     <Content Include="mapbox.htm" />
     <Content Include="leaflet.htm" />
@@ -172,6 +178,7 @@
     <Content Include="ajax\mapMarker.ashx" />
     <Content Include="ajax\AnySelect.ashx" />
     <Content Include="Scripts\leaflet\token.ashx" />
+    <Content Include="images\leaflet\1412.7690.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

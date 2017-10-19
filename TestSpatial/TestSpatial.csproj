@@ -140,6 +140,7 @@
     <EmbeddedResource Include="..\TestPlotly\SQL\InsertCountryBounds.sql">
       <Link>SQL\InsertCountryBounds.sql</Link>
     </EmbeddedResource>
+    <Content Include="External\overpass_bad_proxy_servers.txt" />
     <Content Include="Lib\DotSpatial.Projections.dll" />
     <Content Include="Lib\DotSpatial.Serialization.dll" />
     <Content Include="Lib\DotSpatial.Topology.dll" />
