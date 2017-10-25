@@ -32,11 +32,11 @@ SELECT
 	,T_AP_Ref_Ort.ORT_GM_Lat AS OBJ_Lat 
 	,T_AP_Ref_Ort.ORT_GM_Lng AS OBJ_Lng 
 	 
-	,CAST(NULL AS decimal(23, 20)) AS OBJ_Min_Lat 
-	,CAST(NULL AS decimal(23, 20)) AS OBJ_Min_Long 
+	,ORT_Min_Lat AS OBJ_Min_Lat 
+	,ORT_Min_Lng AS OBJ_Min_Long 
 	 
-	,CAST(NULL AS decimal(23, 20)) AS OBJ_Max_Lat 
-	,CAST(NULL AS decimal(23, 20)) AS OBJ_Max_Lng 
+	,ORT_Max_Lat AS OBJ_Max_Lat 
+	,ORT_Max_Lng AS OBJ_Max_Lng 
 FROM T_AP_Ref_Ort 
 WHERE T_AP_Ref_Ort.ORT_UID = @obj_uid 
 

@@ -97,6 +97,7 @@
     <Content Include="images\leaflet\meridian_ellipse.jpg" />
     <Content Include="images\leaflet\no-facebook-200x64.png" />
     <Content Include="Libs\Newtonsoft.json\8.0.3\Newtonsoft.Json.dll" />
+    <Content Include="map.htm" />
     <Content Include="osm.htm" />
     <Content Include="Scripts\leaflet\leaflet_details.txt" />
     <Content Include="Scripts\leaflet\leaflet_embed.css" />
@@ -113,6 +114,9 @@
     <EmbeddedResource Include="SQL\FMS_Maps_ObjectBounds.sql" />
     <EmbeddedResource Include="SQL\InsertCountryBounds.sql" />
     <Content Include="Scripts\leaflet\mapbox_cnd_install.txt" />
+    <EmbeddedResource Include="SQL\FMS_Maps_DeleteWerbetafel.sql" />
+    <EmbeddedResource Include="SQL\FMS_Maps_InsertWerbetafel.sql" />
+    <EmbeddedResource Include="SQL\FMS_Maps_Marker_Werbetafeln.sql" />
     <Content Include="wiki.htm" />
     <Content Include="mapbox.htm" />
     <Content Include="leaflet.htm" />
