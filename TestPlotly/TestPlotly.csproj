@@ -89,6 +89,7 @@
     <Content Include="images\leaflet\bocholt_rathaus_geodatenportal_erdkugel_mit_koordinaten_01.gif" />
     <Content Include="images\leaflet\Grad-201100278207.jpg" />
     <Content Include="images\leaflet\grade.gif" />
+    <Content Include="images\leaflet\helvetia23.png" />
     <Content Include="images\leaflet\image025.jpg" />
     <Content Include="images\leaflet\image027.png" />
     <Content Include="images\leaflet\Lat_Long.gif" />
@@ -99,6 +100,7 @@
     <Content Include="Libs\Newtonsoft.json\8.0.3\Newtonsoft.Json.dll" />
     <Content Include="map.htm" />
     <Content Include="osm.htm" />
+    <Content Include="Scripts\leaflet\leaflet-google.js" />
     <Content Include="Scripts\leaflet\leaflet_details.txt" />
     <Content Include="Scripts\leaflet\leaflet_embed.css" />
     <EmbeddedResource Include="SQL\Marker_GB.sql" />

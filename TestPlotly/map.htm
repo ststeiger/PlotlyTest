@@ -163,6 +163,13 @@
     <link href="Scripts/leaflet/leaflet.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="Scripts/leaflet/leaflet-src.js?v=4" charset="utf-8"></script>
 
+
+    <!-- These are only required for google-maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNql8UoaZ_AKjgbktAbdLBuR57WUIVSyI" async defer></script>
+    <!--
+    <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+    -->
+    <script type="text/javascript" src="Scripts/leaflet/leaflet-google.js?v=1" charset="utf-8"></script>
 </head>
 <body>
     <div id="zoom-level">Zoom Level: 18</div>
@@ -975,6 +982,9 @@
 
             // Create a map
             map = L.map('swissMap', { zoomControl: false }).setView([47.317390, 8.520293], 18); // SwissRe Soodring 33, Adliswil
+
+
+
             map.zoomHome = function () { };
 
             // https://jsfiddle.net/BC7q4/444/
@@ -995,7 +1005,20 @@
             var scale = bracketDevicePixelRatio();
             var scalex = (scale === 1) ? '' : ('@' + scale + 'x');
 
+
+
+            // https://gitlab.com/IvanSanchez/Leaflet.GridLayer.GoogleMutant
+            if (L.gridLayer.googleMutant)
+            {
+                var roads = L.gridLayer.googleMutant({
+                    type: 'roadmap' // valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
+                }).addTo(map);
+            }
+            
+
+
             // Add a map layer
+            if(false)
             L.tileLayer("{server}/{style}/{z}/{x}/{y}{scalex}.png",
                 {
                     maxZoom: 18
@@ -1007,6 +1030,9 @@
             ).addTo(map);
             loadMarkers();
             loadWerbetafeln();
+
+
+
 
 
 
