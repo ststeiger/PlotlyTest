@@ -56,6 +56,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="flare\basic\Basic-Datenbankschema.svg" />
+    <Content Include="flare\basic\GetData.sql" />
+    <Content Include="flare\basic\[V_DEV_ForeignKeys].sql" />
+    <Content Include="flare\d3\d3.js" />
+    <Content Include="flare\d3\d3.layout.js" />
+    <Content Include="flare\index.htm" />
+    <Content Include="flare\packages.js" />
+    <Content Include="flare\style - Kopieren.css" />
+    <Content Include="flare\style.css" />
     <Content Include="gl.htm" />
     <Content Include="Global.asax" />
     <Content Include="images\icons\ACP_PDF 2_file_document.png" />
@@ -185,6 +194,9 @@
     <Content Include="ajax\AnySelect.ashx" />
     <Content Include="Scripts\leaflet\token.ashx" />
     <Content Include="images\leaflet\1412.7690.pdf" />
+    <Content Include="flare\flare-imports.json" />
+    <Content Include="flare\notflare.json" />
+    <Content Include="flare\flare-simple.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

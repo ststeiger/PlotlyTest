@@ -1,0 +1,3728 @@
+[
+  {
+    "name": "T_Admin",
+    "size": 2
+  },
+  {
+    "name": "T_ALV_Ref_FilterAnzeige",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Anlage",
+    "size": 18,
+    "imports": [ "T_AP_Ref_AnlagePrioritaet", "T_AP_Ref_AnlageZustand", "T_AP_Geschoss", "T_AP_Ref_AnlageKategorie", "T_AV_AdresseKontaktpersonen", "T_AP_Standort", "T_AP_Ref_Mandant", "T_AP_Ref_AnlageKategorieVerfuegbarkeit", "T_AP_Gebaeude", "T_VAR_Variante", "T_AV_Adressen", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_AP_Anlage_History",
+    "size": 7,
+    "imports": [ "T_AP_Anlage" ]
+  },
+  {
+    "name": "T_AP_Anschluss",
+    "size": 1,
+    "imports": [ "T_AP_Dose", "T_AP_Ref_AnschlussKabelTyp", "T_AP_Ref_AnschlussKategorie", "T_AP_Ref_AnschlussSwitch", "T_AP_Ref_AnschlussTyp", "T_AP_Ref_AnschlussVerteiler", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Anschluss_History",
+    "size": 1,
+    "imports": [ "T_AP_Anschluss" ]
+  },
+  {
+    "name": "T_AP_Arbeitsplatz",
+    "size": 8,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_AP_Arbeitsplatz_History",
+    "size": 12,
+    "imports": [ "T_AP_Arbeitsplatz" ]
+  },
+  {
+    "name": "T_AP_Aussenobjekt",
+    "size": 1,
+    "imports": [ "T_AP_Grundstueck", "T_AP_Ref_Haus", "T_AP_Ref_AussenobjektAnschlagkastenMaterial", "T_AP_Ref_AussenobjektAnschlagkastenSchliessung", "T_AP_Ref_AussenobjektAnschlagkastenTyp", "T_AP_Ref_AussenobjektBeflaggungTyp", "T_AP_Ref_AussenobjektKategorie", "T_AP_Ref_Mandant", "T_AP_Standort", "T_AP_Ref_AussenobjektNutzungsart", "T_AP_Ref_AussenobjektBodenbelag", "T_AV_Adressen" ]
+  },
+  {
+    "name": "T_AP_Aussenobjekt_History",
+    "size": 1,
+    "imports": [ "T_AP_Aussenobjekt" ]
+  },
+  {
+    "name": "T_AP_Buch",
+    "size": 1,
+    "imports": [ "T_AP_Mobiliar", "T_AP_Standort", "T_AP_Gebaeude", "T_AP_Geschoss", "T_AP_Raum", "T_AP_Ref_Mandant", "T_AP_Ref_BuchKategorie", "T_AP_Ref_BuchGenre", "T_AP_Ref_BuchFormat", "T_AP_Ref_BuchVerlag", "T_AP_Ref_BuchAutor", "T_AP_Ref_BuchErwerbsort" ]
+  },
+  {
+    "name": "T_AP_Buch_History",
+    "size": 1,
+    "imports": [ "T_AP_Buch" ]
+  },
+  {
+    "name": "T_AP_Dokumente",
+    "size": 538,
+    "imports": [ "T_AP_Ref_DokumentKategorie", "T_AP_Ref_DokumentStatus", "T_AP_Dokumente" ]
+  },
+  {
+    "name": "T_AP_Dokumente_History",
+    "size": 8,
+    "imports": [ "T_AP_Dokumente" ]
+  },
+  {
+    "name": "T_AP_Dokumente_Log",
+    "size": 4,
+    "imports": [ "T_AP_Dokumente", "T_AP_Ref_DokumentGrund", "T_Benutzer" ]
+  },
+  {
+    "name": "T_AP_Dose",
+    "size": 1,
+    "imports": [ "T_AP_Ref_DoseKategorie", "T_AP_Ref_Mandant", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_AP_Dose_History",
+    "size": 1,
+    "imports": [ "T_AP_Dose" ]
+  },
+  {
+    "name": "T_AP_DWGSAVE",
+    "size": 254
+  },
+  {
+    "name": "T_AP_DWGSAVE_XREF",
+    "size": 1
+  },
+  {
+    "name": "T_AP_EmailVersand",
+    "size": 1,
+    "imports": [ "T_AP_Ref_EmailtextKategorie" ]
+  },
+  {
+    "name": "T_AP_Fahrzeug",
+    "size": 1,
+    "imports": [ "T_AV_Adressen", "T_AP_Standort", "T_AP_Gebaeude", "T_AP_Geschoss", "T_AP_Raum", "T_AP_Parkplatz", "T_AP_Ref_Mandant", "T_AP_Ref_FahrzeugTyp", "T_AP_Ref_FahrzeugHersteller" ]
+  },
+  {
+    "name": "T_AP_Fahrzeug_History",
+    "size": 1,
+    "imports": [ "T_AP_Fahrzeug" ]
+  },
+  {
+    "name": "T_AP_Fotos",
+    "size": 1,
+    "imports": [ "T_AP_Ref_FotoKategorie" ]
+  },
+  {
+    "name": "T_AP_Gebaeude",
+    "size": 224,
+    "imports": [ "T_AP_Ref_StandortKategorie", "T_AP_Ref_ErschliessungFussweg", "T_AP_Ref_ErschliessungStrasse", "T_AP_Ref_LiegenschaftenStrategie", "T_AP_Standort", "T_AV_Adressen", "T_AP_Ref_Zonenzuteilung", "T_AP_Ref_GebaeudeKlassifizierung", "T_AP_Ref_GebaeudeKategorie", "T_AP_Ref_Mandant", "T_AP_Ref_GebaeudeEinstufung", "T_AP_Ref_Eigentumsverhaeltnis", "T_AP_Ref_GebaeudeUmlaufkonto", "T_AP_Ref_Kostenstelle", "T_BM_Ref_Innenauftrag" ]
+  },
+  {
+    "name": "T_AP_Gebaeude_History",
+    "size": 7,
+    "imports": [ "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_AP_Gebaeude_Reichle",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Strasse_Reichle", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_AP_Gebaeude_SwissLife",
+    "size": 1,
+    "imports": [ "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_AP_Geschoss",
+    "size": 16,
+    "imports": [ "T_AP_Ref_Geschosstyp", "T_AP_Ref_Mandant", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_AP_Geschoss_History",
+    "size": 8,
+    "imports": [ "T_AP_Geschoss" ]
+  },
+  {
+    "name": "T_AP_Geschoss_Reichle",
+    "size": 1,
+    "imports": [ "T_AP_Geschoss", "T_AP_Ref_Geschoss_Reichle" ]
+  },
+  {
+    "name": "T_AP_Grundstueck",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Standort" ]
+  },
+  {
+    "name": "T_AP_Grundstueck_History",
+    "size": 1,
+    "imports": [ "T_AP_Grundstueck" ]
+  },
+  {
+    "name": "T_AP_Informatik",
+    "size": 1,
+    "imports": [ "T_AP_Ref_InformatikBetriebssystem", "T_AP_Ref_InformatikKategorie", "T_AP_Ref_Kostenstelle", "T_AP_Ref_Mandant", "T_AV_Adressen", "T_SYS_Ref_Mandant", "T_AP_Arbeitsplatz", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_AP_Informatik_History",
+    "size": 1,
+    "imports": [ "T_AP_Informatik" ]
+  },
+  {
+    "name": "T_AP_Kommunikation",
+    "size": 1,
+    "imports": [ "T_AP_Ref_KommunikationAnbieter", "T_AP_Ref_KommunikationKategorie", "T_AP_Ref_Kostenstelle", "T_AP_Ref_Mandant", "T_AV_Adressen", "T_AP_Raum", "T_AP_Arbeitsplatz" ]
+  },
+  {
+    "name": "T_AP_Kommunikation_History",
+    "size": 1,
+    "imports": [ "T_AP_Kommunikation" ]
+  },
+  {
+    "name": "T_AP_Kontakte",
+    "size": 182,
+    "imports": [ "T_AP_Ref_Organisationseinheit", "T_AP_Ref_KontaktGeschlecht", "T_AP_Ref_PersonalKategorie", "T_AP_Ref_Kostenstelle", "T_SYS_Ref_Mandant", "T_AP_Ref_MitarbeiterStatus" ]
+  },
+  {
+    "name": "T_AP_Kontakte_History",
+    "size": 7,
+    "imports": [ "T_AP_Kontakte" ]
+  },
+  {
+    "name": "T_AP_Kunst",
+    "size": 1,
+    "imports": [ "T_AP_Ref_KunstEntlassung", "T_AP_Ref_KunstUVSchutz", "T_AP_Ref_KunstProvenienz", "T_AP_Ref_KunstNummerntyp", "T_AP_Ref_KunstErwerbsart", "T_AP_Ref_KunstZustand", "T_AP_Ref_KunstStatus", "T_AP_Ref_KunstRahmenArt", "T_AP_Ref_KunstMandant", "T_AP_Raum", "T_AP_Kunst_Ref_Technik", "T_AP_Kunst", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Kunst_History",
+    "size": 1,
+    "imports": [ "T_AP_Kunst" ]
+  },
+  {
+    "name": "T_AP_Kunst_Ref_Technik",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Legende_Sort",
+    "size": 1
+  },
+  {
+    "name": "T_AP_Legenden",
+    "size": 2183
+  },
+  {
+    "name": "T_AP_Legenden_XREF",
+    "size": 8904
+  },
+  {
+    "name": "T_AP_LinkDWG",
+    "size": 86
+  },
+  {
+    "name": "T_AP_Mobiliar",
+    "size": 6,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Ref_Mandant", "T_AP_Ref_MobiliarFarbe", "T_AV_Adressen", "T_AP_Ref_MobiliarZustand", "T_AP_Ref_MobiliarBibliothek", "T_AP_Arbeitsplatz", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_AP_Mobiliar_History",
+    "size": 2,
+    "imports": [ "T_AP_Mobiliar" ]
+  },
+  {
+    "name": "T_AP_Mobiliar_Sympany",
+    "size": 1,
+    "imports": [ "T_AP_Mobiliar", "T_AP_Ref_KostenstelleH2_Sympany" ]
+  },
+  {
+    "name": "T_AP_Parkplatz",
+    "size": 1,
+    "imports": [ "T_VAR_Variante", "T_AP_Ref_Mandant", "T_AP_Ref_Haus", "T_AP_Standort", "T_AP_Geschoss", "T_AP_Raum", "T_AP_Grundstueck" ]
+  },
+  {
+    "name": "T_AP_Parkplatz_History",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz" ]
+  },
+  {
+    "name": "T_AP_Raum",
+    "size": 1230,
+    "imports": [ "T_IGM_Ref_GlasreinigungServiceLevel", "T_IGM_Ref_InnenreinigungServiceLevel", "T_AP_Ref_Haus", "T_AP_Raum", "T_AP_Ref_Nutzungsart", "T_AP_Ref_Nutzungsart", "T_AP_Geschoss", "T_AP_Ref_Fluchtwegmarkierung", "T_AP_Trakt", "T_AP_Ref_Reinigungsprio", "T_VAR_Variante", "T_AP_Ref_RaumTrakt", "T_AP_Ref_Mandant", "T_AP_Ref_Bodenbelag", "T_AP_Ref_RaumDeckenkonstruktion", "T_AP_Ref_RaumWandoberflaeche", "T_AP_Ref_RaumSicherheitszone", "T_AP_Ref_ZuschlagsflaechenTyp", "T_AP_Ref_Nutzungsart" ]
+  },
+  {
+    "name": "T_AP_Raum_History",
+    "size": 249,
+    "imports": [ "T_AP_Raum" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageBauform",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageBetriebsart",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageEnergietraeger",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageKaeltemittel",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageKategorie",
+    "size": 25,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageKategorieSchema",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageKategorieVerfuegbarkeit",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageLuftbehandlungsfunktion",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageMeta",
+    "size": 45,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex", "T_AP_Ref_AnlageKategorie" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlagePrioritaet",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageRueckkuehlung",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageWRG",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnlageZustand",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnschlussKabelTyp",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnschlussKategorie",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnschlussSwitch",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnschlussTyp",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_AnschlussKategorie", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AnschlussVerteiler",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ArbeitsplatzKategorie",
+    "size": 11,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_AussenobjektAnschlagkastenMaterial",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_AussenobjektAnschlagkastenSchliessung",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_AussenobjektAnschlagkastenTyp",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_AussenobjektAusbauten",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AussenobjektBeflaggungTyp",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_AussenobjektBodenbelag",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_AussenobjektKategorie",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_AussenobjektNutzungsart",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Bodenbelag",
+    "size": 33,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_BuchAutor",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_BuchErwerbsort",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_BuchFormat",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_BuchGenre",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_BuchKategorie",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_BuchVerlag",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Dienstleistung",
+    "size": 18,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_DienstleistungDetail",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_DIN277",
+    "size": 79,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_DokumentGrund",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_DokumentKategorie",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_AP_Ref_DokumentMetadaten",
+    "size": 10,
+    "imports": [ "T_SYS_Ref_Datentyp", "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant", "T_AP_Ref_DokumentMetadaten" ]
+  },
+  {
+    "name": "T_AP_Ref_DokumentStatus",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_DoseKategorie",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Eigentumsverhaeltnis",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Email_Placeholder",
+    "size": 1,
+    "imports": [ "T_AP_Ref_EmailtextKategorie" ]
+  },
+  {
+    "name": "T_AP_Ref_EmailAttachment",
+    "size": 1,
+    "imports": [ "T_AP_EmailVersand" ]
+  },
+  {
+    "name": "T_AP_Ref_Emaillink",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Emailtext",
+    "size": 1,
+    "imports": [ "T_AP_Ref_EmailtextKategorie", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_EmailtextKategorie",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Energiebezugsart",
+    "size": 7,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_ErschliessungFussweg",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_ErschliessungStrasse",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_FahrzeugHersteller",
+    "size": 45,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_FahrzeugTyp",
+    "size": 9,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Fluchtwegmarkierung",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_FotoKategorie",
+    "size": 9,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Freigabetyp",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_GebaeudeEinstufung",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_GebaeudeKategorie",
+    "size": 6,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_GebaeudeKlassifizierung",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_GebaeudeUmlaufkonto",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Geschoss_Reichle",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Geschosstyp",
+    "size": 6,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Haus",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_InformatikBetriebssystem",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_InformatikKategorie",
+    "size": 6,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Innenauftrag",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_KommunikationAnbieter",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_KommunikationKategorie",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_KontakFunktion",
+    "size": 22,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KontaktGeschlecht",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Kostenstelle",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant", "T_SYS_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Kostenstelle_Raiffeisen",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_AP_Ref_KostenstelleH2_Sympany",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Kostenstelle", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KostenstelleH3_Sympany",
+    "size": 1,
+    "imports": [ "T_AP_Ref_KostenstelleH2_Sympany", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KostenstelleH4_Sympany",
+    "size": 1,
+    "imports": [ "T_AP_Ref_KostenstelleH3_Sympany", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstAusleihanlass",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstAusleihart",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstEntlassung",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstErwerbsart",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstInstitution",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstKategorie",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstKuenstler",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_Ref_Geschlecht", "T_AP_Ref_Ort", "T_AP_Ref_Ort", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstMandant",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstNummerntyp",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstProvenienz",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstRahmenArt",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstStatus",
+    "size": 5,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstUVSchutz",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstWerteKategorie",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_KunstZustand",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Land",
+    "size": 30,
+    "imports": [ "T_AP_Ref_Landesteile", "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Landesteile",
+    "size": 17,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Layerset",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_LiegenschaftenStrategie",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Mandant",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Mandant_Logo",
+    "size": 19,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Mietobjekt",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_MitarbeiterStatus",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_MobiliarBibliothek",
+    "size": 70,
+    "imports": [ "T_AP_Ref_MobiliarHersteller", "T_AP_Ref_MobiliarKategorie", "T_AP_Ref_MobiliarMaterial", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_MobiliarBibliothek_Raiffeisen",
+    "size": 1,
+    "imports": [ "T_AP_Ref_MobiliarBibliothek" ]
+  },
+  {
+    "name": "T_AP_Ref_MobiliarBibliothek_Sympany",
+    "size": 1,
+    "imports": [ "T_AP_Ref_MobiliarBibliothek" ]
+  },
+  {
+    "name": "T_AP_Ref_MobiliarFarbe",
+    "size": 7,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_MobiliarHersteller",
+    "size": 13,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_MobiliarKategorie",
+    "size": 10,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_MobiliarMaterial",
+    "size": 6,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_MobiliarZustand",
+    "size": 5,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Nutzungsart",
+    "size": 70,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_NutzungsartGruppe", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Nutzungsart_Raiffeisen",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Nutzungsart" ]
+  },
+  {
+    "name": "T_AP_Ref_NutzungsartGruppe",
+    "size": 10,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Organisationseinheit",
+    "size": 61,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex", "T_SYS_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Organisationseinheit_Raiffeisen",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Organisationseinheit" ]
+  },
+  {
+    "name": "T_AP_Ref_Ort",
+    "size": 259,
+    "imports": [ "T_AP_Ref_Region", "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ParkplatzKategorie",
+    "size": 22,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ParkplatzLage",
+    "size": 6,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ParkplatzPool",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ParkplatzSchutz",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ParkplatzTyp",
+    "size": 5,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_PersonalKategorie",
+    "size": 5,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_PersonGeschlecht",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_RaumDeckenkonstruktion",
+    "size": 6,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_RaumSicherheitszone",
+    "size": 6,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_RaumTrakt",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_RaumWandoberflaeche",
+    "size": 7,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Region",
+    "size": 268,
+    "imports": [ "T_AP_Ref_Land", "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Reinigungsprio",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_SchliessungAufbewahrung",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_SchliessungMandant",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_Schliessungstyp",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_SchluesselbundKategorie",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_SchluesselKategorie",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_SchluesselStatus",
+    "size": 5,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_SchluesselTyp",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_SicherheitKategorie",
+    "size": 6,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_StandortKategorie",
+    "size": 5,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Strasse_Reichle",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_TuerBrandschutz",
+    "size": 9,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_TuerFunktion",
+    "size": 5,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_TuerMaterial",
+    "size": 5,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_TuerTyp",
+    "size": 9,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_ZaehlerKategorie",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ZoneKategorie",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_Zonenzuteilung",
+    "size": 6,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_ZuschlagsflaechenTyp",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ZylinderKasse",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ZylinderKategorie",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_ZylinderSchliesssystem",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Ref_ZylinderStatus",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_AP_Ref_ZylinderTyp",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Schluessel",
+    "size": 1,
+    "imports": [ "T_AP_Mobiliar", "T_AV_Adressen", "T_AP_Ref_SchluesselStatus", "T_AP_Kontakte", "T_AP_Schluesselgruppe", "T_AP_Schluessel", "T_AP_Schluesselbund" ]
+  },
+  {
+    "name": "T_AP_Schluessel_History",
+    "size": 1,
+    "imports": [ "T_AP_Schluessel" ]
+  },
+  {
+    "name": "T_AP_Schluessel_Protokoll",
+    "size": 1,
+    "imports": [ "T_AP_Schluessel" ]
+  },
+  {
+    "name": "T_AP_Schluesselbund",
+    "size": 1,
+    "imports": [ "T_AP_Kontakte", "T_AV_Adressen", "T_AP_Mobiliar", "T_AP_Ref_Mandant", "T_AP_Ref_SchluesselbundKategorie", "T_AP_Ref_SchluesselStatus" ]
+  },
+  {
+    "name": "T_AP_Schluesselbund_History",
+    "size": 1,
+    "imports": [ "T_AP_Schluesselbund" ]
+  },
+  {
+    "name": "T_AP_Schluesselgruppe",
+    "size": 1,
+    "imports": [ "T_AP_Ref_SchluesselKategorie", "T_AP_Ref_SchluesselTyp", "T_AP_Ref_ZylinderSchliesssystem" ]
+  },
+  {
+    "name": "T_AP_Schluesselgruppe_History",
+    "size": 1,
+    "imports": [ "T_AP_Schluesselgruppe" ]
+  },
+  {
+    "name": "T_AP_SHOW_BeilageMV",
+    "size": 1
+  },
+  {
+    "name": "T_AP_Sicherheit",
+    "size": 1,
+    "imports": [ "T_AV_Adressen", "T_UPS_Ref_Baukostenplan", "T_AP_Standort", "T_AP_Ref_Mandant", "T_AP_Geschoss", "T_AP_Gebaeude", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_AP_Sicherheit_History",
+    "size": 1,
+    "imports": [ "T_AP_Sicherheit" ]
+  },
+  {
+    "name": "T_AP_Standort",
+    "size": 194,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Standort", "T_SYS_Ref_Mandant", "T_AP_Ref_Ort" ]
+  },
+  {
+    "name": "T_AP_Standort_History",
+    "size": 7,
+    "imports": [ "T_AP_Standort" ]
+  },
+  {
+    "name": "T_AP_StichtagVisualisierung",
+    "size": 1515
+  },
+  {
+    "name": "T_AP_Trakt",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Ref_Zonenzuteilung", "T_AP_Ref_GebaeudeEinstufung", "T_AV_Adressen", "T_AP_Ref_GebaeudeKategorie", "T_AP_Gebaeude", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AP_Trakt_History",
+    "size": 1,
+    "imports": [ "T_AP_Trakt" ]
+  },
+  {
+    "name": "T_AP_Tuer",
+    "size": 1,
+    "imports": [ "T_AP_Ref_TuerBrandschutz", "T_AP_Ref_TuerTyp", "T_AP_Ref_Mandant", "T_AP_Ref_TuerMaterial", "T_AP_Raum", "T_AP_Ref_TuerFunktion" ]
+  },
+  {
+    "name": "T_AP_Tuer_History",
+    "size": 1,
+    "imports": [ "T_AP_Tuer" ]
+  },
+  {
+    "name": "T_AP_Zaehler",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_AP_Ref_Mandant", "T_AV_Adressen", "T_UPS_Ref_Baukostenplan" ]
+  },
+  {
+    "name": "T_AP_Zaehler_Staende",
+    "size": 6
+  },
+  {
+    "name": "T_AP_Zone",
+    "size": 1,
+    "imports": [ "T_AP_Geschoss", "T_AP_Trakt", "T_AP_Ref_Fluchtwegmarkierung", "T_AP_Ref_Mandant", "T_VAR_Variante", "T_AP_Ref_ZoneKategorie" ]
+  },
+  {
+    "name": "T_AP_Zone_History",
+    "size": 1,
+    "imports": [ "T_AP_Zone" ]
+  },
+  {
+    "name": "T_AP_Zylinder",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Ref_ZylinderKategorie", "T_AP_Ref_ZylinderSchliesssystem", "T_AP_Ref_ZylinderTyp", "T_AP_Tuer", "T_AP_Ref_ZylinderStatus", "T_AP_Ref_ZylinderKasse", "T_AP_Ref_SchliessungMandant" ]
+  },
+  {
+    "name": "T_AP_Zylinder_History",
+    "size": 1,
+    "imports": [ "T_AP_Zylinder" ]
+  },
+  {
+    "name": "T_AV_AdresseKontaktpersonen",
+    "size": 1,
+    "imports": [ "T_AV_Adressen" ]
+  },
+  {
+    "name": "T_AV_Adressen",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Region", "T_AP_Ref_Mandant", "T_AV_Ref_Region", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AV_Adressen_History",
+    "size": 1,
+    "imports": [ "T_AV_Adressen" ]
+  },
+  {
+    "name": "T_AV_Ref_AdresseAnrede",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AV_Ref_AdresseRollen",
+    "size": 11,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_AV_Ref_Region",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_BD_Gebaeudedaten",
+    "size": 1,
+    "imports": [ "T_BD_Ref_Datenkategorie" ]
+  },
+  {
+    "name": "T_BD_Ref_Datengruppe",
+    "size": 14,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_BD_Ref_Datenkategorie",
+    "size": 28,
+    "imports": [ "T_AP_Ref_Mandant", "T_BD_Ref_Datengruppe" ]
+  },
+  {
+    "name": "T_Benutzer",
+    "size": 44
+  },
+  {
+    "name": "T_Benutzer_Benutzergruppen",
+    "size": 152,
+    "imports": [ "T_Benutzer" ]
+  },
+  {
+    "name": "T_Benutzergruppen",
+    "size": 20
+  },
+  {
+    "name": "T_Benutzerrechte",
+    "size": 90954
+  },
+  {
+    "name": "T_Benutzerrechte2",
+    "size": 9633
+  },
+  {
+    "name": "T_BM_Ref_Ausschoepfungsgrad",
+    "size": 1
+  },
+  {
+    "name": "T_BM_Ref_Innenauftrag",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_BM_Ref_Jahr",
+    "size": 5
+  },
+  {
+    "name": "T_BM_Ref_Konto",
+    "size": 9,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_BM_Ref_Phase",
+    "size": 5,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_BM_Ref_Projekttyp",
+    "size": 6,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex", "T_BM_Ref_Innenauftrag" ]
+  },
+  {
+    "name": "T_BM_Ref_Rechnungstatus",
+    "size": 5,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_BM_Ref_SubKonto",
+    "size": 15,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex", "T_BM_Ref_Konto" ]
+  },
+  {
+    "name": "T_BM_Ref_Vorgabeart",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_BM_Ref_Vorgabetyp",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_BM_Vorgabe",
+    "size": 1,
+    "imports": [ "T_AP_Gebaeude", "T_BM_Ref_Jahr", "T_BM_Ref_Vorgabetyp", "T_BM_Ref_Innenauftrag", "T_BM_Ref_Projekttyp", "T_BM_Ref_Konto", "T_BM_Ref_SubKonto" ]
+  },
+  {
+    "name": "T_BM_VorgabeProjekt",
+    "size": 1,
+    "imports": [ "T_BM_Vorgabe", "T_BM_Ref_Phase", "T_Benutzer", "T_Benutzer" ]
+  },
+  {
+    "name": "T_BM_VorgabeProjekt_History",
+    "size": 1,
+    "imports": [ "T_BM_VorgabeProjekt" ]
+  },
+  {
+    "name": "T_BM_VorgabeProjektBudget",
+    "size": 1,
+    "imports": [ "T_BM_VorgabeProjekt", "T_BM_Ref_Vorgabeart", "T_BM_Ref_Konto", "T_BM_Ref_SubKonto" ]
+  },
+  {
+    "name": "T_BM_VorgabeProjektBudgetRechnung",
+    "size": 1,
+    "imports": [ "T_BM_VorgabeProjektBudget", "T_BM_Ref_Rechnungstatus", "T_AV_Adressen", "T_Benutzer", "T_Benutzer", "T_AP_Gebaeude", "T_AP_Anlage", "T_TM_Tasks" ]
+  },
+  {
+    "name": "T_BO_History",
+    "size": 3423
+  },
+  {
+    "name": "T_BO_Menu",
+    "size": 252,
+    "imports": [ "T_SYS_Module" ]
+  },
+  {
+    "name": "T_BO_Menu_CheckDelete",
+    "size": 4
+  },
+  {
+    "name": "T_BRA_SIBE_Ref",
+    "size": 50
+  },
+  {
+    "name": "T_BRA_ZO_Sibe_JahrObjekt",
+    "size": 1
+  },
+  {
+    "name": "T_CL_Checklist",
+    "size": 33,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_CL_Ref_Katalog",
+    "size": 118,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_CL_ZO_Cell",
+    "size": 2895,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_ZO_Table" ]
+  },
+  {
+    "name": "T_CL_ZO_CheckBox",
+    "size": 248,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_ZO_Header", "T_CL_ZO_Cell" ]
+  },
+  {
+    "name": "T_CL_ZO_DropDown",
+    "size": 65,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_ZO_Header", "T_CL_ZO_Cell", "T_CL_Ref_Katalog", "T_CL_Ref_Katalog" ]
+  },
+  {
+    "name": "T_CL_ZO_Header",
+    "size": 1192,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_ZO_Table" ]
+  },
+  {
+    "name": "T_CL_ZO_Image",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_ZO_Header", "T_CL_ZO_Cell" ]
+  },
+  {
+    "name": "T_CL_ZO_Label",
+    "size": 1765,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_ZO_Header", "T_CL_ZO_Cell" ]
+  },
+  {
+    "name": "T_CL_ZO_Table",
+    "size": 229,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_Checklist" ]
+  },
+  {
+    "name": "T_CL_ZO_TextArea",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_ZO_Header", "T_CL_ZO_Cell" ]
+  },
+  {
+    "name": "T_CL_ZO_TextBox",
+    "size": 228,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_ZO_Header", "T_CL_ZO_Cell" ]
+  },
+  {
+    "name": "T_COR_Error",
+    "size": 25
+  },
+  {
+    "name": "T_COR_Log",
+    "size": 4507
+  },
+  {
+    "name": "T_COR_Objekte",
+    "size": 16354,
+    "imports": [ "T_AP_Standort", "T_AP_Aussenobjekt", "T_AP_Grundstueck", "T_AP_Gebaeude", "T_AP_Trakt", "T_AP_Geschoss", "T_AP_Raum", "T_AP_Arbeitsplatz", "T_AP_Mobiliar", "T_AP_Informatik", "T_AP_Dose", "T_AP_Anlage", "T_AP_Sicherheit", "T_AP_Kunst", "T_AP_Kommunikation", "T_AP_Tuer", "T_AP_Parkplatz", "T_AP_Fahrzeug", "T_AP_Zylinder", "T_VM_Vertraege", "T_AV_Adressen", "T_AP_Kontakte", "T_AP_Schluesselgruppe", "T_AP_Zone", "T_AP_Buch", "T_SM_Stoerung", "T_AP_Standort", "T_AP_Gebaeude", "T_AP_Trakt", "T_AP_Geschoss", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_COR_Version",
+    "size": 1745
+  },
+  {
+    "name": "T_COR_ZO_ObjektRechte_Lesen",
+    "size": 650,
+    "imports": [ "T_COR_Objekte", "T_COR_Objekte", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_DAT_Attributed",
+    "size": 5
+  },
+  {
+    "name": "T_DAT_Configuration",
+    "size": 2
+  },
+  {
+    "name": "T_DAT_Raw",
+    "size": 493
+  },
+  {
+    "name": "T_DMS_Configuration",
+    "size": 34
+  },
+  {
+    "name": "T_DMS_ConfigurationTest",
+    "size": 1
+  },
+  {
+    "name": "T_DMS_Dokument",
+    "size": 2,
+    "imports": [ "T_DMS_Ref_DokumentArt", "T_DMS_Ref_DokumentGruppe", "T_DMS_Ref_DokumentTyp", "T_DMS_Ref_NodeType" ]
+  },
+  {
+    "name": "T_DMS_Dokument_History",
+    "size": 8,
+    "imports": [ "T_DMS_Dokument" ]
+  },
+  {
+    "name": "T_DMS_Dokument_Suche",
+    "size": 2
+  },
+  {
+    "name": "T_DMS_Dokument_Version",
+    "size": 2,
+    "imports": [ "T_DMS_Dokument" ]
+  },
+  {
+    "name": "T_DMS_Fehlermeldungen",
+    "size": 7
+  },
+  {
+    "name": "T_DMS_Folder",
+    "size": 68,
+    "imports": [ "T_DMS_Ref_NodeType" ]
+  },
+  {
+    "name": "T_DMS_Folder_History",
+    "size": 72,
+    "imports": [ "T_DMS_Folder" ]
+  },
+  {
+    "name": "T_DMS_Hotlinks",
+    "size": 5
+  },
+  {
+    "name": "T_DMS_Log_UserData",
+    "size": 5322
+  },
+  {
+    "name": "T_DMS_Navigation",
+    "size": 73,
+    "imports": [ "T_DMS_Dokument", "T_DMS_Folder", "T_DMS_Projekt" ]
+  },
+  {
+    "name": "T_DMS_Process",
+    "size": 1
+  },
+  {
+    "name": "T_DMS_Projekt",
+    "size": 3,
+    "imports": [ "T_DMS_Ref_NodeType" ]
+  },
+  {
+    "name": "T_DMS_Projekt_History",
+    "size": 10,
+    "imports": [ "T_DMS_Projekt" ]
+  },
+  {
+    "name": "T_DMS_Ref_Bauphase",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_DokumentArt",
+    "size": 173,
+    "imports": [ "T_DMS_Ref_DokumentGruppe", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_DokumentGruppe",
+    "size": 27,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_DokumentGruppeGebaeude",
+    "size": 11,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_DokumentStatus",
+    "size": 8,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_DokumentTyp",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_1",
+    "size": 436,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_1_old",
+    "size": 19,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_10",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_2",
+    "size": 14,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_2_old",
+    "size": 14,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_3",
+    "size": 12,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_4",
+    "size": 70,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_4_Old",
+    "size": 16,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_5",
+    "size": 7,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_6",
+    "size": 9,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_7",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_8",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Metadaten_9",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_NodeType",
+    "size": 13,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Ref_Prozesse",
+    "size": 9,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_DMS_Ref_QualitaetspruefungDateityp",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_Sessions",
+    "size": 12
+  },
+  {
+    "name": "T_DMS_SYS_DokumentTyp",
+    "size": 5
+  },
+  {
+    "name": "T_DMS_SYS_FilterTyp",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_SYS_FilterZeitraum",
+    "size": 5,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_SYS_HistoryTyp",
+    "size": 6,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_DMS_SYS_MetaKataloge",
+    "size": 10
+  },
+  {
+    "name": "T_DMS_SYS_MetaStruktur",
+    "size": 10,
+    "imports": [ "T_DMS_Ref_DokumentTyp" ]
+  },
+  {
+    "name": "T_DMS_SYS_NavEdit",
+    "size": 3
+  },
+  {
+    "name": "T_DMS_SYS_NodePicture",
+    "size": 13
+  },
+  {
+    "name": "T_DMS_ZO_Berechtigungen",
+    "size": 345
+  },
+  {
+    "name": "T_DMS_ZO_Prozesse_Berechtigungen",
+    "size": 8,
+    "imports": [ "T_Benutzergruppen", "T_DMS_Ref_Prozesse" ]
+  },
+  {
+    "name": "T_DMS_ZO_Standort_Sprache",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_Document",
+    "size": 1
+  },
+  {
+    "name": "T_EM_EnergiePositionen",
+    "size": 16
+  },
+  {
+    "name": "T_EXPL_Funktion",
+    "size": 82
+  },
+  {
+    "name": "T_EXPL_FunktionKommando",
+    "size": 18
+  },
+  {
+    "name": "T_EXPL_Icon",
+    "size": 15
+  },
+  {
+    "name": "T_EXPL_Node",
+    "size": 15
+  },
+  {
+    "name": "T_EXPL_NodeHilfe",
+    "size": 1
+  },
+  {
+    "name": "T_EXPL_Sprache",
+    "size": 1
+  },
+  {
+    "name": "T_EXPL_Text",
+    "size": 1
+  },
+  {
+    "name": "T_EXPL_User",
+    "size": 1
+  },
+  {
+    "name": "T_FMS_AmAxisBase",
+    "size": 79,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_FMS_AmBalloon" ]
+  },
+  {
+    "name": "T_FMS_AmBalloon",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_FMS_AmCategoryAxis",
+    "size": 38,
+    "imports": [ "T_FMS_AmAxisBase", "T_FMS_AmChart" ]
+  },
+  {
+    "name": "T_FMS_AmChart",
+    "size": 62,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_FMS_AmLegend" ]
+  },
+  {
+    "name": "T_FMS_AmChartCursor",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_FMS_AmGraph" ]
+  },
+  {
+    "name": "T_FMS_AmChartScrollbar",
+    "size": 25,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_FMS_AmGraph" ]
+  },
+  {
+    "name": "T_FMS_AmCoordinateChart",
+    "size": 38,
+    "imports": [ "T_FMS_AmChart" ]
+  },
+  {
+    "name": "T_FMS_AmGanttChart",
+    "size": 6,
+    "imports": [ "T_FMS_AmSerialChart", "T_FMS_AmGraph", "T_FMS_AmValueAxis" ]
+  },
+  {
+    "name": "T_FMS_AmGraph",
+    "size": 65,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_FMS_AmBalloon", "T_FMS_AmValueAxis", "T_FMS_AmValueAxis", "T_FMS_AmGraph", "T_FMS_AmValueAxis", "T_FMS_AmValueAxis", "T_FMS_AmCoordinateChart" ]
+  },
+  {
+    "name": "T_FMS_AmGuide",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_FMS_AmValueAxis", "T_FMS_AmCoordinateChart" ]
+  },
+  {
+    "name": "T_FMS_AmImage",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_FMS_AmLabel",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_FMS_AmChart" ]
+  },
+  {
+    "name": "T_FMS_AmLegend",
+    "size": 31,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_FMS_AmPieChart",
+    "size": 24,
+    "imports": [ "T_FMS_AmSlicedChart" ]
+  },
+  {
+    "name": "T_FMS_AmRectangularChart",
+    "size": 38,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_FMS_AmCoordinateChart", "T_FMS_AmChartCursor", "T_FMS_AmChartScrollbar" ]
+  },
+  {
+    "name": "T_FMS_AmSerialChart",
+    "size": 38,
+    "imports": [ "T_FMS_AmRectangularChart", "T_FMS_AmChartScrollbar" ]
+  },
+  {
+    "name": "T_FMS_AmSlicedChart",
+    "size": 24,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_FMS_AmChart" ]
+  },
+  {
+    "name": "T_FMS_AmTitle",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_FMS_AmChart" ]
+  },
+  {
+    "name": "T_FMS_AmTranslation",
+    "size": 13,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_FMS_AmTrendLine",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_FMS_AmRectangularChart", "T_FMS_AmImage", "T_FMS_AmImage", "T_FMS_AmValueAxis", "T_FMS_AmValueAxis" ]
+  },
+  {
+    "name": "T_FMS_AmValueAxis",
+    "size": 41,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_FMS_AmAxisBase", "T_FMS_AmCoordinateChart", "T_FMS_AmValueAxis" ]
+  },
+  {
+    "name": "T_FMS_Configuration",
+    "size": 98
+  },
+  {
+    "name": "T_FMS_Feedback",
+    "size": 2,
+    "imports": [ "T_Benutzer" ]
+  },
+  {
+    "name": "T_FMS_Filter",
+    "size": 74,
+    "imports": [ "T_FMS_Translation", "T_FMS_Translation", "T_FMS_Translation" ]
+  },
+  {
+    "name": "T_FMS_Navigation",
+    "size": 414,
+    "imports": [ "T_SYS_Module", "T_AP_Dokumente", "T_FMS_Navigation" ]
+  },
+  {
+    "name": "T_FMS_Translation",
+    "size": 508
+  },
+  {
+    "name": "T_FMS_ZO_Dashboard",
+    "size": 27,
+    "imports": [ "T_FMS_Navigation", "T_FMS_AmPieChart", "T_FMS_AmSerialChart", "T_FMS_AmGanttChart" ]
+  },
+  {
+    "name": "T_FMS_ZO_Filter",
+    "size": 391,
+    "imports": [ "T_FMS_Filter", "T_FMS_Translation", "T_FMS_Translation", "T_FMS_Navigation" ]
+  },
+  {
+    "name": "T_FMS_ZO_Filter_Dependency",
+    "size": 178,
+    "imports": [ "T_FMS_ZO_Filter", "T_FMS_ZO_Filter" ]
+  },
+  {
+    "name": "T_FMS_ZO_Navigation",
+    "size": 38,
+    "imports": [ "T_Benutzer", "T_FMS_Navigation" ]
+  },
+  {
+    "name": "T_FMS_ZO_Translation",
+    "size": 1
+  },
+  {
+    "name": "T_IGM_Offerte",
+    "size": 1,
+    "imports": [ "T_AP_Standort" ]
+  },
+  {
+    "name": "T_IGM_Ref_Ansatz",
+    "size": 1
+  },
+  {
+    "name": "T_IGM_Ref_GlasreinigungServiceLevel",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_IGM_Ref_InnenreinigungServiceLevel",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_IGM_Ref_Intervall",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_IGM_Ref_Intervall_UHR",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_IGM_Ref_Leistungsart",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_IGM_Ref_Raumgruppe",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_IGM_Tour",
+    "size": 1,
+    "imports": [ "T_AP_Standort" ]
+  },
+  {
+    "name": "T_Image",
+    "size": 1
+  },
+  {
+    "name": "T_INV_Investitionen",
+    "size": 1
+  },
+  {
+    "name": "T_Investitionen",
+    "size": 1
+  },
+  {
+    "name": "T_LOG_ERROR",
+    "size": 1
+  },
+  {
+    "name": "T_LOG_ProzedurRun",
+    "size": 25261
+  },
+  {
+    "name": "T_LOG_SAML",
+    "size": 1
+  },
+  {
+    "name": "T_MM_AnmeldungEmpfaenger",
+    "size": 1
+  },
+  {
+    "name": "T_MM_AnmeldungTag",
+    "size": 1
+  },
+  {
+    "name": "T_MM_Antrag",
+    "size": 19,
+    "imports": [ "T_MM_Ref_UmzugTyp", "T_MM_Ref_Status" ]
+  },
+  {
+    "name": "T_MM_Antrag_History",
+    "size": 13,
+    "imports": [ "T_MM_Antrag" ]
+  },
+  {
+    "name": "T_MM_Antrag_Kommentar",
+    "size": 1,
+    "imports": [ "T_MM_Antrag" ]
+  },
+  {
+    "name": "T_MM_AusfuehrungsZeit",
+    "size": 1
+  },
+  {
+    "name": "T_MM_MDWochenBereich",
+    "size": 1
+  },
+  {
+    "name": "T_MM_Ref_LetzteEMailAusfuehrungsZeit",
+    "size": 1
+  },
+  {
+    "name": "T_MM_Ref_ServiceAnbieter",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_MM_Ref_Status",
+    "size": 6,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_MM_Ref_UmzugTyp",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_MM_StatusAusfuehrungsZeit",
+    "size": 1
+  },
+  {
+    "name": "T_MM_Umzug",
+    "size": 1,
+    "imports": [ "T_AP_Kontakte", "T_MM_Ref_Status", "T_MM_Antrag", "T_AP_Arbeitsplatz", "T_AP_Arbeitsplatz" ]
+  },
+  {
+    "name": "T_MM_Umzug_Bestand",
+    "size": 1,
+    "imports": [ "T_AP_Arbeitsplatz", "T_AP_Arbeitsplatz", "T_MM_Antrag", "T_MM_Ref_Status" ]
+  },
+  {
+    "name": "T_MM_Umzug_History",
+    "size": 1,
+    "imports": [ "T_MM_Umzug" ]
+  },
+  {
+    "name": "T_MM_WochenUmzugTag",
+    "size": 1
+  },
+  {
+    "name": "T_OM_Ref_List",
+    "size": 26,
+    "imports": [ "T_Benutzer", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_OV_Ref_Attribute_BO",
+    "size": 388,
+    "imports": [ "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_OV_Ref_BelegungArt",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_OV_Ref_ObjektTyp",
+    "size": 40,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_OV_SEL_Attribute_BO",
+    "size": 96,
+    "imports": [ "T_OV_Ref_Attribute_BO" ]
+  },
+  {
+    "name": "T_PM_Buchungen",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz", "T_AP_Ref_Mandant", "T_SYS_Ref_Zeit", "T_SYS_Ref_Zeit" ]
+  },
+  {
+    "name": "T_PM_Ref_ParkplatzBuchung",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_POM_Mittelwert",
+    "size": 96,
+    "imports": [ "T_AP_Ref_Mandant", "T_POM_Ref_MittelwertGruppe" ]
+  },
+  {
+    "name": "T_POM_Ref_MittelwertGruppe",
+    "size": 7,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_Ref_ValidDocuments",
+    "size": 18,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_Ref_ValidPictures",
+    "size": 7,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_AnzahlTag",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_Arbeitsgang",
+    "size": 80,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_REM_Ref_Ausbau", "T_REM_Ref_MaschineGeraet", "T_REM_Ref_Reinigungsart", "T_REM_Ref_TarifZeitnachweis" ]
+  },
+  {
+    "name": "T_REM_Ref_Arbeitsgang_Leistung",
+    "size": 335,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_Ausbau",
+    "size": 14,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_REM_Ref_Ausbau_Einheit" ]
+  },
+  {
+    "name": "T_REM_Ref_Ausbau_Einheit",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_BB_Beschaffenheit",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_Bodenbelag",
+    "size": 19,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_REM_Ref_BB_Beschaffenheit" ]
+  },
+  {
+    "name": "T_REM_Ref_Intervall",
+    "size": 12,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_MaschineGeraet",
+    "size": 7,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_RaumName",
+    "size": 75,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_Reinigungsart",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_Tagesplan",
+    "size": 17,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_TarifZeitnachweis",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_REM_Ref_Vorlagen",
+    "size": 5,
+    "imports": [ "T_AP_Ref_Reinigungsprio", "T_AP_Ref_Bodenbelag", "T_AP_Ref_Nutzungsart", "T_AP_Standort", "T_SYS_ApertureColorToHex", "T_REM_Ref_AnzahlTag", "T_REM_Ref_Arbeitsgang", "T_REM_Ref_Arbeitsgang_Leistung", "T_REM_Ref_Intervall", "T_REM_Ref_Reinigungsart" ]
+  },
+  {
+    "name": "T_RPT_LOG_ProzedurRun",
+    "size": 5287
+  },
+  {
+    "name": "T_RPT_Quartalsreportsbeilagen",
+    "size": 1,
+    "imports": [ "T_AP_Standort" ]
+  },
+  {
+    "name": "T_RPT_Quartalsreportsbemerkungen",
+    "size": 1,
+    "imports": [ "T_RPT_Ref_Quartalsreportsbemerkungskategorien", "T_AP_Standort", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_RPT_Quartalsreportsdokumente",
+    "size": 1
+  },
+  {
+    "name": "T_RPT_Ref_Quartalsreportsbemerkungskategorien",
+    "size": 29
+  },
+  {
+    "name": "T_RPT_Reports",
+    "size": 32
+  },
+  {
+    "name": "T_RPT_Settings",
+    "size": 10
+  },
+  {
+    "name": "T_RPT_Translations",
+    "size": 857
+  },
+  {
+    "name": "T_RPT_Translations111",
+    "size": 18
+  },
+  {
+    "name": "T_RPT_WI_Intervall",
+    "size": 1
+  },
+  {
+    "name": "T_SCH_Ref_Schulungskategorie",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SCH_Schulungen",
+    "size": 1
+  },
+  {
+    "name": "T_SessionValues",
+    "size": 1
+  },
+  {
+    "name": "T_Slicklist",
+    "size": 93
+  },
+  {
+    "name": "T_Slicklist_Custom",
+    "size": 2,
+    "imports": [ "T_Slicklist" ]
+  },
+  {
+    "name": "T_SM_Ref_Fachbereich",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SM_Ref_Objekt",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SM_Ref_Status",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SM_Stoerung",
+    "size": 1,
+    "imports": [ "T_Benutzer", "T_Benutzer", "T_Benutzer", "T_AP_Gebaeude", "T_AV_Adressen", "T_AV_AdresseKontaktpersonen", "T_SM_Ref_Status", "T_SM_Ref_Objekt", "T_AP_Kontakte", "T_SM_Ref_Fachbereich", "T_SYS_Language", "T_SYS_Language" ]
+  },
+  {
+    "name": "T_SM_Stoerung_History",
+    "size": 1,
+    "imports": [ "T_SM_Stoerung" ]
+  },
+  {
+    "name": "T_SM2_Ref_FormularZone",
+    "size": 4
+  },
+  {
+    "name": "T_SM2_Ref_StoerungPrioritaet",
+    "size": 3
+  },
+  {
+    "name": "T_SM2_Ref_StoerungSchritt",
+    "size": 17
+  },
+  {
+    "name": "T_SM2_Ref_StoerungStatus",
+    "size": 21,
+    "imports": [ "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_SM2_Stoerung",
+    "size": 1,
+    "imports": [ "T_Benutzer", "T_Benutzer", "T_Benutzer", "T_AP_Anlage", "T_AP_Gebaeude", "T_AP_Geschoss", "T_AP_Raum", "T_SM2_Ref_StoerungStatus", "T_SM2_Ref_StoerungPrioritaet", "T_AP_Standort", "T_AP_Aussenobjekt" ]
+  },
+  {
+    "name": "T_SM2_Stoerung_History",
+    "size": 1,
+    "imports": [ "T_SM2_Stoerung" ]
+  },
+  {
+    "name": "T_SM2_ZO_Stoerungschritt_Benutzergruppe",
+    "size": 1,
+    "imports": [ "T_SM2_Ref_StoerungSchritt", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_SM2_ZO_Stoerungschritte",
+    "size": 78,
+    "imports": [ "T_SM2_Ref_StoerungSchritt", "T_SM2_Ref_StoerungStatus", "T_SM2_Ref_StoerungStatus" ]
+  },
+  {
+    "name": "T_SM2_ZO_StoerungsFlag",
+    "size": 1,
+    "imports": [ "T_SM2_Stoerung", "T_Benutzer" ]
+  },
+  {
+    "name": "T_SM2_ZO_StoerungsKommentar",
+    "size": 1,
+    "imports": [ "T_SM2_Stoerung", "T_Benutzer" ]
+  },
+  {
+    "name": "T_SM2_ZO_StoerungsMail",
+    "size": 2,
+    "imports": [ "T_SM2_Ref_StoerungSchritt" ]
+  },
+  {
+    "name": "T_SM2_ZO_Stoerungstatus_Benutzergruppe",
+    "size": 1,
+    "imports": [ "T_SM2_Ref_StoerungStatus", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_SM2_ZO_Stoerungstatus_Formularzone",
+    "size": 53,
+    "imports": [ "T_SM2_Ref_StoerungStatus", "T_SM2_Ref_FormularZone" ]
+  },
+  {
+    "name": "T_SYS_AdresseRollenrechte",
+    "size": 21,
+    "imports": [ "T_Benutzergruppen", "T_AV_Ref_AdresseRollen", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Anlagerechte",
+    "size": 55,
+    "imports": [ "T_Benutzergruppen", "T_AP_Anlage", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_ApertureColorToHex",
+    "size": 120
+  },
+  {
+    "name": "T_SYS_Arbeitsplatzrechte",
+    "size": 80,
+    "imports": [ "T_Benutzergruppen", "T_AP_Arbeitsplatz", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Aussenobjektrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Aussenobjekt", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_AuthLogs",
+    "size": 1
+  },
+  {
+    "name": "T_SYS_BackOfficeMenuerechte",
+    "size": 151,
+    "imports": [ "T_SYS_Ref_BackOfficeSubMenue", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Backofficerechte",
+    "size": 1383,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Berechtigung_Felder",
+    "size": 1752
+  },
+  {
+    "name": "T_SYS_Berechtigung_Tabellen",
+    "size": 33
+  },
+  {
+    "name": "T_SYS_Buchrechte",
+    "size": 1,
+    "imports": [ "T_AP_Buch", "T_AP_Ref_Mandant", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_SYS_Captcha",
+    "size": 1
+  },
+  {
+    "name": "T_SYS_Doserechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Dose", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Fahrzeugrechte",
+    "size": 210,
+    "imports": [ "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_SYS_FilterHistory",
+    "size": 36
+  },
+  {
+    "name": "T_SYS_Form_Feld_Recht",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_SYS_Form_Register_Recht",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_SYS_Forms_Language",
+    "size": 5
+  },
+  {
+    "name": "T_SYS_Forms_Language_i18n",
+    "size": 20
+  },
+  {
+    "name": "T_SYS_Forms_Language_i18n_Cust",
+    "size": 1
+  },
+  {
+    "name": "T_SYS_Gebaeuderechte",
+    "size": 3360,
+    "imports": [ "T_Benutzergruppen", "T_AP_Ref_Mandant", "T_AP_Standort", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_SYS_Geschossrechte",
+    "size": 160,
+    "imports": [ "T_Benutzergruppen", "T_AP_Ref_Mandant", "T_AP_Geschoss", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_SYS_Grundstueckrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Grundstueck", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Informatikrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Informatik", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_JwtToken",
+    "size": 1
+  },
+  {
+    "name": "T_SYS_Kommunikationrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Kommunikation", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Kunstrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Kunst", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Language",
+    "size": 279
+  },
+  {
+    "name": "T_SYS_Language_DayNames",
+    "size": 1701
+  },
+  {
+    "name": "T_SYS_Language_Forms",
+    "size": 20656
+  },
+  {
+    "name": "T_SYS_Language_Forms_i18n",
+    "size": 15964,
+    "imports": [ "T_SYS_Language" ]
+  },
+  {
+    "name": "T_SYS_Language_Forms_i18n_Cust",
+    "size": 1,
+    "imports": [ "T_SYS_Language" ]
+  },
+  {
+    "name": "T_SYS_Language_Forms_Log",
+    "size": 617,
+    "imports": [ "T_SYS_Language_Forms", "T_Benutzer" ]
+  },
+  {
+    "name": "T_SYS_Language_Forms_Tracker",
+    "size": 1585
+  },
+  {
+    "name": "T_SYS_Language_Log",
+    "size": 559,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Language_MonthNames",
+    "size": 2916
+  },
+  {
+    "name": "T_SYS_Layersetrechte",
+    "size": 62,
+    "imports": [ "T_SYS_Ref_Layerset", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Legendenkonfiguration",
+    "size": 14,
+    "imports": [ "T_SYS_Ref_PapierFormat" ]
+  },
+  {
+    "name": "T_SYS_LoginLog",
+    "size": 1
+  },
+  {
+    "name": "T_SYS_MAP_CountryPolygon",
+    "size": 253,
+    "imports": [ "T_AP_Ref_Land" ]
+  },
+  {
+    "name": "T_SYS_MAP_CountryPolygon2",
+    "size": 179
+  },
+  {
+    "name": "T_SYS_Mobiliarrechte",
+    "size": 60,
+    "imports": [ "T_Benutzergruppen", "T_AP_Mobiliar", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Module",
+    "size": 29
+  },
+  {
+    "name": "T_SYS_Navigationrechte",
+    "size": 13250,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Parkplatzrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Parkplatz", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Raumrechte",
+    "size": 9840,
+    "imports": [ "T_Benutzergruppen", "T_AP_Raum", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Ref_BackOfficeMenue",
+    "size": 33,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Ref_BackOfficeSubMenue",
+    "size": 124,
+    "imports": [ "T_SYS_Ref_BackOfficeMenue", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Ref_BelegungsTyp",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Ref_Dashboard",
+    "size": 17
+  },
+  {
+    "name": "T_SYS_Ref_Datentyp",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Ref_Geschlecht",
+    "size": 2,
+    "imports": [ "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Ref_Language",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Ref_Layerset",
+    "size": 38,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Ref_Layerset_Felder",
+    "size": 21
+  },
+  {
+    "name": "T_SYS_Ref_Mandant",
+    "size": 1,
+    "imports": [ "T_SYS_Ref_MimeTypes", "T_SYS_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Ref_MimeTypes",
+    "size": 689
+  },
+  {
+    "name": "T_SYS_Ref_Monate",
+    "size": 12,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Ref_ObjectMarked",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Ref_PapierFormat",
+    "size": 113
+  },
+  {
+    "name": "T_SYS_Ref_Register",
+    "size": 109,
+    "imports": [ "T_SYS_Ref_Register", "T_SYS_Module" ]
+  },
+  {
+    "name": "T_SYS_Ref_Tage",
+    "size": 7,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Ref_Zeit",
+    "size": 96,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Ref_ZeitEinheiten",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_SYS_Registerrechte",
+    "size": 501,
+    "imports": [ "T_SYS_Ref_Register", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Schluesselbundrechte",
+    "size": 1,
+    "imports": [ "T_AP_Schluesselbund", "T_AP_Ref_Mandant", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_SYS_Schluesselgrupperechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Schluesselgruppe", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Schnittstelle",
+    "size": 1
+  },
+  {
+    "name": "T_SYS_Settings",
+    "size": 26
+  },
+  {
+    "name": "T_SYS_Settings_Benutzer",
+    "size": 1
+  },
+  {
+    "name": "T_SYS_Settings_System",
+    "size": 1
+  },
+  {
+    "name": "T_SYS_Sicherheitrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Sicherheit", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Standortrechte",
+    "size": 1940,
+    "imports": [ "T_Benutzergruppen", "T_AP_Ref_Mandant", "T_AP_Standort" ]
+  },
+  {
+    "name": "T_SYS_Traktrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Trakt", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Tuerrechte",
+    "size": 1,
+    "imports": [ "T_AP_Tuer", "T_AP_Ref_Mandant", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_SYS_Version",
+    "size": 54
+  },
+  {
+    "name": "T_SYS_VisualisierungStichtag",
+    "size": 138
+  },
+  {
+    "name": "T_SYS_Zaehlerrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Zaehler", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Zonerechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Zone", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_SYS_Zylinderrechte",
+    "size": 1,
+    "imports": [ "T_Benutzergruppen", "T_AP_Zylinder", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_TM_Checklist_Value",
+    "size": 744
+  },
+  {
+    "name": "T_TM_Ref_Abteilung",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_Checkliste",
+    "size": 4,
+    "imports": [ "T_TM_Ref_TaskKategorie", "T_AP_Ref_Mandant", "T_TM_Ref_TaskArt", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_Checkliste_Absatz",
+    "size": 176,
+    "imports": [ "T_AP_Ref_Mandant", "T_TM_Ref_Checkliste", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_Checkliste_Checkpoints",
+    "size": 1,
+    "imports": [ "T_TM_Ref_Checkliste_Absatz", "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant", "T_TM_Ref_Checkliste" ]
+  },
+  {
+    "name": "T_TM_Ref_Checkliste_Details",
+    "size": 577,
+    "imports": [ "T_TM_Tasks_Planung", "T_TM_Ref_Checkliste_Absatz", "T_AP_Ref_Mandant", "T_TM_Ref_Checkliste", "T_SYS_ApertureColorToHex", "T_TM_Ref_Checkliste_Wartung", "T_TM_Ref_Checkliste_Taetigkeit" ]
+  },
+  {
+    "name": "T_TM_Ref_Checkliste_Taetigkeit",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_TM_Ref_Checkliste", "T_TM_Ref_Checkliste_Absatz", "T_TM_Tasks_Planung", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_Checkliste_Wartung",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_TM_Ref_Checkliste", "T_SYS_ApertureColorToHex", "T_TM_Ref_Checkliste_Absatz", "T_TM_Tasks_Planung" ]
+  },
+  {
+    "name": "T_TM_Ref_EmailText",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_TM_Ref_FilterAnzeige",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_Periode",
+    "size": 6,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_TaskArt",
+    "size": 105,
+    "imports": [ "T_TM_Ref_TaskKategorie", "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_TaskKategorie",
+    "size": 17,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_TaskPrio",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_TaskStatus",
+    "size": 9,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Ref_ZyklusPeriode",
+    "size": 4,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_TM_Schedule",
+    "size": 965
+  },
+  {
+    "name": "T_TM_Tasks",
+    "size": 1,
+    "imports": [ "T_Benutzer", "T_Benutzer", "T_AP_Dose", "T_AP_Informatik", "T_AP_Parkplatz", "T_TM_Ref_Abteilung", "T_AP_Anlage", "T_AP_Arbeitsplatz", "T_AP_Geschoss", "T_AP_Aussenobjekt", "T_AP_Kunst", "T_AP_Mobiliar", "T_AP_Ref_Mandant", "T_AP_Sicherheit", "T_AP_Trakt", "T_AP_Standort", "T_AP_Tuer", "T_AV_Adressen", "T_AV_Adressen", "T_OV_Ref_ObjektTyp", "T_TM_Ref_TaskArt", "T_TM_Ref_TaskPrio", "T_TM_Ref_TaskStatus", "T_TM_Tasks_Planung", "T_AP_Zylinder", "T_Benutzergruppen", "T_AP_Schluesselgruppe", "T_TM_Ref_Checkliste", "T_VM_Vertraege", "T_AP_Kommunikation", "T_AP_Zone", "T_AP_Buch", "T_AP_Kontakte", "T_SM_Stoerung", "T_AP_Gebaeude", "T_UPS_BudgetPositionen", "T_AP_Raum", "T_SM2_Stoerung" ]
+  },
+  {
+    "name": "T_TM_Tasks_Checkpoints",
+    "size": 1,
+    "imports": [ "T_TM_Ref_Checkliste_Details", "T_TM_Tasks" ]
+  },
+  {
+    "name": "T_TM_Tasks_Planung",
+    "size": 1,
+    "imports": [ "T_Benutzer", "T_Benutzer", "T_AP_Dose", "T_AP_Informatik", "T_AP_Parkplatz", "T_AP_Aussenobjekt", "T_AP_Standort", "T_AP_Anlage", "T_AP_Arbeitsplatz", "T_AP_Geschoss", "T_Benutzergruppen", "T_AP_Zylinder", "T_AP_Schluesselgruppe", "T_AP_Kunst", "T_TM_Ref_ZyklusPeriode", "T_AP_Mobiliar", "T_TM_Ref_Checkliste", "T_AP_Ref_Mandant", "T_AP_Sicherheit", "T_AP_Trakt", "T_AP_Tuer", "T_AV_Adressen", "T_AV_Adressen", "T_OV_Ref_ObjektTyp", "T_VM_Vertraege", "T_TM_Ref_TaskArt", "T_TM_Ref_ZyklusPeriode", "T_AP_Kommunikation", "T_AP_Fahrzeug", "T_AP_Zone", "T_AP_Kontakte", "T_AP_Buch", "T_AP_Gebaeude", "T_AP_Raum", "T_TM_Ref_Abteilung" ]
+  },
+  {
+    "name": "T_TM_Tasks_Planung_Checkpoints",
+    "size": 1,
+    "imports": [ "T_TM_Ref_Checkliste_Details", "T_TM_Tasks_Planung" ]
+  },
+  {
+    "name": "T_UM_Planung",
+    "size": 1,
+    "imports": [ "T_AP_Kontakte", "T_UM_Ref_Status", "T_AP_Kontakte", "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_UM_Ref_Status",
+    "size": 2,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_UM_Umzug",
+    "size": 1,
+    "imports": [ "T_ZO_AP_Arbeitsplatz_AP_Belegung", "T_AP_Gebaeude", "T_UM_Planung", "T_AP_Kontakte", "T_AP_Standort", "T_AP_Trakt", "T_AP_Geschoss", "T_AP_Raum", "T_AP_Arbeitsplatz" ]
+  },
+  {
+    "name": "T_UM2_Planung",
+    "size": 1,
+    "imports": [ "T_AP_Kontakte", "T_AP_Kontakte", "T_AP_Kontakte", "T_AP_Ref_Kostenstelle", "T_AP_Ref_Kostenstelle", "T_UM2_Ref_Status" ]
+  },
+  {
+    "name": "T_UM2_Ref_Status",
+    "size": 3,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_UM2_Umzug",
+    "size": 1,
+    "imports": [ "T_AP_Arbeitsplatz", "T_AP_Arbeitsplatz", "T_AP_Gebaeude", "T_AP_Geschoss", "T_AP_Raum", "T_AP_Standort", "T_AP_Trakt", "T_UM2_Planung" ]
+  },
+  {
+    "name": "T_UPS_BudgetPositionen",
+    "size": 1,
+    "imports": [ "T_UPS_Ref_Kontoplan", "T_UPS_Ref_Baukostenplan", "T_UPS_Ref_FilterPlanungsvariante", "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_UPS_Rechnungskontrolle",
+    "size": 1,
+    "imports": [ "T_Benutzer", "T_UPS_BudgetPositionen", "T_AP_Anlage", "T_AP_Sicherheit", "T_AV_Adressen", "T_AP_Standort", "T_AP_Gebaeude", "T_UPS_Ref_Baukostenplan", "T_TM_Tasks" ]
+  },
+  {
+    "name": "T_UPS_Ref_Baukostenplan",
+    "size": 550,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_UPS_Ref_FilterPlanungsvariante",
+    "size": 11,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_UPS_Ref_Kontoplan",
+    "size": 23,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_UW_Ref_Bereich",
+    "size": 4,
+    "imports": [ "T_UW_Ref_Einheit", "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_UW_Ref_Einheit",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_UW_Ref_Position",
+    "size": 123,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_UW_Verbrauch",
+    "size": 1,
+    "imports": [ "T_AP_Anlage", "T_AP_Standort", "T_AP_Gebaeude", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_VAR_Projekt",
+    "size": 1
+  },
+  {
+    "name": "T_VAR_Variante",
+    "size": 1,
+    "imports": [ "T_VAR_Projekt" ]
+  },
+  {
+    "name": "T_VM_Ref_KostenPeriode",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VM_Ref_Kuendigungsperiode",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VM_Ref_Liegenschaft",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VM_Ref_Vertragsfachstelle",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VM_Ref_Vertragspartei",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VM_Ref_Vertragsstatus",
+    "size": 3,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VM_Ref_Vertragstyp",
+    "size": 4,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VM_Ref_Vertragszustaendigkeit",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VM_Vertraege",
+    "size": 2,
+    "imports": [ "T_UPS_Ref_Baukostenplan", "T_AP_Ref_Mandant", "T_VM_Ref_Vertragszustaendigkeit", "T_VM_Ref_Vertragstyp", "T_VM_Ref_Liegenschaft", "T_VM_Ref_Vertragspartei", "T_AV_AdresseKontaktpersonen", "T_VM_Ref_KostenPeriode", "T_TM_Ref_ZyklusPeriode", "T_TM_Ref_ZyklusPeriode", "T_AV_Adressen", "T_SYS_ApertureColorToHex", "T_AP_Kontakte", "T_VM_Vertraege", "T_VM_Ref_Vertragsstatus", "T_VM_Ref_Vertragsfachstelle", "T_VM_Ref_Kuendigungsperiode" ]
+  },
+  {
+    "name": "T_VM_Vertraege_History",
+    "size": 2,
+    "imports": [ "T_VM_Vertraege" ]
+  },
+  {
+    "name": "T_VWS_PortalTree",
+    "size": 3
+  },
+  {
+    "name": "T_VWS_Ref_Auftragsart",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VWS_Ref_Color",
+    "size": 5
+  },
+  {
+    "name": "T_VWS_Ref_Darstellung",
+    "size": 47,
+    "imports": [ "T_VWS_SVG", "T_VWS_Ref_Legende", "T_VWS_Ref_Darstellung" ]
+  },
+  {
+    "name": "T_VWS_Ref_Einheit",
+    "size": 3
+  },
+  {
+    "name": "T_VWS_Ref_FontFamily",
+    "size": 4
+  },
+  {
+    "name": "T_VWS_Ref_Legende",
+    "size": 10
+  },
+  {
+    "name": "T_VWS_Ref_LegendeFelder",
+    "size": 27,
+    "imports": [ "T_VWS_Ref_Legende", "T_VWS_Ref_Einheit" ]
+  },
+  {
+    "name": "T_VWS_Ref_Navigation",
+    "size": 21
+  },
+  {
+    "name": "T_VWS_Ref_PaperSize",
+    "size": 4
+  },
+  {
+    "name": "T_VWS_Ref_Source",
+    "size": 6
+  },
+  {
+    "name": "T_VWS_Ref_Stempel",
+    "size": 5,
+    "imports": [ "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_VWS_Ref_Stylizer",
+    "size": 16
+  },
+  {
+    "name": "T_VWS_SVG",
+    "size": 441,
+    "imports": [ "T_Benutzer", "T_VWS_SVG", "T_VWS_Ref_Einheit" ]
+  },
+  {
+    "name": "T_VWS_Text",
+    "size": 29,
+    "imports": [ "T_VWS_SVG", "T_VWS_Ref_Darstellung", "T_VWS_Ref_Color", "T_VWS_Ref_FontFamily" ]
+  },
+  {
+    "name": "T_VWS_ZO_DarstellungRechte_Lesen",
+    "size": 17,
+    "imports": [ "T_VWS_Ref_Darstellung", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_VWS_ZO_NavigationRechte_Lesen",
+    "size": 17,
+    "imports": [ "T_VWS_Ref_Navigation", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_VWS_ZO_Ref_Darstellung_Layerset",
+    "size": 41,
+    "imports": [ "T_VWS_Ref_Darstellung" ]
+  },
+  {
+    "name": "T_VWS_ZO_Ref_Darstellung_Ref_Legende",
+    "size": 15,
+    "imports": [ "T_VWS_Ref_Darstellung", "T_VWS_Ref_Legende" ]
+  },
+  {
+    "name": "T_VWS_ZO_Ref_Darstellung_Ref_ObjektTyp",
+    "size": 88,
+    "imports": [ "T_VWS_Ref_Darstellung", "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_VWS_ZO_Ref_Stempel_AP_Objekt",
+    "size": 11,
+    "imports": [ "T_VWS_Ref_Stempel" ]
+  },
+  {
+    "name": "T_VWS_ZO_Ref_Stempel_Stylizer",
+    "size": 7,
+    "imports": [ "T_VWS_Ref_Stempel", "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_VWS_ZO_SVG_AP_Objekt",
+    "size": 1,
+    "imports": [ "T_AP_Dose", "T_AP_Anlage", "T_AP_Sicherheit", "T_AP_Kunst", "T_AP_Kommunikation", "T_AP_Tuer", "T_AP_Parkplatz", "T_AP_Fahrzeug", "T_AP_Zylinder", "T_VWS_SVG", "T_AP_Standort", "T_AP_Aussenobjekt", "T_AP_Grundstueck", "T_AP_Gebaeude", "T_AP_Trakt", "T_AP_Geschoss", "T_AP_Raum", "T_AP_Arbeitsplatz", "T_AP_Mobiliar", "T_AP_Informatik" ]
+  },
+  {
+    "name": "T_ZO_AP_Anlage_AP_Ref_AnlageMeta",
+    "size": 2,
+    "imports": [ "T_AP_Anlage", "T_AP_Ref_AnlageMeta" ]
+  },
+  {
+    "name": "T_ZO_AP_Anlage_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Anlage" ]
+  },
+  {
+    "name": "T_ZO_AP_Anschluss_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Anschluss" ]
+  },
+  {
+    "name": "T_ZO_AP_Arbeitsplatz_AP_Belegung",
+    "size": 3,
+    "imports": [ "T_AP_Arbeitsplatz", "T_AP_Kontakte" ]
+  },
+  {
+    "name": "T_ZO_AP_Arbeitsplatz_AP_Ref_Kostenstelle",
+    "size": 1,
+    "imports": [ "T_AP_Arbeitsplatz", "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_ZO_AP_Arbeitsplatz_AP_Ref_Kostenstelle_Sympany",
+    "size": 1,
+    "imports": [ "T_AP_Arbeitsplatz", "T_AP_Ref_KostenstelleH2_Sympany" ]
+  },
+  {
+    "name": "T_ZO_AP_Arbeitsplatz_AP_Ref_Organisationseinheit",
+    "size": 1,
+    "imports": [ "T_AP_Arbeitsplatz", "T_AP_Ref_Organisationseinheit" ]
+  },
+  {
+    "name": "T_ZO_AP_Arbeitsplatz_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Arbeitsplatz" ]
+  },
+  {
+    "name": "T_ZO_AP_Arbeitsplatz_Reservation",
+    "size": 1,
+    "imports": [ "T_AP_Arbeitsplatz", "T_Benutzer" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_AP_Belegung",
+    "size": 1,
+    "imports": [ "T_VM_Vertraege", "T_AP_Kontakte", "T_AV_Adressen", "T_SYS_Ref_BelegungsTyp", "T_AP_Aussenobjekt" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_AP_Ref_Anmietvertraege",
+    "size": 1,
+    "imports": [ "T_VM_Vertraege", "T_AP_Aussenobjekt" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_AP_Ref_AussenobjektAusbauten",
+    "size": 1,
+    "imports": [ "T_AP_Aussenobjekt", "T_AP_Ref_AussenobjektAusbauten" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_AP_Ref_Kostenstelle",
+    "size": 1,
+    "imports": [ "T_AP_Aussenobjekt", "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_AP_Ref_Mietobjekt",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mietobjekt", "T_AP_Aussenobjekt" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_AP_Ref_Mietvertraege",
+    "size": 1,
+    "imports": [ "T_AP_Aussenobjekt", "T_VM_Vertraege" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Aussenobjekt" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_Flaeche",
+    "size": 1,
+    "imports": [ "T_AP_Aussenobjekt" ]
+  },
+  {
+    "name": "T_ZO_AP_Aussenobjekt_T_AP_Ref_AussenobjektNutzungsart",
+    "size": 1,
+    "imports": [ "T_AP_Aussenobjekt", "T_AP_Ref_AussenobjektNutzungsart" ]
+  },
+  {
+    "name": "T_ZO_AP_Buch_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Buch" ]
+  },
+  {
+    "name": "T_ZO_AP_Dokumente_AP_Ref_DokumentMetadaten",
+    "size": 3,
+    "imports": [ "T_AP_Dokumente", "T_AP_Ref_DokumentMetadaten" ]
+  },
+  {
+    "name": "T_ZO_AP_Dose_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Dose" ]
+  },
+  {
+    "name": "T_ZO_AP_Fahrzeug_DWG",
+    "size": 1
+  },
+  {
+    "name": "T_ZO_AP_Gebaeude_AP_Ref_AnlagaeKategorieSchema",
+    "size": 1,
+    "imports": [ "T_AP_Ref_AnlageKategorieSchema", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_ZO_AP_Gebaeude_AP_Ref_Kostenstelle",
+    "size": 1,
+    "imports": [ "T_AP_Gebaeude", "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_ZO_AP_Gebaeude_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_ZO_AP_Gebaeude_Flaeche",
+    "size": 1,
+    "imports": [ "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_ZO_AP_Geschoss_DWG",
+    "size": 8,
+    "imports": [ "T_AP_Geschoss" ]
+  },
+  {
+    "name": "T_ZO_AP_Geschoss_Flaeche",
+    "size": 8,
+    "imports": [ "T_AP_Geschoss" ]
+  },
+  {
+    "name": "T_ZO_AP_Grundstueck_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Grundstueck" ]
+  },
+  {
+    "name": "T_ZO_AP_Grundstueck_Flaeche",
+    "size": 1,
+    "imports": [ "T_AP_Grundstueck" ]
+  },
+  {
+    "name": "T_ZO_AP_Informatik_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Informatik" ]
+  },
+  {
+    "name": "T_ZO_AP_Kommunikation_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Kommunikation" ]
+  },
+  {
+    "name": "T_ZO_AP_Kontakte_AP_Ref_Funktionen",
+    "size": 1,
+    "imports": [ "T_AP_Ref_KontakFunktion", "T_AP_Kontakte" ]
+  },
+  {
+    "name": "T_ZO_AP_Kontakte_AP_Ref_Kostenstelle",
+    "size": 3,
+    "imports": [ "T_AP_Kontakte", "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_ZO_AP_Kontakte_AP_Ref_Kostenstelle_Sympany",
+    "size": 1,
+    "imports": [ "T_AP_Kontakte", "T_AP_Ref_KostenstelleH4_Sympany" ]
+  },
+  {
+    "name": "T_ZO_AP_Kontakte_AP_Ref_Organisationseinheit",
+    "size": 166,
+    "imports": [ "T_AP_Ref_Organisationseinheit", "T_AP_Kontakte" ]
+  },
+  {
+    "name": "T_ZO_AP_Kontakte_AP_Ref_PersonalKategorie",
+    "size": 171,
+    "imports": [ "T_AP_Ref_PersonalKategorie", "T_AP_Kontakte" ]
+  },
+  {
+    "name": "T_ZO_AP_Kunst_AP_Ref_KunstKuenstler",
+    "size": 1,
+    "imports": [ "T_AP_Ref_KunstKuenstler", "T_AP_Kunst" ]
+  },
+  {
+    "name": "T_ZO_AP_Kunst_Ausleihe",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Kunst", "T_AP_Ref_KunstAusleihart", "T_AP_Ref_KunstAusleihanlass", "T_AP_Ref_KunstInstitution" ]
+  },
+  {
+    "name": "T_ZO_AP_Kunst_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Kunst" ]
+  },
+  {
+    "name": "T_ZO_AP_Kunst_Kosten",
+    "size": 1,
+    "imports": [ "T_AP_Kunst" ]
+  },
+  {
+    "name": "T_ZO_AP_Kunst_Werte",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Kunst", "T_AP_Ref_KunstWerteKategorie" ]
+  },
+  {
+    "name": "T_ZO_AP_MarkDWG",
+    "size": 1,
+    "imports": [ "T_Benutzer" ]
+  },
+  {
+    "name": "T_ZO_AP_Mobiliar_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Mobiliar" ]
+  },
+  {
+    "name": "T_ZO_AP_Objekt_AP_Kontakte",
+    "size": 1,
+    "imports": [ "T_AP_Ref_KontakFunktion", "T_AP_Kontakte" ]
+  },
+  {
+    "name": "T_ZO_AP_Objekt_AP_Vertrag",
+    "size": 1,
+    "imports": [ "T_VM_Vertraege" ]
+  },
+  {
+    "name": "T_ZO_AP_Objekt_T_AV_Adressen",
+    "size": 1,
+    "imports": [ "T_AV_Adressen" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_AP_Belegung",
+    "size": 1,
+    "imports": [ "T_AP_Kontakte", "T_AP_Ref_ParkplatzPool", "T_AV_Adressen", "T_SYS_Ref_BelegungsTyp", "T_VM_Vertraege", "T_AP_Parkplatz" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_AP_Kontakte",
+    "size": 1,
+    "imports": [ "T_AP_Kontakte", "T_AP_Parkplatz" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_AP_Ref_Anmietvertraege",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz", "T_VM_Vertraege" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_AP_Ref_Kostenstelle",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz", "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_AP_Ref_Mietobjekt",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mietobjekt", "T_AP_Parkplatz" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_AP_Ref_Mietvertraege",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz", "T_VM_Vertraege" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_AV_Adressen",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz", "T_AV_Adressen" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_Flaeche",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz" ]
+  },
+  {
+    "name": "T_ZO_AP_Parkplatz_Reservation",
+    "size": 1,
+    "imports": [ "T_AP_Parkplatz", "T_Benutzer" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Anmietvertraege",
+    "size": 1,
+    "imports": [ "T_VM_Vertraege", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Energiebezugsart",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Energiebezugsart", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Kostenstelle",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Kostenstelle", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Mietobjekt",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mietobjekt", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Mietvertraege",
+    "size": 1,
+    "imports": [ "T_VM_Vertraege", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Nutzungsart",
+    "size": 246,
+    "imports": [ "T_AP_Ref_Nutzungsart", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Organisationseinheit",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Organisationseinheit", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Zuschlagsflaeche",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Zuschlagsflaeche_Geschoss",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Zuschlagsflaeche_Parkplatz",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_AP_Parkplatz" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_AP_Ref_Zuschlagsflaeche_Parkplatz_Geschoss",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_AP_Parkplatz" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_DWG",
+    "size": 246,
+    "imports": [ "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_Flaeche",
+    "size": 246,
+    "imports": [ "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_AP_Raum_Reservation",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_Benutzer" ]
+  },
+  {
+    "name": "T_ZO_AP_Ref_AnlageKategorie_AP_Ref_AnlageKategorieSchema",
+    "size": 1,
+    "imports": [ "T_AP_Ref_AnlageKategorie", "T_AP_Ref_AnlageKategorieSchema" ]
+  },
+  {
+    "name": "T_ZO_AP_Ref_Arbeitsplatzkategorie_AP_Ref_MobiliarBibliothek",
+    "size": 1,
+    "imports": [ "T_AP_Ref_ArbeitsplatzKategorie" ]
+  },
+  {
+    "name": "T_ZO_AP_Ref_Organisationseinheit_AP_Ref_Kostenstelle",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Kostenstelle", "T_AP_Ref_Organisationseinheit" ]
+  },
+  {
+    "name": "T_ZO_AP_Schluessel_AP_Kontakte",
+    "size": 1,
+    "imports": [ "T_AP_Kontakte", "T_AP_Schluessel" ]
+  },
+  {
+    "name": "T_ZO_AP_Schluesselgruppe_AP_Ref_Funktionen",
+    "size": 1,
+    "imports": [ "T_AP_Schluesselgruppe", "T_AP_Ref_KontakFunktion" ]
+  },
+  {
+    "name": "T_ZO_AP_Schluesselgruppe_AP_Zylinder",
+    "size": 1,
+    "imports": [ "T_AP_Zylinder", "T_AP_Schluesselgruppe" ]
+  },
+  {
+    "name": "T_ZO_AP_Schluesselgruppe_Mandant",
+    "size": 1,
+    "imports": [ "T_AP_Schluesselgruppe", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_ZO_AP_SHOW_Geschoss_Reinigungsplanung",
+    "size": 1,
+    "imports": [ "T_ZO_REM_AP_Standort_Planung", "T_AP_Geschoss" ]
+  },
+  {
+    "name": "T_ZO_AP_Sicherheit_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Sicherheit" ]
+  },
+  {
+    "name": "T_ZO_AP_Standort_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Standort" ]
+  },
+  {
+    "name": "T_ZO_AP_Trakt_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Trakt" ]
+  },
+  {
+    "name": "T_ZO_AP_Tuer_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Tuer" ]
+  },
+  {
+    "name": "T_ZO_AP_Tuer_Schliessung",
+    "size": 1,
+    "imports": [ "T_AP_Tuer", "T_ZO_AP_Tuer_Schliessung", "T_AP_Ref_Schliessungstyp" ]
+  },
+  {
+    "name": "T_ZO_AP_Zaehler_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Zaehler" ]
+  },
+  {
+    "name": "T_ZO_AP_Zone_AP_Ref_Anmietvertraege",
+    "size": 1,
+    "imports": [ "T_VM_Vertraege", "T_AP_Zone" ]
+  },
+  {
+    "name": "T_ZO_AP_Zone_AP_Ref_Kostenstelle",
+    "size": 1,
+    "imports": [ "T_AP_Zone", "T_AP_Ref_Kostenstelle" ]
+  },
+  {
+    "name": "T_ZO_AP_Zone_AP_Ref_Mietobjekt",
+    "size": 1,
+    "imports": [ "T_AP_Zone", "T_AP_Ref_Mietobjekt" ]
+  },
+  {
+    "name": "T_ZO_AP_Zone_AP_Ref_Mietvertraege",
+    "size": 1,
+    "imports": [ "T_AP_Zone", "T_VM_Vertraege" ]
+  },
+  {
+    "name": "T_ZO_AP_Zone_AP_Ref_Organisationseinheit",
+    "size": 1,
+    "imports": [ "T_AP_Zone", "T_AP_Ref_Organisationseinheit" ]
+  },
+  {
+    "name": "T_ZO_AP_Zone_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Zone" ]
+  },
+  {
+    "name": "T_ZO_AP_Zone_Flaeche",
+    "size": 1,
+    "imports": [ "T_AP_Zone" ]
+  },
+  {
+    "name": "T_ZO_AP_Zylinder_AP_Schluesselgruppe_Benutzer",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_AP_Zylinder", "T_AP_Schluesselgruppe", "T_Benutzer" ]
+  },
+  {
+    "name": "T_ZO_AP_Zylinder_DWG",
+    "size": 1,
+    "imports": [ "T_AP_Zylinder" ]
+  },
+  {
+    "name": "T_ZO_AP_Zylinder_Mandant",
+    "size": 1,
+    "imports": [ "T_AP_Zylinder", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_ZO_AV_Adresse_AV_Ref_AdresseRollen",
+    "size": 1,
+    "imports": [ "T_AV_Adressen", "T_AV_Ref_AdresseRollen" ]
+  },
+  {
+    "name": "T_ZO_AV_Adressen_T_AP_Gebaeude",
+    "size": 1,
+    "imports": [ "T_AV_Adressen", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_ZO_AV_Adressen_T_SM_Ref_Fachbereich",
+    "size": 1,
+    "imports": [ "T_AV_Adressen", "T_SM_Ref_Fachbereich" ]
+  },
+  {
+    "name": "T_ZO_Benutzer_Mandant",
+    "size": 11,
+    "imports": [ "T_Benutzer", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_ZO_Benutzer_Schedule",
+    "size": 2,
+    "imports": [ "T_Benutzer" ]
+  },
+  {
+    "name": "T_ZO_BM_0_Vorgabetyp_Vorgabeart",
+    "size": 3,
+    "imports": [ "T_BM_Ref_Vorgabetyp", "T_BM_Ref_Vorgabeart" ]
+  },
+  {
+    "name": "T_ZO_BM_1a_Vorgabeart_Innenauftrag",
+    "size": 3,
+    "imports": [ "T_ZO_BM_0_Vorgabetyp_Vorgabeart", "T_BM_Ref_Innenauftrag" ]
+  },
+  {
+    "name": "T_ZO_BM_1b_Vorgabeart_Konto",
+    "size": 8,
+    "imports": [ "T_ZO_BM_0_Vorgabetyp_Vorgabeart", "T_BM_Ref_Konto" ]
+  },
+  {
+    "name": "T_ZO_BM_2a_Innenauftrag_Projekttyp",
+    "size": 9,
+    "imports": [ "T_ZO_BM_1a_Vorgabeart_Innenauftrag", "T_BM_Ref_Projekttyp" ]
+  },
+  {
+    "name": "T_ZO_BM_2b_Konto_SubKonto",
+    "size": 15,
+    "imports": [ "T_ZO_BM_1b_Vorgabeart_Konto", "T_BM_Ref_SubKonto" ]
+  },
+  {
+    "name": "T_ZO_BM_Vorgabetyp_Phase",
+    "size": 6,
+    "imports": [ "T_BM_Ref_Vorgabetyp", "T_BM_Ref_Phase" ]
+  },
+  {
+    "name": "T_ZO_CL_Checklist",
+    "size": 778,
+    "imports": [ "T_AP_Ref_Mandant", "T_CL_Checklist" ]
+  },
+  {
+    "name": "T_ZO_CL_Checklist_Values",
+    "size": 180,
+    "imports": [ "T_AP_Ref_Mandant", "T_ZO_CL_Checklist", "T_CL_ZO_TextBox", "T_CL_ZO_CheckBox", "T_CL_ZO_DropDown", "T_CL_ZO_TextArea" ]
+  },
+  {
+    "name": "T_ZO_IGM_Offerte_Raum",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_IGM_Offerte" ]
+  },
+  {
+    "name": "T_ZO_IGM_Raum_AP_Ref_Bodenbelag",
+    "size": 1
+  },
+  {
+    "name": "T_ZO_IGM_Raum_Glasreinigung",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_IGM_Ref_GlasreinigungServiceLevel" ]
+  },
+  {
+    "name": "T_ZO_IGM_Raum_Innenreinigung",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_IGM_Ref_InnenreinigungServiceLevel" ]
+  },
+  {
+    "name": "T_ZO_IGM_Raum_T_IGM_Ref_Raumgruppe",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_IGM_Ref_Raumgruppe" ]
+  },
+  {
+    "name": "T_ZO_IGM_Raum_Tagesdienst",
+    "size": 1,
+    "imports": [ "T_AP_Raum" ]
+  },
+  {
+    "name": "T_ZO_IGM_Raum_Unterhaltsreinigung",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_AP_Ref_Reinigungsprio", "T_IGM_Ref_Intervall_UHR" ]
+  },
+  {
+    "name": "T_ZO_IGM_Reinigungsgruppe",
+    "size": 1,
+    "imports": [ "T_IGM_Ref_Intervall_UHR", "T_AP_Ref_Bodenbelag", "T_AP_Ref_Nutzungsart", "T_AP_Ref_Reinigungsprio", "T_IGM_Ref_Raumgruppe" ]
+  },
+  {
+    "name": "T_ZO_IGM_Standort_T_IGM_Ref_Leistungsart",
+    "size": 1,
+    "imports": [ "T_AP_Standort", "T_IGM_Ref_Leistungsart" ]
+  },
+  {
+    "name": "T_ZO_IGM_Tour_Raum",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_IGM_Tour" ]
+  },
+  {
+    "name": "T_ZO_MM_Bestand_Umzug",
+    "size": 1,
+    "imports": [ "T_MM_Umzug", "T_MM_Umzug_Bestand" ]
+  },
+  {
+    "name": "T_ZO_MM_Standort_ServiceAnbieter",
+    "size": 1,
+    "imports": [ "T_MM_Ref_ServiceAnbieter", "T_AP_Standort" ]
+  },
+  {
+    "name": "T_ZO_OBJ_OBJK",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_AP_Kontakte", "T_AP_Ref_InformatikKategorie", "T_AP_Ref_KommunikationKategorie", "T_AP_Ref_MobiliarKategorie", "T_AP_Arbeitsplatz" ]
+  },
+  {
+    "name": "T_ZO_Objekt_Wgs84Polygon",
+    "size": 1462,
+    "imports": [ "T_AP_Standort", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_ZO_ObjektTyp_Objekttyp",
+    "size": 46,
+    "imports": [ "T_OV_Ref_ObjektTyp", "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_ZO_OM_Ref_List",
+    "size": 46,
+    "imports": [ "T_OM_Ref_List", "T_Benutzer" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektDatum",
+    "size": 4,
+    "imports": [ "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektDefect",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_Ref_Layerset", "T_TM_Tasks" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektNr",
+    "size": 1,
+    "imports": [ "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektPolygon",
+    "size": 14,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_Ref_Layerset" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektSymbol",
+    "size": 249,
+    "imports": [ "T_OV_Ref_ObjektTyp", "T_AP_Dokumente", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektSymbol_Objekt",
+    "size": 42,
+    "imports": [ "T_ZO_OV_Ref_ObjektSymbolVersion", "T_ZO_OV_Ref_ObjektSymbol", "T_AP_Ref_Mandant" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektSymbol_T_SYS_Ref_Layerset",
+    "size": 270,
+    "imports": [ "T_ZO_OV_Ref_ObjektSymbol", "T_SYS_Ref_Layerset" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektSymbolStempel",
+    "size": 3,
+    "imports": [ "T_ZO_OV_Ref_ObjektSymbol", "T_SYS_Ref_Layerset" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektSymbolVersion",
+    "size": 21
+  },
+  {
+    "name": "T_ZO_OV_Ref_ObjektText",
+    "size": 27,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_Ref_Layerset", "T_SYS_ApertureColorToHex", "T_SYS_ApertureColorToHex" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_Objekttyp_AP_Ref_Mandant",
+    "size": 21,
+    "imports": [ "T_AP_Ref_Mandant", "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_Objekttyp_T_BO_Menu",
+    "size": 23,
+    "imports": [ "T_OV_Ref_ObjektTyp", "T_BO_Menu" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_Objekttyp_T_FMS_Navigation",
+    "size": 3,
+    "imports": [ "T_OV_Ref_ObjektTyp", "T_FMS_Navigation" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_Objekttyp_T_SYS_Ref_Register",
+    "size": 1401,
+    "imports": [ "T_OV_Ref_ObjektTyp", "T_SYS_Ref_Register" ]
+  },
+  {
+    "name": "T_ZO_OV_Ref_Objekttyp_TM_Ref_Checkliste",
+    "size": 10,
+    "imports": [ "T_OV_Ref_ObjektTyp", "T_TM_Ref_Checkliste" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Gebaeude_Ref_Raumpfleger",
+    "size": 1,
+    "imports": [ "T_SYS_ApertureColorToHex", "T_AP_Kontakte", "T_AP_Gebaeude" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Planung_Ref_Raum",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_ZO_REM_AP_Standort_Planung" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Ausstattung",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_REM_Ref_Bodenbelag", "T_REM_Ref_RaumName" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Ausstattung_Kalk",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_REM_Ref_Bodenbelag", "T_REM_Ref_RaumName" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Raumgruppe",
+    "size": 1,
+    "imports": [ "T_AP_Ref_Bodenbelag", "T_AP_Ref_Nutzungsart", "T_AP_Ref_Reinigungsprio" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Ref_Ausbau",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_REM_Ref_Ausbau" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Ref_Ausbau_Kalk",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_REM_Ref_Ausbau" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Ref_Reinigungsart",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_REM_Ref_Reinigungsart" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Ref_Reinigungsart_Kalk",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_REM_Ref_Reinigungsart" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Reinigung",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_REM_Ref_AnzahlTag", "T_REM_Ref_Arbeitsgang", "T_REM_Ref_Arbeitsgang_Leistung", "T_REM_Ref_Intervall" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Raum_Reinigung_Kalk",
+    "size": 1,
+    "imports": [ "T_AP_Raum", "T_REM_Ref_AnzahlTag", "T_REM_Ref_Arbeitsgang", "T_REM_Ref_Arbeitsgang_Leistung", "T_REM_Ref_Intervall" ]
+  },
+  {
+    "name": "T_ZO_REM_AP_Standort_Planung",
+    "size": 1,
+    "imports": [ "T_AP_Standort", "T_ZO_REM_AP_Gebaeude_Ref_Raumpfleger" ]
+  },
+  {
+    "name": "T_ZO_Slickcolumn",
+    "size": 765,
+    "imports": [ "T_Slicklist" ]
+  },
+  {
+    "name": "T_ZO_Slickcolumn_Custom",
+    "size": 26,
+    "imports": [ "T_Slicklist_Custom" ]
+  },
+  {
+    "name": "T_ZO_SYS_DokumentKategorie_Benutzergruppe",
+    "size": 16,
+    "imports": [ "T_AP_Ref_DokumentKategorie", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_ZO_SYS_Language_Forms",
+    "size": 2
+  },
+  {
+    "name": "T_ZO_SYS_Language_Forms_OV_Ref_ObjektTyp",
+    "size": 3,
+    "imports": [ "T_OV_Ref_ObjektTyp" ]
+  },
+  {
+    "name": "T_ZO_SYS_Metadatenrechte_Benutzergruppe",
+    "size": 1,
+    "imports": [ "T_AP_Ref_DokumentMetadaten", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_ZO_SYS_Mimetyperechte_Benutzergruppe",
+    "size": 83,
+    "imports": [ "T_SYS_Ref_MimeTypes", "T_Benutzergruppen" ]
+  },
+  {
+    "name": "T_ZO_SYS_Module_AP_Ref_Mandant",
+    "size": 29,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_Module" ]
+  },
+  {
+    "name": "T_ZO_SYS_Settings_AP_Ref_Mandant",
+    "size": 23,
+    "imports": [ "T_AP_Ref_Mandant", "T_SYS_Settings" ]
+  },
+  {
+    "name": "T_ZO_SYS_Settings_Benutzer",
+    "size": 1,
+    "imports": [ "T_Benutzer", "T_SYS_Settings_Benutzer" ]
+  },
+  {
+    "name": "T_ZO_TASK_Ref_Checkliste_Comment",
+    "size": 1,
+    "imports": [ "T_TM_Tasks_Planung", "T_TM_Tasks", "T_TM_Ref_Checkliste" ]
+  },
+  {
+    "name": "T_ZO_TM_TSTA_TSK",
+    "size": 1,
+    "imports": [ "T_TM_Ref_TaskStatus", "T_TM_Tasks" ]
+  },
+  {
+    "name": "T_ZO_VM_T_Benutzer_T_VM_Ref_Vertragsfachstelle",
+    "size": 1,
+    "imports": [ "T_Benutzer", "T_VM_Ref_Vertragsfachstelle" ]
+  }
+]
