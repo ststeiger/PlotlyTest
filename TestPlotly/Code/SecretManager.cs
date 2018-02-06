@@ -11,6 +11,13 @@ namespace TestPlotly
         public static T GetSecret<T>(string secretName)
         {
             string asmName = typeof(SecretManager).Assembly.FullName;
+
+            int ipos = asmName.IndexOf(',');
+            if (ipos != -1)
+            {
+                asmName = asmName.Substring(0, ipos);
+            }
+
             return GetSecret<T>(secretName, asmName);
         } // End Function GetSecret 
         
