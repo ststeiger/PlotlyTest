@@ -1,0 +1,21 @@
+﻿[  
+   {  
+      "place_id":"178333208",
+      "licence":"Data © OpenStreetMap contributors, ODbL 1.0. https:\/\/osm.org\/copyright",
+      "osm_type":"relation",
+      "osm_id":"1684431",
+      "boundingbox":[  
+         "47.3651482",
+         "47.3975044",
+         "8.14403",
+         "8.1743241"
+      ],
+      "lat":"47.3799837",
+      "lon":"8.1665273",
+      "display_name":"Staufen, Bezirk Lenzburg, Aargau, 5603, Schweiz\/Suisse\/Svizzera\/Svizra",
+      "class":"boundary",
+      "type":"administrative",
+      "importance":0.30193979037768,
+      "icon":"https:\/\/nominatim.openstreetmap.org\/images\/mapicons\/poi_boundary_administrative.p.20.png"
+   }
+]

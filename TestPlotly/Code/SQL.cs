@@ -19,8 +19,9 @@ namespace TestPlotly
                 csb.DataSource += @"\SqlExpress";
             }
 
-            csb.InitialCatalog = "COR_Basic_Demo_V4";
+            // csb.InitialCatalog = "COR_Basic_Demo_V4";
             // csb.InitialCatalog = "COR_Basic_Helvetia_IS";
+            csb.InitialCatalog = "TestDb";
             
             csb.IntegratedSecurity = System.StringComparer.OrdinalIgnoreCase.Equals(System.Environment.UserDomainName, "COR");
             if (!csb.IntegratedSecurity)

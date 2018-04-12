@@ -1,4 +1,6 @@
 ﻿
+using TestPlotly;
+
 namespace GeoApis
 {
 
@@ -177,12 +179,35 @@ namespace GeoApis
             return PostRequest(url, parameters);
         }
 
+
+        private static string CommaEncode(string address)
+        {
+            if (string.IsNullOrEmpty(address))
+                return address;
+
+            string[] components = address.Split(',');
+            for (int i = 0; i < components.Length; ++i)
+            {
+                components[i] = System.Web.HttpUtility.UrlEncode(components[i]);
+            }
+
+            string retValue = string.Join(',', components);
+            return retValue;
+        }
+
+
+        // GeoCode("Châtel-Saint-Denis, FR, Schweiz");
         public static Wgs84Coordinates GeoCode(string address)
         {
             // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
-            address = System.Web.HttpUtility.UrlEncode(address);
+            // address = System.Web.HttpUtility.UrlEncode(address);
+            // address = System.Uri.EscapeDataString(address);
+            // address = System.Uri.EscapeUriString(address);
+            address = CommaEncode(address);
+            System.Console.WriteLine(address);
 
-#if HAVE_NO_API_KEY 
+
+#if HAVE_NO_API_KEY
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}"; ;
 #else
             string YOUR_API_KEY = TestPlotly.SecretManager.GetSecret<string>("GoogleGeoCodingApiKey");
@@ -232,10 +257,78 @@ namespace GeoApis
             return new Wgs84Coordinates(lat, lng);
         }
 
+
+        public static Wgs84Coordinates OsmGeoCode(string city, string state, string country)
+        {
+            city = System.Uri.EscapeDataString(city);
+            state = System.Uri.EscapeDataString(state);
+            country = System.Uri.EscapeDataString(country);
+
+            // https://nominatim.openstreetmap.org/search?format=json&city=Staufen&state=Aargau&country=Switzerland
+            string url = $"https://nominatim.openstreetmap.org/search?format=json&city={city}&state={state}&country={country}";
+
+            string resp = PostRequest(url);
+            System.Collections.Generic.List<OSM.Geocoder.Nominatim> ls = OSM.Geocoder.Nominatim.FromJson(resp);
+
+            if(ls== null || ls.Count < 1)
+                throw new System.Exception("Could not geocode said address.");
+
+            return new Wgs84Coordinates(ls[0].Lat, ls[0].Lon, ls[0].Bounds.MinimumLatitude.Value, ls[0].Bounds.MinimumLongitude.Value
+                , ls[0].Bounds.MaximumLatitude.Value, ls[0].Bounds.MaximumLongitude.Value);
+        } // End Function OsmGeoCode 
+
+
         static void Main(string[] args)
         {
-            Wgs84Coordinates gc = GeoCode("Staufen");
-            System.Console.WriteLine(gc);
+            using (System.Data.IDbCommand cmd = SQL.CreateCommand(@"
+SELECT 
+	 gemeindenummer AS gemeinde_nummer 
+    ,gemeinde 
+    ,kanton 
+    ,gemeinde  + ', ' + kanton + ', Schweiz' AS gemeinde_adresse 
+FROM __Steuern_2014 
+WHERE (1=1) 
+AND latitude IS NULL 
+AND longitude IS NULL 
+
+ORDER BY kanton, gemeinde 
+"))
+            {
+                using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
+                {
+                    cmd.CommandText = "UPDATE __Steuern_2014 SET latitude = @lat, longitude = @lng WHERE gemeindenummer = @gem_nr; ";
+                    var pgem = SQL.AddParameter(cmd, "gem_nr", "12435");
+                    var plat = SQL.AddParameter(cmd, "lat", "666");
+                    var plng = SQL.AddParameter(cmd, "lng", "666");
+
+                    foreach (System.Data.DataRow dr in dt.Rows)
+                    {
+                        string id = System.Convert.ToString(dr["gemeinde_nummer"]);
+                        string city = System.Convert.ToString(dr["gemeinde"]);
+                        string state = System.Convert.ToString(dr["kanton"]);
+                        string geocodeName = System.Convert.ToString(dr["gemeinde_adresse"]);
+
+
+                        System.Console.WriteLine(geocodeName);
+                        Wgs84Coordinates gc = GeoCode(geocodeName);
+                        // Wgs84Coordinates gc = OsmGeoCode(city, state, "Switzerland");
+                        // System.Console.WriteLine(gc);
+
+
+
+                        pgem.Value = id;
+                        plat.Value = gc.Latitude;
+                        plng.Value = gc.Longitude;
+
+                        SQL.ExecuteNonQuery(cmd);
+                        System.Threading.Thread.Sleep(1000);
+                    } // Next dr 
+
+                } // End Using dt 
+
+            } // End using cmd 
+
+
 
             System.Console.WriteLine(System.Environment.NewLine);
             System.Console.WriteLine(" --- Press any key to continue --- ");

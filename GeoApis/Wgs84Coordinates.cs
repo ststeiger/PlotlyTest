@@ -2,6 +2,8 @@
 namespace GeoApis
 {
 
+
+    [System.Diagnostics.DebuggerDisplay("{Latitude}, {Longitude}")]
     public class Wgs84Coordinates
     {
         public decimal Latitude;
