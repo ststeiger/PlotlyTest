@@ -64,7 +64,7 @@ namespace TestSpatial
 
 
 
-#if true // UPDATE_ORT_Coordinates
+#if false // UPDATE_ORT_Coordinates
 
             using (System.Data.IDbCommand cmd = SQL.fromFile("GetLocationGeocode.sql"))
             {
@@ -126,10 +126,45 @@ namespace TestSpatial
 #endif
 
 #if false
+
+            47.392058, 8.485391
+
             Helper.InsertBuildingData("A1C10E45-CA2B-4796-BCB7-931546D44667", "Bahnhofstrasse 4, 3073 Gümligen"
                 ,new Wgs84Coordinates(46.93459319999999000000M, 7.50623670000000100000M)
                 );
-#endif    
+#endif
+
+
+
+
+#if false
+            
+            Helper.InsertBuildingData("9DC95C1C-4830-4B01-85B5-593B6EA5E44B", "Bahnhofstrasse 4, 3073 Gümligen"
+                , new Wgs84Coordinates(47.392058M, 8.485391M)
+                );
+
+
+            using (System.Data.IDbCommand cmd = SQL.fromFile("GetBuildingsToPolygonCode.sql"))
+            {
+                using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
+                {
+                    foreach (System.Data.DataRow dr in dt.Rows)
+                    {
+                        string uid = System.Convert.ToString(dr["GB_UID"]);
+                        string geocodeName = ""; // System.Convert.ToString(dr["OBJ_StringToGeoCode"]);
+                        decimal lat = System.Convert.ToDecimal(dr["GB_GM_Lat"]);
+                        decimal lng = System.Convert.ToDecimal(dr["GB_GM_Lng"]);
+
+                        // Helper.InsertBuildingData(uid, geocodeName);
+                        Helper.InsertBuildingData(uid, geocodeName, new Wgs84Coordinates(lat, lng));
+                        System.Threading.Thread.Sleep(1000);
+                    } // Next dr 
+
+                } // End Using dt 
+
+            } // End using cmd 
+#endif
+
 
             System.Console.WriteLine(System.Environment.NewLine);
             System.Console.WriteLine(" --- Press any key to continue --- ");

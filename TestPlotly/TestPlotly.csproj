@@ -128,6 +128,7 @@
     <EmbeddedResource Include="SQL\FMS_Maps_DeleteWerbetafel.sql" />
     <EmbeddedResource Include="SQL\FMS_Maps_InsertWerbetafel.sql" />
     <EmbeddedResource Include="SQL\FMS_Maps_Marker_Werbetafeln.sql" />
+    <EmbeddedResource Include="SQL\GetBuildingsToPolygonCode.sql" />
     <Content Include="wiki.htm" />
     <Content Include="mapbox.htm" />
     <Content Include="leaflet.htm" />

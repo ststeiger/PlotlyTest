@@ -20,7 +20,7 @@ namespace TestPlotly
             }
 
             csb.InitialCatalog = "COR_Basic_Demo_V4";
-            csb.InitialCatalog = "COR_Basic_Helvetia_IS";
+            // csb.InitialCatalog = "COR_Basic_Helvetia_IS";
             
             csb.IntegratedSecurity = System.StringComparer.OrdinalIgnoreCase.Equals(System.Environment.UserDomainName, "COR");
             if (!csb.IntegratedSecurity)

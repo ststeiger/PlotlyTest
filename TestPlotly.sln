@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlotly", "TestPlotly\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSpatial", "TestSpatial\TestSpatial.csproj", "{2FA66180-544C-40E9-A363-B9DDB38220E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoApis", "GeoApis\GeoApis.csproj", "{7369F5BD-790F-4595-A42A-75860CC87A10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2FA66180-544C-40E9-A363-B9DDB38220E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FA66180-544C-40E9-A363-B9DDB38220E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FA66180-544C-40E9-A363-B9DDB38220E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7369F5BD-790F-4595-A42A-75860CC87A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7369F5BD-790F-4595-A42A-75860CC87A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7369F5BD-790F-4595-A42A-75860CC87A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7369F5BD-790F-4595-A42A-75860CC87A10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
