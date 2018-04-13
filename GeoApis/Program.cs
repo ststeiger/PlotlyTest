@@ -323,10 +323,10 @@ WHERE __Steuern_2014.gemeindenummer IS NULL
                         string geocodeName = System.Convert.ToString(dr["gemeinde_adresse"]);
                         
                         System.Console.WriteLine(geocodeName);
-                        // Wgs84Coordinates gc = GeoCode(geocodeName);
-                        Wgs84Coordinates gc = OsmGeoCode(city, state, "Switzerland");
+                        Wgs84Coordinates gc = GeoCode(geocodeName);
+                        // Wgs84Coordinates gc = OsmGeoCode(city, state, "Switzerland");
                         // System.Console.WriteLine(gc);
-                        
+
                         pgem.Value = id;
                         plat.Value = gc.Latitude;
                         plng.Value = gc.Longitude;

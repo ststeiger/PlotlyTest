@@ -1,9 +1,26 @@
 
+
+-- Windows:
+
+BULK INSERT __Steuern_2016
+FROM 'D:\temp\steuern_ledig.csv'
+WITH
+(
+    CODEPAGE = '65001',
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',  --CSV field delimiter
+    ROWTERMINATOR = '\n',   --Use to shift the control to next row
+    TABLOCK
+)
+
+
+
 -- ,,,,,,,,,,,,,,,,,,,,,,,,,,\n
 BULK INSERT TestDb.dbo.__Steuern_2016
     FROM '/web/steuern_ledig.csv'
 WITH
 (
+	-- CODEPAGE = '65001', -- Codepage not supported on Linux...
     FORMAT = 'CSV', 
     FIELDQUOTE = '"',
     FIRSTROW = 2,
