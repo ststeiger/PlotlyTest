@@ -269,7 +269,7 @@ namespace GeoApis
 
             string resp = PostRequest(url);
             System.Collections.Generic.List<OSM.Geocoder.Nominatim> ls = OSM.Geocoder.Nominatim.FromJson(resp);
-
+            
             if(ls== null || ls.Count < 1)
                 throw new System.Exception("Could not geocode said address.");
 
@@ -280,14 +280,14 @@ namespace GeoApis
 
         static void Main(string[] args)
         {
-            // string sourceXML = @"D:\username\Documents\Visual Studio 2017\Projects\TestPlotly\GeoApis\info\steuern\gemeinden.svg";
-            // string targetXML = @"D:\username\Documents\Visual Studio 2017\Projects\TestPlotly\GeoApis\info\steuern\gemeinden.min.svg";
-            // string newSourceXML = @"D:\username\Documents\Visual Studio 2017\Projects\TestPlotly\GeoApis\info\steuern\gemeinden.minimax.svg";
+            string sourceXML = @"info/steuern/gemeinden.svg";
+            string targetXML = @"info/steuern/gemeinden.min.svg";
+            string newSourceXML = @"info/steuern/gemeinden.minimax.svg";
 
-            // XmlMinifierBeautifier.Minify(sourceXML, targetXML);
-            // XmlMinifierBeautifier.Prettify(targetXML, newSourceXML);
-
-
+            XmlMinifierBeautifier.Minify(sourceXML, targetXML);
+            XmlMinifierBeautifier.Prettify(targetXML, newSourceXML);
+            
+            
             using (System.Data.IDbCommand cmd = SQL.CreateCommand(@"
 SELECT 
 	 gemeindenummer AS gemeinde_nummer 
