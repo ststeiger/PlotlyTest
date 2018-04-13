@@ -1,0 +1,713 @@
+                                Map Projection
+                                  Ebrahim Ghaderpour
+                                   Email: ebig2@yorku.ca
+                         Department of Earth and Space Science and Engineering,
+                                York University, Toronto, Canada
+                                      Abstract
+              In this paper, we introduce some known map projections from a model of the Earth to a ﬂat sheet
+              of paper or map and derive the plotting equations for these projections. The ﬁrst fundamental form
+              and the Gaussian fundamental quantities are deﬁned and applied to obtain the plotting equations
+              and distortions in length, shape and size for some of these map projections.
+            The concepts, deﬁnitions and proofs in this work are chosen mostly from [5, 6].
+          1   Introduction
+          Amapprojectionisasystematic transformation of the latitudes and longitudes of positions on the surface
+          of the Earth to a ﬂat sheet of paper, a map. More precisely, a map projection requires a transformation
+          from a set of two independent coordinates on the model of the Earth (the latitude φ and longitude λ) to a
+          set of two independent coordinates on the map (the Cartesian coordinates x and y), i.e., a transformation
+          matrix T such that              
+                                     x  =T φ .
+                                     y      λ
+          However, since we are dealing with partial derivative and fundamental quantities (to be deﬁned later), it
+          is impossible to ﬁnd such a transformation explicitly.
+            There are a number of techniques for map projection, yet in all of them distortion occurs in length,
+          angle, shape, area or in a combination of these. Carl Friedrich Gauss showed that a sphere’s surface
+          cannot be represented on a map without distortion (see [5]).
+            A terrestrial globe is a three dimensional scale model of the Earth that does not distort the real
+     arXiv:1412.7690v1  [physics.geo-ph]  16 Dec 2014shape and the real size of large futures of the Earth. The term globe is used for those objects that are
+          approximately spherical. The equation for spherical model of the Earth with radius R is
+                                   x2  y2  z2
+                                   R2 + R2 + R2 = 1.                  (1)
+            An oblate ellipsoid or spheroid is a quadratic surface obtained by rotating an ellipse about its minor
+          axis (the axis that passes through the north pole and the south pole). The shape of the Earth is appeared
+          to be an oblate ellipsoid (mean Earth ellipsoid), and the geodetic latitudes and longitudes of positions
+          on the surface of the Earth coming from satellite observations are on this ellipsoid. The equation for
+                                         1
+              spheroidal model of the Earth is
+                                                   2    2   2
+                                                  x +y +z =1,                                      (2)
+                                                   2    2   2
+                                                  a    a   b
+              where a is the semimajor axis, and b is the semiminor axis of the spheroid of revolution.
+                 The spherical representation of the Earth (terrestrial globe) must be modiﬁed to maintain accurate
+              representation of either shape or size of the spheroidal representation of the Earth. We discuss about
+              these two representations in Section 4.
+                 There are three major types of map projections:
+                 1. Equal-area projections. These projections preserve the area (the size) between the map and
+              the model of the Earth. In other words, every section of the map keeps a constant ratio to the area of the
+              Earth which it represents. Some of these projections are Albers with one or two standard parallels (the
+              conical equal-area), the Bonne, the azimuthal and Lambert cylindrical equal-area which are best applied
+              to a local area of the Earth, and some of them are world maps such as the sinusoidal, the Mollweide, the
+              parabolic, the Hammer-Aitoﬀ, the Boggs eumorphic, and Eckert IV.
+                 2. Conformal projections. These projections maintain the shape of an area during transformation
+              from the Earth to a map. These projections include the Mercator, the Lambert conformal with one
+              standard parallel, and the stereographic. These projections are only applicable to limited areas on the
+              model of the Earth for any one map. Since there is no practical use for conformal world maps, conformal
+              world maps are not considered.
+                 3. Conventional projections. These projections are neither equal-area nor conformal, and they
+              are designed based on some particular applications. Some examples are the simple conic, the gnomonic,
+              the azimuthal equidistant, the Miller, the polyconic, the Robinson, and the plate carree projections.
+                 In this paper, we only show the derivation of plotting equations on a map for the Mercator and
+              Lambert cylindrical equal-area for a spherical model of the Earth (Section 2), the Albers with one
+              standard parallel and the azimuthal for a spherical model of the Earth and the Lambert conformal with
+              one standard parallel for a spheroidal model of the Earth (Section 5), the sinusoidal (Section 6), the
+              simple conic and the plate carree projections (Section 7). The methods to obtain other projections are
+              similar to these projections, and the reader is referred to [2, 5, 6].
+                 Suppose that a terrestrial glob is covered with inﬁnitesimal circles. In order to show distortions in a
+              mapprojection, one may look at the projection of these circles in a map which are ellipses whose axes are
+              the two principal directions along which scale is maximal and minimal at that point on the map. This
+              mathematical contrivance is called Tissot’s indicatrix.
+                 Usually Tissot’s indicatrices are placed across a map along the intersections of meridians and parallels
+              to the equator, and they provide a good tool to calculate the magnitude of distortions at those points
+              (the intersections).
+                 In an equal-area projection, Tissot’s indicatrices change shape (from circles to ellipses), whereas their
+              areas remain the same. In conformal projection, however, the shape of circles preserves, and the area
+              varies. In conventional projection, both shape and size of these circles change. In this paper, we portrayed
+              the Mercator, the Lambert cylindrical equal-area, the sinusoidal and the plate carree maps with Tissot’s
+              indicatrices.
+                 In Section 8, the equations for distortions of length, area and angle are derived, and distortion in length
+              for the Albers projection and in length and area for the Mercator projection are calculated, [5, 6, 9].
+                                                         2
+             2   Mercator projection and Lambert cylindrical projection
+             In this section, by an elementary method, we show the cylindrical method that Mercator used to map
+             from a spherical model of the Earth to a ﬂat sheet of paper. Also, we give the plotting equations for
+             the Lambert cylindrical equal-area projection. Then, in Section 3, we obtain the Gaussian fundamental
+             quantities, and show a routine mathematical way to ﬁnd plotting equations for diﬀerent map projections.
+             This section is based mostly on [4].
+                Let S be the globe, and C be a circular cylinder tangent to S along the equator, see Fig. 1. Projecting
+             S along the rays passing through the center of S onto C, and unrolling the cylinder onto a vertical strip
+             in a plane is called central cylindrical projection. Clearly, each meridian on the sphere is mapped to a
+             vertical line to the equator, and each parallel of the equator is mapped onto a circle on the cylinder and
+             so a line parallel to the equator on the map. All methods discussed in this section and other sections are
+                                  Figure 1:Geometry for the cylindrical projection
+             about central projection, i.e., rays pass through the center of the Earth to a cone or cylinder. Methods
+             for those projections that are not central are similar to central projections (see [5, 6]).
+                Let w be the width of the map. The scale of the map along the equator is s = w/(2πR) that is the
+             ratio of size of objects drawn in the map to actual size of the object it represents. The scale of the map
+             usually is shown by three methods: arithmetical (e.g. 1:6,000,000), verbal (e.g. 100 miles to the inch) or
+             geometrical.
+                At latitude φ, the parallel to the equator is a circle with circumference 2πRcosφ, so the scale of the
+             map at this latitude is
+                                            s =    w    =ssecφ,                            (3)
+                                            h   2πRcosφ
+             where the subscript h stands for horizontal.
+                Assume that φ and λ are in radians, and the origin in the Cartesian coordinate system corresponds
+             to the intersection of the Greenwich meridian (λ = 0) and the equator (φ = 0). Then every cylindrical
+                                                     3
+                   projection is given explicitly by the following equations
+                                                                x=wλ,         y = f(φ).                                           (4)
+                                                                     2π
+                   For instance, it can be seen from Fig. 1 that a central cylindrical projection is given by
+                                                               x=wλ,         y = rtanφ,
+                                                                    2π
+                   where for a map of width w, a globe of radius r = w/(2π) is chosen.
+                       In a globe, the arc length between latitudes of φ and φ (in radians) along a meridian is
+                                                                                   1
+                                                                    φ −φ
+                                                             2πR· 1         =R(φ −φ),
+                                                                      2π            1
+                   and the image on the map has the length f(φ )−f(φ). So the overall scale factor of this arc along the
+                                                                      1
+                   meridian when φ1 gets closer and closer to φ is
+                                                       s = 1f′(φ) = 1 lim f(φ1)−f(φ),                                             (5)
+                                                         v   R           Rφ →φ       φ −φ
+                                                                             1         1
+                   where the subscript v stands for vertical.
+                       The goal of Mercator was to equate the horizontal scale with vertical scale at latitude φ, i.e., s = s .
+                                                                                                                              h     v
+                   Thus, from Eqs. (3) and (5),
+                                                                   f′(φ) = w secφ.                                                (6)
+                                                                            2π
+                   Mercator was not be able to solve Equation 6 precisely because logarithms were not invented! But now,
+                   we know that the following is the solution to Eq. (6) (use f(0) = 0 to make the constant coming out
+                   from the integration equal to zero),
+                                                          y = f(φ) = w ln|secφ+tanφ|.                                             (7)
+                                                                        2π
+                   Thus, the equations for the Mercator conformal projection (central cylindrical conformal mapping) are
+                                                       x=wλ,          y = w ln|secφ+tanφ|.
+                                                             2π            2π
+                   Fig. 2 shows the Mercator projection with Tissot’s indicatrices that do not change their shape (all of
+                   them are circles indicating a conformal projection) while their size get larger and larger toward the poles.
+                       Now if the goal is preserving size rather than shape, then we would make the horizontal and vertical
+                   scaling reciprocal, so the stretching in one direction will match shrinking in the other. Thus, from Eqs.
+                   (3) and (5), we obtain f′(φ)secφ = c or
+                                                                    f′(φ) = ccosφ,                                                (8)
+                   where c is a constant. From Eqs. (6) and (8), we can choose c in such away that for a given latitude, the
+                   map also preserves the shape in that area. For instance if φ = 0, then we choose c = w/(2π), and so the
+                   map near equator is conformal too. Hence, the equations for the cylindrical equal-area projection (one
+                   of Lambert’s maps) are
+                                                              x=wλ,         y = w sinφ.
+                                                                   2π            2π
+                   Fig. 3 shows the Lambert projection with Tissot’s indicatrices that do not change their size (indicating
+                   an equal-area projection) while their shape are changing toward the poles.
+                                                                            4
+              Figure 2: The Mercator conformal mapFigure 3: The Lambert equal-area map
+          3  First fundamental form
+          In this section, we derive the ﬁrst fundamental form for a general surface that completely describes the
+          metric properties of the surface, and it is a key in map projection, [3, 5, 6, 9].
+                                           →−  →−
+            The vector at any point P on the surface is given by r = r (α,β). If either of parameters α or β is
+          held constant and the other one is varied, a space curve results, see Fig. 4.
+                            Figure 4:Geometry for parametric curves
+            The tangent vectors to α-curve and β-curve at point P are respectively as follows:
+                                     →−   →−  →−
+                                 →−  ∂ r     ∂ r
+                                  a = ∂α, b = ∂β .                   (9)
+                        →−
+          The total diﬀerential of r is
+                                   →−  →−  →−
+                                   d r = adα+ bdβ.                   (10)
+                                        5
+                   The ﬁrst fundamental form (e.g., [5]) is deﬁned as the dot product of Eq. (10) with itself:
+                                                                                 →−                →−   
+                                                      2    →−    →−     →−                 →−
+                                                 (ds) = d r ·d r = adα+ b dβ · adα+ b dβ
+                                                                     =E(dα)2+2Fdαdβ+G(dβ)2,                                         (11)
+                                →−  →−        →−  →−            →−   →−
+                   where E = a · a, F = a · b and G = b · b are known as the Gaussian fundamental quantities.
+                       • FromEq. (11), thedistancebetweentwoarbitrarypointsP andP onthesurfacecanbecalculated:
+                                                                                           1       2
+                                          Z P                                        Z P r                         
+                                             2 p                                         2             dβ          dβ 2
+                                     s =          E(dα)2 +2Fdαdβ+G(dβ)2 =                    E+2F            +G          dα.
+                                           P                                          P                dα          dα
+                                            1                                           1
+                                               →−       →−
+                       • The angle between a and b is simply given by
+                                                                            →−   →−
+                                                                             a · b        F
+                                                                  cosθ = →−      →−  = √EG.                                         (12)
+                                                                           | a |.| b |
+                                                                                           →−          →−
+                       • Incremental area is the magnitude of the cross product of a dα and b dβ, i.e.,
+                                                 →−       →−        →−      →−
+                                          dA=|adα× bdβ|=|adα|.|bdβ|sinθ
+                                                                    →−   →−
+                                                                 =|a|.| b |sinθdαdβ
+                                                                    √ √ p             2
+                                                                 = E G 1−cos θdαdβ
+                                                                    √ rEG−F2
+                                                                 = EG           EG dαdβ                 from Eq. (12)
+                                                                 =pEG−F2dαdβ.                                                       (13)
+                       Since we are dealing with latitudes and longitudes on a spherical or spheroidal model of the Earth,
+                                →−       →−
+                   the vectors a and b are orthogonal (meridians are normal to equator parallels). Also, in maps, we are
+                   dealing with the polar and Cartesian coordinate systems in which their axes are perpendicular. Thus,
+                   from Eq. (12), because cos90◦ = 0, one obtains F = 0.
+                       Therefore, the ﬁrst fundamental form (11) in map projection will be deduced to the following form:
+                                                                    2          2          2
+                                                               (ds) = E(dα) +G(dβ) .                                                (14)
+                   Example 1 The ﬁrst fundamental form for a planar surface
+                                                                                                2         2       2
+                       1. in the Cartesian coordinate system (a cylindrical surface) is (ds) = (dx) +(dy) , where E = G = 1,
+                       2. in the polar coordinate system (a conical surface) is (ds)2 = (dr)2 + r2(dθ)2, where E = 1 and
+                   G=r2,
+                       3. in the spherical model of the Earth, Eq. (1), is (ds)2 = R2(dφ)2 + R2cos2φ(dλ)2, where E = R2
+                                2    2
+                   and G = R cos φ, and
+                                                                                    2       2     2     2    2       2                 2
+                       4. in the spheroidal model of the Earth, Eq. (2), is (ds) = M (dφ) +N cos φ(dλ) , where E = M
+                   and G = N2cos2φ in which M is the radius of curvature in meridian and N is the radius of curvature in
+                   prime vertical which are both functions of φ:
+                                                        2                                                      2    2
+                                                a(1−e )                               a                2     a −b
+                                     M=                 ab     ,       N=                        ,    e   =           .
+                                                  2     2   1.5                     2     2   0.5      ab        2
+                                            (1 −e sin φ)                     (1 −e sin φ)                       a
+                                                  ab                                ab
+                   See Fig. 5, and [5, 9] for the derivations of M and N.
+                                                                             6
+                                                                           x2   y2  z2
+                        Figure 5:Geometry for the spheroidal model of the Earth,2 + 2 + 2 =1.
+                                                                           a    a   b
+                 Now suppose that φ and λ are the parameters of the model of the Earth with the fundamental
+              quantities e, f and g.
+                 Consider a two-dimensional projection with parametric curves deﬁned by the parameters u and v.
+                                                                                     ′  ′      ′
+              For instance, for the polar or conical coordinates, we have u = r and v = θ. Let E , F and G be its
+              fundamental quantities.
+                 Also, assume that on the plotting surface a second set of parameters, x and y, with the fundamental
+              quantities E, F and G.
+                 The relationship between the two sets of parameters on the plane is given by
+                                             x=x(u,v),       y = y(u,v).                          (15)
+              As an example, x = rcosθ and y = rsinθ for the polar and Cartesian coordinates.
+                 The relationship between the parametric curves φ, λ, u and v is
+                                             u=u(φ,λ),       v = v(φ,λ).                          (16)
+                 Eq. (16) must be unique and reversible, i.e., a point on the Earth must represent only one point on
+              the map and vice versa. From Eqs. (15) and (16), we have
+                                                                             
+                                    x=x u(φ,λ),v(φ,λ) ,      y = y u(φ,λ),v(φ,λ) .                (17)
+                 From the deﬁnition of the Gaussian ﬁrst fundamental quantities, we have
+                                                         7
+                                                                        
+                                     →− →−    ∂x ∂y      ∂x ∂y      ∂x 2    ∂y 2
+                                 E= a · a = ∂φ, ∂φ · ∂φ, ∂φ = ∂φ         + ∂φ ,                  (18)
+                                     →− →−   ∂x ∂y ∂x ∂y       ∂x∂x    ∂y ∂y
+                                 F = a · b = ∂φ, ∂φ · ∂λ, ∂λ = ∂φ∂λ + ∂φ∂λ,
+                                                                        
+                                     →− →−    ∂x ∂y      ∂x ∂y      ∂x 2    ∂y 2
+                                 G= b · b = ∂λ, ∂λ · ∂λ, ∂λ = ∂λ         + ∂λ .
+              Note that in here α and β in (9) are replaced by φ and λ, respectively. Similarly, we have
+                                                                        
+                                  ′  →−  →−   ∂x ∂y      ∂x ∂y      ∂x 2    ∂y 2
+                                 E = a · a = ∂u, ∂u · ∂u, ∂u = ∂u        + ∂u ,                  (19)
+                                  ′  →−  →−  ∂x ∂y ∂x ∂y       ∂x∂x    ∂y ∂y
+                                 F = a · b = ∂u, ∂u · ∂v, ∂v = ∂u∂v + ∂u∂v,
+                                                                        
+                                  ′  →−  →−   ∂x ∂y      ∂x ∂y      ∂x 2    ∂y 2
+                                 G = b · b = ∂v, ∂v · ∂v, ∂v = ∂v        + ∂v .
+              As we mentioned earlier, since we are dealing with orthogonal curves, f = F = F′ = 0. Using this fact
+              and Eqs. (17), (18) and (19), the following relation can be derived (see Section X Chapter 2 in [5]):
+                                                                       
+                                     ∂u 2 ′    ∂v 2 ′             ∂u 2 ′    ∂v 2 ′
+                               E= ∂φ E + ∂φ G,              G= ∂λ E + ∂λ G.                      (20)
+              From Eq. (13), a mapping from the Earth to the plotting surface requires that
+                                                     eg = EG.                                    (21)
+              From Eqs. (18), (19), (20) and using F = F′ = 0, one obtains
+                                                              ∂u   ∂u
+                                                                     
+                                                                     
+                                                              ∂φ   ∂λ
+                                                 2   ′ ′             
+                                           EG=J ·EG, J=              ,                         (22)
+                                                              ∂v   ∂v
+                                                                     
+                                                              ∂φ   ∂λ
+              where J is the Jacobian determinant of the transformation from the coordinate set φ and λ to the
+              coordinate set u and v.
+                 By a theorem of diﬀerential geometry (see [5]), a mapping for the orthogonal curves is conformal if
+              and only if
+                                                      E = G.                                     (23)
+                                                      e    g
+              4    Projection from an ellipsoid to a sphere
+              In this section, we describe how much the latitudes and longitudes of a spheroidal model of the Earth
+              will be eﬀected once they are transformed to a spherical model, i.e., how much distortion in shape and
+              size happens when one projects a spheroidal model of the Earth to a spherical model, [2, 5, 6, 8]. We
+              distinguish two cases, equal-area transformation and conformal transformation.
+                 Case1. AsphericalmodeloftheEarththathasthesamesurfaceareaasthatofthereferenceellipsoid
+              is called the authalic sphere. This sphere may be used as an intermediate step in the transformation from
+              the ellipsoid to the mapping surface.
+                                                         8
+                 Let RA, φA and λA be the authalic radius, latitude and longitude, respectively. Also, let φ and λ
+              be the geodetic latitude and longitude, respectively. From Example 1, we have e = M2, g = N2cos2φ,
+                ′   2      ′    2   2
+              E =R andG =R cos φ. By Eqs. (21) and (22),
+                    A           A
+                                                                       
+                                                               ∂φ    ∂φ 2
+                                                                A     A
+                                                                       
+                                                               ∂φ   ∂λ 
+                                          2 2   2     4   2            
+                                        M N cos φ=R cos φ               .                      (24)
+                                                      A     A          
+                                                               ∂λ    ∂λ
+                                                                A     A
+                                                               ∂φ   ∂λ 
+              In the transformation from the ellipsoid to the authalic sphere, longitude is invariant, i.e., λ = λ .
+                                                                                                  A
+              Moreover, φA is independent of λA and so λ. Thus Eq. (24) reduces to
+                                                                      
+                                                                ∂φ      2
+                                                                  A   
+                                                                      0
+                                                                      
+                                         M2N2cos2φ=R4 cos2φ  ∂φ        .                       (25)
+                                                        A     A       
+                                                                      
+                                                                      
+                                                                  0   1
+              Substitute the values of M and N (given in Example 1) into Eq. (25) to obtain
+                                           2     2
+                                          a (1−eab)   cosφdφ = R2 cosφ dφ .                      (26)
+                                             2   2  2           A    A A
+                                        (1 −eabsin φ)
+              Integrating the left hand side of Eq. (26) from 0 to φ (using binary expansion), and the right hand side
+              from 0 to φA, one obtains
+                          2         2     2        2 2   3    3 4   5    4 6    7      
+                         R sinφA =a (1−e ) sinφ+ e sin φ+ e sin φ+ e sin φ+··· .                 (27)
+                          A               ab        3 ab       5 ab       7 ab
+              Assuming φA = π/2 when φ = π/2, Eq. (27) gives:
+                                           2    2     2 2   3 4    4 6     
+                                     RA=a (1−e ) 1+ e + e + e +··· .                             (28)
+                                                ab     3 ab  5 ab   7 ab
+              Substituting Eq. (28) into Eq. (27), one obtains
+                                              2 2   2    3 4   4    4 6   6      
+                                           1+ e sin φ+ e sin φ+ e sin φ+···
+                               sinφ =sinφ      3 ab       5 ab       7 ab          .             (29)
+                                  A                   2 2   3 4   4 6
+                                                   1+ e + e + e +···
+                                                      3 ab  5 ab  7 ab
+              Since the eccentricity eab is a small number, the above series are convergent. The relation between
+                                                          ◦     ◦
+              authalic and geodetic latitudes is equal at latitudes 0 and 90 , and the diﬀerence between them at other
+              latitudes is about 0◦.1 for the WGS-84 spheroid (see [5] for the deﬁnitions of the WGS-84 and WGS-72
+              spheroids).
+              Example 2
+                 1. For the WGS-72 spheroid with a ≈ 6,378,135 m and e≈0.081818, the radius of the authalic
+                                                                  ab
+              sphere is                  r
+                                                2     2 2   3 4 
+                                   RA≈a (1−e ) 1+ e + e           ≈6,371,004 m.
+                                                ab     3 ab  5 ab
+                 2. For the I.U.G.G spheroid with f = (a−b)/a ≈ 1/298.275, we have eab = 2f −f2 ≈ 0.0066944, and
+                                                  ◦                                       ◦
+              from Eq. (29), for geodetic latitude φ = 45 , we have sinφ≈0.70552 which gives φ ≈ 44 .8713.
+                                                               A                    A
+                                                         9
+                 Case 2. A conformal sphere is an sphere deﬁned for conformal transformation from an ellipsoid,
+              and similar to the authalic sphere may be used as an intermediate step in the transformation from the
+              reference ellipsoid to a mapping surface.
+                 Let R , φ and λ be the conformal radius, latitude and longitude for the conformal sphere, respec-
+                      c  c      c
+              tively. Let e and g be the same fundamental quantities as Case 1, and E′ = R2 and G′ = R2cos2φc.
+                                                                                  c           c
+              Also, let φc = φc(φ) and λc = λ. Thus, from Eq. (20),
+                                                                           
+                            ∂φ 2       ∂λ 2       ∂φ 2                ∂φ 2       ∂λ 2
+                              c   ′      c   ′      c    ′              c   ′      c   ′    ′
+                      E= ∂φ E + ∂φ G = ∂φ E,                    G= ∂λ E + ∂λ G =G.                (30)
+              Combining Eqs. (23) and (30), one obtains
+                                                   
+                                                 ∂φ 2
+                                                   c  R2
+                                                       c     2  2
+                                                 ∂φ        R cos φ
+                                                         = c       c,
+                                                    2        2   2
+                                                  M        N cos φ
+              that after integrating and simplifying with the condition φc = 0 for φ = 0, it gives
+                                                                     eab
+                                     tan φc + π =tan φ + π     1−eabsinφ    2 .                   (31)
+                                          2   4        2   4   1+eabsinφ
+              One can calculate φc from Eq. (31) which is a function of geodetic latitude φ. Also, it can be shown that
+              Rc =√MN for a given latitude φ which in this case φ = π/2. We refer to Chapter 5 Section 3 in [5] for
+              the derivation.
+              5    Albers and Lambert, one standard parallel
+              In this section, we describe the Albers one standard parallel (equal-area conic projection) and Lambert
+              one standard parallel (conformal conic projection) at latitude φ0 which give good maps around that
+              latitude (cf., [1, 5, 6, 8]).
+                 We start with some geometric properties in a cone tangent to a spherical model of the Earth at
+              latitude φ . In Fig. 6, ACN and BDN are two meridians separated by a longitude diﬀerence of ∆λ, and
+                      0
+              CDis an arc of the circle parallel to the equator. We have CD = DO′∆λ and DN′sinφ0 = DO′ and
+              approximately θ ·DN′ = CD.
+              Therefore, the ﬁrst polar coordinate, θ, is a linear function of λ, i.e.,
+                                                    θ = ∆λsinφ0.                                  (32)
+              The second polar coordinate, r, is a function of φ, i.e.,
+                                                      r = r(φ).                                   (33)
+              The constant of the cone, denoted ̺, is deﬁned from the relation between lengths on the developed cone
+              on the Earth. Let the total angle on the cone, θ , corresponding to 2π on the Earth be θ=d/r , where
+                                                      T                                 T     0
+              d = 2πRcosφ is the circumference of the parallel circle to the equator at latitude φ , and r = Rcotφ .
+                          0                                                         0     0         0
+              Thus θ =2πsinφ , and the constant of the cone is deﬁned as ̺ = sinφ .
+                    T         0                                            0
+                 Case 1. The Albers projection. Consider a spherical model of the Earth. From Example 1, we know
+              that the ﬁrst fundamental quantities for the sphere are e = R2 and g = R2cos2φ and for a cone (the
+                                                         10
+                                Figure 6:Geometry for angular convergence of the meridians
+                                        ′         ′   2
+              polar coordinate system) are E = 1 and G = r . Hence, from Eqs. (21) and (22),
+                                                                 
+                                                            ∂r  ∂r 2
+                                                                 
+                                                                 
+                                                           ∂φ  ∂λ
+                                              R4cos2φ=r2          .                             (34)
+                                                                 
+                                                            ∂θ ∂θ
+                                                                 
+              Using Eqs. (32) and (33), Eq. (34) becomes   ∂φ  ∂λ
+                                                                  
+                                                           ∂r       2
+                                                                0 
+                                                                  
+                                             R4cos2φ=r2∂φ          .                            (35)
+                                                                  
+                                                                  
+                                                           0  sinφ0
+              Solving Eq. (35) by knowing the fact that an increase in φ corresponds to a decrease in r, one gets
+                                                      −2R2sinφ
+                                                 r2 =          +c.                                (36)
+                                                        sinφ0
+                                                                         2    2   2
+              Imposing the boundary condition r = Rcotφ into Eq. (36), c = 2R +R cot φ , and so after some
+                                            0        0                              0
+              simpliﬁcations, Eq. (36) becomes
+                                               R q        2
+                                          r =       1+sin φ −2sinφsinφ .                          (37)
+                                             sinφ           0           0
+                                                 0
+              The Cartesian plotting equations for a conical projection are deﬁned as follows:
+                                          x=srsinθ,      y = s(r0 −rcosθ),                        (38)
+                                                         11
+                   where s is the scale factor, θ and r are given respectively by Eqs. (32) and (37), and r0 = Rcotφ0. The
+                   origin of the projection has the coordinates λ0 (the longitude of central meridian) and φ0. Fig. 7 shows
+                   the Albers projection with one standard parallel.
+                                          ◦
+                       If we let φ = 90 , then Eqs. (32) and (37) reduce to
+                                   0
+                                                                                  p
+                                                          θ = ∆λ,           r = R 2(1−sinφ),
+                   that are the polar coordinates for the azimuthal equal-area projection, a special case of the Albers
+                   projection, see Fig. 8.
+                                                                                       Figure 8: The Albers azimuthal map
+                   Figure 7: The Albers equal-area map with standard
+                   parallel 45◦N.
+                       Case 2. The Lambert projection. In this case, we consider a spheroidal model of the Earth. From
+                   Example1,thefundamentalquantitiesforthismodelaree = M2 andg = N2cos2φ, andthefundamental
+                                                  ′            ′    2
+                   quantities for a cone are E = 1 and G = r . Again using Eqs. (32) and (33), Eq. (20) becomes
+                                                                                                 
+                                      ∂r 2 ′        ∂θ 2 ′        ∂r 2                   ∂r 2 ′        ∂θ 2 ′         2     2
+                              E= ∂φ E + ∂φ G = ∂φ ,                               G= ∂λ E + ∂λ G =sin φ0r .                         (39)
+                   Substituting these values in Eq. (23), integrating, simplifying and noting that r increases as φ decreases,
+                   one gets
+                                                                                                  
+                                                                                                   sinφ0
+                                                               π     φ 1+e sinφ eab/2 
+                                                                                 ab               
+                                                         tan       −                              
+                                                                 4    2     1−e sinφ              
+                                                 r = r                            ab                       ,                        (40)
+                                                      0                                    e /2
+                                                         π φ  1+e sinφ                      ab  
+                                                                       0         ab      0        
+                                                                                                  
+                                                        tan 4 − 2           1−e sinφ              
+                                                                                  ab      0
+                   where
+                                                         r =N cotφ =                acotφ0         .
+                                                          0      φ0      0           2    2    0.5
+                                                                               1−e sin φ
+                                                                                     ab      0
+                   The Cartesian equations are the same as Eq. (38) with these new r0 and r. Fig. 9 shows the Lambert
+                   projection with one standard parallel.
+                                                                             12
+                                         Figure 9: The Lambert conformal map
+              6    Sinusoidal projection
+              In this section, we only discuss about the sinusoidal equal-area projection that is a projection of the entire
+              model of the Earth onto a single map, and it gives an adequate whole world coverage, [2, 5].
+                 Consider a spherical model of the Earth with the fundamental quantities e = R2 and g = R2cos2φ.
+                                                                        ′     ′
+              The ﬁrst fundamental quantities on a planar mapping surface is E = G = 1. Substituting these
+              fundamental quantities into Eq. (22) (using Eq. (21)), one gets
+                                                                
+                                                          ∂x  ∂x 2
+                                                                
+                                                                
+                                                         ∂φ  ∂λ
+                                               R4cos2φ=          ,
+                                                                
+                                                         ∂y  ∂y
+                                                                
+                                                         ∂φ  ∂λ
+              which by imposing the conditions y = Rφ and x = x(φ,λ) reduces to
+                                                           
+                                                     ∂x  ∂x 2
+                                                           
+                                                                   
+                                           4   2    ∂φ  ∂λ     2 ∂x 2
+                                          R cos φ=          =R        .                        (41)
+                                                                 ∂λ
+                                                     R   0 
+              Taking the positive square root of Eq. (41) and using the fact that λ and φ are independent, one obtains
+              dx = Rcosφdλ, and so by integrating x = λRcosφ + c. Using the boundary condition x = 0 when
+              λ = λ , one gets c = −λ Rcosφ, and so the plotting equations for the sinusoidal projection become as
+                   0               0
+              follow (φ and λ in radians):
+                                             x=sR∆λcosφ,      y = sRφ,                           (42)
+              where s is the scale factor. Fig. 10 shows a normalized plot for the sinusoidal projection. In this map,
+              the meridians are sinusoidal curves except the central meridian which is a vertical line and they all meet
+              each other in the poles. This is why this map is known as the sinusoidal map. The x axis is also along
+              the equator.
+                 The inverse transformation from the Cartesian to geographic coordinates is simply calculated from
+              Eq. (42):
+                                              φ= y ,    ∆λ=     x   .
+                                                 sR          sRcosφ
+                                                        13
+              Figure 10: The sinusoidal equal-area projection with Tissot’s indicatrices that are changing their shape
+              (the ellipses with diﬀerent eccentricities indicating angular distortion) toward the poles while having the
+              same size.
+              7    Some conventional projections
+              In this section, we give the plotting equations for two conventional projections, the simple conic projection
+              (one standard parallel) and the plate carree projection (cf., [2, 5, 7]). As we mentioned earlier, these
+              projections neither preserve the shape nor do they preserve the size, and they are usually used for simple
+              portrayals of the world or regions with minimal geographic data such as index maps.
+                 1. The simple conic projection is a projection that the distances along every meridian are true scale.
+              Suppose that the conic is tangent to the spherical model of the Earth at latitude φ0, see Fig. 11. In
+              this ﬁgure, we have r = Rcotφ . We want to have DE = DE′, but DE′ = R(φ−φ ). Thus the polar
+                               0        0                                           0
+              coordinates for this projection are
+                                         r = r0 −R(φ−φ0),    θ = ∆λsinφ0.
+              Replacing these values into Eq. (38) gives its Cartesian coordinates.
+                                   Figure 11:Geometry for the simple conic projection
+                                                        14
+                 2. The plate carree, the equirectangular projection, is a conventional cylindrical projection that
+              divides the meridians equally the same way as on the sphere. Also, it divides the equator and its parallels
+              equally. The plate carree plotting equations are very simple:
+                                              x=sR∆λ,      y = sRφ,
+              where φ and λ are in radians. Fig. 12 shows the plate carree map with Tissot’s indicatrices which are
+              changing their shape and size when moving toward the poles indicating that this map is neither equal-area
+              nor conformal.
+                                                                   ◦
+                                     Figure 12:The plate carree map, 10 graticule.
+              8    Theory of distortion
+              In this section, we discuss about three types of distortions from diﬀerential geometry approach: distortions
+              in length, area and angle, and we present them in term of the Gaussian fundamental quantities (cf.,
+              [5, 6, 9]).
+                 1. The distortion in length is deﬁned as the ratio of a length of a line on a map to the length of the
+              true line on a model of the Earth. More precisely,
+                                                   2         2       2
+                                           K2 = (ds)M = E(dφ) +G(dλ) .                          (43)
+                                            L       2        2       2
+                                                (ds)     e(dφ) +g(dλ)
+                                                    E
+              From Eq. (43), the distortion along the meridians (dλ = 0) is K=rE,andalongthelines parallel to
+                                                                  m      e
+              the equator (dφ = 0) is Ke = rG.
+                                         g
+                 2. The distortion in area is deﬁned as the ratio of an area on a map to the true area on a model of
+              the Earth. From Eq. (13) (f = F = 0), the area on the map is AM = √EG, and the corresponding area
+                                           √
+              on the model of the Earth is A= eg. Thus, the distortion in area is
+                                       E
+                                            K =AM =sEG=K K.                                     (44)
+                                              A   A       eg     m e
+                                                   E
+                                                        15
+              In equal-area map projections, from Eq. (21), K=K K =1.
+                                                       A    m e
+                 3. The distortion in angle is deﬁned as (in percentage):
+                                                  K =100· α−β,                                    (45)
+                                                    α        α
+              where α is the angle on a model of the Earth (the azimuth), and β is the projected angle on a map (the
+              azimuth α on the map, cf., Fig. 13).
+                                    Figure 13:Geometry for diﬀerential parallelograms
+                 In order to obtain β as a function of the fundamental quantities and α, we ﬁrst calculate sin(β ± α).
+              From Fig. 13, we have
+                                 sin(β ±α) = sinβcosα±cosβsinα
+                                                                          
+                                             √    dλ  √ dφ       √    dφ   √ dλ
+                                          =    G· dS    e· ds ±    E· dS    g · ds
+                                                     dφ dλ√
+                                          =(K ±K )          eg.
+                                              e    m dSdS
+              Hence,
+                                                       K −K
+                                           sin(β −α) =  e    msin(β +α).
+                                                       K +K
+                                                        e    m
+              Deﬁne
+                                                          K −K
+                                        f(β) = sin(β −α)−  e    msin(β +α).
+                                                          K +K
+                                                           e    m
+              Now the goal is to ﬁnd the roots of f. This can be done by Newton’s iteration as follows:
+                                                            f(β )
+                                                 β    =β −     n ,
+                                                  n+1    n  f′(β )
+                                                                n
+                                                         16
+              where
+                                                          K −K
+                                      f′(β ) = cos(β −α)−   e    mcos(β +α).
+                                          n       n       K +K         n
+                                                            e    m
+              The iteration is rapidly convergent by letting β = α. In conformal mapping, from Eq. (23), K = K ,
+                                                      0                                       e    m
+              and so the function f will have a unique solution (β = α).
+              Example 3 Inthisexample, weshowthedistortionsinlengthintheAlbersprojectionwithonestandard
+              parallel. From Example 1, the ﬁrst fundamental form for the map is
+                                       (ds)2 = (dr)2 +r2(dθ)2 = E′(dr)2 +G′(dθ)2,                 (46)
+                                          M
+              and the ﬁrst fundamental form for the spherical model of the Earth is
+                                       2    2    2   2   2     2       2      2
+                                   (ds)E = R (dφ) +R cos φ(dλ) = e(dφ) +g(dλ) .                   (47)
+              Taking the derivatives of Eqs. (32) and (35), one obtains
+                                  dθ = sinφ0dλ,     dr = p     −Rcosφ dφ        ,
+                                                           1+sin2φ −2sinφsinφ
+                                                                   0           0
+              respectively. Substitute the above equations into Eq. (46) to get
+                                        R2cos2φ
+                            2                             2   2  2      2        2       2
+                         (ds)  =                      (dφ) +r sin φ (dλ) = E(dφ) +G(dλ) .         (48)
+                            M    1+sin2φ −2sinφsinφ                 0
+                                         0           0
+              Substituting (47) and (48) in Eq. (43) gives the total length distortion. Also,
+                         r                                       s      p      2
+                            E             cosφ                     G      1+sin φ −2sinφsinφ
+                    K =       = p                      ,    K =      =           0            0,
+                     m      e     1+sin2φ −2sinφsinφ          e    g             cosφ
+                                          0           0
+              which are functions of φ. Clearly, K K = 1.
+                                            m e
+              Example 4 In this example, we ﬁrst use the ﬁrst fundamental form to obtain the plotting equations
+              for the Mercator projection, and then we show its length and area distortion. From Example 1, the ﬁrst
+              fundamental form for the cylindrical surface (the Cartesian coordinate system) is
+                                                (ds)2 = (dy)2 +(dx)2.                             (49)
+                                                   M
+              Taking the derivative of Eq. (4) and substituting in Eq. (49), one ﬁnds
+                                      2   dy2     2   2 2   2        2       2
+                                   (ds)M = dφ   (dφ) +s R (dλ) =E(dφ) +G(dλ) ,                    (50)
+                                                                   2         2  2
+              where s is the scale of the map along the equator, E = dy/dφand G = s R . The ﬁrst fundamental
+                                                                 2           2   2
+              quantities for the spherical model of the Earth are e = Rand g = R cos φ. Substituting these
+              fundamental quantities in Eq. (23) and simplifying, one obtains
+                                                     dy = sRdφ.                                   (51)
+                                                          cosφ
+              It is easy to see that integrating the above diﬀerential equation and applying the boundary condition
+                                                          2   2 2    2
+              y(0) = 0, Eq. (7) follows. By Eq. (51), E = dy/dφ=s R /cos φ. Therefore, substituting Eqs. (47)
+              and (50) in Eq. (43), the length distortion will be
+                                                    K = s .
+                                                      L   cosφ
+                                                         17
+              It can be seen that K= K = K , and so from Eq. (44), the distortion in area for the Mercator
+                                L     m    e
+              projection is
+                                                             s2
+                                              K =K K =          .
+                                               A     m e   cos2φ
+              Hence, in the Mercator projection both length and area distortions are functions of φ not λ.
+              9   Conclusion
+              There are a number of map projections used for diﬀerent purposes, and we discussed about three major
+              classes of them, equal-area, conformal, and conventional. Users may also create their own map based on
+              their projects by starting with a base map of known projection and scale.
+                In this paper, in cylindrical projections, we assume that the cylinder is tangent to the equator. Making
+              the cylinder tangent to other closed curves on the Earth results good maps in areas close to the tangency.
+              This is also applied for conical and azimuthal projections.
+                In all projections from a 3-D surface to a 2-D surface, there are distortions in length, shape or size that
+              some of them can be removed (not all) or minimized from the map based on some speciﬁc applications.
+              Wealso noticed in Section 4 that projecting a spheroidal model of the Earth to a spherical model of the
+              Earth will also distort length, shape and angle.
+                Intelligent map users should have knowledge about the theory of distortion in order to compare and
+              distinguish their maps with the true surface on the Earth that they are studying.
+              References
+              [1] Davies, R. E. and Foote, F. S. and Kelly, J. E., Surveying: Theory and practice, McGraw-Hill, New
+                York (1966)
+              [2] Deetz, C. H. and Adams, O. S., Elements of map projection, Spec. Publ. 68, coast and geodetic
+                survey, U. S. Gov’t. Printing oﬃce, Washington, D. C. (1944)
+              [3] Goetz, A., Introduction to diﬀerential geometry, Addison-Wesley, Reading, MA (1958)
+              [4] Osserman, R., Mathematical Mapping from Mercator to the Millennium, Mathematical Sciences
+                Research Institute (2004)
+              [5] Pearson, F., Map projections, theory and applications, Boca Raton, Florida (1999)
+              [6] Richardus, P. and Adler, R. K., Map projections for geodesists, cartographers, and geographers, North
+                Holland, Amsterdam (1972)
+              [7] Steers, J. A., An Introduction to the study of map projection, University of London (1962)
+              [8] Thomas, P. D., Conformal projection in geodesy and cartography, Spec. Publ. 68, coast and geodetic
+                survey, U. S. Gov’t. Printing oﬃce, Washington, D. C. (1952)
+              [9] Vanicek P. and Krakiwsky E. J., Geodesy the concepts, pp 697. Amsterdam The Netherlands, Uni-
+                versity of New Brunswick, Canada (1986)
+                                                      18

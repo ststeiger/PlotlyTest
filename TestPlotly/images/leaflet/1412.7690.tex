@@ -1,0 +1,6264 @@
+%% ================================================================================
+%% This LaTeX file was created by AbiWord.                                         
+%% AbiWord is a free, Open Source word processor.                                  
+%% More information about AbiWord is available at http://www.abisource.com/        
+%% ================================================================================
+
+\documentclass[a4paper,portrait,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+%% Please revise the following command, if your babel
+%% package does not support en-US
+\usepackage[en]{babel}
+\usepackage{color}
+\usepackage{hyperref}
+ 
+\begin{document}
+
+
+\begin{flushleft}
+arXiv:1412.7690v1 [physics.geo-ph] 16 Dec 2014
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Map Projection
+\end{flushleft}
+
+
+\begin{flushleft}
+Ebrahim Ghaderpour
+\end{flushleft}
+
+
+\begin{flushleft}
+Email: ebig2@yorku.ca
+\end{flushleft}
+
+
+\begin{flushleft}
+Department of Earth and Space Science and Engineering,
+\end{flushleft}
+
+
+\begin{flushleft}
+York University, Toronto, Canada
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Abstract
+\end{flushleft}
+
+
+\begin{flushleft}
+In this paper, we introduce some known map projections from a model of the Earth to a flat sheet
+\end{flushleft}
+
+
+\begin{flushleft}
+of paper or map and derive the plotting equations for these projections. The first fundamental form
+\end{flushleft}
+
+
+\begin{flushleft}
+and the Gaussian fundamental quantities are defined and applied to obtain the plotting equations
+\end{flushleft}
+
+
+\begin{flushleft}
+and distortions in length, shape and size for some of these map projections.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+The concepts, definitions and proofs in this work are chosen mostly from [5, 6].
+\end{flushleft}
+
+
+
+
+
+1
+
+
+
+
+
+\begin{flushleft}
+Introduction
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+A map projection is a systematic transformation of the latitudes and longitudes of positions on the surface
+\end{flushleft}
+
+
+\begin{flushleft}
+of the Earth to a flat sheet of paper, a map. More precisely, a map projection requires a transformation
+\end{flushleft}
+
+
+\begin{flushleft}
+from a set of two independent coordinates on the model of the Earth (the latitude $\phi$ and longitude $\lambda$) to a
+\end{flushleft}
+
+
+\begin{flushleft}
+set of two independent coordinates on the map (the Cartesian coordinates x and y), i.e., a transformation
+\end{flushleft}
+
+
+\begin{flushleft}
+matrix T such that
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+\begin{flushleft}
+x
+\end{flushleft}
+
+
+\begin{flushleft}
+$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+=T
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+y
+\end{flushleft}
+
+
+\begin{flushleft}
+$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+However, since we are dealing with partial derivative and fundamental quantities (to be defined later), it
+\end{flushleft}
+
+
+\begin{flushleft}
+is impossible to find such a transformation explicitly.
+\end{flushleft}
+
+
+\begin{flushleft}
+There are a number of techniques for map projection, yet in all of them distortion occurs in length,
+\end{flushleft}
+
+
+\begin{flushleft}
+angle, shape, area or in a combination of these. Carl Friedrich Gauss showed that a sphere's surface
+\end{flushleft}
+
+
+\begin{flushleft}
+cannot be represented on a map without distortion (see [5]).
+\end{flushleft}
+
+
+\begin{flushleft}
+A terrestrial globe is a three dimensional scale model of the Earth that does not distort the real
+\end{flushleft}
+
+
+\begin{flushleft}
+shape and the real size of large futures of the Earth. The term globe is used for those objects that are
+\end{flushleft}
+
+
+\begin{flushleft}
+approximately spherical. The equation for spherical model of the Earth with radius R is
+\end{flushleft}
+
+
+\begin{flushleft}
+x2
+\end{flushleft}
+
+
+\begin{flushleft}
+y2
+\end{flushleft}
+
+
+\begin{flushleft}
+z2
+\end{flushleft}
+
+
++
+
+
++
+
+
+= 1.
+
+
+\begin{flushleft}
+R2
+\end{flushleft}
+
+
+\begin{flushleft}
+R2
+\end{flushleft}
+
+
+\begin{flushleft}
+R2
+\end{flushleft}
+
+
+
+
+
+(1)
+
+
+
+
+
+\begin{flushleft}
+An oblate ellipsoid or spheroid is a quadratic surface obtained by rotating an ellipse about its minor
+\end{flushleft}
+
+
+\begin{flushleft}
+axis (the axis that passes through the north pole and the south pole). The shape of the Earth is appeared
+\end{flushleft}
+
+
+\begin{flushleft}
+to be an oblate ellipsoid (mean Earth ellipsoid), and the geodetic latitudes and longitudes of positions
+\end{flushleft}
+
+
+\begin{flushleft}
+on the surface of the Earth coming from satellite observations are on this ellipsoid. The equation for
+\end{flushleft}
+
+
+
+
+
+1
+
+
+
+
+
+\begin{flushleft}
+\newpage
+spheroidal model of the Earth is
+\end{flushleft}
+
+
+\begin{flushleft}
+x2
+\end{flushleft}
+
+
+\begin{flushleft}
+y2
+\end{flushleft}
+
+
+\begin{flushleft}
+z2
+\end{flushleft}
+
+
++ 2 + 2 = 1,
+
+
+2
+
+
+\begin{flushleft}
+a
+\end{flushleft}
+
+
+\begin{flushleft}
+a
+\end{flushleft}
+
+
+\begin{flushleft}
+b
+\end{flushleft}
+
+
+
+
+
+(2)
+
+
+
+
+
+\begin{flushleft}
+where a is the semimajor axis, and b is the semiminor axis of the spheroid of revolution.
+\end{flushleft}
+
+
+\begin{flushleft}
+The spherical representation of the Earth (terrestrial globe) must be modified to maintain accurate
+\end{flushleft}
+
+
+\begin{flushleft}
+representation of either shape or size of the spheroidal representation of the Earth. We discuss about
+\end{flushleft}
+
+
+\begin{flushleft}
+these two representations in Section 4.
+\end{flushleft}
+
+
+\begin{flushleft}
+There are three major types of map projections:
+\end{flushleft}
+
+
+\begin{flushleft}
+1. Equal-area projections. These projections preserve the area (the size) between the map and
+\end{flushleft}
+
+
+\begin{flushleft}
+the model of the Earth. In other words, every section of the map keeps a constant ratio to the area of the
+\end{flushleft}
+
+
+\begin{flushleft}
+Earth which it represents. Some of these projections are Albers with one or two standard parallels (the
+\end{flushleft}
+
+
+\begin{flushleft}
+conical equal-area), the Bonne, the azimuthal and Lambert cylindrical equal-area which are best applied
+\end{flushleft}
+
+
+\begin{flushleft}
+to a local area of the Earth, and some of them are world maps such as the sinusoidal, the Mollweide, the
+\end{flushleft}
+
+
+\begin{flushleft}
+parabolic, the Hammer-Aitoff, the Boggs eumorphic, and Eckert IV.
+\end{flushleft}
+
+
+\begin{flushleft}
+2. Conformal projections. These projections maintain the shape of an area during transformation
+\end{flushleft}
+
+
+\begin{flushleft}
+from the Earth to a map. These projections include the Mercator, the Lambert conformal with one
+\end{flushleft}
+
+
+\begin{flushleft}
+standard parallel, and the stereographic. These projections are only applicable to limited areas on the
+\end{flushleft}
+
+
+\begin{flushleft}
+model of the Earth for any one map. Since there is no practical use for conformal world maps, conformal
+\end{flushleft}
+
+
+\begin{flushleft}
+world maps are not considered.
+\end{flushleft}
+
+
+\begin{flushleft}
+3. Conventional projections. These projections are neither equal-area nor conformal, and they
+\end{flushleft}
+
+
+\begin{flushleft}
+are designed based on some particular applications. Some examples are the simple conic, the gnomonic,
+\end{flushleft}
+
+
+\begin{flushleft}
+the azimuthal equidistant, the Miller, the polyconic, the Robinson, and the plate carree projections.
+\end{flushleft}
+
+
+\begin{flushleft}
+In this paper, we only show the derivation of plotting equations on a map for the Mercator and
+\end{flushleft}
+
+
+\begin{flushleft}
+Lambert cylindrical equal-area for a spherical model of the Earth (Section 2), the Albers with one
+\end{flushleft}
+
+
+\begin{flushleft}
+standard parallel and the azimuthal for a spherical model of the Earth and the Lambert conformal with
+\end{flushleft}
+
+
+\begin{flushleft}
+one standard parallel for a spheroidal model of the Earth (Section 5), the sinusoidal (Section 6), the
+\end{flushleft}
+
+
+\begin{flushleft}
+simple conic and the plate carree projections (Section 7). The methods to obtain other projections are
+\end{flushleft}
+
+
+\begin{flushleft}
+similar to these projections, and the reader is referred to [2, 5, 6].
+\end{flushleft}
+
+
+\begin{flushleft}
+Suppose that a terrestrial glob is covered with infinitesimal circles. In order to show distortions in a
+\end{flushleft}
+
+
+\begin{flushleft}
+map projection, one may look at the projection of these circles in a map which are ellipses whose axes are
+\end{flushleft}
+
+
+\begin{flushleft}
+the two principal directions along which scale is maximal and minimal at that point on the map. This
+\end{flushleft}
+
+
+\begin{flushleft}
+mathematical contrivance is called Tissot's indicatrix.
+\end{flushleft}
+
+
+\begin{flushleft}
+Usually Tissot's indicatrices are placed across a map along the intersections of meridians and parallels
+\end{flushleft}
+
+
+\begin{flushleft}
+to the equator, and they provide a good tool to calculate the magnitude of distortions at those points
+\end{flushleft}
+
+
+\begin{flushleft}
+(the intersections).
+\end{flushleft}
+
+
+\begin{flushleft}
+In an equal-area projection, Tissot's indicatrices change shape (from circles to ellipses), whereas their
+\end{flushleft}
+
+
+\begin{flushleft}
+areas remain the same. In conformal projection, however, the shape of circles preserves, and the area
+\end{flushleft}
+
+
+\begin{flushleft}
+varies. In conventional projection, both shape and size of these circles change. In this paper, we portrayed
+\end{flushleft}
+
+
+\begin{flushleft}
+the Mercator, the Lambert cylindrical equal-area, the sinusoidal and the plate carree maps with Tissot's
+\end{flushleft}
+
+
+\begin{flushleft}
+indicatrices.
+\end{flushleft}
+
+
+\begin{flushleft}
+In Section 8, the equations for distortions of length, area and angle are derived, and distortion in length
+\end{flushleft}
+
+
+\begin{flushleft}
+for the Albers projection and in length and area for the Mercator projection are calculated, [5, 6, 9].
+\end{flushleft}
+
+
+
+
+
+2
+
+
+
+
+
+\newpage
+2
+
+
+
+
+
+\begin{flushleft}
+Mercator projection and Lambert cylindrical projection
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+In this section, by an elementary method, we show the cylindrical method that Mercator used to map
+\end{flushleft}
+
+
+\begin{flushleft}
+from a spherical model of the Earth to a flat sheet of paper. Also, we give the plotting equations for
+\end{flushleft}
+
+
+\begin{flushleft}
+the Lambert cylindrical equal-area projection. Then, in Section 3, we obtain the Gaussian fundamental
+\end{flushleft}
+
+
+\begin{flushleft}
+quantities, and show a routine mathematical way to find plotting equations for different map projections.
+\end{flushleft}
+
+
+\begin{flushleft}
+This section is based mostly on [4].
+\end{flushleft}
+
+
+\begin{flushleft}
+Let S be the globe, and C be a circular cylinder tangent to S along the equator, see Fig. 1. Projecting
+\end{flushleft}
+
+
+\begin{flushleft}
+S along the rays passing through the center of S onto C, and unrolling the cylinder onto a vertical strip
+\end{flushleft}
+
+
+\begin{flushleft}
+in a plane is called central cylindrical projection. Clearly, each meridian on the sphere is mapped to a
+\end{flushleft}
+
+
+\begin{flushleft}
+vertical line to the equator, and each parallel of the equator is mapped onto a circle on the cylinder and
+\end{flushleft}
+
+
+\begin{flushleft}
+so a line parallel to the equator on the map. All methods discussed in this section and other sections are
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Figure 1: Geometry for the cylindrical projection
+\end{flushleft}
+
+
+\begin{flushleft}
+about central projection, i.e., rays pass through the center of the Earth to a cone or cylinder. Methods
+\end{flushleft}
+
+
+\begin{flushleft}
+for those projections that are not central are similar to central projections (see [5, 6]).
+\end{flushleft}
+
+
+\begin{flushleft}
+Let w be the width of the map. The scale of the map along the equator is s = w/(2$\pi$R) that is the
+\end{flushleft}
+
+
+\begin{flushleft}
+ratio of size of objects drawn in the map to actual size of the object it represents. The scale of the map
+\end{flushleft}
+
+
+\begin{flushleft}
+usually is shown by three methods: arithmetical (e.g. 1:6,000,000), verbal (e.g. 100 miles to the inch) or
+\end{flushleft}
+
+
+\begin{flushleft}
+geometrical.
+\end{flushleft}
+
+
+\begin{flushleft}
+At latitude $\phi$, the parallel to the equator is a circle with circumference 2$\pi$R cos $\phi$, so the scale of the
+\end{flushleft}
+
+
+\begin{flushleft}
+map at this latitude is
+\end{flushleft}
+
+
+\begin{flushleft}
+sh =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+w
+\end{flushleft}
+
+
+\begin{flushleft}
+= s sec $\phi$,
+\end{flushleft}
+
+
+\begin{flushleft}
+2$\pi$R cos $\phi$
+\end{flushleft}
+
+
+
+
+
+(3)
+
+
+
+
+
+\begin{flushleft}
+where the subscript h stands for horizontal.
+\end{flushleft}
+
+
+\begin{flushleft}
+Assume that $\phi$ and $\lambda$ are in radians, and the origin in the Cartesian coordinate system corresponds
+\end{flushleft}
+
+
+\begin{flushleft}
+to the intersection of the Greenwich meridian ($\lambda$ = 0) and the equator ($\phi$ = 0). Then every cylindrical
+\end{flushleft}
+
+
+3
+
+
+
+
+
+\begin{flushleft}
+\newpage
+projection is given explicitly by the following equations
+\end{flushleft}
+
+
+\begin{flushleft}
+x=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+w$\lambda$
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+y = f ($\phi$).
+\end{flushleft}
+
+
+
+
+
+(4)
+
+
+
+
+
+\begin{flushleft}
+For instance, it can be seen from Fig. 1 that a central cylindrical projection is given by
+\end{flushleft}
+
+
+\begin{flushleft}
+x=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+w$\lambda$
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+y = r tan $\phi$,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+where for a map of width w, a globe of radius r = w/(2$\pi$) is chosen.
+\end{flushleft}
+
+
+\begin{flushleft}
+In a globe, the arc length between latitudes of $\phi$ and $\phi$1 (in radians) along a meridian is
+\end{flushleft}
+
+
+\begin{flushleft}
+2$\pi$R ·
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\phi$1 $-$ $\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+= R($\phi$1 $-$ $\phi$),
+\end{flushleft}
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+and the image on the map has the length f ($\phi$1 ) $-$ f ($\phi$). So the overall scale factor of this arc along the
+\end{flushleft}
+
+
+\begin{flushleft}
+meridian when $\phi$1 gets closer and closer to $\phi$ is
+\end{flushleft}
+
+
+\begin{flushleft}
+sv =
+\end{flushleft}
+
+
+
+
+
+1
+
+
+\begin{flushleft}
+f ($\phi$1 ) $-$ f ($\phi$)
+\end{flushleft}
+
+
+1 0
+
+
+\begin{flushleft}
+f ($\phi$) =
+\end{flushleft}
+
+
+\begin{flushleft}
+lim
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+R
+\end{flushleft}
+
+
+\begin{flushleft}
+R $\phi$1 $\rightarrow$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\phi$1 $-$ $\phi$
+\end{flushleft}
+
+
+
+
+
+(5)
+
+
+
+
+
+\begin{flushleft}
+where the subscript v stands for vertical.
+\end{flushleft}
+
+
+\begin{flushleft}
+The goal of Mercator was to equate the horizontal scale with vertical scale at latitude $\phi$, i.e., sh = sv .
+\end{flushleft}
+
+
+\begin{flushleft}
+Thus, from Eqs. (3) and (5),
+\end{flushleft}
+
+
+\begin{flushleft}
+f 0 ($\phi$) =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+w
+\end{flushleft}
+
+
+\begin{flushleft}
+sec $\phi$.
+\end{flushleft}
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+
+
+
+(6)
+
+
+
+
+
+\begin{flushleft}
+Mercator was not be able to solve Equation 6 precisely because logarithms were not invented! But now,
+\end{flushleft}
+
+
+\begin{flushleft}
+we know that the following is the solution to Eq. (6) (use f (0) = 0 to make the constant coming out
+\end{flushleft}
+
+
+\begin{flushleft}
+from the integration equal to zero),
+\end{flushleft}
+
+
+\begin{flushleft}
+y = f ($\phi$) =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+w
+\end{flushleft}
+
+
+\begin{flushleft}
+ln | sec $\phi$ + tan $\phi$|.
+\end{flushleft}
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+
+
+
+(7)
+
+
+
+
+
+\begin{flushleft}
+Thus, the equations for the Mercator conformal projection (central cylindrical conformal mapping) are
+\end{flushleft}
+
+
+\begin{flushleft}
+x=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+w$\lambda$
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+y=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+w
+\end{flushleft}
+
+
+\begin{flushleft}
+ln | sec $\phi$ + tan $\phi$|.
+\end{flushleft}
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Fig. 2 shows the Mercator projection with Tissot's indicatrices that do not change their shape (all of
+\end{flushleft}
+
+
+\begin{flushleft}
+them are circles indicating a conformal projection) while their size get larger and larger toward the poles.
+\end{flushleft}
+
+
+\begin{flushleft}
+Now if the goal is preserving size rather than shape, then we would make the horizontal and vertical
+\end{flushleft}
+
+
+\begin{flushleft}
+scaling reciprocal, so the stretching in one direction will match shrinking in the other. Thus, from Eqs.
+\end{flushleft}
+
+
+\begin{flushleft}
+(3) and (5), we obtain f 0 ($\phi$) sec $\phi$ = c or
+\end{flushleft}
+
+
+\begin{flushleft}
+f 0 ($\phi$) = c cos $\phi$,
+\end{flushleft}
+
+
+
+
+
+(8)
+
+
+
+
+
+\begin{flushleft}
+where c is a constant. From Eqs. (6) and (8), we can choose c in such away that for a given latitude, the
+\end{flushleft}
+
+
+\begin{flushleft}
+map also preserves the shape in that area. For instance if $\phi$ = 0, then we choose c = w/(2$\pi$), and so the
+\end{flushleft}
+
+
+\begin{flushleft}
+map near equator is conformal too. Hence, the equations for the cylindrical equal-area projection (one
+\end{flushleft}
+
+
+\begin{flushleft}
+of Lambert's maps) are
+\end{flushleft}
+
+
+\begin{flushleft}
+w$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+w
+\end{flushleft}
+
+
+\begin{flushleft}
+x=
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+y=
+\end{flushleft}
+
+
+\begin{flushleft}
+sin $\phi$.
+\end{flushleft}
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+\begin{flushleft}
+2$\pi$
+\end{flushleft}
+
+
+\begin{flushleft}
+Fig. 3 shows the Lambert projection with Tissot's indicatrices that do not change their size (indicating
+\end{flushleft}
+
+
+\begin{flushleft}
+an equal-area projection) while their shape are changing toward the poles.
+\end{flushleft}
+
+
+4
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Figure 2: The Mercator conformal map
+\end{flushleft}
+
+
+
+
+
+3
+
+
+
+
+
+\begin{flushleft}
+Figure 3: The Lambert equal-area map
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+First fundamental form
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+In this section, we derive the first fundamental form for a general surface that completely describes the
+\end{flushleft}
+
+
+\begin{flushleft}
+metric properties of the surface, and it is a key in map projection, [3, 5, 6, 9].
+\end{flushleft}
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+The vector at any point P on the surface is given by $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+r =$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+r ($\alpha$, $\beta$). If either of parameters $\alpha$ or $\beta$ is
+\end{flushleft}
+
+
+\begin{flushleft}
+held constant and the other one is varied, a space curve results, see Fig. 4.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Figure 4: Geometry for parametric curves
+\end{flushleft}
+
+
+\begin{flushleft}
+The tangent vectors to $\alpha$-curve and $\beta$-curve at point P are respectively as follows:
+\end{flushleft}
+
+
+$-$
+
+
+$-$
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$\partial$$\rightarrow$
+
+
+\begin{flushleft}
+r
+\end{flushleft}
+
+
+$\partial$$\rightarrow$
+
+
+\begin{flushleft}
+r
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$
+
+
+\begin{flushleft}
+a =
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+b =
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+$\partial$$\alpha$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\beta$
+\end{flushleft}
+
+
+$-$
+
+
+\begin{flushleft}
+The total differential of $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+r is
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+d$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+r =$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a d$\alpha$ + b d$\beta$.
+\end{flushleft}
+
+
+5
+
+
+
+
+
+(9)
+
+
+
+
+
+(10)
+
+
+
+
+
+\begin{flushleft}
+\newpage
+The first fundamental form (e.g., [5]) is defined as the dot product of Eq. (10) with itself:
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$ ?
+
+
+$\rightarrow$
+
+
+$-$ ? $-$
+
+
+$-$
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+a d$\alpha$ + b d$\beta$
+\end{flushleft}
+
+
+\begin{flushleft}
+a d$\alpha$ + b d$\beta$ · $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+(ds)2 = d$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+r · d$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+r = $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+= E(d$\alpha$)2 + 2F d$\alpha$d$\beta$ + G(d$\beta$)2 ,
+\end{flushleft}
+
+
+
+
+
+(11)
+
+
+
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$\rightarrow$
+
+
+$-$ $\rightarrow$
+
+
+$-$
+
+
+$-$
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+where E = $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a ·$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a, F =$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a · b and G = b · b are known as the Gaussian fundamental quantities.
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ From Eq. (11), the distance between two arbitrary points P1 and P2 on the surface can be calculated:
+\end{flushleft}
+
+
+\begin{flushleft}
+Z P2 p
+\end{flushleft}
+
+
+\begin{flushleft}
+Z P2 r
+\end{flushleft}
+
+
+\begin{flushleft}
+? d$\beta$ ?
+\end{flushleft}
+
+
+\begin{flushleft}
+? d$\beta$ ?2
+\end{flushleft}
+
+
+2
+
+
+2
+
+
+\begin{flushleft}
+s=
+\end{flushleft}
+
+
+\begin{flushleft}
+E(d$\alpha$) + 2F d$\alpha$d$\beta$ + G(d$\beta$) =
+\end{flushleft}
+
+
+\begin{flushleft}
+E + 2F
+\end{flushleft}
+
+
+\begin{flushleft}
++G
+\end{flushleft}
+
+
+\begin{flushleft}
+d$\alpha$.
+\end{flushleft}
+
+
+\begin{flushleft}
+d$\alpha$
+\end{flushleft}
+
+
+\begin{flushleft}
+d$\alpha$
+\end{flushleft}
+
+
+\begin{flushleft}
+P1
+\end{flushleft}
+
+
+\begin{flushleft}
+P1
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+$\bullet$ The angle between $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a and b is simply given by
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$\rightarrow$
+
+
+$-$
+
+
+\begin{flushleft}
+a · b
+\end{flushleft}
+
+
+\begin{flushleft}
+F
+\end{flushleft}
+
+
+\begin{flushleft}
+cos $\theta$ =
+\end{flushleft}
+
+
+.
+
+
+$\rightarrow$
+
+
+$-$ =$\surd$
+
+
+$\rightarrow$
+
+
+$-$
+
+
+\begin{flushleft}
+EG
+\end{flushleft}
+
+
+\begin{flushleft}
+| a |.| b |
+\end{flushleft}
+
+
+
+
+
+(12)
+
+
+
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+$\bullet$ Incremental area is the magnitude of the cross product of $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a d$\alpha$ and b d$\beta$, i.e.,
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+dA = |$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a d$\alpha$ × b d$\beta$| = |$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a d$\alpha$|.| b d$\beta$| sin $\theta$
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$-$
+
+
+= |$\rightarrow$
+
+
+\begin{flushleft}
+a |.| b | sin $\theta$d$\alpha$d$\beta$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\surd$ $\surd$ p
+\end{flushleft}
+
+
+\begin{flushleft}
+= E G 1 $-$ cos2 $\theta$d$\alpha$d$\beta$
+\end{flushleft}
+
+
+\begin{flushleft}
+r
+\end{flushleft}
+
+
+$\surd$
+
+
+\begin{flushleft}
+EG $-$ F 2
+\end{flushleft}
+
+
+\begin{flushleft}
+d$\alpha$d$\beta$
+\end{flushleft}
+
+
+\begin{flushleft}
+from Eq. (12)
+\end{flushleft}
+
+
+\begin{flushleft}
+= EG
+\end{flushleft}
+
+
+\begin{flushleft}
+EG
+\end{flushleft}
+
+
+\begin{flushleft}
+p
+\end{flushleft}
+
+
+\begin{flushleft}
+= EG $-$ F 2 d$\alpha$d$\beta$.
+\end{flushleft}
+
+
+
+
+
+(13)
+
+
+
+
+
+\begin{flushleft}
+Since we are dealing with latitudes and longitudes on a spherical or spheroidal model of the Earth,
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+the vectors $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a and b are orthogonal (meridians are normal to equator parallels). Also, in maps, we are
+\end{flushleft}
+
+
+\begin{flushleft}
+dealing with the polar and Cartesian coordinate systems in which their axes are perpendicular. Thus,
+\end{flushleft}
+
+
+\begin{flushleft}
+from Eq. (12), because cos 90◦ = 0, one obtains F = 0.
+\end{flushleft}
+
+
+\begin{flushleft}
+Therefore, the first fundamental form (11) in map projection will be deduced to the following form:
+\end{flushleft}
+
+
+\begin{flushleft}
+(ds)2 = E(d$\alpha$)2 + G(d$\beta$)2 .
+\end{flushleft}
+
+
+
+
+
+(14)
+
+
+
+
+
+\begin{flushleft}
+Example 1 The first fundamental form for a planar surface
+\end{flushleft}
+
+
+\begin{flushleft}
+1. in the Cartesian coordinate system (a cylindrical surface) is (ds)2 = (dx)2 +(dy)2 , where E = G = 1,
+\end{flushleft}
+
+
+\begin{flushleft}
+2. in the polar coordinate system (a conical surface) is (ds)2 = (dr)2 + r2 (d$\theta$)2 , where E = 1 and
+\end{flushleft}
+
+
+\begin{flushleft}
+G = r2 ,
+\end{flushleft}
+
+
+\begin{flushleft}
+3. in the spherical model of the Earth, Eq. (1), is (ds)2 = R2 (d$\phi$)2 + R2 cos2 $\phi$(d$\lambda$)2 , where E = R2
+\end{flushleft}
+
+
+\begin{flushleft}
+and G = R2 cos2 $\phi$, and
+\end{flushleft}
+
+
+\begin{flushleft}
+4. in the spheroidal model of the Earth, Eq. (2), is (ds)2 = M 2 (d$\phi$)2 + N 2 cos2 $\phi$(d$\lambda$)2 , where E = M 2
+\end{flushleft}
+
+
+\begin{flushleft}
+and G = N 2 cos2 $\phi$ in which M is the radius of curvature in meridian and N is the radius of curvature in
+\end{flushleft}
+
+
+\begin{flushleft}
+prime vertical which are both functions of $\phi$:
+\end{flushleft}
+
+
+\begin{flushleft}
+M=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+a(1 $-$ e2ab )
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+(1 $-$ e2ab sin2 $\phi$)1.5
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+N=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+a
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+(1 $-$ e2ab sin2 $\phi$)0.5
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+See Fig. 5, and [5, 9] for the derivations of M and N .
+\end{flushleft}
+
+
+6
+
+
+
+
+
+\begin{flushleft}
+e2ab =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+a2 $-$ b2
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+a2
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Figure 5: Geometry for the spheroidal model of the Earth,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+x2
+\end{flushleft}
+
+
+\begin{flushleft}
+y2
+\end{flushleft}
+
+
+\begin{flushleft}
+z2
+\end{flushleft}
+
+
++
+
+
++
+
+
+= 1.
+
+
+\begin{flushleft}
+a2
+\end{flushleft}
+
+
+\begin{flushleft}
+a2
+\end{flushleft}
+
+
+\begin{flushleft}
+b2
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Now suppose that $\phi$ and $\lambda$ are the parameters of the model of the Earth with the fundamental
+\end{flushleft}
+
+
+\begin{flushleft}
+quantities e, f and g.
+\end{flushleft}
+
+
+\begin{flushleft}
+Consider a two-dimensional projection with parametric curves defined by the parameters u and v.
+\end{flushleft}
+
+
+\begin{flushleft}
+For instance, for the polar or conical coordinates, we have u = r and v = $\theta$. Let E 0 , F 0 and G0 be its
+\end{flushleft}
+
+
+\begin{flushleft}
+fundamental quantities.
+\end{flushleft}
+
+
+\begin{flushleft}
+Also, assume that on the plotting surface a second set of parameters, x and y, with the fundamental
+\end{flushleft}
+
+
+\begin{flushleft}
+quantities E, F and G.
+\end{flushleft}
+
+
+\begin{flushleft}
+The relationship between the two sets of parameters on the plane is given by
+\end{flushleft}
+
+
+\begin{flushleft}
+x = x(u, v),
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+y = y(u, v).
+\end{flushleft}
+
+
+
+
+
+(15)
+
+
+
+
+
+\begin{flushleft}
+As an example, x = r cos $\theta$ and y = r sin $\theta$ for the polar and Cartesian coordinates.
+\end{flushleft}
+
+
+\begin{flushleft}
+The relationship between the parametric curves $\phi$, $\lambda$, u and v is
+\end{flushleft}
+
+
+\begin{flushleft}
+u = u($\phi$, $\lambda$),
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+v = v($\phi$, $\lambda$).
+\end{flushleft}
+
+
+
+
+
+(16)
+
+
+
+
+
+\begin{flushleft}
+Eq. (16) must be unique and reversible, i.e., a point on the Earth must represent only one point on
+\end{flushleft}
+
+
+\begin{flushleft}
+the map and vice versa. From Eqs. (15) and (16), we have
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+\begin{flushleft}
+x = x u($\phi$, $\lambda$), v($\phi$, $\lambda$) ,
+\end{flushleft}
+
+
+\begin{flushleft}
+y = y u($\phi$, $\lambda$), v($\phi$, $\lambda$) .
+\end{flushleft}
+
+
+(17)
+
+
+\begin{flushleft}
+From the definition of the Gaussian first fundamental quantities, we have
+\end{flushleft}
+
+
+
+
+
+7
+
+
+
+
+
+\begin{flushleft}
+\newpage
+$\partial$y ? ? $\partial$x
+\end{flushleft}
+
+
+·
+
+
+,
+
+
+\begin{flushleft}
+$\partial$$\phi$ $\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\partial$x $\partial$y ? ? $\partial$x
+\end{flushleft}
+
+
+$\rightarrow$
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+F =$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a · b =
+\end{flushleft}
+
+
+·
+
+
+,
+
+
+,
+
+
+\begin{flushleft}
+$\partial$$\phi$ $\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+?
+
+
+$\rightarrow$
+
+
+$-$ $\rightarrow$
+
+
+$-$
+
+
+\begin{flushleft}
+$\partial$x $\partial$y
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$x
+\end{flushleft}
+
+
+\begin{flushleft}
+G= b · b =
+\end{flushleft}
+
+
+·
+
+
+,
+
+
+,
+
+
+\begin{flushleft}
+$\partial$$\lambda$ $\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+$-$
+
+
+$-$
+
+
+\begin{flushleft}
+E=$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a ·$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$x
+\end{flushleft}
+
+
+
+
+
+,
+
+
+
+
+
+\begin{flushleft}
+$\partial$y ? ? $\partial$x ?2 ? $\partial$y ?2
+\end{flushleft}
+
+
+=
+
+
++
+
+
+,
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$y ? $\partial$x $\partial$x
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$y $\partial$y
+\end{flushleft}
+
+
+=
+
+
++
+
+
+,
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\phi$ $\partial$$\lambda$ $\partial$$\phi$ $\partial$$\lambda$
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+\begin{flushleft}
+$\partial$x 2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$y
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$y 2
+\end{flushleft}
+
+
+=
+
+
++
+
+
+.
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Note that in here $\alpha$ and $\beta$ in (9) are replaced by $\phi$ and $\lambda$, respectively. Similarly, we have
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\partial$x $\partial$y ? ? $\partial$x $\partial$y ? ? $\partial$x ?2 ? $\partial$y ?2
+\end{flushleft}
+
+
+$-$
+
+
+$-$
+
+
+·
+
+
+=
+
+
+\begin{flushleft}
+E0 = $\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a ·$\rightarrow$
+\end{flushleft}
+
+
+\begin{flushleft}
+a =
+\end{flushleft}
+
+
+,
+
+
+,
+
+
++
+
+
+,
+
+
+\begin{flushleft}
+$\partial$u $\partial$u
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$u $\partial$u
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$u
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$u
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+$\rightarrow$
+
+
+$-$
+
+
+\begin{flushleft}
+$\partial$x $\partial$y
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$x $\partial$x $\partial$y $\partial$y
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$x $\partial$y
+\end{flushleft}
+
+
+$-$
+
+
+\begin{flushleft}
+F0 = $\rightarrow$
+\end{flushleft}
+
+
+·
+
+
+=
+
+
+\begin{flushleft}
+a · b =
+\end{flushleft}
+
+
+,
+
+
+,
+
+
++
+
+
+,
+
+
+\begin{flushleft}
+$\partial$u $\partial$u
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$v $\partial$v
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$u $\partial$v
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$u $\partial$v
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+$\rightarrow$
+
+
+$-$ $\rightarrow$
+
+
+$-$
+
+
+\begin{flushleft}
+$\partial$x $\partial$y
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$x 2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$y 2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$x $\partial$y
+\end{flushleft}
+
+
+,
+
+
+·
+
+
+,
+
+
+=
+
+
++
+
+
+.
+
+
+\begin{flushleft}
+G0 = b · b =
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$v $\partial$v
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$v $\partial$v
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$v
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$v
+\end{flushleft}
+
+
+
+
+
+(18)
+
+
+
+
+
+(19)
+
+
+
+
+
+\begin{flushleft}
+As we mentioned earlier, since we are dealing with orthogonal curves, f = F = F 0 = 0. Using this fact
+\end{flushleft}
+
+
+\begin{flushleft}
+and Eqs. (17), (18) and (19), the following relation can be derived (see Section X Chapter 2 in [5]):
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\partial$u ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\partial$v ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\partial$u ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\partial$v ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+E=
+\end{flushleft}
+
+
+\begin{flushleft}
+E0 +
+\end{flushleft}
+
+
+\begin{flushleft}
+G0 ,
+\end{flushleft}
+
+
+\begin{flushleft}
+G=
+\end{flushleft}
+
+
+\begin{flushleft}
+E0 +
+\end{flushleft}
+
+
+\begin{flushleft}
+G0 .
+\end{flushleft}
+
+
+(20)
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+From Eq. (13), a mapping from the Earth to the plotting surface requires that
+\end{flushleft}
+
+
+\begin{flushleft}
+eg = EG.
+\end{flushleft}
+
+
+\begin{flushleft}
+From Eqs. (18), (19), (20) and using F = F 0 = 0, one obtains
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$u
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\phi$
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+EG = J 2 · E 0 G0 , J = \newpage
+
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+ $\partial$v
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+(21)
+
+
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$u \newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$ \newpage
+\newpage
+
+\end{flushleft}
+
+
+\newpage
+,
+
+
+\begin{flushleft}
+$\partial$v \newpage
+\newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+(22)
+
+
+
+
+
+\begin{flushleft}
+where J is the Jacobian determinant of the transformation from the coordinate set $\phi$ and $\lambda$ to the
+\end{flushleft}
+
+
+\begin{flushleft}
+coordinate set u and v.
+\end{flushleft}
+
+
+\begin{flushleft}
+By a theorem of differential geometry (see [5]), a mapping for the orthogonal curves is conformal if
+\end{flushleft}
+
+
+\begin{flushleft}
+and only if
+\end{flushleft}
+
+
+\begin{flushleft}
+E
+\end{flushleft}
+
+
+\begin{flushleft}
+G
+\end{flushleft}
+
+
+= .
+
+
+\begin{flushleft}
+e
+\end{flushleft}
+
+
+\begin{flushleft}
+g
+\end{flushleft}
+
+
+
+
+
+4
+
+
+
+
+
+(23)
+
+
+
+
+
+\begin{flushleft}
+Projection from an ellipsoid to a sphere
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+In this section, we describe how much the latitudes and longitudes of a spheroidal model of the Earth
+\end{flushleft}
+
+
+\begin{flushleft}
+will be effected once they are transformed to a spherical model, i.e., how much distortion in shape and
+\end{flushleft}
+
+
+\begin{flushleft}
+size happens when one projects a spheroidal model of the Earth to a spherical model, [2, 5, 6, 8]. We
+\end{flushleft}
+
+
+\begin{flushleft}
+distinguish two cases, equal-area transformation and conformal transformation.
+\end{flushleft}
+
+
+\begin{flushleft}
+Case 1. A spherical model of the Earth that has the same surface area as that of the reference ellipsoid
+\end{flushleft}
+
+
+\begin{flushleft}
+is called the authalic sphere. This sphere may be used as an intermediate step in the transformation from
+\end{flushleft}
+
+
+\begin{flushleft}
+the ellipsoid to the mapping surface.
+\end{flushleft}
+
+
+8
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Let RA , $\phi$A and $\lambda$A be the authalic radius, latitude and longitude, respectively. Also, let $\phi$ and $\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+be the geodetic latitude and longitude, respectively. From Example 1, we have e = M 2 , g = N 2 cos2 $\phi$,
+\end{flushleft}
+
+
+2
+
+
+2
+
+
+\begin{flushleft}
+E 0 = RA
+\end{flushleft}
+
+
+\begin{flushleft}
+and G0 = RA
+\end{flushleft}
+
+
+\begin{flushleft}
+cos2 $\phi$. By Eqs. (21) and (22),
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\phi$A
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\phi$
+\end{flushleft}
+
+
+\newpage
+
+
+
+4
+
+
+\begin{flushleft}
+M 2 N 2 cos2 $\phi$ = RA
+\end{flushleft}
+
+
+\begin{flushleft}
+cos2 $\phi$A \newpage
+
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+ A
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\phi$A \newpage
+2
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$ \newpage
+\newpage
+
+\end{flushleft}
+
+
+\newpage
+ .
+
+
+\begin{flushleft}
+$\partial$$\lambda$A \newpage
+\newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+(24)
+
+
+
+
+
+\begin{flushleft}
+In the transformation from the ellipsoid to the authalic sphere, longitude is invariant, i.e., $\lambda$ = $\lambda$A .
+\end{flushleft}
+
+
+\begin{flushleft}
+Moreover, $\phi$A is independent of $\lambda$A and so $\lambda$. Thus Eq. (24) reduces to
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+ A
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\phi$
+\end{flushleft}
+
+
+2 2
+
+
+2
+
+
+4
+
+
+2
+
+
+\begin{flushleft}
+M N cos $\phi$ = RA cos $\phi$A \newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+ 0
+
+
+
+
+
+\newpage
+2
+
+
+\newpage
+
+
+
+0\newpage
+
+
+
+\newpage
+
+
+
+\newpage
+ .
+
+
+\newpage
+
+
+
+1\newpage
+
+
+
+
+
+
+(25)
+
+
+
+
+
+\begin{flushleft}
+Substitute the values of M and N (given in Example 1) into Eq. (25) to obtain
+\end{flushleft}
+
+
+\begin{flushleft}
+a2 (1 $-$ e2ab )
+\end{flushleft}
+
+
+2
+
+
+\begin{flushleft}
+cos $\phi$d$\phi$ = RA
+\end{flushleft}
+
+
+\begin{flushleft}
+cos $\phi$A d$\phi$A .
+\end{flushleft}
+
+
+\begin{flushleft}
+(1 $-$ e2ab sin2 $\phi$)2
+\end{flushleft}
+
+
+
+
+
+(26)
+
+
+
+
+
+\begin{flushleft}
+Integrating the left hand side of Eq. (26) from 0 to $\phi$ (using binary expansion), and the right hand side
+\end{flushleft}
+
+
+\begin{flushleft}
+from 0 to $\phi$A , one obtains
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+2
+
+
+3
+
+
+4
+
+
+2
+
+
+\begin{flushleft}
+RA
+\end{flushleft}
+
+
+\begin{flushleft}
+sin $\phi$A = a2 (1 $-$ e2ab ) sin $\phi$ + e2ab sin3 $\phi$ + e4ab sin5 $\phi$ + e6ab sin7 $\phi$ + · · · .
+\end{flushleft}
+
+
+3
+
+
+5
+
+
+7
+
+
+
+
+
+(27)
+
+
+
+
+
+\begin{flushleft}
+Assuming $\phi$A = $\pi$/2 when $\phi$ = $\pi$/2, Eq. (27) gives:
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+2
+
+
+3
+
+
+4
+
+
+\begin{flushleft}
+RA = a2 (1 $-$ e2ab ) 1 + e2ab + e4ab + e6ab + · · · .
+\end{flushleft}
+
+
+3
+
+
+5
+
+
+7
+
+
+
+
+
+(28)
+
+
+
+
+
+\begin{flushleft}
+Substituting Eq. (28) into Eq. (27), one obtains
+\end{flushleft}
+
+
+?
+
+
+\begin{flushleft}
+sin $\phi$A = sin $\phi$
+\end{flushleft}
+
+
+
+
+
+?
+
+
+\begin{flushleft}
+1 + 23 e2ab sin2 $\phi$ + 53 e4ab sin4 $\phi$ + 47 e6ab sin6 $\phi$ + · · ·
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+1 + 23 e2ab + 35 e4ab + 47 e6ab + · · ·
+\end{flushleft}
+
+
+
+
+
+(29)
+
+
+
+
+
+\begin{flushleft}
+Since the eccentricity eab is a small number, the above series are convergent. The relation between
+\end{flushleft}
+
+
+\begin{flushleft}
+authalic and geodetic latitudes is equal at latitudes 0◦ and 90◦ , and the difference between them at other
+\end{flushleft}
+
+
+\begin{flushleft}
+latitudes is about 0◦ .1 for the WGS-84 spheroid (see [5] for the definitions of the WGS-84 and WGS-72
+\end{flushleft}
+
+
+\begin{flushleft}
+spheroids).
+\end{flushleft}
+
+
+\begin{flushleft}
+Example 2
+\end{flushleft}
+
+
+\begin{flushleft}
+1. For the WGS-72 spheroid with a $\approx$ 6, 378, 135 m and eab $\approx$ 0.081818, the radius of the authalic
+\end{flushleft}
+
+
+\begin{flushleft}
+sphere is
+\end{flushleft}
+
+
+\begin{flushleft}
+r
+\end{flushleft}
+
+
+?
+
+
+2
+
+
+3 ?
+
+
+\begin{flushleft}
+RA $\approx$ a (1 $-$ e2ab ) 1 + e2ab + e4ab $\approx$ 6, 371, 004 m.
+\end{flushleft}
+
+
+3
+
+
+5
+
+
+\begin{flushleft}
+2. For the I.U.G.G spheroid with f = (a $-$ b)/a $\approx$ 1/298.275, we have eab = 2f $-$ f 2 $\approx$ 0.0066944, and
+\end{flushleft}
+
+
+\begin{flushleft}
+from Eq. (29), for geodetic latitude $\phi$ = 45◦ , we have sin $\phi$A $\approx$ 0.70552 which gives $\phi$A $\approx$ 44◦ .8713.
+\end{flushleft}
+
+
+
+
+
+9
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Case 2. A conformal sphere is an sphere defined for conformal transformation from an ellipsoid,
+\end{flushleft}
+
+
+\begin{flushleft}
+and similar to the authalic sphere may be used as an intermediate step in the transformation from the
+\end{flushleft}
+
+
+\begin{flushleft}
+reference ellipsoid to a mapping surface.
+\end{flushleft}
+
+
+\begin{flushleft}
+Let Rc , $\phi$c and $\lambda$c be the conformal radius, latitude and longitude for the conformal sphere, respectively. Let e and g be the same fundamental quantities as Case 1, and E 0 = Rc2 and G0 = Rc2 cos2 $\phi$c .
+\end{flushleft}
+
+
+\begin{flushleft}
+Also, let $\phi$c = $\phi$c ($\phi$) and $\lambda$c = $\lambda$. Thus, from Eq. (20),
+\end{flushleft}
+
+
+\begin{flushleft}
+E=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$$\phi$ ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+c
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+E0 +
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$$\lambda$ ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+c
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+G0 =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$$\phi$ ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+c
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+E0,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+G=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$$\phi$ ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+c
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+E0 +
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$$\lambda$ ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+c
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+G0 = G0 .
+\end{flushleft}
+
+
+
+
+
+(30)
+
+
+
+
+
+\begin{flushleft}
+Combining Eqs. (23) and (30), one obtains
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\partial$$\phi$ ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+c
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+M2
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Rc2
+\end{flushleft}
+
+
+=
+
+
+
+
+
+\begin{flushleft}
+Rc2 cos2 $\phi$c
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+N 2 cos2 $\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+that after integrating and simplifying with the condition $\phi$c = 0 for $\phi$ = 0, it gives
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+tan
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+eab
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\phi$ $\pi$ ?? 1 $-$ e sin $\phi$ ?
+\end{flushleft}
+
+
+\begin{flushleft}
+$\pi$?
+\end{flushleft}
+
+
+\begin{flushleft}
+ab
+\end{flushleft}
+
+
+2
+
+
+.
+
+
++
+
+
+\begin{flushleft}
+= tan
+\end{flushleft}
+
+
++
+
+
+2
+
+
+4
+
+
+2
+
+
+4
+
+
+\begin{flushleft}
+1 + eab sin $\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+?$\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+c
+\end{flushleft}
+
+
+
+
+
+(31)
+
+
+
+
+
+\begin{flushleft}
+One can
+\end{flushleft}
+
+
+\begin{flushleft}
+$\surd$ calculate $\phi$c from Eq. (31) which is a function of geodetic latitude $\phi$. Also, it can be shown that
+\end{flushleft}
+
+
+\begin{flushleft}
+Rc = M N for a given latitude $\phi$ which in this case $\phi$ = $\pi$/2. We refer to Chapter 5 Section 3 in [5] for
+\end{flushleft}
+
+
+\begin{flushleft}
+the derivation.
+\end{flushleft}
+
+
+
+
+
+5
+
+
+
+
+
+\begin{flushleft}
+Albers and Lambert, one standard parallel
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+In this section, we describe the Albers one standard parallel (equal-area conic projection) and Lambert
+\end{flushleft}
+
+
+\begin{flushleft}
+one standard parallel (conformal conic projection) at latitude $\phi$0 which give good maps around that
+\end{flushleft}
+
+
+\begin{flushleft}
+latitude (cf., [1, 5, 6, 8]).
+\end{flushleft}
+
+
+\begin{flushleft}
+We start with some geometric properties in a cone tangent to a spherical model of the Earth at
+\end{flushleft}
+
+
+\begin{flushleft}
+latitude $\phi$0 . In Fig. 6, ACN and BDN are two meridians separated by a longitude difference of ∆$\lambda$, and
+\end{flushleft}
+
+
+\begin{flushleft}
+CD is an arc of the circle parallel to the equator. We have CD = DO0 ∆$\lambda$ and DN 0 sin $\phi$0 = DO0 and
+\end{flushleft}
+
+
+\begin{flushleft}
+approximately $\theta$ · DN 0 = CD.
+\end{flushleft}
+
+
+\begin{flushleft}
+Therefore, the first polar coordinate, $\theta$, is a linear function of $\lambda$, i.e.,
+\end{flushleft}
+
+
+\begin{flushleft}
+$\theta$ = ∆$\lambda$ sin $\phi$0 .
+\end{flushleft}
+
+
+
+
+
+(32)
+
+
+
+
+
+\begin{flushleft}
+The second polar coordinate, r, is a function of $\phi$, i.e.,
+\end{flushleft}
+
+
+\begin{flushleft}
+r = r($\phi$).
+\end{flushleft}
+
+
+
+
+
+(33)
+
+
+
+
+
+\begin{flushleft}
+The constant of the cone, denoted \%, is defined from the relation between lengths on the developed cone
+\end{flushleft}
+
+
+\begin{flushleft}
+on the Earth. Let the total angle on the cone, $\theta$T , corresponding to 2$\pi$ on the Earth be $\theta$T = d/r0 , where
+\end{flushleft}
+
+
+\begin{flushleft}
+d = 2$\pi$R cos $\phi$0 is the circumference of the parallel circle to the equator at latitude $\phi$0 , and r0 = R cot $\phi$0 .
+\end{flushleft}
+
+
+\begin{flushleft}
+Thus $\theta$T = 2$\pi$ sin $\phi$0 , and the constant of the cone is defined as \% = sin $\phi$0 .
+\end{flushleft}
+
+
+\begin{flushleft}
+Case 1. The Albers projection. Consider a spherical model of the Earth. From Example 1, we know
+\end{flushleft}
+
+
+\begin{flushleft}
+that the first fundamental quantities for the sphere are e = R2 and g = R2 cos2 $\phi$ and for a cone (the
+\end{flushleft}
+
+
+
+
+
+10
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Figure 6: Geometry for angular convergence of the meridians
+\end{flushleft}
+
+
+\begin{flushleft}
+polar coordinate system) are E 0 = 1 and G0 = r2 . Hence, from Eqs. (21) and (22),
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$r
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\phi$
+\end{flushleft}
+
+
+4
+
+
+2
+
+
+2\newpage
+
+
+
+\begin{flushleft}
+R cos $\phi$ = r \newpage
+
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\theta$
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$r \newpage
+2
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$ \newpage
+\newpage
+
+\end{flushleft}
+
+
+\newpage
+ .
+
+
+\begin{flushleft}
+$\partial$$\theta$ \newpage
+\newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+(34)
+
+
+
+
+
+\newpage
+2
+
+
+\newpage
+
+
+
+0 \newpage
+
+
+
+\newpage
+
+
+
+\newpage
+ .
+
+
+\newpage
+
+
+
+\begin{flushleft}
+sin $\phi$ \newpage
+
+\end{flushleft}
+
+
+
+
+
+(35)
+
+
+
+
+
+\begin{flushleft}
+Using Eqs. (32) and (33), Eq. (34) becomes
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+ $\partial$r
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+R4 cos2 $\phi$ = r2 \newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+ 0
+
+
+
+
+
+0
+
+
+
+
+
+\begin{flushleft}
+Solving Eq. (35) by knowing the fact that an increase in $\phi$ corresponds to a decrease in r, one gets
+\end{flushleft}
+
+
+\begin{flushleft}
+r2 =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$-$2R2 sin $\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
++ c.
+\end{flushleft}
+
+
+\begin{flushleft}
+sin $\phi$0
+\end{flushleft}
+
+
+
+
+
+(36)
+
+
+
+
+
+\begin{flushleft}
+Imposing the boundary condition r0 = R cot $\phi$0 into Eq. (36), c = 2R2 + R2 cot2 $\phi$0 , and so after some
+\end{flushleft}
+
+
+\begin{flushleft}
+simplifications, Eq. (36) becomes
+\end{flushleft}
+
+
+\begin{flushleft}
+q
+\end{flushleft}
+
+
+\begin{flushleft}
+R
+\end{flushleft}
+
+
+\begin{flushleft}
+1 + sin2 $\phi$0 $-$ 2 sin $\phi$ sin $\phi$0 .
+\end{flushleft}
+
+
+(37)
+
+
+\begin{flushleft}
+r=
+\end{flushleft}
+
+
+\begin{flushleft}
+sin $\phi$0
+\end{flushleft}
+
+
+\begin{flushleft}
+The Cartesian plotting equations for a conical projection are defined as follows:
+\end{flushleft}
+
+
+\begin{flushleft}
+x = sr sin $\theta$,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+y = s(r0 $-$ r cos $\theta$),
+\end{flushleft}
+
+
+
+
+
+11
+
+
+
+
+
+(38)
+
+
+
+
+
+\begin{flushleft}
+\newpage
+where s is the scale factor, $\theta$ and r are given respectively by Eqs. (32) and (37), and r0 = R cot $\phi$0 . The
+\end{flushleft}
+
+
+\begin{flushleft}
+origin of the projection has the coordinates $\lambda$0 (the longitude of central meridian) and $\phi$0 . Fig. 7 shows
+\end{flushleft}
+
+
+\begin{flushleft}
+the Albers projection with one standard parallel.
+\end{flushleft}
+
+
+\begin{flushleft}
+If we let $\phi$0 = 90◦ , then Eqs. (32) and (37) reduce to
+\end{flushleft}
+
+
+\begin{flushleft}
+p
+\end{flushleft}
+
+
+\begin{flushleft}
+$\theta$ = ∆$\lambda$,
+\end{flushleft}
+
+
+\begin{flushleft}
+r = R 2(1 $-$ sin $\phi$),
+\end{flushleft}
+
+
+\begin{flushleft}
+that are the polar coordinates for the azimuthal equal-area projection, a special case of the Albers
+\end{flushleft}
+
+
+\begin{flushleft}
+projection, see Fig. 8.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Figure 8: The Albers azimuthal map
+\end{flushleft}
+
+
+\begin{flushleft}
+Figure 7: The Albers equal-area map with standard
+\end{flushleft}
+
+
+\begin{flushleft}
+parallel 45◦ N.
+\end{flushleft}
+
+
+\begin{flushleft}
+Case 2. The Lambert projection. In this case, we consider a spheroidal model of the Earth. From
+\end{flushleft}
+
+
+\begin{flushleft}
+Example 1, the fundamental quantities for this model are e = M 2 and g = N 2 cos2 $\phi$, and the fundamental
+\end{flushleft}
+
+
+\begin{flushleft}
+quantities for a cone are E 0 = 1 and G0 = r2 . Again using Eqs. (32) and (33), Eq. (20) becomes
+\end{flushleft}
+
+
+\begin{flushleft}
+E=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$r ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+E0 +
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$$\theta$ ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+G0 =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$r ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+
+
+
+,
+
+
+
+
+
+\begin{flushleft}
+G=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$r ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+E0 +
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+? $\partial$$\theta$ ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+G0 = sin2 $\phi$0 r2 .
+\end{flushleft}
+
+
+
+
+
+(39)
+
+
+
+
+
+\begin{flushleft}
+Substituting these values in Eq. (23), integrating, simplifying and noting that r increases as $\phi$ decreases,
+\end{flushleft}
+
+
+\begin{flushleft}
+one gets
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+sin $\phi$0
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\pi$ $\phi$ ?? 1 + e sin $\phi$ ?eab /2 
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+ab
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+ tan 4 $-$ 2
+\end{flushleft}
+
+
+\begin{flushleft}
+1 $-$ eab sin $\phi$
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+r = r0
+\end{flushleft}
+
+
+\begin{flushleft}
+? $\pi$ $\phi$ ?? 1 + e sin $\phi$ ?eab /2 
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+0
+
+
+\begin{flushleft}
+ab
+\end{flushleft}
+
+
+0
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+
+\end{flushleft}
+
+
+\begin{flushleft}
+ tan
+\end{flushleft}
+
+
+$-$
+
+
+4
+
+
+2
+
+
+\begin{flushleft}
+1 $-$ eab sin $\phi$0
+\end{flushleft}
+
+
+\begin{flushleft}
+where
+\end{flushleft}
+
+
+\begin{flushleft}
+r0 = N$\phi$0 cot $\phi$0 =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+a cot $\phi$0
+\end{flushleft}
+
+
+\begin{flushleft}
+1 $-$ e2ab sin2 $\phi$0
+\end{flushleft}
+
+
+
+
+
+(40)
+
+
+
+
+
+?0.5 .
+
+
+
+
+
+\begin{flushleft}
+The Cartesian equations are the same as Eq. (38) with these new r0 and r. Fig. 9 shows the Lambert
+\end{flushleft}
+
+
+\begin{flushleft}
+projection with one standard parallel.
+\end{flushleft}
+
+
+
+
+
+12
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Figure 9: The Lambert conformal map
+\end{flushleft}
+
+
+
+
+
+6
+
+
+
+
+
+\begin{flushleft}
+Sinusoidal projection
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+In this section, we only discuss about the sinusoidal equal-area projection that is a projection of the entire
+\end{flushleft}
+
+
+\begin{flushleft}
+model of the Earth onto a single map, and it gives an adequate whole world coverage, [2, 5].
+\end{flushleft}
+
+
+\begin{flushleft}
+Consider a spherical model of the Earth with the fundamental quantities e = R2 and g = R2 cos2 $\phi$.
+\end{flushleft}
+
+
+\begin{flushleft}
+The first fundamental quantities on a planar mapping surface is E 0 = G0 = 1. Substituting these
+\end{flushleft}
+
+
+\begin{flushleft}
+fundamental quantities into Eq. (22) (using Eq. (21)), one gets
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+2
+
+
+\begin{flushleft}
+\newpage
+ $\partial$x $\partial$x \newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+\newpage
+ $\partial$$\phi$ $\partial$$\lambda$ \newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+R4 cos2 $\phi$ = \newpage
+
+\end{flushleft}
+
+
+\newpage
+ ,
+
+
+\begin{flushleft}
+\newpage
+ $\partial$y $\partial$y \newpage
+
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\phi$ $\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+which by imposing the conditions y = R$\phi$ and x = x($\phi$, $\lambda$) reduces to
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+ $\partial$x $\partial$x \newpage
+2
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+? $\partial$x ?2
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+R4 cos2 $\phi$ = \newpage
+
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+\newpage
+ = R2
+\end{flushleft}
+
+
+\newpage
+
+
+
+\newpage
+
+
+
+\begin{flushleft}
+$\partial$$\lambda$
+\end{flushleft}
+
+
+\begin{flushleft}
+\newpage
+R
+\end{flushleft}
+
+
+\newpage
+
+
+
+0
+
+
+
+
+
+(41)
+
+
+
+
+
+\begin{flushleft}
+Taking the positive square root of Eq. (41) and using the fact that $\lambda$ and $\phi$ are independent, one obtains
+\end{flushleft}
+
+
+\begin{flushleft}
+dx = R cos $\phi$d$\lambda$, and so by integrating x = $\lambda$R cos $\phi$ + c. Using the boundary condition x = 0 when
+\end{flushleft}
+
+
+\begin{flushleft}
+$\lambda$ = $\lambda$0 , one gets c = $-$$\lambda$0 R cos $\phi$, and so the plotting equations for the sinusoidal projection become as
+\end{flushleft}
+
+
+\begin{flushleft}
+follow ($\phi$ and $\lambda$ in radians):
+\end{flushleft}
+
+
+\begin{flushleft}
+x = sR∆$\lambda$ cos $\phi$,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+y = sR$\phi$,
+\end{flushleft}
+
+
+
+
+
+(42)
+
+
+
+
+
+\begin{flushleft}
+where s is the scale factor. Fig. 10 shows a normalized plot for the sinusoidal projection. In this map,
+\end{flushleft}
+
+
+\begin{flushleft}
+the meridians are sinusoidal curves except the central meridian which is a vertical line and they all meet
+\end{flushleft}
+
+
+\begin{flushleft}
+each other in the poles. This is why this map is known as the sinusoidal map. The x axis is also along
+\end{flushleft}
+
+
+\begin{flushleft}
+the equator.
+\end{flushleft}
+
+
+\begin{flushleft}
+The inverse transformation from the Cartesian to geographic coordinates is simply calculated from
+\end{flushleft}
+
+
+\begin{flushleft}
+Eq. (42):
+\end{flushleft}
+
+
+\begin{flushleft}
+x
+\end{flushleft}
+
+
+\begin{flushleft}
+y
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+∆$\lambda$ =
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+$\phi$=
+\end{flushleft}
+
+
+\begin{flushleft}
+sR
+\end{flushleft}
+
+
+\begin{flushleft}
+sR cos $\phi$
+\end{flushleft}
+
+
+13
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Figure 10: The sinusoidal equal-area projection with Tissot's indicatrices that are changing their shape
+\end{flushleft}
+
+
+\begin{flushleft}
+(the ellipses with different eccentricities indicating angular distortion) toward the poles while having the
+\end{flushleft}
+
+
+\begin{flushleft}
+same size.
+\end{flushleft}
+
+
+
+
+
+7
+
+
+
+
+
+\begin{flushleft}
+Some conventional projections
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+In this section, we give the plotting equations for two conventional projections, the simple conic projection
+\end{flushleft}
+
+
+\begin{flushleft}
+(one standard parallel) and the plate carree projection (cf., [2, 5, 7]). As we mentioned earlier, these
+\end{flushleft}
+
+
+\begin{flushleft}
+projections neither preserve the shape nor do they preserve the size, and they are usually used for simple
+\end{flushleft}
+
+
+\begin{flushleft}
+portrayals of the world or regions with minimal geographic data such as index maps.
+\end{flushleft}
+
+
+\begin{flushleft}
+1. The simple conic projection is a projection that the distances along every meridian are true scale.
+\end{flushleft}
+
+
+\begin{flushleft}
+Suppose that the conic is tangent to the spherical model of the Earth at latitude $\phi$0 , see Fig. 11. In
+\end{flushleft}
+
+
+\begin{flushleft}
+this figure, we have r0 = R cot $\phi$0 . We want to have DE = DE 0 , but DE 0 = R($\phi$ $-$ $\phi$0 ). Thus the polar
+\end{flushleft}
+
+
+\begin{flushleft}
+coordinates for this projection are
+\end{flushleft}
+
+
+\begin{flushleft}
+r = r0 $-$ R($\phi$ $-$ $\phi$0 ),
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\theta$ = ∆$\lambda$ sin $\phi$0 .
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Replacing these values into Eq. (38) gives its Cartesian coordinates.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Figure 11: Geometry for the simple conic projection
+\end{flushleft}
+
+
+
+
+
+14
+
+
+
+
+
+\begin{flushleft}
+\newpage
+2. The plate carree, the equirectangular projection, is a conventional cylindrical projection that
+\end{flushleft}
+
+
+\begin{flushleft}
+divides the meridians equally the same way as on the sphere. Also, it divides the equator and its parallels
+\end{flushleft}
+
+
+\begin{flushleft}
+equally. The plate carree plotting equations are very simple:
+\end{flushleft}
+
+
+\begin{flushleft}
+x = sR∆$\lambda$,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+y = sR$\phi$,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+where $\phi$ and $\lambda$ are in radians. Fig. 12 shows the plate carree map with Tissot's indicatrices which are
+\end{flushleft}
+
+
+\begin{flushleft}
+changing their shape and size when moving toward the poles indicating that this map is neither equal-area
+\end{flushleft}
+
+
+\begin{flushleft}
+nor conformal.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Figure 12: The plate carree map, 10◦ graticule.
+\end{flushleft}
+
+
+
+
+
+8
+
+
+
+
+
+\begin{flushleft}
+Theory of distortion
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+In this section, we discuss about three types of distortions from differential geometry approach: distortions
+\end{flushleft}
+
+
+\begin{flushleft}
+in length, area and angle, and we present them in term of the Gaussian fundamental quantities (cf.,
+\end{flushleft}
+
+
+[5, 6, 9]).
+
+
+\begin{flushleft}
+1. The distortion in length is defined as the ratio of a length of a line on a map to the length of the
+\end{flushleft}
+
+
+\begin{flushleft}
+true line on a model of the Earth. More precisely,
+\end{flushleft}
+
+
+\begin{flushleft}
+KL2 =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+(ds)2M
+\end{flushleft}
+
+
+\begin{flushleft}
+E(d$\phi$)2 + G(d$\lambda$)2
+\end{flushleft}
+
+
+=
+
+
+.
+
+
+\begin{flushleft}
+(ds)2E
+\end{flushleft}
+
+
+\begin{flushleft}
+e(d$\phi$)2 + g(d$\lambda$)2
+\end{flushleft}
+
+
+\begin{flushleft}
+r
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+From Eq. (43), the distortion along the meridians (d$\lambda$ = 0) is Km =
+\end{flushleft}
+
+
+\begin{flushleft}
+r
+\end{flushleft}
+
+
+\begin{flushleft}
+G
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+the equator (d$\phi$ = 0) is Ke =
+\end{flushleft}
+
+
+\begin{flushleft}
+g
+\end{flushleft}
+
+
+
+
+
+(43)
+
+
+\begin{flushleft}
+E
+\end{flushleft}
+
+
+\begin{flushleft}
+, and along the lines parallel to
+\end{flushleft}
+
+
+\begin{flushleft}
+e
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+2. The distortion in area is defined as the ratio of an area on a map
+\end{flushleft}
+
+
+\begin{flushleft}
+$\surd$ to the true area on a model of
+\end{flushleft}
+
+
+\begin{flushleft}
+the Earth. From Eq. (13) (f = F = 0), the area on the map is AM = EG, and the corresponding area
+\end{flushleft}
+
+
+$\surd$
+
+
+\begin{flushleft}
+on the model of the Earth is AE = eg. Thus, the distortion in area is
+\end{flushleft}
+
+
+\begin{flushleft}
+s
+\end{flushleft}
+
+
+\begin{flushleft}
+AM
+\end{flushleft}
+
+
+\begin{flushleft}
+EG
+\end{flushleft}
+
+
+\begin{flushleft}
+KA =
+\end{flushleft}
+
+
+=
+
+
+\begin{flushleft}
+= Km Ke .
+\end{flushleft}
+
+
+(44)
+
+
+\begin{flushleft}
+AE
+\end{flushleft}
+
+
+\begin{flushleft}
+eg
+\end{flushleft}
+
+
+
+
+
+15
+
+
+
+
+
+\begin{flushleft}
+\newpage
+In equal-area map projections, from Eq. (21), KA = Km Ke = 1.
+\end{flushleft}
+
+
+\begin{flushleft}
+3. The distortion in angle is defined as (in percentage):
+\end{flushleft}
+
+
+\begin{flushleft}
+K$\alpha$ = 100 ·
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\alpha$$-$$\beta$
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+$\alpha$
+\end{flushleft}
+
+
+
+
+
+(45)
+
+
+
+
+
+\begin{flushleft}
+where $\alpha$ is the angle on a model of the Earth (the azimuth), and $\beta$ is the projected angle on a map (the
+\end{flushleft}
+
+
+\begin{flushleft}
+azimuth $\alpha$ on the map, cf., Fig. 13).
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Figure 13: Geometry for differential parallelograms
+\end{flushleft}
+
+
+\begin{flushleft}
+In order to obtain $\beta$ as a function of the fundamental quantities and $\alpha$, we first calculate sin($\beta$ $\pm$ $\alpha$).
+\end{flushleft}
+
+
+\begin{flushleft}
+From Fig. 13, we have
+\end{flushleft}
+
+
+\begin{flushleft}
+sin($\beta$ $\pm$ $\alpha$) = sin $\beta$ cos $\alpha$ $\pm$ cos $\beta$ sin $\alpha$
+\end{flushleft}
+
+
+?$\surd$
+
+
+\begin{flushleft}
+d$\lambda$ ??$\surd$ d$\phi$ ? ?$\surd$
+\end{flushleft}
+
+
+\begin{flushleft}
+d$\phi$ ??$\surd$ d$\lambda$ ?
+\end{flushleft}
+
+
+=
+
+
+\begin{flushleft}
+G·
+\end{flushleft}
+
+
+\begin{flushleft}
+e·
+\end{flushleft}
+
+
+$\pm$
+
+
+\begin{flushleft}
+E·
+\end{flushleft}
+
+
+\begin{flushleft}
+g·
+\end{flushleft}
+
+
+\begin{flushleft}
+dS
+\end{flushleft}
+
+
+\begin{flushleft}
+ds
+\end{flushleft}
+
+
+\begin{flushleft}
+dS
+\end{flushleft}
+
+
+\begin{flushleft}
+ds
+\end{flushleft}
+
+
+\begin{flushleft}
+d$\phi$ d$\lambda$ $\surd$
+\end{flushleft}
+
+
+\begin{flushleft}
+= (Ke $\pm$ Km )
+\end{flushleft}
+
+
+\begin{flushleft}
+eg.
+\end{flushleft}
+
+
+\begin{flushleft}
+dS dS
+\end{flushleft}
+
+
+\begin{flushleft}
+Hence,
+\end{flushleft}
+
+
+\begin{flushleft}
+sin($\beta$ $-$ $\alpha$) =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Ke $-$ Km
+\end{flushleft}
+
+
+\begin{flushleft}
+sin($\beta$ + $\alpha$).
+\end{flushleft}
+
+
+\begin{flushleft}
+Ke + Km
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Define
+\end{flushleft}
+
+
+\begin{flushleft}
+f ($\beta$) = sin($\beta$ $-$ $\alpha$) $-$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Ke $-$ Km
+\end{flushleft}
+
+
+\begin{flushleft}
+sin($\beta$ + $\alpha$).
+\end{flushleft}
+
+
+\begin{flushleft}
+Ke + Km
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Now the goal is to find the roots of f . This can be done by Newton's iteration as follows:
+\end{flushleft}
+
+
+\begin{flushleft}
+$\beta$n+1 = $\beta$n $-$
+\end{flushleft}
+
+
+
+
+
+16
+
+
+
+
+
+\begin{flushleft}
+f ($\beta$n )
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+f 0 ($\beta$n )
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+where
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Ke $-$ Km
+\end{flushleft}
+
+
+\begin{flushleft}
+cos($\beta$n + $\alpha$).
+\end{flushleft}
+
+
+\begin{flushleft}
+Ke + Km
+\end{flushleft}
+
+
+\begin{flushleft}
+The iteration is rapidly convergent by letting $\beta$0 = $\alpha$. In conformal mapping, from Eq. (23), Ke = Km ,
+\end{flushleft}
+
+
+\begin{flushleft}
+and so the function f will have a unique solution ($\beta$ = $\alpha$).
+\end{flushleft}
+
+
+\begin{flushleft}
+f 0 ($\beta$n ) = cos($\beta$n $-$ $\alpha$) $-$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Example 3 In this example, we show the distortions in length in the Albers projection with one standard
+\end{flushleft}
+
+
+\begin{flushleft}
+parallel. From Example 1, the first fundamental form for the map is
+\end{flushleft}
+
+
+\begin{flushleft}
+(ds)2M = (dr)2 + r2 (d$\theta$)2 = E 0 (dr)2 + G0 (d$\theta$)2 ,
+\end{flushleft}
+
+
+
+
+
+(46)
+
+
+
+
+
+\begin{flushleft}
+and the first fundamental form for the spherical model of the Earth is
+\end{flushleft}
+
+
+\begin{flushleft}
+(ds)2E = R2 (d$\phi$)2 + R2 cos2 $\phi$(d$\lambda$)2 = e(d$\phi$)2 + g(d$\lambda$)2 .
+\end{flushleft}
+
+
+
+
+
+(47)
+
+
+
+
+
+\begin{flushleft}
+Taking the derivatives of Eqs. (32) and (35), one obtains
+\end{flushleft}
+
+
+\begin{flushleft}
+d$\theta$ = sin $\phi$0 d$\lambda$,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+dr = p
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$-$R cos $\phi$ d$\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+1 + sin2 $\phi$0 $-$ 2 sin $\phi$ sin $\phi$0
+\end{flushleft}
+
+
+
+
+
+,
+
+
+
+
+
+\begin{flushleft}
+respectively. Substitute the above equations into Eq. (46) to get
+\end{flushleft}
+
+
+\begin{flushleft}
+(ds)2M =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+R2 cos2 $\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+(d$\phi$)2 + r2 sin2 $\phi$0 (d$\lambda$)2 = E(d$\phi$)2 + G(d$\lambda$)2 .
+\end{flushleft}
+
+
+\begin{flushleft}
+1 + sin2 $\phi$0 $-$ 2 sin $\phi$ sin $\phi$0
+\end{flushleft}
+
+
+
+
+
+(48)
+
+
+
+
+
+\begin{flushleft}
+Substituting (47) and (48) in Eq. (43) gives the total length distortion. Also,
+\end{flushleft}
+
+
+\begin{flushleft}
+s
+\end{flushleft}
+
+
+\begin{flushleft}
+p
+\end{flushleft}
+
+
+\begin{flushleft}
+r
+\end{flushleft}
+
+
+\begin{flushleft}
+E
+\end{flushleft}
+
+
+\begin{flushleft}
+G
+\end{flushleft}
+
+
+\begin{flushleft}
+1 + sin2 $\phi$0 $-$ 2 sin $\phi$ sin $\phi$0
+\end{flushleft}
+
+
+\begin{flushleft}
+cos $\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+Km =
+\end{flushleft}
+
+
+\begin{flushleft}
+=p
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+K
+\end{flushleft}
+
+
+=
+
+
+=
+
+
+,
+
+
+\begin{flushleft}
+e
+\end{flushleft}
+
+
+\begin{flushleft}
+e
+\end{flushleft}
+
+
+\begin{flushleft}
+g
+\end{flushleft}
+
+
+\begin{flushleft}
+cos $\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+1 + sin2 $\phi$0 $-$ 2 sin $\phi$ sin $\phi$0
+\end{flushleft}
+
+
+\begin{flushleft}
+which are functions of $\phi$. Clearly, Km Ke = 1.
+\end{flushleft}
+
+
+\begin{flushleft}
+Example 4 In this example, we first use the first fundamental form to obtain the plotting equations
+\end{flushleft}
+
+
+\begin{flushleft}
+for the Mercator projection, and then we show its length and area distortion. From Example 1, the first
+\end{flushleft}
+
+
+\begin{flushleft}
+fundamental form for the cylindrical surface (the Cartesian coordinate system) is
+\end{flushleft}
+
+
+\begin{flushleft}
+(ds)2M = (dy)2 + (dx)2 .
+\end{flushleft}
+
+
+
+
+
+(49)
+
+
+
+
+
+\begin{flushleft}
+Taking the derivative of Eq. (4) and substituting in Eq. (49), one finds
+\end{flushleft}
+
+
+\begin{flushleft}
+? dy ?2
+\end{flushleft}
+
+
+\begin{flushleft}
+(d$\phi$)2 + s2 R2 (d$\lambda$)2 = E(d$\phi$)2 + G(d$\lambda$)2 ,
+\end{flushleft}
+
+
+(50)
+
+
+\begin{flushleft}
+(ds)2M =
+\end{flushleft}
+
+
+\begin{flushleft}
+d$\phi$
+\end{flushleft}
+
+
+?2
+
+
+\begin{flushleft}
+where s is the scale of the map along the equator, E = dy/d$\phi$ and G = s2 R2 . The first fundamental
+\end{flushleft}
+
+
+\begin{flushleft}
+quantities for the spherical model of the Earth are e = R2 and g = R2 cos2 $\phi$. Substituting these
+\end{flushleft}
+
+
+\begin{flushleft}
+fundamental quantities in Eq. (23) and simplifying, one obtains
+\end{flushleft}
+
+
+\begin{flushleft}
+sRd$\phi$
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+cos $\phi$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+dy =
+\end{flushleft}
+
+
+
+
+
+(51)
+
+
+
+
+
+\begin{flushleft}
+It is easy to see that integrating the above differential equation and applying the boundary condition
+\end{flushleft}
+
+
+?2
+
+
+\begin{flushleft}
+y(0) = 0, Eq. (7) follows. By Eq. (51), E = dy/d$\phi$ = s2 R2 / cos2 $\phi$. Therefore, substituting Eqs. (47)
+\end{flushleft}
+
+
+\begin{flushleft}
+and (50) in Eq. (43), the length distortion will be
+\end{flushleft}
+
+
+\begin{flushleft}
+KL =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+s
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+cos $\phi$
+\end{flushleft}
+
+
+
+
+
+17
+
+
+
+
+
+\begin{flushleft}
+\newpage
+It can be seen that KL = Km = Ke , and so from Eq. (44), the distortion in area for the Mercator
+\end{flushleft}
+
+
+\begin{flushleft}
+projection is
+\end{flushleft}
+
+
+\begin{flushleft}
+s2
+\end{flushleft}
+
+
+\begin{flushleft}
+KA = Km Ke =
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+cos2 $\phi$
+\end{flushleft}
+
+
+\begin{flushleft}
+Hence, in the Mercator projection both length and area distortions are functions of $\phi$ not $\lambda$.
+\end{flushleft}
+
+
+
+
+
+9
+
+
+
+
+
+\begin{flushleft}
+Conclusion
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+There are a number of map projections used for different purposes, and we discussed about three major
+\end{flushleft}
+
+
+\begin{flushleft}
+classes of them, equal-area, conformal, and conventional. Users may also create their own map based on
+\end{flushleft}
+
+
+\begin{flushleft}
+their projects by starting with a base map of known projection and scale.
+\end{flushleft}
+
+
+\begin{flushleft}
+In this paper, in cylindrical projections, we assume that the cylinder is tangent to the equator. Making
+\end{flushleft}
+
+
+\begin{flushleft}
+the cylinder tangent to other closed curves on the Earth results good maps in areas close to the tangency.
+\end{flushleft}
+
+
+\begin{flushleft}
+This is also applied for conical and azimuthal projections.
+\end{flushleft}
+
+
+\begin{flushleft}
+In all projections from a 3-D surface to a 2-D surface, there are distortions in length, shape or size that
+\end{flushleft}
+
+
+\begin{flushleft}
+some of them can be removed (not all) or minimized from the map based on some specific applications.
+\end{flushleft}
+
+
+\begin{flushleft}
+We also noticed in Section 4 that projecting a spheroidal model of the Earth to a spherical model of the
+\end{flushleft}
+
+
+\begin{flushleft}
+Earth will also distort length, shape and angle.
+\end{flushleft}
+
+
+\begin{flushleft}
+Intelligent map users should have knowledge about the theory of distortion in order to compare and
+\end{flushleft}
+
+
+\begin{flushleft}
+distinguish their maps with the true surface on the Earth that they are studying.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+References
+\end{flushleft}
+
+
+\begin{flushleft}
+[1] Davies, R. E. and Foote, F. S. and Kelly, J. E., Surveying: Theory and practice, McGraw-Hill, New
+\end{flushleft}
+
+
+\begin{flushleft}
+York (1966)
+\end{flushleft}
+
+
+\begin{flushleft}
+[2] Deetz, C. H. and Adams, O. S., Elements of map projection, Spec. Publ. 68, coast and geodetic
+\end{flushleft}
+
+
+\begin{flushleft}
+survey, U. S. Gov't. Printing office, Washington, D. C. (1944)
+\end{flushleft}
+
+
+\begin{flushleft}
+[3] Goetz, A., Introduction to differential geometry, Addison-Wesley, Reading, MA (1958)
+\end{flushleft}
+
+
+\begin{flushleft}
+[4] Osserman, R., Mathematical Mapping from Mercator to the Millennium, Mathematical Sciences
+\end{flushleft}
+
+
+\begin{flushleft}
+Research Institute (2004)
+\end{flushleft}
+
+
+\begin{flushleft}
+[5] Pearson, F., Map projections, theory and applications, Boca Raton, Florida (1999)
+\end{flushleft}
+
+
+\begin{flushleft}
+[6] Richardus, P. and Adler, R. K., Map projections for geodesists, cartographers, and geographers, North
+\end{flushleft}
+
+
+\begin{flushleft}
+Holland, Amsterdam (1972)
+\end{flushleft}
+
+
+\begin{flushleft}
+[7] Steers, J. A., An Introduction to the study of map projection, University of London (1962)
+\end{flushleft}
+
+
+\begin{flushleft}
+[8] Thomas, P. D., Conformal projection in geodesy and cartography, Spec. Publ. 68, coast and geodetic
+\end{flushleft}
+
+
+\begin{flushleft}
+survey, U. S. Gov't. Printing office, Washington, D. C. (1952)
+\end{flushleft}
+
+
+\begin{flushleft}
+[9] Vanicek P. and Krakiwsky E. J., Geodesy the concepts, pp 697. Amsterdam The Netherlands, University of New Brunswick, Canada (1986)
+\end{flushleft}
+
+
+
+
+
+18
+
+
+
+
+
+\newpage
+
+
+
+\end{document}

@@ -294,9 +294,23 @@ AND longitude IS NULL
 ORDER BY kanton, gemeinde 
 "))
             {
+                cmd.CommandText = @"
+SELECT 
+	 __Steuern_2016.gemeindenummer AS gemeinde_nummer 
+    ,__Steuern_2016.gemeinde 
+    ,__Steuern_2016.kanton 
+    ,__Steuern_2016.gemeinde  
+    + ', ' 
+    + __Steuern_2016.kanton 
+    + ', Schweiz' AS gemeinde_adresse 
+FROM TestDb.dbo.__Steuern_2016 
+LEFT JOIN TestDb.dbo.__Steuern_2014 ON __Steuern_2016.gemeindenummer = __Steuern_2014.gemeindenummer 
+WHERE __Steuern_2014.gemeindenummer IS NULL 
+";
+                
                 using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
                 {
-                    cmd.CommandText = "UPDATE __Steuern_2014 SET latitude = @lat, longitude = @lng WHERE gemeindenummer = @gem_nr; ";
+                    cmd.CommandText = "UPDATE __Steuern_2016 SET latitude = @lat, longitude = @lng WHERE gemeindenummer = @gem_nr; ";
                     var pgem = SQL.AddParameter(cmd, "gem_nr", "12435");
                     var plat = SQL.AddParameter(cmd, "lat", "666");
                     var plng = SQL.AddParameter(cmd, "lng", "666");
@@ -307,32 +321,32 @@ ORDER BY kanton, gemeinde
                         string city = System.Convert.ToString(dr["gemeinde"]);
                         string state = System.Convert.ToString(dr["kanton"]);
                         string geocodeName = System.Convert.ToString(dr["gemeinde_adresse"]);
-
-
+                        
                         System.Console.WriteLine(geocodeName);
-                        Wgs84Coordinates gc = GeoCode(geocodeName);
-                        // Wgs84Coordinates gc = OsmGeoCode(city, state, "Switzerland");
+                        // Wgs84Coordinates gc = GeoCode(geocodeName);
+                        Wgs84Coordinates gc = OsmGeoCode(city, state, "Switzerland");
                         // System.Console.WriteLine(gc);
-
-
-
+                        
                         pgem.Value = id;
                         plat.Value = gc.Latitude;
                         plng.Value = gc.Longitude;
-
+                        
                         SQL.ExecuteNonQuery(cmd);
                         System.Threading.Thread.Sleep(1000);
                     } // Next dr 
-
+                    
                 } // End Using dt 
-
+                
             } // End using cmd 
-
-
-
+            
+            
             System.Console.WriteLine(System.Environment.NewLine);
             System.Console.WriteLine(" --- Press any key to continue --- ");
             System.Console.ReadKey();
         }
+        
+        
     }
+    
+    
 }
