@@ -280,6 +280,14 @@ namespace GeoApis
 
         static void Main(string[] args)
         {
+            // string sourceXML = @"D:\username\Documents\Visual Studio 2017\Projects\TestPlotly\GeoApis\info\steuern\gemeinden.svg";
+            // string targetXML = @"D:\username\Documents\Visual Studio 2017\Projects\TestPlotly\GeoApis\info\steuern\gemeinden.min.svg";
+            // string newSourceXML = @"D:\username\Documents\Visual Studio 2017\Projects\TestPlotly\GeoApis\info\steuern\gemeinden.minimax.svg";
+
+            // XmlMinifierBeautifier.Minify(sourceXML, targetXML);
+            // XmlMinifierBeautifier.Prettify(targetXML, newSourceXML);
+
+
             using (System.Data.IDbCommand cmd = SQL.CreateCommand(@"
 SELECT 
 	 gemeindenummer AS gemeinde_nummer 
