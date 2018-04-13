@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="External\" />
+    <Folder Include="info\steuern\" />
   </ItemGroup>
 
   <ItemGroup>

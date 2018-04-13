@@ -1,7 +1,11 @@
 
+-- First, remove emply lines consisting of:
+-- ,,,,,,,,,,,,,,,,,,,,,,,,,,\n
+-- in the CSV-file; CSV with OpenOffice  
+
+
 
 -- Windows:
-
 BULK INSERT __Steuern_2016
 FROM 'D:\temp\steuern_ledig.csv'
 WITH
@@ -15,7 +19,8 @@ WITH
 
 
 
--- ,,,,,,,,,,,,,,,,,,,,,,,,,,\n
+
+-- Linux:
 BULK INSERT TestDb.dbo.__Steuern_2016
     FROM '/web/steuern_ledig.csv'
 WITH
