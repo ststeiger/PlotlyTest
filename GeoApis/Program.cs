@@ -278,6 +278,24 @@ namespace GeoApis
         } // End Function OsmGeoCode 
 
 
+        static void Directions()
+        {
+            string key = "";
+            string origin = "47.378141,8.540168"; // Zürich HB
+            string destination = "47.551635,9.226241"; // Erlen
+            string transit_mode = "rail";
+
+
+            // http://maps.googleapis.com/maps/api/directions/outputFormat?parameters
+            // &origin = 47.378141,8.540168
+            // &destination = 47.551635,9.226241
+            // &transit_mode = rail
+
+            string url = $"http://maps.googleapis.com/maps/api/directions/json?key={key}&origin={origin}&destination={destination}&transit_mode={transit_mode}";
+
+        }
+
+
         static void Main(string[] args)
         {
             // string sourceXML = @"D:\username\Documents\Visual Studio 2017\Projects\TestPlotly\GeoApis\info\steuern\gemeinden.svg";
