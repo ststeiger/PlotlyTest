@@ -102,7 +102,7 @@ namespace TestSpatial
 #endif
 
 
-#if Update_Building_Coordinates
+#if true // Update_Building_Coordinates
             using (System.Data.IDbCommand cmd = SQL.fromFile("GetBuildingsToGeocode.sql"))
             {
                 using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
@@ -111,6 +111,8 @@ namespace TestSpatial
                     {
                         string uid = System.Convert.ToString(dr["OBJ_UID"]);
                         string geocodeName = System.Convert.ToString(dr["OBJ_StringToGeoCode"]);
+                        // geocodeName = "Zürichstrasse 130, 8600 Dübendorf";
+
                         decimal lat = System.Convert.ToDecimal(dr["OBJ_Lat"]);
                         decimal lng = System.Convert.ToDecimal(dr["OBJ_Lng"]);
 
@@ -137,13 +139,13 @@ namespace TestSpatial
 
 
 
-#if false
+#if false 
             
-            Helper.InsertBuildingData("9DC95C1C-4830-4B01-85B5-593B6EA5E44B", "Bahnhofstrasse 4, 3073 Gümligen"
-                , new Wgs84Coordinates(47.392058M, 8.485391M)
+            Helper.InsertBuildingData("9C643E00-2EA9-4D15-A354-9FDFE9D0E810", "Bahnhofstrasse 4, 3073 Gümligen"
+                , new Wgs84Coordinates(47.412959M, 9.263165M)
                 );
 
-
+            
             using (System.Data.IDbCommand cmd = SQL.fromFile("GetBuildingsToPolygonCode.sql"))
             {
                 using (System.Data.DataTable dt = SQL.GetDataTable(cmd))

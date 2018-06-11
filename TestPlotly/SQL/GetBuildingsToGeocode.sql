@@ -34,7 +34,6 @@ SET @BE_ID = (SELECT TOP 1 BE_Hash FROM T_Benutzer WHERE BE_User = 'administrato
 		AS OBJ_Polygon 
 
 	FROM T_AP_Gebaeude 
-	
 	WHERE (1=1) 
 
 	/*
