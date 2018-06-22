@@ -32,22 +32,24 @@
 		,
 		CASE T_Benutzer.BE_Language 
 			WHEN 'FR' THEN T_AP_Ref_GebaeudeKategorie.GK_Lang_FR 
-			WHEN 'FR' THEN T_AP_Ref_GebaeudeKategorie.GK_Lang_IT 
-			WHEN 'FR' THEN T_AP_Ref_GebaeudeKategorie.GK_Lang_EN 
+			WHEN 'IT' THEN T_AP_Ref_GebaeudeKategorie.GK_Lang_IT 
+			WHEN 'EN' THEN T_AP_Ref_GebaeudeKategorie.GK_Lang_EN 
 			ELSE T_AP_Ref_GebaeudeKategorie.GK_Lang_DE 
 		END AS OBJ_Kategorie 
 
-		,
-		-- https://simple.wikipedia.org/wiki/Color_wheel
-		CASE T_AP_Ref_GebaeudeKategorie.GK_Kurz_DE 
-			WHEN 'HS' THEN '#FF0000' -- red 
-			WHEN 'GA' THEN '#FF7F00' -- orange 
-			WHEN 'HA' THEN '#FFFF00' -- yellow 
-			WHEN 'AG' THEN '#00FF00' -- green 
-			WHEN 'HUB' THEN '#00FFFF' -- cyan 
-			WHEN 'SPEZ' THEN '#007FFF' -- azure/blue
-			ELSE '#FF007F' -- rose
-		END AS OBJ_Color 
+		--,
+		---- https://simple.wikipedia.org/wiki/Color_wheel
+		--CASE T_AP_Ref_GebaeudeKategorie.GK_Kurz_DE 
+		--	WHEN 'HS' THEN '#FF0000' -- Hauptsitz: red 
+		--	WHEN 'GA' THEN '#FF7F00' -- Generalagentur: orange 
+		--	WHEN 'HA' THEN '#007FFF' -- Hauptagentur: yellow 
+		--	WHEN 'AG' THEN '#00FF00' -- Agentur: green 
+		--	WHEN 'HUB' THEN '#00FFFF' -- Hubs: cyan 
+		--	WHEN 'SPEZ' THEN '#FFFF00' -- -- Spezial: azure/blue
+		--	ELSE '#FF007F' -- rose
+		--END AS OBJ_Color 
+
+		,'#' + T_SYS_ApertureColorToHex.COL_Hex AS OBJ_Color 
 
 		--,GB_Nr 
 		--,GB_Bezeichnung 
@@ -100,6 +102,9 @@
 	LEFT JOIN T_AP_Ref_GebaeudeKategorie 
 		ON T_AP_Ref_GebaeudeKategorie.GK_UID = T_AP_Gebaeude.GB_GK_UID 
 
+	LEFT JOIN T_SYS_ApertureColorToHex 
+		ON T_SYS_ApertureColorToHex.COL_Aperture = ISNULL(T_AP_Ref_GebaeudeKategorie.GK_StylizerFore, 104) 
+
 	INNER JOIN T_OV_Ref_ObjektTyp -- GRU, SO, GB 
 		ON T_OV_Ref_ObjektTyp.OBJT_Code = 'GB' 
 		AND T_OV_Ref_ObjektTyp.OBJT_Status = 1 
@@ -109,7 +114,7 @@
 		(
 			CAST(T_Benutzer.BE_ID AS varchar(50)) = @BE_ID 
 			OR 
-			T_Benutzer.BE_Hash = @BE_ID 
+			T_Benutzer.BE_Hash = CAST(@BE_ID AS varchar(50)) 
 		) 
 		AND T_Benutzer.BE_Status = 1 
 		
