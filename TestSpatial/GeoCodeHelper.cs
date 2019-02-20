@@ -52,6 +52,19 @@ namespace TestSpatial
             this.MaxLatitude = pMaxLatitude;
             this.MaxLongitude = pMaxLongitude;
         }
+
+
+        public static bool operator ==(Wgs84Coordinates lhs, Wgs84Coordinates rhs)
+        {
+            return (lhs.Latitude == rhs.Latitude && lhs.Longitude == rhs.Longitude);
+        }
+
+        public static bool operator !=(Wgs84Coordinates lhs, Wgs84Coordinates rhs)
+        {
+            return (lhs.Latitude != rhs.Latitude && lhs.Longitude != rhs.Longitude);
+        }
+
+
     }
 
 

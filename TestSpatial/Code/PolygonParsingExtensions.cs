@@ -45,8 +45,9 @@ namespace TestSpatial
         {
             System.Collections.Generic.List<Wgs84Coordinates> ls = new System.Collections.Generic.List<Wgs84Coordinates>();
 
+            System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(
+                polygonString, @"\s*POLYGON\s*\(\s*\(\s*(.*?)\s*\)\s*\)\s*", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
 
-            var match = System.Text.RegularExpressions.Regex.Match(polygonString, @"\s*POLYGON\s*\(\s*\(\s*(.*?)\s*\)\s*\)\s*", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
             if (!match.Success)
                 return null;
 
@@ -63,9 +64,8 @@ namespace TestSpatial
             } // Next i 
 
             // Close Polygon 
-            ls.Add(new Wgs84Coordinates(decimal.Parse(allPoints[0].Split(' ')[1]), decimal.Parse(allPoints[0].Split(' ')[0])));
-            // ls.Add(new Wgs84Coordinates(decimal.Parse(allPoints[0].Split(' ')[0]), decimal.Parse(allPoints[0].Split(' ')[1])));
-
+            // if (ls[0] != ls[ls.Count - 1]) ls.Add(ls[0]);
+            
             ls = ToCounterClockWise(ls); // OSM is COUNTER-clockwise
             // ls = ToClockWise(ls);
 
@@ -73,5 +73,7 @@ namespace TestSpatial
         } // End Function PolygonStringToCoordinates 
 
 
-    }
-}
+    } // End Class PolygonParsingExtensions 
+
+
+} // End Namespace TestSpatial 

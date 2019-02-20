@@ -26,7 +26,7 @@ namespace TestSpatial
             s1 = "POLYGON((7.5999034 47.5506347,7.6001195 47.550805,7.5999759 47.5508885,7.5998959 47.5508256,7.5997595 47.5507183,7.5999034 47.5506347))";
             s2 = "POLYGON((7.6003356 47.5509754,7.6001926 47.551059,7.6000322 47.5509328,7.5999759 47.5508885,7.6001195 47.550805,7.6003356 47.5509754))";
 
-            
+
             Wgs84Coordinates[] coords1 = PolygonParsingExtensions.PolygonStringToCoordinates(s1);
             Wgs84Coordinates[] coords2 = PolygonParsingExtensions.PolygonStringToCoordinates(s2);
 
@@ -36,28 +36,25 @@ namespace TestSpatial
             System.Console.Write(poly1.IsValid);
             System.Console.Write(poly2.IsValid);
 
-
             DotSpatial.Topology.IPolygon polygon3 = poly1.Union(poly2) as DotSpatial.Topology.Polygon;
 
             System.Console.WriteLine("--- Press any key to continue --- ");
             System.Console.ReadKey();
-        }
+        } // End Sub Test2 
 
 
-         public Polygon TwoPieces(Polygon polygon1, Polygon polygon2, LineString line1, LineString line2)
-         {
-         
-         
-             if (polygon1.Intersects(polygon2) || polygon1.Touches(polygon2))
-             {
-                 return polygon1.Union(polygon2) as Polygon;
-             }
-             else
-             {
-                 var pg = GetConvexHull(line1, line2);
-                 return pg.Union(polygon1).Union(polygon2) as Polygon;
-             }
-         }
+        public Polygon TwoPieces(Polygon polygon1, Polygon polygon2, LineString line1, LineString line2)
+        {
+            if (polygon1.Intersects(polygon2) || polygon1.Touches(polygon2))
+            {
+                return polygon1.Union(polygon2) as Polygon;
+            }
+            else
+            {
+                var pg = GetConvexHull(line1, line2);
+                return pg.Union(polygon1).Union(polygon2) as Polygon;
+            }
+        } // End Function TwoPieces 
 
 
         public Polygon GetConvexHull(LineString line1, LineString line2)
@@ -83,7 +80,7 @@ namespace TestSpatial
             var pg2 = new Polygon(coords2);
             return pg1.Area > pg2.Area ? pg1 : pg2;
             //return line1.Union(line2).ConvexHull() as Polygon;
-        }
+        } // End Function GetConvexHull 
 
 
         public static double CalculateArea(double[] latLonPoints)
@@ -137,8 +134,7 @@ namespace TestSpatial
 
             Polygon poly = new Polygon(points);
             return poly.Area;
-        }
-
+        } // End Function CalculateArea 
 
 
         // https://stackoverflow.com/questions/46159499/calculate-area-of-polygon-having-wgs-coordinates-using-dotspatial
@@ -168,8 +164,10 @@ namespace TestSpatial
 
             double area = CalculateArea(xy);
             System.Console.WriteLine(area);
-        }
+        } // End Sub Test 
 
 
-    }
-}
+    } // End Class TestPolygonArea 
+
+
+} // End Namespace TestSpatial 
