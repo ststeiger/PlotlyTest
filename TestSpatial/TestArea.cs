@@ -6,133 +6,44 @@ using DotSpatial.Topology;
 namespace TestSpatial
 {
 
-    public static class CoordinateExtension
-    {
-        // var c = new DotSpatial.Topology.Coordinate(x, y, z);
-
-
-        public static Coordinate FromWgs84(double lat, double lon) //, int zoom)
-        {
-            Coordinate coord = new Coordinate();
-
-            coord.X = (lon + 180.0) / 360.0; // * System.Math.Pow(2, zoom);
-            coord.Y =
-                    (1 - System.Math.Log(
-                         System.Math.Tan(lat * System.Math.PI / 180)
-                         + 1 / System.Math.Cos(lat * System.Math.PI / 180)
-                        )
-                        / System.Math.PI
-                     ) / 2
-            // * System.Math.Pow(2, zoom)
-            ;
-
-            coord.Z = 0;
-            // coord.Z = zoom;
-            return coord;
-        }
-
-
-        public static Wgs84Coordinates2 ToWgs84(double x, double y) //, int z)
-        {
-            Wgs84Coordinates2 coord = new Wgs84Coordinates2();
-            // coord.ZoomLevel = z;
-
-            // coord.Longitude = (decimal)(x / System.Math.Pow(2, z) * 360 - 180);
-            coord.Longitude = x * 360.0 - 180.0;
-
-            //double n = System.Math.PI - 2 * System.Math.PI * y / System.Math.Pow(2, z);
-            double n = System.Math.PI - 2 * System.Math.PI * y;
-
-            coord.Latitude = (double)(180.0 / System.Math.PI * System.Math.Atan(0.5 *
-                    (System.Math.Exp(n) - System.Math.Exp(-n))
-                ))
-            ;
-
-            return coord;
-        }
-
-        public static Wgs84Coordinates2 ToWgs84(Coordinate coord) //, int z)
-        {
-            return ToWgs84(coord.X, coord.Y);
-        }
-
-    }
-
-
-    public class Wgs84Coordinates2
-    {
-        public double Latitude;
-        public double Longitude;
-        public int ZoomLevel;
-
-
-
-
-
-        public Wgs84Coordinates2(double lat, double lng, int zoom)
-        {
-            this.Latitude = lat;
-            this.Longitude = lng;
-            this.ZoomLevel = zoom;
-        }
-
-        public Wgs84Coordinates2(double lat, double lng)
-            : this(lat, lng, 0)
-        {}
-
-        public Wgs84Coordinates2()
-            :this(0,0)
-        { }
-
-
-        public override string ToString()
-        {
-            return "( Latitude: " + this.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture)
-                                  + "    Longitude: " + this.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture)
-                                  + " )";
-        }
-
-    }
-
 
     public class TestPolygonArea
     {
 
 
-
-        public static void foo()
+        // TestSpatial.TestPolygonArea.Test2();
+        public static void Test2()
         {
-            // https://github.com/NetTopologySuite/NetTopologySuite/issues/139
-            // https://stackoverflow.com/questions/32838720/create-polygon-from-point-collection-with-nettopologysuite
+            System.Collections.Generic.List<DotSpatial.Topology.Coordinate> lsCoordinates1 =
+                new System.Collections.Generic.List<DotSpatial.Topology.Coordinate>();
 
-            // Coordinate[] coordinatesArray = null; // YourMethodToGetCoordinates
-            // GeometryFactory geomFactory = new GeometryFactory();
-            // var poly = geomFactory.CreatePolygon(coordinatesArray);
+            System.Collections.Generic.List<DotSpatial.Topology.Coordinate> lsCoordinates2 =
+                new System.Collections.Generic.List<DotSpatial.Topology.Coordinate>();
 
-            // DotSpatial.Topology.Polygon.FromBasicGeometry
+            string s1 = "POLYGON((7.5999034 47.5506347,7.5997595 47.5507183,7.5998959 47.5508256,7.5999759 47.5508885,7.6001195 47.550805,7.5999034 47.5506347))";
+            string s2 = "POLYGON((7.6003356 47.5509754,7.6001195 47.550805,7.5999759 47.5508885,7.6000322 47.5509328,7.6001926 47.551059,7.6003356 47.5509754))";
 
-            System.Collections.Generic.List<Coordinate> ls = 
-                new System.Collections.Generic.List<Coordinate>();
+            s1 = "POLYGON((7.5999034 47.5506347,7.6001195 47.550805,7.5999759 47.5508885,7.5998959 47.5508256,7.5997595 47.5507183,7.5999034 47.5506347))";
+            s2 = "POLYGON((7.6003356 47.5509754,7.6001926 47.551059,7.6000322 47.5509328,7.5999759 47.5508885,7.6001195 47.550805,7.6003356 47.5509754))";
 
-            var cc = CoordinateExtension.FromWgs84(0.5, 0.5);
-            var wgs = CoordinateExtension.ToWgs84(cc);
+            
+            Wgs84Coordinates[] coords1 = PolygonParsingExtensions.PolygonStringToCoordinates(s1);
+            Wgs84Coordinates[] coords2 = PolygonParsingExtensions.PolygonStringToCoordinates(s2);
+
+            DotSpatial.Topology.IPolygon poly1 = new DotSpatial.Topology.Polygon(coords1.ToNetTopologyCoordinates());
+            DotSpatial.Topology.IPolygon poly2 = new DotSpatial.Topology.Polygon(coords2.ToNetTopologyCoordinates());
+
+            System.Console.Write(poly1.IsValid);
+            System.Console.Write(poly2.IsValid);
 
 
-            double x = 0.5;
-            double y = 0.5;
-            double z = 0.3;
-            var c = new DotSpatial.Topology.Coordinate(x,y,z);
+            DotSpatial.Topology.IPolygon polygon3 = poly1.Union(poly2) as DotSpatial.Topology.Polygon;
 
-            var po = new DotSpatial.Topology.Polygon(ls);
-
-            // po.Coordinates
-            Polygon polygon1 = null;
-            Polygon polygon2 = null;
-            Polygon polygon3 = polygon1.Union(polygon2) as Polygon;
+            System.Console.WriteLine("--- Press any key to continue --- ");
+            System.Console.ReadKey();
         }
 
 
-        
          public Polygon TwoPieces(Polygon polygon1, Polygon polygon2, LineString line1, LineString line2)
          {
          

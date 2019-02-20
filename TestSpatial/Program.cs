@@ -19,6 +19,7 @@ namespace TestSpatial
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 #endif
+            TestSpatial.TestPolygonArea.Test2();
 
             // Test();
             // TestPolygonArea.Test();
