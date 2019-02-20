@@ -40,6 +40,8 @@ namespace TestSpatial
             System.Console.Write(poly2.IsValid);
 
             DotSpatial.Topology.IPolygon polygon3 = poly1.Union(poly2) as DotSpatial.Topology.Polygon;
+            System.Console.WriteLine(polygon3.Shell.Coordinates);
+            System.Console.WriteLine(polygon3.Shell.Coordinates.Count);
 
             System.Console.WriteLine("--- Press any key to continue --- ");
             System.Console.ReadKey();

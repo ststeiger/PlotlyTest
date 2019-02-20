@@ -20,6 +20,7 @@ namespace TestSpatial
             Application.Run(new Form1());
 #endif
             TestSpatial.TestPolygonArea.Test2();
+            return;
 
             // Test();
             // TestPolygonArea.Test();
