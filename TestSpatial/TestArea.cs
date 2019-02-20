@@ -32,6 +32,9 @@ namespace TestSpatial
 
             DotSpatial.Topology.IPolygon poly1 = new DotSpatial.Topology.Polygon(coords1.ToNetTopologyCoordinates());
             DotSpatial.Topology.IPolygon poly2 = new DotSpatial.Topology.Polygon(coords2.ToNetTopologyCoordinates());
+            poly1.Srid = 4326;
+            poly2.Srid = 4326;
+
 
             System.Console.Write(poly1.IsValid);
             System.Console.Write(poly2.IsValid);

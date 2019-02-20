@@ -66,8 +66,8 @@ namespace TestSpatial
 
             for (int i = 0; i < coords.Length; ++i)
             {
-                coordinates[i] = FromWgs84(coords[0]);
-
+                // coordinates[i] = FromWgs84(coords[i]);
+                coordinates[i] = new DotSpatial.Topology.Coordinate((double)coords[i].Latitude, (double)coords[i].Longitude, 0.0);
             }
 
             return coordinates;
