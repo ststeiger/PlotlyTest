@@ -18,8 +18,9 @@ FROM T_AP_Gebaeude
 LEFT JOIN T_AP_Standort ON SO_UID = GB_SO_UID 
 LEFT JOIN T_AP_Ref_Ort ON ORT_UID = SO_ORT_UID 
 WHERE GB_Status = 1 
-AND CURRENT_TIMESTAMP BETWEEN GB_DatumVon AND GB_DatumBis 
+-- AND CURRENT_TIMESTAMP BETWEEN GB_DatumVon AND GB_DatumBis 
 AND SO_Bezeichnung = 'Altstetten' 
-
+-- AND GB_PLZ IN (8600, 9200) 
+-- AND GB_PLZ = 8600 
 
 --SELECT * FROM T_ZO_Objekt_Wgs84Polygon 

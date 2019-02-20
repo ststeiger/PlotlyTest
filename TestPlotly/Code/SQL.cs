@@ -21,7 +21,10 @@ namespace TestPlotly
 
             // csb.InitialCatalog = "COR_Basic_Demo_V4";
             // csb.InitialCatalog = "COR_Basic_Helvetia_IS";
-            csb.InitialCatalog = "TestDb";
+            // csb.InitialCatalog = "TestDb";
+            csb.InitialCatalog = "COR_Basic_Helvetia_PS";
+
+
             csb.IntegratedSecurity = false;
             
             

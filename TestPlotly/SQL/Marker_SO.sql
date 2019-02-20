@@ -1,14 +1,16 @@
 
+ DECLARE @__user_id int 
+ SET @__user_id = (SELECT TOP 1 BE_ID FROM T_Benutzer WHERE BE_User = 'administrator') 
+
+ DECLARE @__stichtag datetime 
+ SET @__stichtag = CAST(FLOOR(CAST(CURRENT_TIMESTAMP AS float)) AS datetime) 
+
+-- DECLARE @BE_ID int 
 -- DECLARE @BE_ID varchar(50) 
--- SET @BE_ID = (SELECT TOP 1 CAST(BE_ID  AS varchar(50)) FROM T_Benutzer WHERE BE_User = 'administrator') 
+-- SET @BE_ID = (SELECT TOP 1 BE_ID FROM T_Benutzer WHERE BE_User = 'administrator') 
 -- SET @BE_ID = (SELECT TOP 1 BE_Hash FROM T_Benutzer WHERE BE_User = 'administrator') 
 
 
-DECLARE @__user_id int 
-SET @__user_id = (SELECT TOP 1 BE_ID FROM T_Benutzer WHERE BE_User = 'administrator') 
-
-DECLARE @__stichtag datetime 
-SET @__stichtag = CAST(FLOOR(CAST(CURRENT_TIMESTAMP AS float)) AS datetime) 
 
 
 SELECT 
@@ -21,11 +23,11 @@ SELECT
 	,T_AP_Standort._SO_Label + CHAR(13) + CHAR(10) 
 	 + 	
 		CASE T_Benutzer.BE_Language 
-			WHEN 'FR' THEN T_AP_Ref_Ort.ORT_Lang_FR
-			WHEN 'FR' THEN T_AP_Ref_Ort.ORT_Lang_IT
-			WHEN 'FR' THEN T_AP_Ref_Ort.ORT_Lang_EN
-			ELSE T_AP_Ref_Ort.ORT_Lang_DE
-		END  
+			WHEN 'FR' THEN T_AP_Ref_Ort.ORT_Lang_FR 
+			WHEN 'IT' THEN T_AP_Ref_Ort.ORT_Lang_IT 
+			WHEN 'EN' THEN T_AP_Ref_Ort.ORT_Lang_EN 
+			ELSE T_AP_Ref_Ort.ORT_Lang_DE 
+		END 
 	AS OBJ_Label 
 
 
@@ -45,12 +47,17 @@ SELECT
 
 FROM T_AP_Standort 
 
+INNER JOIN T_Benutzer 
+	ON 
+	(
+		CAST(T_Benutzer.BE_ID AS varchar(50)) = @BE_ID 
+		OR 
+		T_Benutzer.BE_Hash = CAST(@BE_ID AS varchar(50)) 
+	) 
+	AND T_Benutzer.BE_Status = 1 
+
 LEFT JOIN T_AP_Ref_Ort 
 	ON T_AP_Ref_Ort.ORT_UID = T_AP_Standort.SO_ORT_UID 
-
-INNER JOIN T_Benutzer 
-	ON T_Benutzer.BE_ID = @__user_id 
-	AND T_Benutzer.BE_Status = 1 
 
 INNER JOIN T_OV_Ref_ObjektTyp -- GRU, SO, GB 
 	ON T_OV_Ref_ObjektTyp.OBJT_Code = 'SO' 
