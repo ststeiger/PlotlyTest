@@ -18,6 +18,10 @@ namespace TestSpatial
         public decimal MaxLatitude;
         public decimal MaxLongitude;
 
+        public Wgs84Coordinates()
+        { }
+
+
         public Wgs84Coordinates(decimal pLatitude, decimal pLongitude)
         {
             this.Latitude = pLatitude;

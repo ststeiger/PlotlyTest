@@ -278,26 +278,34 @@ namespace GeoApis
         } // End Function OsmGeoCode 
 
 
-        static void Directions()
+        static void Directions(string origin, string destination, string transitMode)
         {
-            string key = "";
-            string origin = "47.378141,8.540168"; // Zürich HB
-            string destination = "47.551635,9.226241"; // Erlen
-            string transit_mode = "rail";
-
-
             // http://maps.googleapis.com/maps/api/directions/outputFormat?parameters
             // &origin = 47.378141,8.540168
             // &destination = 47.551635,9.226241
             // &transit_mode = rail
-
-            string url = $"http://maps.googleapis.com/maps/api/directions/json?key={key}&origin={origin}&destination={destination}&transit_mode={transit_mode}";
-
+            
+#if HAVE_NO_API_KEY
+            string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}"; ;
+#else
+            string api_key = TestPlotly.SecretManager.GetSecret<string>("GoogleGeoCodingApiKey");
+            // string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={YOUR_API_KEY}";
+            string url = $"http://maps.googleapis.com/maps/api/directions/json?key={api_key}&origin={origin}&destination={destination}&transit_mode={transitMode}";
+#endif
+            string response = PostRequest(url);
+            System.Console.WriteLine(response);
         }
 
 
         static void Main(string[] args)
         {
+            string origin = "47.378141,8.540168"; // Zürich HB
+            string destination = "47.551635,9.226241"; // Erlen
+            string transit_mode = "rail";
+            
+            Directions(origin, destination, transit_mode);
+            
+            
             string sourceXML = @"info/steuern/gemeinden.svg";
             string targetXML = @"info/steuern/gemeinden.min.svg";
             string newSourceXML = @"info/steuern/gemeinden.minimax.svg";
