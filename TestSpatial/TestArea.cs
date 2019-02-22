@@ -11,9 +11,29 @@ namespace TestSpatial
     {
 
 
+        public static void Test3()
+        {
+            var fablat = new DotSpatial.Positioning.Latitude(47.552063);
+            var fablng = new DotSpatial.Positioning.Longitude(9.226081);
+
+            var sglat = new DotSpatial.Positioning.Latitude(47.374487);
+            var sglng = new DotSpatial.Positioning.Longitude(9.556946);
+
+            var fab = new DotSpatial.Positioning.Position(fablat, fablng);
+            var sg = new DotSpatial.Positioning.Position(sglat, sglng);
+
+            DotSpatial.Positioning.Distance dist = fab.DistanceTo(sg);
+            System.Console.WriteLine(dist.Units);
+            System.Console.WriteLine(dist.Value);
+
+        }
+
+
         // TestSpatial.TestPolygonArea.Test2();
         public static void Test2()
         {
+            Test3();
+
             System.Collections.Generic.List<DotSpatial.Topology.Coordinate> lsCoordinates1 =
                 new System.Collections.Generic.List<DotSpatial.Topology.Coordinate>();
 
