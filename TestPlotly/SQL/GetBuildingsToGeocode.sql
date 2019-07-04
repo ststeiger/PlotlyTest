@@ -36,7 +36,7 @@ SET @BE_ID = (SELECT TOP 1 BE_Hash FROM T_Benutzer WHERE BE_User = 'administrato
 	FROM T_AP_Gebaeude 
 	WHERE (1=1) 
 
-	/*
+	
 	-- Alle, die noch keine Koordinaten haben
 	AND 
 	(
@@ -52,9 +52,10 @@ SET @BE_ID = (SELECT TOP 1 BE_Hash FROM T_Benutzer WHERE BE_User = 'administrato
 			GB_GM_Lng = 0.0 
 		)
 	)
-	*/
-
+	
+	
 	-- Alle, die Koordinaten haben 
+	/*
 	AND 
 	(
 		(
@@ -69,7 +70,7 @@ SET @BE_ID = (SELECT TOP 1 BE_Hash FROM T_Benutzer WHERE BE_User = 'administrato
 			GB_GM_Lng = 0.0 
 		)
 	)
-
+	*/
 )
 SELECT 
 	 OBJ_UID 

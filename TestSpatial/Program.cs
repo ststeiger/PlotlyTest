@@ -19,8 +19,8 @@ namespace TestSpatial
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 #endif
-            TestSpatial.TestPolygonArea.Test2();
-            return;
+            // TestSpatial.TestPolygonArea.Test2();
+            // return;
 
             // Test();
             // TestPolygonArea.Test();
@@ -115,11 +115,33 @@ namespace TestSpatial
                         string geocodeName = System.Convert.ToString(dr["OBJ_StringToGeoCode"]);
                         // geocodeName = "Zürichstrasse 130, 8600 Dübendorf";
 
-                        decimal lat = System.Convert.ToDecimal(dr["OBJ_Lat"]);
-                        decimal lng = System.Convert.ToDecimal(dr["OBJ_Lng"]);
 
-                        // Helper.InsertBuildingData(uid, geocodeName);
-                        Helper.InsertBuildingData(uid, geocodeName, new Wgs84Coordinates(lat, lng));
+                        Wgs84Coordinates coords = Helper.GeoCode(geocodeName);
+
+
+
+                        using (System.Data.Common.DbCommand cmd2 = SQL.CreateCommand(@"
+UPDATE T_AP_Gebaeude
+	SET  GB_GM_Lat = @lat 
+		,GB_GM_Lng = @lng 
+WHERE GB_UID = @gb_uid 
+; 
+"))
+                        {
+                            SQL.AddParameter(cmd, "lat", coords.Latitude);
+                            SQL.AddParameter(cmd, "lng", coords.Longitude);
+                            SQL.AddParameter(cmd, "gb_uid", uid);
+
+                            SQL.ExecuteNonQuery(cmd);
+                        }
+
+
+                            // decimal lat = System.Convert.ToDecimal(dr["OBJ_Lat"]);
+                            // decimal lng = System.Convert.ToDecimal(dr["OBJ_Lng"]);
+                            // Wgs84Coordinates coords = new Wgs84Coordinates(lat, lng);
+
+                            // Helper.InsertBuildingData(uid, geocodeName);
+                            Helper.InsertBuildingData(uid, geocodeName, coords);
                         System.Threading.Thread.Sleep(1000);
                     } // Next dr 
 
