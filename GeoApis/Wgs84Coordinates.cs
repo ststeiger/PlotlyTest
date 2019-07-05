@@ -46,6 +46,17 @@ namespace GeoApis
             this.MaxLatitude = pMaxLatitude;
             this.MaxLongitude = pMaxLongitude;
         }
+
+
+        public override string ToString()
+        {
+            return this.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture)
+                + ", "
+                + this.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture)
+            ;
+        }
+
+
     }
 
 }

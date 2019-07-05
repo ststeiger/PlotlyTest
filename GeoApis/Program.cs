@@ -97,7 +97,7 @@ namespace GeoApis
 
             int repeatCount = 0;
 
-            lol:
+        lol:
             string proxy = proxyList[s_rnd.Next(0, proxyList.Length)];
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 
@@ -173,6 +173,155 @@ namespace GeoApis
             return resp;
         }
 
+
+
+        private static string GetRequest(string url)
+        {
+            string resp = null;
+            string data = null;
+
+            string[] proxyList = new string[] {
+                /*
+                "http://45.79.0.108:1080",
+                "http://206.127.141.67:80",
+                "http://50.232.30.218:3128",
+                "http://208.83.106.105:9999",
+                "http://47.89.241.103:3128",
+                "http://54.212.54.101:80",
+                "http://52.7.233.25:80",
+                "http://96.84.57.209:3128",
+                "http://204.14.188.53:7004",
+                "http://104.131.61.142:8118",
+                "http://107.17.92.148:8080",
+                "http://69.73.167.76:80",
+                "http://209.141.47.120:80",
+                "http://207.55.61.176:9999",
+                "http://52.40.10.125:80",
+                "http://18.221.211.18:3128",
+                "http://54.177.186.237:80",
+                "http://98.102.161.210:80",
+                "http://54.202.8.138:80",
+                "http://162.243.138.193:80",
+                "http://192.187.124.196:3128",
+                "http://96.44.148.86:80",
+                "http://104.236.175.143:80",
+                "http://205.158.57.2:53281",
+                "http://104.196.255.174:3128",
+                "http://76.75.55.225:65103",
+                "http://108.165.2.110:80",
+                "http://209.141.61.84:80",
+                "http://64.237.61.242:80",
+                "http://130.211.92.157:443",
+                "http://45.55.9.179:80",
+                "http://155.94.224.175:80",
+                "http://74.207.225.106:80",
+                "http://98.124.121.102:53281",
+                "http://107.170.214.74:80",
+                "http://104.131.61.119:8118",
+                "http://104.236.48.178:8080"
+                */
+
+
+
+                 "http://104.236.175.143:80",
+                 "http://209.141.61.84:80",
+
+                "http://104.236.48.178:8080",
+"http://143.0.189.82:80",
+"http://203.146.217.107:8080",
+"http://80.83.20.14:80",
+"http://222.124.152.138:80",
+"http://94.154.22.193:53281",
+"http://152.231.81.122:53281",
+"http://87.228.29.154:53281",
+"http://165.84.167.54:8080",
+"http://202.40.177.230:53281",
+"http://202.63.242.135:53281",
+"http://128.201.186.183:53005",
+"http://190.152.19.190:62225",
+"http://92.27.91.253:53281",
+"http://114.47.66.135:8088",
+"http://27.50.49.22:3128",
+"http://109.161.48.228:53281",
+"http://61.216.60.206:8080",
+"http://143.0.188.39:80",
+"http://54.177.186.237:80",
+"http://117.52.91.248:80",
+
+            };
+
+            int repeatCount = 0;
+
+        lol:
+            string proxy = proxyList[s_rnd.Next(0, proxyList.Length)];
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+
+
+
+            try
+            {
+
+                using (System.Net.WebClient wc = new WebClientWithCustomTimeout())
+                {
+                    wc.Headers[System.Net.HttpRequestHeader.Pragma] = "no-cache";
+                    // wc.Headers[System.Net.HttpRequestHeader.Referer] = "https://overpass-turbo.eu/";
+                    // wc.Headers[System.Net.HttpRequestHeader.UserAgent] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36";
+                    wc.Headers[System.Net.HttpRequestHeader.UserAgent] = "Lord Vishnu/Transcendental (Vaikuntha;Supreme Personality of Godness)";
+                    // wc.Headers["X-Requested-With"] = "overpass-ide";
+
+
+                    // wc.Headers[System.Net.HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                    // string myParameters = "param1=value1&param2=value2&param3=value3";
+                    // string HtmlResult = wc.UploadString(URI, myParameters);
+
+                    // if(url.IndexOf("google") == -1) wc.Proxy = new System.Net.WebProxy(proxy);
+
+                    sw.Start();
+                    resp = wc.DownloadString(url);
+                    sw.Stop();
+
+                    System.Console.WriteLine(System.Environment.NewLine);
+                    System.Console.WriteLine(new string('/', System.Console.WindowWidth));
+
+                    System.Console.WriteLine("Elapsed: " + sw.Elapsed.TotalSeconds.ToString());
+                    System.Console.WriteLine(proxy);
+                    System.Console.WriteLine(new string('/', System.Console.WindowWidth));
+                } // End Using wc 
+            }
+            catch (System.Net.WebException ex)
+            {
+                sw.Stop();
+                System.Console.WriteLine(System.Environment.NewLine);
+                System.Console.WriteLine(new string('=', System.Console.WindowWidth));
+                System.Console.WriteLine(ex.GetType().ToString());
+                System.Console.WriteLine(proxy);
+                System.Console.WriteLine(ex.Message);
+                System.Console.WriteLine("Elapsed: " + sw.Elapsed.TotalSeconds.ToString());
+
+                System.Console.WriteLine(data);
+                System.Console.WriteLine(new string('=', System.Console.WindowWidth));
+                repeatCount++;
+                if (repeatCount > 10)
+                    return null;
+
+                goto lol;
+            }
+            catch (System.Exception ex)
+            {
+                sw.Stop();
+                System.Console.WriteLine(System.Environment.NewLine);
+                System.Console.WriteLine(new string('=', System.Console.WindowWidth));
+                System.Console.WriteLine(ex.GetType().ToString());
+                System.Console.WriteLine(ex.Message);
+                System.Console.WriteLine("Elapsed: " + sw.Elapsed.TotalSeconds.ToString());
+
+                System.Console.WriteLine(data);
+                System.Console.WriteLine(new string('=', System.Console.WindowWidth));
+            }
+
+            return resp;
+        }
+
         private static string PostRequest(string url)
         {
             System.Collections.Specialized.NameValueCollection parameters = new System.Collections.Specialized.NameValueCollection();
@@ -193,6 +342,30 @@ namespace GeoApis
 
             string retValue = string.Join(',', components);
             return retValue;
+        }
+
+
+        // clientId=&signature=
+        public static string Sign(string url, string keyString)
+        {
+            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+
+            // converting key to bytes will throw an exception, need to replace '-' and '_' characters first.
+            string usablePrivateKey = keyString.Replace("-", "+").Replace("_", "/");
+            byte[] privateKeyBytes = System.Convert.FromBase64String(usablePrivateKey);
+
+            System.Uri uri = new System.Uri(url);
+            byte[] encodedPathAndQueryBytes = encoding.GetBytes(uri.LocalPath + uri.Query);
+
+            // compute the hash
+            System.Security.Cryptography.HMACSHA1 algorithm = new System.Security.Cryptography.HMACSHA1(privateKeyBytes);
+            byte[] hash = algorithm.ComputeHash(encodedPathAndQueryBytes);
+
+            // convert the bytes to string and make url-safe by replacing '+' and '/' characters
+            string signature = System.Convert.ToBase64String(hash).Replace("+", "-").Replace("/", "_");
+
+            // Add the signature to the existing URI.
+            return uri.Scheme + "://" + uri.Host + uri.LocalPath + uri.Query + "&signature=" + signature;
         }
 
 
@@ -303,8 +476,116 @@ namespace GeoApis
         }
 
 
+
+        // GeoCode("Châtel-Saint-Denis, FR, Schweiz");
+        public static Wgs84Coordinates YandexGeoCode(string address)
+        {
+            // https://geocode-maps.yandex.ru/1.x/?geocode=Jetzgrad,%20A.Marsch&lang=en_US&format=json
+            // https://geocode-maps.yandex.ru/1.x/?geocode=Moscow+Lva+Tolstogo+Street+16&lang=en_US&format=json
+
+            // address = System.Web.HttpUtility.UrlEncode(address);
+            // address = System.Uri.EscapeDataString(address);
+            // address = System.Uri.EscapeUriString(address);
+            address = CommaEncode(address);
+
+#if HAVE_NO_API_KEY
+            string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}"; ;
+#else
+            string YOUR_API_KEY = TestPlotly.SecretManager.GetSecret<string>("GoogleGeoCodingApiKey");
+            string url = $"https://geocode-maps.yandex.ru/1.x/?geocode={address}&lang=en_US&format=json"; // &apikey={YOUR_API_KEY}";
+#endif
+
+            string resp = GetRequest(url);
+            // System.IO.File.WriteAllText(@"D:\username\Documents\visual studio 2017\Projects\TestPlotly\TestSpatial\geoCodeResponse.json", resp, System.Text.Encoding.UTF8);
+            // string resp = System.IO.File.ReadAllText(@"D:\username\Documents\visual studio 2017\Projects\TestPlotly\TestSpatial\geoCodeResponse.json", System.Text.Encoding.UTF8);
+
+            System.IO.File.WriteAllText(@"D:\yand.json", resp, System.Text.Encoding.UTF8);
+            Yandex.RootNode rn = GeoApis.Yandex.RootNode.FromJson(resp);
+
+
+
+            System.Console.WriteLine(rn);
+
+            if (rn.Response.GeoObjectCollection.MetaDataProperty.GeocoderResponseMetaData.Found > 0)
+            {
+                System.Console.WriteLine(rn.Response.GeoObjectCollection.FeatureMember[0].GeoObject.Point.GoogleCoords);
+                Yandex.Point pnt = rn.Response.GeoObjectCollection.FeatureMember[0].GeoObject.Point;
+
+                return new Wgs84Coordinates(pnt.Latitude, pnt.Longitude);
+            }
+            
+            return null;
+        }
+
+
+        public static void UpdateBuildingsWithYandex()
+        {
+            using (System.Data.IDbCommand cmd = SQL.fromFile("GetGBGeocode.sql"))
+            {
+                using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
+                {
+                    foreach (System.Data.DataRow dr in dt.Rows)
+                    {
+                        System.Threading.Thread.Sleep(4000);
+
+                        try
+                        {
+                            string uid = System.Convert.ToString(dr["GB_UID"]);
+                            string geocodeName = System.Convert.ToString(dr["GB_Adresse"]);
+                            // geocodeName = "Zürichstrasse 130, 8600 Dübendorf";
+                            // geocodeName = "Bern Helvetiastrasse 37 Switzerland";
+
+                            System.Console.WriteLine("Geocoding " + geocodeName + "(" + uid + ")");
+                            Wgs84Coordinates coords = YandexGeoCode(geocodeName);
+
+                            if (coords == null)
+                                continue;
+
+                            string str = coords.ToString();
+                            System.Console.WriteLine(str);
+
+                            using (System.Data.IDbCommand cmdUpdate = SQL.CreateCommand(@"
+UPDATE T_AP_Gebaeude 
+	SET  GB_GM_Lat = @lat 
+		,GB_GM_Lng = @lng 
+WHERE GB_UID = @gb_uid 
+;
+"))
+                            {
+                                SQL.AddParameter(cmdUpdate, "gb_uid", uid);
+                                SQL.AddParameter(cmdUpdate, "lat", coords.Latitude);
+                                SQL.AddParameter(cmdUpdate, "lng", coords.Longitude);
+
+                                SQL.ExecuteNonQuery(cmdUpdate);
+                            } // End Using cmdUpdate 
+
+                        } // End Try 
+                        catch (System.Exception ex)
+                        {
+                            System.Console.WriteLine(ex.Message);
+                        }
+
+                    } // Next dr 
+
+                } // End Using dt 
+
+            } // End Using cmd 
+
+        } // End Sub UpdateBuildingsWithYandex 
+
+
         static void Main(string[] args)
         {
+            UpdateBuildingsWithYandex();
+
+            GeoApis.Custom.Polygon poly = new Custom.Polygon();
+            poly.PopulateV1();
+            
+            System.Console.WriteLine(poly.MathematicalArea);
+            System.Console.WriteLine(poly.Centroid);
+            System.Console.WriteLine(poly.Midpoint);
+
+
             string origin = "47.378141,8.540168"; // Zürich HB
             string destination = "47.551635,9.226241"; // Erlen
             string transit_mode = "rail";

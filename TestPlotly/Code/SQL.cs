@@ -60,7 +60,7 @@ namespace TestPlotly
         public static System.Data.Common.DbCommand fromFile(string resourceName)
         {
             System.Data.Common.DbCommand cmd = fact.CreateCommand();
-            cmd.CommandText = ResourceLoader.ReadEmbeddedResource(typeof(SQL), resourceName); ;
+            cmd.CommandText = ResourceLoader.ReadEmbeddedResource(typeof(SQL), resourceName);
 
             return cmd;
         }
