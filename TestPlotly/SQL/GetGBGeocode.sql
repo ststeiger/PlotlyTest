@@ -72,3 +72,5 @@ AND
 	)
 )
 */
+
+-- UPDATE T_AP_Gebaeude    SET  GB_GM_Lat = NULL    ,GB_GM_Lng = NULL 
