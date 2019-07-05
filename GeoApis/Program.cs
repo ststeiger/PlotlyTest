@@ -263,10 +263,16 @@ namespace GeoApis
             city = System.Uri.EscapeDataString(city);
             state = System.Uri.EscapeDataString(state);
             country = System.Uri.EscapeDataString(country);
-
+            // street=<housenumber> <streetname>
+            // postalcode=<postalcode>
+            
+            // https://nominatim.org/release-docs/develop/api/Search/
             // https://nominatim.openstreetmap.org/search?format=json&city=Staufen&state=Aargau&country=Switzerland
             string url = $"https://nominatim.openstreetmap.org/search?format=json&city={city}&state={state}&country={country}";
 
+            
+            
+            
             string resp = PostRequest(url);
             System.Collections.Generic.List<OSM.Geocoder.Nominatim> ls = OSM.Geocoder.Nominatim.FromJson(resp);
             

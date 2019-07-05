@@ -112,6 +112,7 @@
     <Content Include="Scripts\leaflet\leaflet-google.js" />
     <Content Include="Scripts\leaflet\leaflet_details.txt" />
     <Content Include="Scripts\leaflet\leaflet_embed.css" />
+    <EmbeddedResource Include="SQL\GetBuildingsToGeocodeWithNominatim.sql" />
     <EmbeddedResource Include="SQL\Marker_GB.sql" />
     <EmbeddedResource Include="SQL\Marker_SO.sql" />
     <EmbeddedResource Include="SQL\Insert_WGS84.sql" />
