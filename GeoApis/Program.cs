@@ -574,9 +574,235 @@ WHERE GB_UID = @gb_uid
         } // End Sub UpdateBuildingsWithYandex 
 
 
+        public static decimal getBoundsArea(LatLngBounds bounds)
+        {
+            LatLng nw = bounds.NorthWest;
+            LatLng se = bounds.SouthEast;
+            // https://github.com/openstreetmap/cgimap/blob/master/src/bbox.cpp
+            
+            decimal maxLng = System.Math.Max(nw.lng, se.lng);
+            decimal maxLat = System.Math.Max(nw.lat, se.lat);
+
+            decimal minLng = System.Math.Min(nw.lng, se.lng);
+            decimal minLat = System.Math.Min(nw.lat, se.lat);
+            decimal area = (maxLng - minLng) * (maxLat - minLat);
+
+            return area;
+        } // End Function getBoundsArea 
+
+
+        static bool isClockwise(LatLng[] poly)
+        {
+            decimal sum = 0;
+
+            for (int i = 0; i < poly.Length - 1; i++)
+            {
+                LatLng cur = poly[i], next = poly[i + 1];
+                sum += (next.lat - cur.lat) * (next.lng + cur.lng);
+            } // Next i 
+
+            return sum > 0;
+        } // End Function isClockwise 
+
+
+        // MSSQL is CLOCKWISE (MS-SQL wants the polygon points in clockwise sequence) 
+        static LatLng[] toClockWise(LatLng[]  poly)
+        {
+            if (!isClockwise(poly))
+                poly.Reverse();
+
+            return poly;
+        } // End Function toClockWise 
+
+
+        // OSM is COUNTER-clockwise  (OSM wants the polygon points in counterclockwise sequence) 
+        static LatLng[] toCounterClockWise(LatLng[] poly)
+        {
+            if (isClockwise(poly))
+                poly.Reverse();
+
+            return poly;
+        } // End Function toCounterClockWise 
+
+
+        public static string CreatePolygon(LatLng[] latLongs)
+        {
+            //POLYGON ((73.232821 34.191819,73.233755 34.191942,73.233653 34.192358,73.232843 34.192246,73.23269 34.191969,73.232821 34.191819))
+            string polyString = "";
+
+            // MS-SQL polygon absolutely wants to be clockwise...
+            // Don't copy array, just switch direction if necessary 
+            if (isClockwise(latLongs))
+            {
+                for (int i = 0; i < latLongs.Length; ++i)
+                {
+                    if (i != 0)
+                        polyString += ",";
+
+                    polyString += latLongs[i].lng + " " + latLongs[i].lat; // + ",";
+                }
+            }
+            else
+            {
+                for (int i = latLongs.Length - 1; i > -1; --i)
+                {
+                    if (i != latLongs.Length - 1)
+                        polyString += ",";
+
+                    polyString += latLongs[i].lng + " " + latLongs[i].lat; // + ",";
+                }
+            }
+
+            polyString = "POLYGON((" + polyString + "))";
+            return polyString;
+        }
+
+
+        public static string CreateSqlPolygon(LatLng[] latLongs)
+        {
+            string s = "geography::STPolyFromText('" + CreatePolygon(latLongs) + "', 4326)";
+            return s;
+        }
+
+
+        // radius = sizeInMeters/2
+        public static LatLngBounds toBounds (LatLng point, decimal sizeInMeters)
+        {
+            decimal latAccuracy = 180.0m * sizeInMeters / 40075017m;
+            decimal lngAccuracy = latAccuracy / (decimal)System.Math.Cos((System.Math.PI / 180.0d) * (double)point.lat);
+
+            //           N
+            //          180
+            // (W) -180     +180 (E)
+            //         -180
+            //           S
+
+            // https://github.com/Leaflet/Leaflet/blob/master/src/geo/LatLng.js
+            // https://github.com/Leaflet/Leaflet/blob/master/src/geo/LatLngBounds.js
+            // constructor(southWest: LatLngExpression, northEast: LatLngExpression);
+            // a = [point.lat - latAccuracy, point.lng - lngAccuracy],
+            // b = [point.lat + latAccuracy, point.lng + lngAccuracy]
+            // new LatLngBounds(a, b); 
+
+            decimal south = point.lat - latAccuracy;
+            decimal west = point.lng - lngAccuracy;
+            decimal north = point.lat + latAccuracy;
+            decimal east = point.lng + lngAccuracy;
+
+
+            // https://en.wikipedia.org/wiki/Ellipse
+            // https://en.wikipedia.org/wiki/Latitude
+            // https://en.wikipedia.org/wiki/Longitude
+            // https://de.wikipedia.org/wiki/Wendekreis_(Breitenkreis)
+
+            return new LatLngBounds(north, south, east, west);
+	    }
+
+
+
+        public static void foo()
+        {
+            decimal lati = 47.551926m;
+            decimal longi = 9.226118m;
+            LatLngBounds bounds = toBounds(new LatLng(lati, longi), 100); // d.h. Radius = 50m
+            System.Console.WriteLine(bounds);
+
+
+
+
+
+            /*
+            LatLngBounds bb = new LatLngBounds(47.700530864557194m
+                , 47.69679769756054m
+                , 8.636573553085329m
+                , 8.626273870468141m
+            ); // map.getBounds();
+
+            decimal area = getBoundsArea(bb);
+            if (area > 0.25m)
+            {
+                System.Console.WriteLine("The maximum bbox size is 0.25, and your request was too large.\nEither request a smaller area, or use planet.osm.");
+                return;
+            }
+
+            const string OSM_API_VERSION = "0.6";
+
+            // string url = "https://www.openstreetmap.org/api/0.6/map?bbox=8.626273870468141,47.69679769756054,8.636573553085329,47.700530864557194&no_cache=1562588642802";
+            string url = "https://www.openstreetmap.org/api/" + OSM_API_VERSION + "/map?bbox=" + bb.ToBBoxString();
+
+            string xml = null;
+
+            using (System.Net.WebClient wc = new System.Net.WebClient())
+            {
+                xml = wc.DownloadString(url);
+            }
+
+            */
+
+            string xml = System.IO.File.ReadAllText(@"D:\Stefan.Steiger\Desktop\map.osm.xml", System.Text.Encoding.UTF8);
+
+            System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
+            doc.LoadXml(xml);
+
+            System.Xml.XmlNodeList nodes = doc.SelectNodes("//node");
+
+
+            System.Collections.Generic.Dictionary<string, LatLng> nodeDictionary =
+                new System.Collections.Generic.Dictionary<string, LatLng>(System.StringComparer.InvariantCultureIgnoreCase);
+
+            System.Collections.Generic.Dictionary<string, LatLng[]> buildingDictionary =
+                new System.Collections.Generic.Dictionary<string, LatLng[]>(System.StringComparer.InvariantCultureIgnoreCase);
+
+
+            foreach (System.Xml.XmlElement node in nodes)
+            {
+                string id = node.GetAttribute("id");
+                string lat = node.GetAttribute("lat");
+                string lon = node.GetAttribute("lon");
+
+                decimal latitude = 0;
+                decimal longitude = 0;
+                decimal.TryParse(lat, out latitude);
+                decimal.TryParse(lon, out longitude);
+
+                nodeDictionary[id] = new LatLng(latitude, longitude);
+            }
+
+            // https://stackoverflow.com/questions/1457638/xpath-get-nodes-where-child-node-contains-an-attribute
+            // querySelectorAll('way tag[k="building"]')
+            System.Xml.XmlNodeList buildings = doc.SelectNodes("//way[tag/@k=\"building\"]");
+            foreach (System.Xml.XmlElement building in buildings)
+            {
+                System.Collections.Generic.List<LatLng> lsPolygonPoints = new System.Collections.Generic.List<LatLng>();
+                
+                System.Xml.XmlNodeList buildingNodes = building.SelectNodes("./nd");
+                foreach (System.Xml.XmlElement buildingNode in buildingNodes)
+                {
+                    string reff = buildingNode.GetAttribute("ref");
+                    lsPolygonPoints.Add(nodeDictionary[reff]);
+                } // Next buildingNode 
+
+
+                LatLng[] polygon = toCounterClockWise(lsPolygonPoints.ToArray());
+                string id = building.GetAttribute("id");
+                buildingDictionary[id] = polygon;
+
+                string sqlPolygon = CreateSqlPolygon(polygon);
+                System.Console.WriteLine(sqlPolygon);
+
+
+            } // Next building 
+
+            System.Console.WriteLine(buildingDictionary);
+
+        }
+
+
+
         static void Main(string[] args)
         {
-            UpdateBuildingsWithYandex();
+            foo();
+            // UpdateBuildingsWithYandex();
 
             GeoApis.Custom.Polygon poly = new Custom.Polygon();
             poly.PopulateV1();
