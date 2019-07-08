@@ -526,7 +526,7 @@ namespace GeoApis
                 {
                     foreach (System.Data.DataRow dr in dt.Rows)
                     {
-                        System.Threading.Thread.Sleep(4000);
+                        System.Threading.Thread.Sleep(14000);
 
                         try
                         {
@@ -584,6 +584,7 @@ WHERE GB_UID = @gb_uid
             System.Console.WriteLine(poly.MathematicalArea);
             System.Console.WriteLine(poly.Centroid);
             System.Console.WriteLine(poly.Midpoint);
+            
 
 
             string origin = "47.378141,8.540168"; // Zürich HB

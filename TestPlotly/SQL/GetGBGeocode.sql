@@ -28,7 +28,7 @@ SELECT
 
    ,'UPDATE T_AP_Gebaeude 
 	SET  GB_GM_Lat = CAST(''' + CAST(GB_GM_Lat AS varchar(36)) + ''' AS decimal(23,20)) 
-		,GB_GM_Lng = CAST(''' + CAST(GB_GM_Lat AS varchar(36))  + ''' AS decimal(23,20)) 
+		,GB_GM_Lng = CAST(''' + CAST(GB_GM_Lng AS varchar(36))  + ''' AS decimal(23,20)) 
 WHERE GB_UID = ''' + CAST(GB_UID AS varchar(36)) + '''; ' AS sql 
 FROM T_AP_Gebaeude
 LEFT JOIN T_AP_Standort ON SO_UID = GB_SO_UID
