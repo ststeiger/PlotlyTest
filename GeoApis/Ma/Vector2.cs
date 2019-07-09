@@ -29,6 +29,116 @@ using OpenTK;
 
 namespace OpenToolkit.Mathematics
 {
+
+
+    public class MyPolygon
+    {
+        
+        
+        public class cPoint
+        {
+            public bool bHasInterSection;
+            public float x;
+            public float y;
+        }
+        
+        
+        
+        // Q + v => intersection with pointToAdd-vertical to v
+        // cVector_2d.GetPointVerticalIntersection(aptDefinitionPoints[i], vec2_VecLine, cptPointToAdd);
+        public static cPoint GetPointVerticalIntersection(cPoint cptPointQ, Vector2 vecInputLine, cPoint cpPointP)
+        {
+            // Q: Line start/endpoint
+            // P + a * vecNormalVector = Intersection = Q + b * vecInputLine
+            // a = (-(Px*vy-Py*vx-Qx*vy+Qy*vx))/(nx*vy-ny*vx)
+            // b = (-(Px*ny-Py*nx-Qx*ny+Qy*nx))/(nx*vy-ny*vx)
+
+            
+            Vector2 vecNormalVector = vecInputLine.PerpendicularLeft;
+            float denominator = vecNormalVector.X * vecInputLine.Y - vecNormalVector.Y * vecInputLine.X;
+            
+            cPoint cptIntersectionPoint = new cPoint();
+            if (denominator == 0.0f)
+            {
+                // no intersection
+                cptIntersectionPoint.bHasInterSection = false;
+                return cptIntersectionPoint;
+            }
+            
+            float a = (-(cpPointP.x * vecInputLine.Y - cpPointP.y * vecInputLine.X - cptPointQ.x * vecInputLine.Y + cptPointQ.y * vecInputLine.X)) / denominator;
+            float b = (-(cpPointP.x * vecNormalVector.Y - cpPointP.y * vecNormalVector.X - cptPointQ.x * vecNormalVector.Y + cptPointQ.y * vecNormalVector.X)) / denominator;
+            cptIntersectionPoint.bHasInterSection = true;
+            
+            cptIntersectionPoint.x = cpPointP.x + a * vecNormalVector.X;
+            cptIntersectionPoint.y = cpPointP.y + a * vecNormalVector.Y;
+            
+            return cptIntersectionPoint;
+        }
+
+        
+        
+        
+        // cVector_2d.isPointOnLine(cpLinePoint1, cpLinePoint2, cpPointInQuestion);
+        public static bool isPointOnLine(cPoint cptLinePoint1, cPoint cptLinePoint2, cPoint cptPoint)
+        {
+            cPoint cptPointA = new cPoint();
+            cPoint cptPointB = new cPoint();
+
+            if (cptLinePoint1.x < cptLinePoint2.x)
+            {
+                cptPointA.x = cptLinePoint1.x;
+                cptPointB.x = cptLinePoint2.x;
+            }
+            else
+            {
+                cptPointA.x = cptLinePoint2.x;
+                cptPointB.x = cptLinePoint1.x;
+            }
+
+            if (cptLinePoint1.y < cptLinePoint2.y)
+            {
+                cptPointA.y = cptLinePoint1.y;
+                cptPointB.y = cptLinePoint2.y;
+            }
+            else
+            {
+                cptPointA.y = cptLinePoint2.y;
+                cptPointB.y = cptLinePoint1.y;
+            }
+
+
+            if (cptPoint.x >= cptPointA.x && cptPoint.y >= cptPointA.y && cptPoint.x <= cptPointB.x && cptPoint.y <= cptPointB.y)
+            {
+                return true;
+            }
+
+            return false;
+        } // End function isPointOnLine
+        
+        
+        
+        // var xy:Point=cVector_2d.GetIntersection(vec1, vec2);
+        public static cPoint GetIntersection ( Vector2 v1, Vector2 v2)
+        {	
+            float v3bx = v2.X - v1.X;
+            float v3by = v2.Y - v1.Y;
+            float perP1 = v3bx*v2.by - v3by*v2.bx;
+            float perP2 = v1.bx*v2.by - v1.by*v2.bx;
+            float t = perP1/perP2;
+			
+            float cx = v1.X + v1.bx*t;
+            float cy = v1.Y + v1.by*t;
+            return new Point( cx , cy );
+        }
+        
+        
+        
+    }
+
+
+
+
+
     /// <summary>
     /// Represents a 2D vector using two single-precision floating-point numbers.
     /// </summary>
