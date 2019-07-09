@@ -2,27 +2,8 @@
 using OpenToolkit.Mathematics;
 
 
-namespace GeoApis.Custom
+namespace GeoApis
 {
-
-    class PolygonPoint
-    {
-        public System.Decimal X; // Lat
-        public System.Decimal Y; // Long
-
-        
-
-        public PolygonPoint(decimal x, decimal y)
-        {
-            this.X = x;
-            this.Y = y;
-        }
-
-        public PolygonPoint()
-            :this(0,0)
-        { }
-
-    }
 
 
     class Polygon
@@ -36,7 +17,7 @@ namespace GeoApis.Custom
         {
             this.Points = new System.Collections.Generic.List<DecimalVector2>();
             this.Vectors = new System.Collections.Generic.List<DecimalVector2>();
-        }
+        } // End Constructor 
 
 
         public Polygon(System.Collections.Generic.IEnumerable<LatLng> points)
@@ -53,15 +34,56 @@ namespace GeoApis.Custom
                 DecimalVector2 p2 = this.Points[i + 1];
 
                 this.Vectors.Add(DecimalVector2.Subtract(p2, p1));
+            } // Next i 
+
+        } // End Constructor 
 
 
-            }
+        public decimal GetMinimumDistance(DecimalVector2 point)
+        {
+            decimal? distance = null;
+
+            for (int i = 0; i < this.Vectors.Count; ++i)
+            {
+                DecimalVector2? intersection = DecimalVector2.GetPointVerticalIntersection(this.Points[i], this.Vectors[i], point);
+
+                if (intersection.HasValue)
+                {
+                    if(!DecimalVector2.IsPointOnLine(this.Points[i], this.Points[i + 1], intersection.Value))
+                        continue;
+
+                    decimal dist = DecimalVector2.DistanceOfPointToLine(point, this.Points[i], this.Points[i + 1]);
+                    if (distance.HasValue)
+                    {
+                        if (dist < distance.Value)
+                            distance = dist;
+                    }
+                    else
+                        distance = dist;
+
+                } // End if (intersection.HasValue) 
+
+            } // Next i 
 
 
-        }
+            if (distance.HasValue)
+                return distance.Value;
 
+            for (int i = 0; i < this.Points[i].Length; ++i)
+            {
+                decimal dist = DecimalVector2.Subtract(point, this.Points[i]).Length;
 
+                if (distance.HasValue)
+                {
+                    if (dist < distance.Value)
+                        distance = dist;
+                }
+                else
+                    distance = dist;
+            } // Next i 
 
+            return distance.Value;
+        } // End Function GetMinimumDistance 
 
 
         public void PopulateV1()
@@ -118,6 +140,23 @@ namespace GeoApis.Custom
         }
 
 
+        public bool isClockwise
+        {
+            get
+            {
+                decimal sum = 0;
+
+                for (int i = 0; i < this.Points.Count - 1; i++)
+                {
+                    DecimalVector2 cur = this.Points[i], next = this.Points[i + 1];
+                    sum += (next.X - cur.X) * (next.Y + cur.Y);
+                } // Next i 
+
+                return sum > 0;
+            }
+        } // End Property isClockwise 
+
+
         public decimal MathematicalArea
         {
             get
@@ -157,7 +196,7 @@ namespace GeoApis.Custom
 
 
         // Geschlossen
-        public PolygonPoint Centroid
+        public DecimalVector2 Centroid
         {
             get
             {
@@ -179,17 +218,17 @@ namespace GeoApis.Custom
                 if (!wasClosed)
                     this.EnsureUnclosed();
 
-
+                
                 if (System.Math.Abs(accumulatedArea) < 1E-7m)
-                    return new PolygonPoint();  // Avoid division by zero
+                    return new DecimalVector2();  // Avoid division by zero
 
                 accumulatedArea *= 3m;
-                return new PolygonPoint(centerX / accumulatedArea, centerY / accumulatedArea);
+                return new DecimalVector2(centerX / accumulatedArea, centerY / accumulatedArea);
             }
         }
 
         // Nicht geschlossen
-        public PolygonPoint Midpoint
+        public DecimalVector2 Midpoint
         {
             get
             {
@@ -211,7 +250,7 @@ namespace GeoApis.Custom
                 if (wasClosed)
                     this.EnsureClosed();
 
-                return new PolygonPoint(x, y);
+                return new DecimalVector2(x, y);
             }
         }
 

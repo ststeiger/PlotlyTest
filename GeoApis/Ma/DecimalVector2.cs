@@ -20,24 +20,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-using System;
+
 using System.Diagnostics.Contracts;
-using System.Globalization;
-using System.Runtime.InteropServices;
-using System.Xml.Serialization;
-using OpenTK;
+
 
 namespace OpenToolkit.Mathematics
 {
+
+
     /// <summary>
     /// Represents a 2D vector using two single-precision decimaling-point numbers.
     /// </summary>
     /// <remarks>
     /// The DecimalVector2 structure is suitable for interoperation with unmanaged code requiring two consecutive decimals.
     /// </remarks>
-    [Serializable]
-    [StructLayout(LayoutKind.Sequential)]
-    public struct DecimalVector2 : IEquatable<DecimalVector2>
+    [System.Serializable]
+    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct DecimalVector2 
+        : System.IEquatable<DecimalVector2>
     {
         /// <summary>
         /// The X component of the DecimalVector2.
@@ -71,31 +71,85 @@ namespace OpenToolkit.Mathematics
         }
 
 
-        // Use PerpDot instead... 
-        public static decimal CrossP(DecimalVector2 a, DecimalVector2 b)
-        {
-            // return PerpDot(a, b); // aka 
-            DecimalVector2 vecReturnValue = new DecimalVector2(0, 0); // Faster than 3d-version
-
-            decimal z = a.X * b.Y - a.Y * b.X; //  Yay, z-Abuse in 2d
-            return z;
-        } // End function CrossP
-
-
         // http://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html
-        // // Yay, 2D crossp = determinant = scalar result
-        public static decimal DistanceOfPointToLine(DecimalVector2 point, DecimalVector2 x1, DecimalVector2 x2)
+        // // Yay, 2D crossp = determinant = scalar result | DistanceOfPointToLine(p, x1, x2)
+        public static decimal DistanceOfPointToLine(DecimalVector2 point, DecimalVector2 lineStartPoint, DecimalVector2 lineEndPoint)
         {
-            DecimalVector2 x2minusx1 = Subtract(x2, x1); // vec2-vec1
-            DecimalVector2 x1minusx0 = Subtract(x1, point); // vec2-vec1
+            DecimalVector2 x2minusx1 = Subtract(lineEndPoint, lineStartPoint); // vec2-vec1
+            DecimalVector2 x1minusx0 = Subtract(lineStartPoint, point); // vec2-vec1
 
             decimal DeltaNorm = PerpDot(x2minusx1, x1minusx0); 
 
             decimal x2minusx1Norm = x2minusx1.Length;
             decimal nReturnValue = DeltaNorm / x2minusx1Norm;
             return nReturnValue;
-        }
+        } // End Function DistanceOfPointToLine 
 
+
+        public static bool IsPointOnLine(DecimalVector2 linePoint1, DecimalVector2 linePoint2, DecimalVector2 pointInQuestion)
+        {
+            DecimalVector2 pointA = new DecimalVector2();
+            DecimalVector2 pointB = new DecimalVector2();
+
+            if (linePoint1.X < linePoint2.X)
+            {
+                pointA.X = linePoint1.X;
+                pointB.X = linePoint2.X;
+            }
+            else
+            {
+                pointA.X = linePoint2.X;
+                pointB.X = linePoint1.X;
+            }
+
+            if (linePoint1.Y < linePoint2.Y)
+            {
+                pointA.Y = linePoint1.Y;
+                pointB.Y = linePoint2.Y;
+            }
+            else
+            {
+                pointA.Y = linePoint2.Y;
+                pointB.Y = linePoint1.Y;
+            }
+
+
+            if (pointInQuestion.X >= pointA.X && pointInQuestion.Y >= pointA.Y && pointInQuestion.X <= pointB.X && pointInQuestion.Y <= pointB.Y)
+            {
+                return true;
+            }
+
+            return false;
+        } // End Function IsPointOnLine 
+
+
+        // Q + v => intersection with pointToAdd-vertical to v
+        // cVector_2d.GetPointVerticalIntersection(aptDefinitionPoints[i], vec2_VecLine, cptPointToAdd);
+        public static DecimalVector2? GetPointVerticalIntersection(DecimalVector2 pointQ, DecimalVector2 vecInputLine, DecimalVector2 pointP)
+        {
+            // Q: Line start/endpoint
+            // P + a * vecNormalVector = Intersection = Q + b * vecInputLine
+            // a = (-(Px*vy-Py*vx-Qx*vy+Qy*vx))/(nx*vy-ny*vx)
+            // b = (-(Px*ny-Py*nx-Qx*ny+Qy*nx))/(nx*vy-ny*vx)
+
+            DecimalVector2 vecNormalVector = vecInputLine.PerpendicularLeft;
+            decimal denominator = vecNormalVector.X * vecInputLine.Y - vecNormalVector.Y * vecInputLine.X;
+
+            DecimalVector2 intersectionPoint = new DecimalVector2();
+            if (denominator == 0.0m)
+            {
+                // no intersection
+                return null;
+            }
+
+            decimal a = (-(pointP.X * vecInputLine.Y - pointP.Y * vecInputLine.X - pointQ.X * vecInputLine.Y + pointQ.Y * vecInputLine.X)) / denominator;
+            decimal b = (-(pointP.X * vecNormalVector.Y - pointP.Y * vecNormalVector.X - pointQ.X * vecNormalVector.Y + pointQ.Y * vecNormalVector.X)) / denominator;
+
+            intersectionPoint.X = pointP.X + a * vecNormalVector.X;
+            intersectionPoint.Y = pointP.Y + a * vecNormalVector.Y;
+
+            return intersectionPoint;
+        } // End Function GetPointVerticalIntersection 
 
 
         /// <summary>
@@ -117,7 +171,7 @@ namespace OpenToolkit.Mathematics
                     return Y;
                 }
 
-                throw new IndexOutOfRangeException("You tried to access this vector at index: " + index);
+                throw new System.IndexOutOfRangeException("You tried to access this vector at index: " + index);
             }
 
             set
@@ -132,7 +186,7 @@ namespace OpenToolkit.Mathematics
                 }
                 else
                 {
-                    throw new IndexOutOfRangeException("You tried to set this vector at index: " + index);
+                    throw new System.IndexOutOfRangeException("You tried to set this vector at index: " + index);
                 }
             }
         }
@@ -245,7 +299,7 @@ namespace OpenToolkit.Mathematics
         /// <summary>
         /// Defines the size of the DecimalVector2 struct in bytes.
         /// </summary>
-        public static readonly int SizeInBytes = Marshal.SizeOf<DecimalVector2>();
+        public static readonly int SizeInBytes = System.Runtime.InteropServices.Marshal.SizeOf<DecimalVector2>();
 
         /// <summary>
         /// Adds two vectors.
@@ -652,6 +706,7 @@ namespace OpenToolkit.Mathematics
 
         /// <summary>
         /// Calculate the perpendicular dot (scalar) product of two vectors.
+        /// aka. 2-dimensional cross-product 
         /// </summary>
         /// <param name="left">First operand.</param>
         /// <param name="right">Second operand.</param>
@@ -754,7 +809,7 @@ namespace OpenToolkit.Mathematics
         /// <summary>
         /// Gets or sets an OpenToolkit.DecimalVector2 with the Y and X components of this instance.
         /// </summary>
-        [XmlIgnore]
+        [System.Xml.Serialization.XmlIgnore]
         public DecimalVector2 Yx
         {
             get => new DecimalVector2(Y, X);
@@ -898,7 +953,7 @@ namespace OpenToolkit.Mathematics
             return new DecimalVector2(values.X, values.Y);
         }
 
-        private static readonly string ListSeparator = CultureInfo.CurrentCulture.TextInfo.ListSeparator;
+        private static readonly string ListSeparator = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
 
         /// <inheritdoc/>
         public override string ToString()

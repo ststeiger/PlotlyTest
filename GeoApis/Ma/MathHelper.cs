@@ -8,7 +8,7 @@
  */
 #endregion
 
-namespace OpenTK
+namespace OpenToolkit.Mathematics
 {
     /// <summary>
     /// Contains common mathematical functions and constants.

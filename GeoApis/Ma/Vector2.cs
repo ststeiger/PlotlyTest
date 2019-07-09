@@ -20,123 +20,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-using System;
+
 using System.Diagnostics.Contracts;
-using System.Globalization;
-using System.Runtime.InteropServices;
-using System.Xml.Serialization;
-using OpenTK;
+
 
 namespace OpenToolkit.Mathematics
 {
-
-
-    public class MyPolygon
-    {
-        
-        
-        public class cPoint
-        {
-            public bool bHasInterSection;
-            public float x;
-            public float y;
-        }
-        
-        
-        
-        // Q + v => intersection with pointToAdd-vertical to v
-        // cVector_2d.GetPointVerticalIntersection(aptDefinitionPoints[i], vec2_VecLine, cptPointToAdd);
-        public static cPoint GetPointVerticalIntersection(cPoint cptPointQ, Vector2 vecInputLine, cPoint cpPointP)
-        {
-            // Q: Line start/endpoint
-            // P + a * vecNormalVector = Intersection = Q + b * vecInputLine
-            // a = (-(Px*vy-Py*vx-Qx*vy+Qy*vx))/(nx*vy-ny*vx)
-            // b = (-(Px*ny-Py*nx-Qx*ny+Qy*nx))/(nx*vy-ny*vx)
-
-            
-            Vector2 vecNormalVector = vecInputLine.PerpendicularLeft;
-            float denominator = vecNormalVector.X * vecInputLine.Y - vecNormalVector.Y * vecInputLine.X;
-            
-            cPoint cptIntersectionPoint = new cPoint();
-            if (denominator == 0.0f)
-            {
-                // no intersection
-                cptIntersectionPoint.bHasInterSection = false;
-                return cptIntersectionPoint;
-            }
-            
-            float a = (-(cpPointP.x * vecInputLine.Y - cpPointP.y * vecInputLine.X - cptPointQ.x * vecInputLine.Y + cptPointQ.y * vecInputLine.X)) / denominator;
-            float b = (-(cpPointP.x * vecNormalVector.Y - cpPointP.y * vecNormalVector.X - cptPointQ.x * vecNormalVector.Y + cptPointQ.y * vecNormalVector.X)) / denominator;
-            cptIntersectionPoint.bHasInterSection = true;
-            
-            cptIntersectionPoint.x = cpPointP.x + a * vecNormalVector.X;
-            cptIntersectionPoint.y = cpPointP.y + a * vecNormalVector.Y;
-            
-            return cptIntersectionPoint;
-        }
-
-        
-        
-        
-        // cVector_2d.isPointOnLine(cpLinePoint1, cpLinePoint2, cpPointInQuestion);
-        public static bool isPointOnLine(cPoint cptLinePoint1, cPoint cptLinePoint2, cPoint cptPoint)
-        {
-            cPoint cptPointA = new cPoint();
-            cPoint cptPointB = new cPoint();
-
-            if (cptLinePoint1.x < cptLinePoint2.x)
-            {
-                cptPointA.x = cptLinePoint1.x;
-                cptPointB.x = cptLinePoint2.x;
-            }
-            else
-            {
-                cptPointA.x = cptLinePoint2.x;
-                cptPointB.x = cptLinePoint1.x;
-            }
-
-            if (cptLinePoint1.y < cptLinePoint2.y)
-            {
-                cptPointA.y = cptLinePoint1.y;
-                cptPointB.y = cptLinePoint2.y;
-            }
-            else
-            {
-                cptPointA.y = cptLinePoint2.y;
-                cptPointB.y = cptLinePoint1.y;
-            }
-
-
-            if (cptPoint.x >= cptPointA.x && cptPoint.y >= cptPointA.y && cptPoint.x <= cptPointB.x && cptPoint.y <= cptPointB.y)
-            {
-                return true;
-            }
-
-            return false;
-        } // End function isPointOnLine
-        
-        
-        
-        // var xy:Point=cVector_2d.GetIntersection(vec1, vec2);
-        public static cPoint GetIntersection ( Vector2 v1, Vector2 v2)
-        {	
-            float v3bx = v2.X - v1.X;
-            float v3by = v2.Y - v1.Y;
-            float perP1 = v3bx*v2.by - v3by*v2.bx;
-            float perP2 = v1.bx*v2.by - v1.by*v2.bx;
-            float t = perP1/perP2;
-			
-            float cx = v1.X + v1.bx*t;
-            float cy = v1.Y + v1.by*t;
-            return new Point( cx , cy );
-        }
-        
-        
-        
-    }
-
-
-
 
 
     /// <summary>
@@ -145,9 +34,10 @@ namespace OpenToolkit.Mathematics
     /// <remarks>
     /// The Vector2 structure is suitable for interoperation with unmanaged code requiring two consecutive floats.
     /// </remarks>
-    [Serializable]
-    [StructLayout(LayoutKind.Sequential)]
-    public struct Vector2 : IEquatable<Vector2>
+    [System.Serializable]
+    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Vector2 
+        : System.IEquatable<Vector2>
     {
         /// <summary>
         /// The X component of the Vector2.
@@ -181,27 +71,86 @@ namespace OpenToolkit.Mathematics
         }
 
 
-        public static float CrossP(Vector2 a, Vector2 b)
-        {
-            Vector2 vecReturnValue = new Vector2(0, 0); // Faster than 3d-version
-            float z = a.X * b.Y - a.Y * b.X; //  Yay, z-Abuse in 2d
-            return z;
-        } // End function CrossP
-
-
         // http://mathworld.wolfram.com/Point-LineDistance3-Dimensional.html
-        // // Yay, 2D crossp = determinant = scalar result
-        public static float DistanceOfPointToLine(Vector2 point, Vector2 x1, Vector2 x2)
+        // // Yay, 2D crossp = determinant = scalar result | DistanceOfPointToLine(p, x1, x2)
+        public static float DistanceOfPointToLine(Vector2 point, Vector2 lineStartPoint, Vector2 lineEndPoint)
         {
-            Vector2 x2minusx1 = Subtract(x2, x1); // vec2-vec1
-            Vector2 x1minusx0 = Subtract(x1, point); // vec2-vec1
+            Vector2 x2minusx1 = Subtract(lineEndPoint, lineStartPoint); // vec2-vec1
+            Vector2 x1minusx0 = Subtract(lineStartPoint, point); // vec2-vec1
             
             float DeltaNorm = PerpDot(x2minusx1, x1minusx0); 
 
             float x2minusx1Norm = x2minusx1.Length;
             float nReturnValue = DeltaNorm / x2minusx1Norm;
             return nReturnValue;
-        }
+        } // End Function DistanceOfPointToLine 
+
+
+        public static bool IsPointOnLine(Vector2 linePoint1, Vector2 linePoint2, Vector2 pointInQuestion)
+        {
+            Vector2 pointA = new Vector2();
+            Vector2 pointB = new Vector2();
+
+            if (linePoint1.X < linePoint2.X)
+            {
+                pointA.X = linePoint1.X;
+                pointB.X = linePoint2.X;
+            }
+            else
+            {
+                pointA.X = linePoint2.X;
+                pointB.X = linePoint1.X;
+            }
+
+            if (linePoint1.Y < linePoint2.Y)
+            {
+                pointA.Y = linePoint1.Y;
+                pointB.Y = linePoint2.Y;
+            }
+            else
+            {
+                pointA.Y = linePoint2.Y;
+                pointB.Y = linePoint1.Y;
+            }
+
+
+            if (pointInQuestion.X >= pointA.X && pointInQuestion.Y >= pointA.Y && pointInQuestion.X <= pointB.X && pointInQuestion.Y <= pointB.Y)
+            {
+                return true;
+            }
+
+            return false;
+        } // End Function IsPointOnLine 
+
+
+        // Q + v => intersection with pointToAdd-vertical to v
+        // cVector_2d.GetPointVerticalIntersection(aptDefinitionPoints[i], vec2_VecLine, cptPointToAdd);
+        public static Vector2? GetPointVerticalIntersection(Vector2 pointQ, Vector2 vecInputLine, Vector2 pointP)
+        {
+            // Q: Line start/endpoint
+            // P + a * vecNormalVector = Intersection = Q + b * vecInputLine
+            // a = (-(Px*vy-Py*vx-Qx*vy+Qy*vx))/(nx*vy-ny*vx)
+            // b = (-(Px*ny-Py*nx-Qx*ny+Qy*nx))/(nx*vy-ny*vx)
+
+            Vector2 vecNormalVector = vecInputLine.PerpendicularLeft;
+            float denominator = vecNormalVector.X * vecInputLine.Y - vecNormalVector.Y * vecInputLine.X;
+
+            Vector2 intersectionPoint = new Vector2();
+            if (denominator == 0.0f)
+            {
+                // no intersection
+                return null;
+            }
+
+            float a = (-(pointP.X * vecInputLine.Y - pointP.Y * vecInputLine.X - pointQ.X * vecInputLine.Y + pointQ.Y * vecInputLine.X)) / denominator;
+            float b = (-(pointP.X * vecNormalVector.Y - pointP.Y * vecNormalVector.X - pointQ.X * vecNormalVector.Y + pointQ.Y * vecNormalVector.X)) / denominator;
+
+            intersectionPoint.X = pointP.X + a * vecNormalVector.X;
+            intersectionPoint.Y = pointP.Y + a * vecNormalVector.Y;
+
+            return intersectionPoint;
+        } // End Function GetPointVerticalIntersection 
+
 
 
 
@@ -224,7 +173,7 @@ namespace OpenToolkit.Mathematics
                     return Y;
                 }
 
-                throw new IndexOutOfRangeException("You tried to access this vector at index: " + index);
+                throw new System.IndexOutOfRangeException("You tried to access this vector at index: " + index);
             }
 
             set
@@ -239,7 +188,7 @@ namespace OpenToolkit.Mathematics
                 }
                 else
                 {
-                    throw new IndexOutOfRangeException("You tried to set this vector at index: " + index);
+                    throw new System.IndexOutOfRangeException("You tried to set this vector at index: " + index);
                 }
             }
         }
@@ -253,7 +202,7 @@ namespace OpenToolkit.Mathematics
         {
             get
             {
-                return (float)Math.Sqrt((X * X) + (Y * Y));
+                return (float)System.Math.Sqrt((X * X) + (Y * Y));
             }
         }
 
@@ -352,7 +301,7 @@ namespace OpenToolkit.Mathematics
         /// <summary>
         /// Defines the size of the Vector2 struct in bytes.
         /// </summary>
-        public static readonly int SizeInBytes = Marshal.SizeOf<Vector2>();
+        public static readonly int SizeInBytes = System.Runtime.InteropServices.Marshal.SizeOf<Vector2>();
 
         /// <summary>
         /// Adds two vectors.
@@ -655,7 +604,7 @@ namespace OpenToolkit.Mathematics
         /// <param name="result">The distance.</param>
         public static void Distance(ref Vector2 vec1, ref Vector2 vec2, out float result)
         {
-            result = (float)Math.Sqrt(((vec2.X - vec1.X) * (vec2.X - vec1.X)) + ((vec2.Y - vec1.Y) * (vec2.Y - vec1.Y)));
+            result = (float)System.Math.Sqrt(((vec2.X - vec1.X) * (vec2.X - vec1.X)) + ((vec2.Y - vec1.Y) * (vec2.Y - vec1.Y)));
         }
 
         /// <summary>
@@ -759,6 +708,7 @@ namespace OpenToolkit.Mathematics
 
         /// <summary>
         /// Calculate the perpendicular dot (scalar) product of two vectors.
+        /// aka. 2-dimensional cross-product
         /// </summary>
         /// <param name="left">First operand.</param>
         /// <param name="right">Second operand.</param>
@@ -861,7 +811,7 @@ namespace OpenToolkit.Mathematics
         /// <summary>
         /// Gets or sets an OpenToolkit.Vector2 with the Y and X components of this instance.
         /// </summary>
-        [XmlIgnore]
+        [System.Xml.Serialization.XmlIgnore]
         public Vector2 Yx
         {
             get => new Vector2(Y, X);
@@ -1005,7 +955,7 @@ namespace OpenToolkit.Mathematics
             return new Vector2(values.X, values.Y);
         }
 
-        private static readonly string ListSeparator = CultureInfo.CurrentCulture.TextInfo.ListSeparator;
+        private static readonly string ListSeparator = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
 
         /// <inheritdoc/>
         public override string ToString()

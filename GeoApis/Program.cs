@@ -574,21 +574,7 @@ WHERE GB_UID = @gb_uid
         } // End Sub UpdateBuildingsWithYandex 
 
 
-        public static decimal getBoundsArea(LatLngBounds bounds)
-        {
-            LatLng nw = bounds.NorthWest;
-            LatLng se = bounds.SouthEast;
-            // https://github.com/openstreetmap/cgimap/blob/master/src/bbox.cpp
-            
-            decimal maxLng = System.Math.Max(nw.lng, se.lng);
-            decimal maxLat = System.Math.Max(nw.lat, se.lat);
 
-            decimal minLng = System.Math.Min(nw.lng, se.lng);
-            decimal minLat = System.Math.Min(nw.lat, se.lat);
-            decimal area = (maxLng - minLng) * (maxLat - minLat);
-
-            return area;
-        } // End Function getBoundsArea 
 
 
         static bool isClockwise(LatLng[] poly)
@@ -665,38 +651,7 @@ WHERE GB_UID = @gb_uid
         }
 
 
-        // radius = sizeInMeters/2
-        public static LatLngBounds toBounds (LatLng point, decimal sizeInMeters)
-        {
-            decimal latAccuracy = 180.0m * sizeInMeters / 40075017m;
-            decimal lngAccuracy = latAccuracy / (decimal)System.Math.Cos((System.Math.PI / 180.0d) * (double)point.lat);
-
-            //           N
-            //          180
-            // (W) -180     +180 (E)
-            //         -180
-            //           S
-
-            // https://github.com/Leaflet/Leaflet/blob/master/src/geo/LatLng.js
-            // https://github.com/Leaflet/Leaflet/blob/master/src/geo/LatLngBounds.js
-            // constructor(southWest: LatLngExpression, northEast: LatLngExpression);
-            // a = [point.lat - latAccuracy, point.lng - lngAccuracy],
-            // b = [point.lat + latAccuracy, point.lng + lngAccuracy]
-            // new LatLngBounds(a, b); 
-
-            decimal south = point.lat - latAccuracy;
-            decimal west = point.lng - lngAccuracy;
-            decimal north = point.lat + latAccuracy;
-            decimal east = point.lng + lngAccuracy;
-
-
-            // https://en.wikipedia.org/wiki/Ellipse
-            // https://en.wikipedia.org/wiki/Latitude
-            // https://en.wikipedia.org/wiki/Longitude
-            // https://de.wikipedia.org/wiki/Wendekreis_(Breitenkreis)
-
-            return new LatLngBounds(north, south, east, west);
-	    }
+ 
 
 
 
@@ -704,12 +659,9 @@ WHERE GB_UID = @gb_uid
         {
             decimal lati = 47.551926m;
             decimal longi = 9.226118m;
-            LatLngBounds bounds = toBounds(new LatLng(lati, longi), 100); // d.h. Radius = 50m
+
+            LatLngBounds bounds = LatLngBounds.FromPoint(new LatLng(lati, longi), 100); // d.h. Radius = 50m
             System.Console.WriteLine(bounds);
-
-
-
-
 
             /*
             LatLngBounds bb = new LatLngBounds(47.700530864557194m
@@ -717,8 +669,8 @@ WHERE GB_UID = @gb_uid
                 , 8.636573553085329m
                 , 8.626273870468141m
             ); // map.getBounds();
-
-            decimal area = getBoundsArea(bb);
+            
+            decimal area = bb.BoundsArea;
             if (area > 0.25m)
             {
                 System.Console.WriteLine("The maximum bbox size is 0.25, and your request was too large.\nEither request a smaller area, or use planet.osm.");
@@ -795,6 +747,16 @@ WHERE GB_UID = @gb_uid
 
             System.Console.WriteLine(buildingDictionary);
 
+
+            System.Collections.Generic.Dictionary<string, Polygon> buildingPolygonDictionary =
+                new System.Collections.Generic.Dictionary<string, Polygon>(System.StringComparer.InvariantCultureIgnoreCase);
+
+            foreach (System.Collections.Generic.KeyValuePair<string, LatLng[]> kvp in buildingDictionary)
+            {
+                buildingPolygonDictionary[kvp.Key] = new Polygon(kvp.Value);
+            }
+
+            System.Console.WriteLine(buildingPolygonDictionary);
         }
 
 
@@ -804,7 +766,7 @@ WHERE GB_UID = @gb_uid
             foo();
             // UpdateBuildingsWithYandex();
 
-            GeoApis.Custom.Polygon poly = new Custom.Polygon();
+            GeoApis.Polygon poly = new Polygon();
             poly.PopulateV1();
             
             System.Console.WriteLine(poly.MathematicalArea);
