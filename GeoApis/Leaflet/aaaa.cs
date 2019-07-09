@@ -63,6 +63,7 @@ namespace GeoApis
     } // End Class ArrayExtensions 
 
 
+    [System.Diagnostics.DebuggerDisplay("{lat} {lng}, {alt}")]
     public class LatLng
     {
         public decimal lat;
@@ -85,7 +86,11 @@ namespace GeoApis
             return new LatLng(this.lat, this.lng);
         }
 
-
+        public override string ToString()
+        {
+            return lat.ToString(System.Globalization.CultureInfo.InvariantCulture) + ", " + lng.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        }
+        
     }
 
 

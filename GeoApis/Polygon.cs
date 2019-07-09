@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using OpenToolkit.Mathematics;
+
 
 namespace GeoApis.Custom
 {
@@ -28,15 +28,49 @@ namespace GeoApis.Custom
     class Polygon
     {
 
-        public List<PolygonPoint> Points = new List<PolygonPoint>();
+        public System.Collections.Generic.List<DecimalVector2> Points;
+        public System.Collections.Generic.List<DecimalVector2> Vectors;
+        
+
+        public Polygon()
+        {
+            this.Points = new System.Collections.Generic.List<DecimalVector2>();
+            this.Vectors = new System.Collections.Generic.List<DecimalVector2>();
+        }
+
+
+        public Polygon(System.Collections.Generic.IEnumerable<LatLng> points)
+            :this()
+        {
+            foreach (LatLng p in points)
+            {
+                this.Points.Add(new DecimalVector2(p.lat, p.lng));
+            }
+
+            for (int i = 0; i < this.Points.Count-1; i++)
+            {
+                DecimalVector2 p1 = this.Points[i];
+                DecimalVector2 p2 = this.Points[i + 1];
+
+                this.Vectors.Add(DecimalVector2.Subtract(p2, p1));
+
+
+            }
+
+
+        }
+
+
+
+
 
         public void PopulateV1()
         {
-            Points.Add(new PolygonPoint(1, 1));
-            Points.Add(new PolygonPoint(5, 1));
-            Points.Add(new PolygonPoint(5, 2));
-            // Points.Add(new PolygonPoint(1, 2));
-            // Points.Add(new PolygonPoint(1, 1));
+            Points.Add(new DecimalVector2(1, 1));
+            Points.Add(new DecimalVector2(5, 1));
+            Points.Add(new DecimalVector2(5, 2));
+            // Points.Add(new DecimalVector2(1, 2));
+            // Points.Add(new DecimalVector2(1, 1));
         }
 
 
@@ -61,7 +95,7 @@ namespace GeoApis.Custom
 
         public void Close()
         {
-            Points.Add(new PolygonPoint(this.Points[0].X, this.Points[0].Y));
+            Points.Add(new DecimalVector2(this.Points[0].X, this.Points[0].Y));
         }
 
         public void UnClose()
@@ -117,7 +151,7 @@ namespace GeoApis.Custom
         {
             get
             {
-                return Math.Abs(this.MathematicalArea);
+                return System.Math.Abs(this.MathematicalArea);
             }
         }
 
@@ -146,7 +180,7 @@ namespace GeoApis.Custom
                     this.EnsureUnclosed();
 
 
-                if (Math.Abs(accumulatedArea) < 1E-7m)
+                if (System.Math.Abs(accumulatedArea) < 1E-7m)
                     return new PolygonPoint();  // Avoid division by zero
 
                 accumulatedArea *= 3m;

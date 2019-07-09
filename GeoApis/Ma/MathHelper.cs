@@ -179,6 +179,19 @@ namespace OpenTK
         }
 
 
+        public static decimal InverseSqrtFast(decimal x)
+        {
+            return (decimal)InverseSqrtFast((float)x);
+        }
+
+
+        public static decimal Sqrt(decimal x)
+        {
+            return (decimal)System.Math.Sqrt((double)x);
+        }
+
+
+
         // To replace unsafe InverseSqrtFast code ...
         // https://github.com/Genbox/ApproximationNet/blob/master/src/ApproximationNet/Approximation.cs
         [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Explicit)]
