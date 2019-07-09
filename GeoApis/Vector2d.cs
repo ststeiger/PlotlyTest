@@ -194,6 +194,7 @@ namespace GeoApis.Vectors
             public decimal y;
         }
 
+        // Q + v => intersection with pointToAdd-vertical to v
         // cVector_2d.GetPointVerticalIntersection(aptDefinitionPoints[i], vec2_VecLine, cptPointToAdd);
         public static cPoint GetPointVerticalIntersection(cPoint cptPointQ, cVector_2d vecInputLine, cPoint cpPointP)
         {
