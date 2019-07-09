@@ -657,41 +657,48 @@ WHERE GB_UID = @gb_uid
 
         public static void foo()
         {
-            decimal lati = 47.551926m;
-            decimal longi = 9.226118m;
+            decimal lati = 47.6957384m;
+            decimal longi = 8.6377985m;
 
-            LatLngBounds bounds = LatLngBounds.FromPoint(new LatLng(lati, longi), 100); // d.h. Radius = 50m
+
+            // 47.69573840000000000000	8.63779850000003000000
+            OpenToolkit.Mathematics.DecimalVector2 geoPoint = new OpenToolkit.Mathematics.DecimalVector2(lati, longi);
+
+
+
+            LatLngBounds bounds = LatLngBounds.FromPoint(new LatLng(lati, longi), 1000); // d.h. Radius = 50m
             System.Console.WriteLine(bounds);
 
-            /*
-            LatLngBounds bb = new LatLngBounds(47.700530864557194m
-                , 47.69679769756054m
-                , 8.636573553085329m
-                , 8.626273870468141m
-            ); // map.getBounds();
-            
-            decimal area = bb.BoundsArea;
+
+            //LatLngBounds bounds = new LatLngBounds(47.700530864557194m
+            //    , 47.69679769756054m
+            //    , 8.636573553085329m
+            //    , 8.626273870468141m
+            //); // map.getBounds();
+
+            decimal area = bounds.BoundsArea;
             if (area > 0.25m)
             {
                 System.Console.WriteLine("The maximum bbox size is 0.25, and your request was too large.\nEither request a smaller area, or use planet.osm.");
                 return;
             }
 
-            const string OSM_API_VERSION = "0.6";
-
-            // string url = "https://www.openstreetmap.org/api/0.6/map?bbox=8.626273870468141,47.69679769756054,8.636573553085329,47.700530864557194&no_cache=1562588642802";
-            string url = "https://www.openstreetmap.org/api/" + OSM_API_VERSION + "/map?bbox=" + bb.ToBBoxString();
 
             string xml = null;
+#if fromFile
+            xml = System.IO.File.ReadAllText(@"D:\Stefan.Steiger\Desktop\map.osm.xml", System.Text.Encoding.UTF8);
+#else
+            const string OSM_API_VERSION = "0.6";
+            // string url = "https://www.openstreetmap.org/api/0.6/map?bbox=8.626273870468141,47.69679769756054,8.636573553085329,47.700530864557194&no_cache=1562588642802";
+            string url = "https://www.openstreetmap.org/api/" + OSM_API_VERSION + "/map?bbox=" + bounds.ToBBoxString();
 
             using (System.Net.WebClient wc = new System.Net.WebClient())
             {
                 xml = wc.DownloadString(url);
             }
+#endif
 
-            */
 
-            string xml = System.IO.File.ReadAllText(@"D:\Stefan.Steiger\Desktop\map.osm.xml", System.Text.Encoding.UTF8);
 
             System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
             doc.LoadXml(xml);
@@ -757,6 +764,43 @@ WHERE GB_UID = @gb_uid
             }
 
             System.Console.WriteLine(buildingPolygonDictionary);
+
+
+
+            decimal? min = null;
+            string uid = null;
+
+            foreach (System.Collections.Generic.KeyValuePair<string, Polygon> kvp in buildingPolygonDictionary)
+            {
+                decimal minDist = kvp.Value.GetMinimumDistance(geoPoint);
+
+                if (min.HasValue)
+                {
+                    if (minDist < min.Value)
+                    {
+                        min = minDist;
+                        uid = kvp.Key;
+                    }
+                }
+                else
+                {
+                    uid = kvp.Key;
+                    min = minDist;
+                }
+
+            }
+
+            Polygon p = buildingPolygonDictionary[uid];
+            System.Console.WriteLine(uid); // 218003784
+            System.Console.WriteLine(p);
+
+            LatLng[] pts = p.ToLatLngPoints();
+            string sql = CreateSqlPolygon(pts);
+            System.Console.WriteLine(sql);
+
+
+
+
         }
 
 

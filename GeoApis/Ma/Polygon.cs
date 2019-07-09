@@ -39,10 +39,25 @@ namespace GeoApis
         } // End Constructor 
 
 
+        
+        public LatLng[] ToLatLngPoints()
+        {
+            LatLng[] ret = new LatLng[this.Points.Count];
+            for (int i = 0; i < this.Points.Count; ++i)
+            {
+                ret[i] = new LatLng(this.Points[i].X, this.Points[i].Y);
+            }
+
+            return ret;
+        }
+
+
+
         public decimal GetMinimumDistance(DecimalVector2 point)
         {
             decimal? distance = null;
 
+            
             for (int i = 0; i < this.Vectors.Count; ++i)
             {
                 DecimalVector2? intersection = DecimalVector2.GetPointVerticalIntersection(this.Points[i], this.Vectors[i], point);
@@ -52,7 +67,9 @@ namespace GeoApis
                     if(!DecimalVector2.IsPointOnLine(this.Points[i], this.Points[i + 1], intersection.Value))
                         continue;
 
-                    decimal dist = DecimalVector2.DistanceOfPointToLine(point, this.Points[i], this.Points[i + 1]);
+                    //decimal dist = DecimalVector2.DistanceOfPointToLine(point, this.Points[i], this.Points[i + 1]);
+                    decimal dist = DecimalVector2.Subtract(point, intersection.Value).Length;
+
                     if (distance.HasValue)
                     {
                         if (dist < distance.Value)
@@ -66,10 +83,13 @@ namespace GeoApis
             } // Next i 
 
 
-            if (distance.HasValue)
-                return distance.Value;
+            // if (distance.HasValue) return distance.Value; return 1000000000000000;
 
-            for (int i = 0; i < this.Points[i].Length; ++i)
+
+
+            // System.Console.WriteLine(IsClosed);
+
+            for (int i = 0; i < this.Points.Count; ++i)
             {
                 decimal dist = DecimalVector2.Subtract(point, this.Points[i]).Length;
 
