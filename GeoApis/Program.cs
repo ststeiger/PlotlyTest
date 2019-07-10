@@ -655,33 +655,19 @@ WHERE GB_UID = @gb_uid
 
 
 
-        public static void foo()
+        public static void foo(decimal latitide, decimal longitude)
         {
-            decimal lati = 47.6957384m;
-            decimal longi = 8.6377985m;
+            OpenToolkit.Mathematics.DecimalVector2 geoPoint = new OpenToolkit.Mathematics.DecimalVector2(latitide, longitude);
 
-
-            // 47.69573840000000000000	8.63779850000003000000
-            OpenToolkit.Mathematics.DecimalVector2 geoPoint = new OpenToolkit.Mathematics.DecimalVector2(lati, longi);
-
-
-
-            LatLngBounds bounds = LatLngBounds.FromPoint(new LatLng(lati, longi), 1000); // d.h. Radius = 50m
+            LatLngBounds bounds = LatLngBounds.FromPoint(new LatLng(latitide, longitude), 1000); // d.h. Radius = 50m
             System.Console.WriteLine(bounds);
-
-
-            //LatLngBounds bounds = new LatLngBounds(47.700530864557194m
-            //    , 47.69679769756054m
-            //    , 8.636573553085329m
-            //    , 8.626273870468141m
-            //); // map.getBounds();
 
             decimal area = bounds.BoundsArea;
             if (area > 0.25m)
             {
                 System.Console.WriteLine("The maximum bbox size is 0.25, and your request was too large.\nEither request a smaller area, or use planet.osm.");
                 return;
-            }
+            } // End if (area > 0.25m) 
 
 
             string xml = null;
@@ -695,7 +681,7 @@ WHERE GB_UID = @gb_uid
             using (System.Net.WebClient wc = new System.Net.WebClient())
             {
                 xml = wc.DownloadString(url);
-            }
+            } // End Using wc 
 #endif
 
 
@@ -716,16 +702,16 @@ WHERE GB_UID = @gb_uid
             foreach (System.Xml.XmlElement node in nodes)
             {
                 string id = node.GetAttribute("id");
-                string lat = node.GetAttribute("lat");
-                string lon = node.GetAttribute("lon");
+                string nodeLat = node.GetAttribute("lat");
+                string nodeLong = node.GetAttribute("lon");
 
-                decimal latitude = 0;
-                decimal longitude = 0;
-                decimal.TryParse(lat, out latitude);
-                decimal.TryParse(lon, out longitude);
+                decimal dlat = 0;
+                decimal dlong = 0;
+                decimal.TryParse(nodeLat, out dlat);
+                decimal.TryParse(nodeLong, out dlong);
 
-                nodeDictionary[id] = new LatLng(latitude, longitude);
-            }
+                nodeDictionary[id] = new LatLng(dlat, dlong);
+            } // Next node 
 
             // https://stackoverflow.com/questions/1457638/xpath-get-nodes-where-child-node-contains-an-attribute
             // querySelectorAll('way tag[k="building"]')
@@ -748,8 +734,6 @@ WHERE GB_UID = @gb_uid
 
                 string sqlPolygon = CreateSqlPolygon(polygon);
                 System.Console.WriteLine(sqlPolygon);
-
-
             } // Next building 
 
             System.Console.WriteLine(buildingDictionary);
@@ -761,7 +745,7 @@ WHERE GB_UID = @gb_uid
             foreach (System.Collections.Generic.KeyValuePair<string, LatLng[]> kvp in buildingDictionary)
             {
                 buildingPolygonDictionary[kvp.Key] = new Polygon(kvp.Value);
-            }
+            } // Next kvp 
 
             System.Console.WriteLine(buildingPolygonDictionary);
 
@@ -788,26 +772,25 @@ WHERE GB_UID = @gb_uid
                     min = minDist;
                 }
 
-            }
+            } // Next kvp 
 
             Polygon p = buildingPolygonDictionary[uid];
             System.Console.WriteLine(uid); // 218003784
             System.Console.WriteLine(p);
 
+
             LatLng[] pts = p.ToLatLngPoints();
             string sql = CreateSqlPolygon(pts);
             System.Console.WriteLine(sql);
-
-
-
-
-        }
+        } // End Sub 
 
 
 
         static void Main(string[] args)
         {
-            foo();
+            decimal lati = 47.6957384m;
+            decimal longi = 8.6377985m;
+            foo(lati, longi);
             // UpdateBuildingsWithYandex();
 
             GeoApis.Polygon poly = new Polygon();
@@ -897,10 +880,10 @@ WHERE __Steuern_2014.gemeindenummer IS NULL
             System.Console.WriteLine(System.Environment.NewLine);
             System.Console.WriteLine(" --- Press any key to continue --- ");
             System.Console.ReadKey();
-        }
+        } // End Sub Main 
         
         
-    }
+    } // End Class 
     
     
-}
+} // End Namespace 

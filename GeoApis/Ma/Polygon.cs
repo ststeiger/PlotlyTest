@@ -9,6 +9,10 @@ namespace GeoApis
     class Polygon
     {
 
+        public string DbUID;
+        public string OsmId;
+
+
         public System.Collections.Generic.List<DecimalVector2> Points;
         public System.Collections.Generic.List<DecimalVector2> Vectors;
         
@@ -50,6 +54,38 @@ namespace GeoApis
 
             return ret;
         }
+
+
+        /// <summary>
+        /// MSSQL is CLOCKWISE  (MS-SQL wants the polygon points in CLOCKWISE sequence) 
+        /// </summary>
+        /// <returns>Returns the edge-points of the polygon, CLOCKWISE.</returns>
+        public LatLng[] ToClockWiseLatLngPoints()
+        {
+            LatLng[] poly = ToLatLngPoints();
+
+            if (!this.isClockwise)
+                poly.Reverse();
+
+            return poly;
+        } // End Function toClockWise 
+
+
+        /// <summary>
+        /// OSM is COUNTER-clockwise  (OSM wants the polygon points in COUNTERclockwise sequence) 
+        /// </summary>
+        /// <returns>Returns the edge-points of the polygon, COUNTER-clockwise.</returns>
+        public LatLng[] ToCounterClockWiseLatLngPoints()
+        {
+            LatLng[] poly = ToLatLngPoints();
+
+            if (this.isClockwise)
+                poly.Reverse();
+
+            return poly;
+        } // End Function toCounterClockWise 
+
+
 
 
 
