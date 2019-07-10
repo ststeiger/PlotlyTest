@@ -39,7 +39,7 @@ namespace TestPlotly
 
             } // Next thisRessourceName 
 
-            return resourceName;
+            throw new System.IO.InvalidDataException("No script called \"" + resourceName + "\" in embedded resources.");
         } // End Function GetResourceName 
 
 

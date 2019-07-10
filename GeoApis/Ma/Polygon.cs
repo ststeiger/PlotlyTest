@@ -30,7 +30,7 @@ namespace GeoApis
             foreach (LatLng p in points)
             {
                 this.Points.Add(new DecimalVector2(p.lat, p.lng));
-            }
+            } // Next p 
 
             for (int i = 0; i < this.Points.Count-1; i++)
             {
@@ -41,8 +41,7 @@ namespace GeoApis
             } // Next i 
 
         } // End Constructor 
-
-
+        
         
         public LatLng[] ToLatLngPoints()
         {
@@ -50,10 +49,10 @@ namespace GeoApis
             for (int i = 0; i < this.Points.Count; ++i)
             {
                 ret[i] = new LatLng(this.Points[i].X, this.Points[i].Y);
-            }
+            } // Next i 
 
             return ret;
-        }
+        } // End Function ToLatLngPoints 
 
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace GeoApis
                 poly.Reverse();
 
             return poly;
-        } // End Function toClockWise 
+        } // End Function ToClockWiseLatLngPoints 
 
 
         /// <summary>
@@ -83,16 +82,12 @@ namespace GeoApis
                 poly.Reverse();
 
             return poly;
-        } // End Function toCounterClockWise 
-
-
-
-
+        } // End Function ToCounterClockWiseLatLngPoints 
+        
 
         public decimal GetMinimumDistance(DecimalVector2 point)
         {
             decimal? distance = null;
-
             
             for (int i = 0; i < this.Vectors.Count; ++i)
             {
@@ -113,15 +108,13 @@ namespace GeoApis
                     }
                     else
                         distance = dist;
-
                 } // End if (intersection.HasValue) 
 
             } // Next i 
 
 
             // if (distance.HasValue) return distance.Value; return 1000000000000000;
-
-
+            
 
             // System.Console.WriteLine(IsClosed);
 
@@ -149,7 +142,7 @@ namespace GeoApis
             Points.Add(new DecimalVector2(5, 2));
             // Points.Add(new DecimalVector2(1, 2));
             // Points.Add(new DecimalVector2(1, 1));
-        }
+        } // End Sub PopulateV1 
 
 
         public bool IsClosed
@@ -167,14 +160,14 @@ namespace GeoApis
 
                 return false;
             }
-        }
-
-
+        } // End Property IsClosed 
+        
 
         public void Close()
         {
             Points.Add(new DecimalVector2(this.Points[0].X, this.Points[0].Y));
         }
+
 
         public void UnClose()
         {
@@ -239,7 +232,7 @@ namespace GeoApis
                 nArea *= 0.5m;
                 return nArea;
             }
-        }
+        } // End Property MathematicalArea 
 
 
         public decimal Area
@@ -248,7 +241,7 @@ namespace GeoApis
             {
                 return System.Math.Abs(this.MathematicalArea);
             }
-        }
+        } // End Property Area 
 
 
         // Geschlossen
@@ -269,11 +262,10 @@ namespace GeoApis
                     accumulatedArea += temp;
                     centerX += (this.Points[i].X + this.Points[j].X) * temp;
                     centerY += (this.Points[i].Y + this.Points[j].Y) * temp;
-                }
+                } // Next i 
 
                 if (!wasClosed)
                     this.EnsureUnclosed();
-
                 
                 if (System.Math.Abs(accumulatedArea) < 1E-7m)
                     return new DecimalVector2();  // Avoid division by zero
@@ -281,7 +273,9 @@ namespace GeoApis
                 accumulatedArea *= 3m;
                 return new DecimalVector2(centerX / accumulatedArea, centerY / accumulatedArea);
             }
-        }
+
+        } // End Property Centroid 
+
 
         // Nicht geschlossen
         public DecimalVector2 Midpoint
@@ -308,11 +302,11 @@ namespace GeoApis
 
                 return new DecimalVector2(x, y);
             }
-        }
 
-    }
-
+        } // End Property MidPoint 
 
 
+    } // End Class Polygon 
 
-}
+
+} // End Namespace 

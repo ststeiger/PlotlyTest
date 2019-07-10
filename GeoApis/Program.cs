@@ -25,75 +25,7 @@ namespace GeoApis
             string resp = null;
             string data = null;
 
-            string[] proxyList = new string[] {
-                /*
-                "http://45.79.0.108:1080",
-                "http://206.127.141.67:80",
-                "http://50.232.30.218:3128",
-                "http://208.83.106.105:9999",
-                "http://47.89.241.103:3128",
-                "http://54.212.54.101:80",
-                "http://52.7.233.25:80",
-                "http://96.84.57.209:3128",
-                "http://204.14.188.53:7004",
-                "http://104.131.61.142:8118",
-                "http://107.17.92.148:8080",
-                "http://69.73.167.76:80",
-                "http://209.141.47.120:80",
-                "http://207.55.61.176:9999",
-                "http://52.40.10.125:80",
-                "http://18.221.211.18:3128",
-                "http://54.177.186.237:80",
-                "http://98.102.161.210:80",
-                "http://54.202.8.138:80",
-                "http://162.243.138.193:80",
-                "http://192.187.124.196:3128",
-                "http://96.44.148.86:80",
-                "http://104.236.175.143:80",
-                "http://205.158.57.2:53281",
-                "http://104.196.255.174:3128",
-                "http://76.75.55.225:65103",
-                "http://108.165.2.110:80",
-                "http://209.141.61.84:80",
-                "http://64.237.61.242:80",
-                "http://130.211.92.157:443",
-                "http://45.55.9.179:80",
-                "http://155.94.224.175:80",
-                "http://74.207.225.106:80",
-                "http://98.124.121.102:53281",
-                "http://107.170.214.74:80",
-                "http://104.131.61.119:8118",
-                "http://104.236.48.178:8080"
-                */
-
-
-
-                 "http://104.236.175.143:80",
-                 "http://209.141.61.84:80",
-
-                "http://104.236.48.178:8080",
-"http://143.0.189.82:80",
-"http://203.146.217.107:8080",
-"http://80.83.20.14:80",
-"http://222.124.152.138:80",
-"http://94.154.22.193:53281",
-"http://152.231.81.122:53281",
-"http://87.228.29.154:53281",
-"http://165.84.167.54:8080",
-"http://202.40.177.230:53281",
-"http://202.63.242.135:53281",
-"http://128.201.186.183:53005",
-"http://190.152.19.190:62225",
-"http://92.27.91.253:53281",
-"http://114.47.66.135:8088",
-"http://27.50.49.22:3128",
-"http://109.161.48.228:53281",
-"http://61.216.60.206:8080",
-"http://143.0.188.39:80",
-"http://54.177.186.237:80",
-"http://117.52.91.248:80",
-
-            };
+            string[] proxyList = ProxyHelper.GetProxyArray();
 
             int repeatCount = 0;
 
@@ -180,75 +112,7 @@ namespace GeoApis
             string resp = null;
             string data = null;
 
-            string[] proxyList = new string[] {
-                /*
-                "http://45.79.0.108:1080",
-                "http://206.127.141.67:80",
-                "http://50.232.30.218:3128",
-                "http://208.83.106.105:9999",
-                "http://47.89.241.103:3128",
-                "http://54.212.54.101:80",
-                "http://52.7.233.25:80",
-                "http://96.84.57.209:3128",
-                "http://204.14.188.53:7004",
-                "http://104.131.61.142:8118",
-                "http://107.17.92.148:8080",
-                "http://69.73.167.76:80",
-                "http://209.141.47.120:80",
-                "http://207.55.61.176:9999",
-                "http://52.40.10.125:80",
-                "http://18.221.211.18:3128",
-                "http://54.177.186.237:80",
-                "http://98.102.161.210:80",
-                "http://54.202.8.138:80",
-                "http://162.243.138.193:80",
-                "http://192.187.124.196:3128",
-                "http://96.44.148.86:80",
-                "http://104.236.175.143:80",
-                "http://205.158.57.2:53281",
-                "http://104.196.255.174:3128",
-                "http://76.75.55.225:65103",
-                "http://108.165.2.110:80",
-                "http://209.141.61.84:80",
-                "http://64.237.61.242:80",
-                "http://130.211.92.157:443",
-                "http://45.55.9.179:80",
-                "http://155.94.224.175:80",
-                "http://74.207.225.106:80",
-                "http://98.124.121.102:53281",
-                "http://107.170.214.74:80",
-                "http://104.131.61.119:8118",
-                "http://104.236.48.178:8080"
-                */
-
-
-
-                 "http://104.236.175.143:80",
-                 "http://209.141.61.84:80",
-
-                "http://104.236.48.178:8080",
-"http://143.0.189.82:80",
-"http://203.146.217.107:8080",
-"http://80.83.20.14:80",
-"http://222.124.152.138:80",
-"http://94.154.22.193:53281",
-"http://152.231.81.122:53281",
-"http://87.228.29.154:53281",
-"http://165.84.167.54:8080",
-"http://202.40.177.230:53281",
-"http://202.63.242.135:53281",
-"http://128.201.186.183:53005",
-"http://190.152.19.190:62225",
-"http://92.27.91.253:53281",
-"http://114.47.66.135:8088",
-"http://27.50.49.22:3128",
-"http://109.161.48.228:53281",
-"http://61.216.60.206:8080",
-"http://143.0.188.39:80",
-"http://54.177.186.237:80",
-"http://117.52.91.248:80",
-
-            };
+            string[] proxyList = ProxyHelper.GetProxyArray();
 
             int repeatCount = 0;
 
@@ -626,7 +490,7 @@ WHERE GB_UID = @gb_uid
                         polyString += ",";
 
                     polyString += latLongs[i].lng + " " + latLongs[i].lat; // + ",";
-                }
+                } // Next i 
             }
             else
             {
@@ -636,37 +500,35 @@ WHERE GB_UID = @gb_uid
                         polyString += ",";
 
                     polyString += latLongs[i].lng + " " + latLongs[i].lat; // + ",";
-                }
+                } // Next i 
             }
 
             polyString = "POLYGON((" + polyString + "))";
             return polyString;
-        }
+        } // End Function CreatePolygon 
 
 
         public static string CreateSqlPolygon(LatLng[] latLongs)
         {
             string s = "geography::STPolyFromText('" + CreatePolygon(latLongs) + "', 4326)";
             return s;
-        }
+        } // End Function CreateSqlPolygon 
 
 
- 
+        private static System.Random rand = new System.Random();
 
 
-
-        public static void foo(decimal latitide, decimal longitude)
+        public static Polygon GetNearestBuildingPolygon(decimal latitide, decimal longitude)
         {
             OpenToolkit.Mathematics.DecimalVector2 geoPoint = new OpenToolkit.Mathematics.DecimalVector2(latitide, longitude);
 
-            LatLngBounds bounds = LatLngBounds.FromPoint(new LatLng(latitide, longitude), 1000); // d.h. Radius = 50m
-            System.Console.WriteLine(bounds);
-
+            LatLngBounds bounds = LatLngBounds.FromPoint(new LatLng(latitide, longitude), 1000); // d.h. Radius = 500m
+            
             decimal area = bounds.BoundsArea;
             if (area > 0.25m)
             {
                 System.Console.WriteLine("The maximum bbox size is 0.25, and your request was too large.\nEither request a smaller area, or use planet.osm.");
-                return;
+                return null;
             } // End if (area > 0.25m) 
 
 
@@ -678,13 +540,17 @@ WHERE GB_UID = @gb_uid
             // string url = "https://www.openstreetmap.org/api/0.6/map?bbox=8.626273870468141,47.69679769756054,8.636573553085329,47.700530864557194&no_cache=1562588642802";
             string url = "https://www.openstreetmap.org/api/" + OSM_API_VERSION + "/map?bbox=" + bounds.ToBBoxString();
 
+            string[] proxyList = ProxyHelper.GetProxyArray();
+            string proxy = proxyList[s_rnd.Next(0, proxyList.Length)];
+
+
             using (System.Net.WebClient wc = new System.Net.WebClient())
             {
+                // wc.Proxy = new System.Net.WebProxy(proxy);
+
                 xml = wc.DownloadString(url);
             } // End Using wc 
 #endif
-
-
 
             System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
             doc.LoadXml(xml);
@@ -695,8 +561,8 @@ WHERE GB_UID = @gb_uid
             System.Collections.Generic.Dictionary<string, LatLng> nodeDictionary =
                 new System.Collections.Generic.Dictionary<string, LatLng>(System.StringComparer.InvariantCultureIgnoreCase);
 
-            System.Collections.Generic.Dictionary<string, LatLng[]> buildingDictionary =
-                new System.Collections.Generic.Dictionary<string, LatLng[]>(System.StringComparer.InvariantCultureIgnoreCase);
+            System.Collections.Generic.Dictionary<string, Polygon> buildingPolygonDictionary =
+                new System.Collections.Generic.Dictionary<string, Polygon>(System.StringComparer.InvariantCultureIgnoreCase);
 
 
             foreach (System.Xml.XmlElement node in nodes)
@@ -713,6 +579,7 @@ WHERE GB_UID = @gb_uid
                 nodeDictionary[id] = new LatLng(dlat, dlong);
             } // Next node 
 
+
             // https://stackoverflow.com/questions/1457638/xpath-get-nodes-where-child-node-contains-an-attribute
             // querySelectorAll('way tag[k="building"]')
             System.Xml.XmlNodeList buildings = doc.SelectNodes("//way[tag/@k=\"building\"]");
@@ -727,27 +594,16 @@ WHERE GB_UID = @gb_uid
                     lsPolygonPoints.Add(nodeDictionary[reff]);
                 } // Next buildingNode 
 
-
-                LatLng[] polygon = toCounterClockWise(lsPolygonPoints.ToArray());
+                LatLng[] polygonPoints = toCounterClockWise(lsPolygonPoints.ToArray());
                 string id = building.GetAttribute("id");
-                buildingDictionary[id] = polygon;
 
-                string sqlPolygon = CreateSqlPolygon(polygon);
-                System.Console.WriteLine(sqlPolygon);
+                Polygon poly = new Polygon(polygonPoints);
+                poly.OsmId = id;
+
+                buildingPolygonDictionary[id] = poly;
             } // Next building 
 
-            System.Console.WriteLine(buildingDictionary);
-
-
-            System.Collections.Generic.Dictionary<string, Polygon> buildingPolygonDictionary =
-                new System.Collections.Generic.Dictionary<string, Polygon>(System.StringComparer.InvariantCultureIgnoreCase);
-
-            foreach (System.Collections.Generic.KeyValuePair<string, LatLng[]> kvp in buildingDictionary)
-            {
-                buildingPolygonDictionary[kvp.Key] = new Polygon(kvp.Value);
-            } // Next kvp 
-
-            System.Console.WriteLine(buildingPolygonDictionary);
+            // System.Console.WriteLine(buildingPolygonDictionary);
 
 
 
@@ -764,7 +620,7 @@ WHERE GB_UID = @gb_uid
                     {
                         min = minDist;
                         uid = kvp.Key;
-                    }
+                    } // End if (minDist < min.Value)
                 }
                 else
                 {
@@ -774,23 +630,98 @@ WHERE GB_UID = @gb_uid
 
             } // Next kvp 
 
-            Polygon p = buildingPolygonDictionary[uid];
-            System.Console.WriteLine(uid); // 218003784
-            System.Console.WriteLine(p);
-
-
-            LatLng[] pts = p.ToLatLngPoints();
-            string sql = CreateSqlPolygon(pts);
-            System.Console.WriteLine(sql);
+            return buildingPolygonDictionary[uid];
         } // End Sub 
 
 
 
+
+        static void GetAndInsertBuildingPolygon()
+        {
+            string sql = @"
+INSERT INTO T_ZO_Objekt_Wgs84Polygon
+(
+	 ZO_OBJ_WGS84_UID
+	,ZO_OBJ_WGS84_GB_UID
+	,ZO_OBJ_WGS84_SO_UID
+	,ZO_OBJ_WGS84_Sort
+	,ZO_OBJ_WGS84_GM_Lat
+	,ZO_OBJ_WGS84_GM_Lng
+)
+SELECT 
+	 NEWID() ZO_OBJ_WGS84_UID -- uniqueidentifier
+	,@gb_uid AS ZO_OBJ_WGS84_GB_UID -- uniqueidentifier
+	,NULL AS ZO_OBJ_WGS84_SO_UID -- uniqueidentifier
+	,@i ZO_OBJ_WGS84_Sort -- int
+	,@lat ZO_OBJ_WGS84_GM_Lat -- decimal(23,20)
+	,@lng ZO_OBJ_WGS84_GM_Lng -- decimal(23,20)
+; 
+";
+
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            
+
+            using (System.Data.Common.DbCommand cmdList = SQL.fromFile("GetGbOsmPolygon.sql"))
+            {
+
+                using (System.Data.DataTable dt = SQL.GetDataTable(cmdList))
+                {
+                    foreach (System.Data.DataRow dr in dt.Rows)
+                    {
+                        string gb_uid = System.Convert.ToString(dr["GB_UID"]);
+                        decimal latitude = System.Convert.ToDecimal(dr["GB_GM_Lat"]);
+                        decimal longitude = System.Convert.ToDecimal(dr["GB_GM_Lng"]);
+
+                        System.Threading.Thread.Sleep(4000);
+
+                        Polygon nearestBuilding = GetNearestBuildingPolygon(latitude, longitude);
+                        if (nearestBuilding == null)
+                            continue;
+                        System.Console.WriteLine(nearestBuilding);
+                        System.Console.WriteLine(nearestBuilding.OsmId); // 218003784
+
+                        LatLng[] pts = nearestBuilding.ToClockWiseLatLngPoints();
+                        string createPolygon = CreateSqlPolygon(pts);
+                        System.Console.WriteLine(sql);
+
+                        LatLng[] osmPoints = nearestBuilding.ToCounterClockWiseLatLngPoints();
+
+                        string sql2 = "DELETE FROM T_ZO_Objekt_Wgs84Polygon WHERE ZO_OBJ_WGS84_GB_UID = @gb_uid; ";
+
+                        using (System.Data.Common.DbCommand cmd = SQL.CreateCommand(sql2))
+                        {
+                            SQL.AddParameter(cmd, "gb_uid", gb_uid);
+                            SQL.ExecuteNonQuery(cmd);
+                        } // End Using cmd 
+
+                        for (int i = 0; i < osmPoints.Length; ++i)
+                        {
+                            using (System.Data.Common.DbCommand cmd = SQL.CreateCommand(sql))
+                            {
+                                SQL.AddParameter(cmd, "gb_uid", gb_uid);
+                                SQL.AddParameter(cmd, "i", i);
+                                SQL.AddParameter(cmd, "lat", osmPoints[i].lat);
+                                SQL.AddParameter(cmd, "lng", osmPoints[i].lng);
+
+                                SQL.ExecuteNonQuery(cmd);
+                            } // End Using cmd 
+
+                        } // Next i 
+
+                        System.Console.WriteLine(sql);
+                    } // Next dr 
+
+                } // End Using dt 
+
+            } // End using cmd 
+            
+        } // End Sub 
+
+
         static void Main(string[] args)
         {
-            decimal lati = 47.6957384m;
-            decimal longi = 8.6377985m;
-            foo(lati, longi);
+            GetAndInsertBuildingPolygon();
+
             // UpdateBuildingsWithYandex();
 
             GeoApis.Polygon poly = new Polygon();
@@ -848,9 +779,9 @@ WHERE __Steuern_2014.gemeindenummer IS NULL
                 using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
                 {
                     cmd.CommandText = "UPDATE __Steuern_2016 SET latitude = @lat, longitude = @lng WHERE gemeindenummer = @gem_nr; ";
-                    var pgem = SQL.AddParameter(cmd, "gem_nr", "12435");
-                    var plat = SQL.AddParameter(cmd, "lat", "666");
-                    var plng = SQL.AddParameter(cmd, "lng", "666");
+                    System.Data.IDbDataParameter pgem = SQL.AddParameter(cmd, "gem_nr", "12435");
+                    System.Data.IDbDataParameter plat = SQL.AddParameter(cmd, "lat", "666");
+                    System.Data.IDbDataParameter plng = SQL.AddParameter(cmd, "lng", "666");
 
                     foreach (System.Data.DataRow dr in dt.Rows)
                     {

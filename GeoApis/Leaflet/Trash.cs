@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace GeoApis.Leaflet
 {
+
+
     class Trash
     {
 
@@ -57,5 +56,8 @@ namespace GeoApis.Leaflet
             return new LatLngBounds(north, south, east, west);
         }
 
+
     }
+
+
 }

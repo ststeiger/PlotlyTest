@@ -131,6 +131,7 @@
     <EmbeddedResource Include="SQL\FMS_Maps_Marker_Werbetafeln.sql" />
     <EmbeddedResource Include="SQL\GetBuildingsToPolygonCode.sql" />
     <EmbeddedResource Include="SQL\GetGBGeocode.sql" />
+    <EmbeddedResource Include="SQL\GetGbOsmPolygon.sql" />
     <Content Include="wiki.htm" />
     <Content Include="mapbox.htm" />
     <Content Include="leaflet.htm" />
