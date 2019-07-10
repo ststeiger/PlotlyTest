@@ -680,8 +680,8 @@ SELECT
                         System.Console.WriteLine(nearestBuilding);
                         System.Console.WriteLine(nearestBuilding.OsmId); // 218003784
 
-                        LatLng[] pts = nearestBuilding.ToClockWiseLatLngPoints();
-                        string createPolygon = CreateSqlPolygon(pts);
+                        LatLng[] msPoints = nearestBuilding.ToClockWiseLatLngPoints();
+                        string createPolygon = CreateSqlPolygon(msPoints);
                         System.Console.WriteLine(sql);
 //                      sql = @"
 //SELECT 
