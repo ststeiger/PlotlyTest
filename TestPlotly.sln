@@ -7,11 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlotly", "TestPlotly\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSpatial", "TestSpatial\TestSpatial.csproj", "{2FA66180-544C-40E9-A363-B9DDB38220E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoApis", "GeoApis\GeoApis.csproj", "{7369F5BD-790F-4595-A42A-75860CC87A10}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack", "HtmlAgilityPack\HtmlAgilityPack.csproj", "{64C52AED-1897-438A-B3F9-60B9531B9B8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlAgilityPack", "HtmlAgilityPack\HtmlAgilityPack.csproj", "{64C52AED-1897-438A-B3F9-60B9531B9B8E}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HtmlAgilityPack.Shared", "HtmlAgilityPack.Shared\HtmlAgilityPack.Shared.shproj", "{5BA9A0D7-173F-4C4F-AFFA-3DD6DC2F9A79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "oldGeoApis", "oldGeoApis\oldGeoApis.csproj", "{48E71B70-C265-4774-BEF1-E1C1969BB30C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoApis", "GeoApis\GeoApis.csproj", "{17C515BF-E108-49BC-AFBF-53A65CF9E63C}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -30,14 +32,18 @@ Global
 		{2FA66180-544C-40E9-A363-B9DDB38220E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FA66180-544C-40E9-A363-B9DDB38220E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FA66180-544C-40E9-A363-B9DDB38220E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7369F5BD-790F-4595-A42A-75860CC87A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7369F5BD-790F-4595-A42A-75860CC87A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7369F5BD-790F-4595-A42A-75860CC87A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7369F5BD-790F-4595-A42A-75860CC87A10}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64C52AED-1897-438A-B3F9-60B9531B9B8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64C52AED-1897-438A-B3F9-60B9531B9B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64C52AED-1897-438A-B3F9-60B9531B9B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64C52AED-1897-438A-B3F9-60B9531B9B8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E71B70-C265-4774-BEF1-E1C1969BB30C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E71B70-C265-4774-BEF1-E1C1969BB30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E71B70-C265-4774-BEF1-E1C1969BB30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E71B70-C265-4774-BEF1-E1C1969BB30C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17C515BF-E108-49BC-AFBF-53A65CF9E63C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C515BF-E108-49BC-AFBF-53A65CF9E63C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17C515BF-E108-49BC-AFBF-53A65CF9E63C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17C515BF-E108-49BC-AFBF-53A65CF9E63C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

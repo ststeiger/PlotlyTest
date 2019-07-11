@@ -304,18 +304,18 @@ namespace GeoApis
             country = System.Uri.EscapeDataString(country);
             // street=<housenumber> <streetname>
             // postalcode=<postalcode>
-            
+
             // https://nominatim.org/release-docs/develop/api/Search/
             // https://nominatim.openstreetmap.org/search?format=json&city=Staufen&state=Aargau&country=Switzerland
             string url = $"https://nominatim.openstreetmap.org/search?format=json&city={city}&state={state}&country={country}";
 
-            
-            
-            
+
+
+
             string resp = PostRequest(url);
             System.Collections.Generic.List<OSM.Geocoder.Nominatim> ls = OSM.Geocoder.Nominatim.FromJson(resp);
-            
-            if(ls== null || ls.Count < 1)
+
+            if (ls == null || ls.Count < 1)
                 throw new System.Exception("Could not geocode said address.");
 
             return new Wgs84Coordinates(ls[0].Lat, ls[0].Lon, ls[0].Bounds.MinimumLatitude.Value, ls[0].Bounds.MinimumLongitude.Value
@@ -329,7 +329,7 @@ namespace GeoApis
             // &origin = 47.378141,8.540168
             // &destination = 47.551635,9.226241
             // &transit_mode = rail
-            
+
 #if HAVE_NO_API_KEY
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}"; ;
 #else
@@ -379,7 +379,7 @@ namespace GeoApis
 
                 return new Wgs84Coordinates(pnt.Latitude, pnt.Longitude);
             }
-            
+
             return null;
         }
 
@@ -458,7 +458,7 @@ WHERE GB_UID = @gb_uid
 
 
         // MSSQL is CLOCKWISE (MS-SQL wants the polygon points in clockwise sequence) 
-        static LatLng[] toClockWise(LatLng[]  poly)
+        static LatLng[] toClockWise(LatLng[] poly)
         {
             if (!isClockwise(poly))
                 poly.Reverse();
@@ -525,7 +525,7 @@ WHERE GB_UID = @gb_uid
             OpenToolkit.Mathematics.DecimalVector2 geoPoint = new OpenToolkit.Mathematics.DecimalVector2(latitide, longitude);
 
             LatLngBounds bounds = LatLngBounds.FromPoint(new LatLng(latitide, longitude), 1000); // d.h. Radius = 500m
-            
+
             decimal area = bounds.BoundsArea;
             if (area > 0.25m)
             {
@@ -588,7 +588,7 @@ WHERE GB_UID = @gb_uid
             foreach (System.Xml.XmlElement building in buildings)
             {
                 System.Collections.Generic.List<LatLng> lsPolygonPoints = new System.Collections.Generic.List<LatLng>();
-                
+
                 System.Xml.XmlNodeList buildingNodes = building.SelectNodes("./nd");
                 foreach (System.Xml.XmlElement buildingNode in buildingNodes)
                 {
@@ -661,7 +661,7 @@ SELECT
 ";
 
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            
+
 
             using (System.Data.Common.DbCommand cmdList = SQL.fromFile("GetGbOsmPolygon.sql"))
             {
@@ -685,15 +685,15 @@ SELECT
                         LatLng[] msPoints = nearestBuilding.ToClockWiseLatLngPoints();
                         string createPolygon = CreateSqlPolygon(msPoints);
                         System.Console.WriteLine(sql);
-//                      sql = @"
-//SELECT 
-//	 geography::STPolyFromText('POLYGON((7.7867531 46.9361500,7.7869622 46.9361188,7.7869515 46.9360856,7.7869952 46.9360793,7.7870059 46.9361123,7.7870300 46.9361087,7.7870312 46.9361124,7.7870944 46.9361028,7.7870933 46.9360991,7.7872340 46.9360778,7.7873147 46.9363299,7.7871740 46.9363510,7.7871728 46.9363473,7.7871099 46.9363568,7.7871110 46.9363605,7.7868341 46.9364021,7.7867531 46.9361500))', 4326)
-//	,geometry::STPolyFromText('POLYGON((7.7867531 46.9361500,7.7869622 46.9361188,7.7869515 46.9360856,7.7869952 46.9360793,7.7870059 46.9361123,7.7870300 46.9361087,7.7870312 46.9361124,7.7870944 46.9361028,7.7870933 46.9360991,7.7872340 46.9360778,7.7873147 46.9363299,7.7871740 46.9363510,7.7871728 46.9363473,7.7871099 46.9363568,7.7871110 46.9363605,7.7868341 46.9364021,7.7867531 46.9361500))', 4326)
+                        //                      sql = @"
+                        //SELECT 
+                        //	 geography::STPolyFromText('POLYGON((7.7867531 46.9361500,7.7869622 46.9361188,7.7869515 46.9360856,7.7869952 46.9360793,7.7870059 46.9361123,7.7870300 46.9361087,7.7870312 46.9361124,7.7870944 46.9361028,7.7870933 46.9360991,7.7872340 46.9360778,7.7873147 46.9363299,7.7871740 46.9363510,7.7871728 46.9363473,7.7871099 46.9363568,7.7871110 46.9363605,7.7868341 46.9364021,7.7867531 46.9361500))', 4326)
+                        //	,geometry::STPolyFromText('POLYGON((7.7867531 46.9361500,7.7869622 46.9361188,7.7869515 46.9360856,7.7869952 46.9360793,7.7870059 46.9361123,7.7870300 46.9361087,7.7870312 46.9361124,7.7870944 46.9361028,7.7870933 46.9360991,7.7872340 46.9360778,7.7873147 46.9363299,7.7871740 46.9363510,7.7871728 46.9363473,7.7871099 46.9363568,7.7871110 46.9363605,7.7868341 46.9364021,7.7867531 46.9361500))', 4326)
 
-//	-- Geometry is BAD for area
-//	,geography::STPolyFromText('POLYGON((7.7867531 46.9361500,7.7869622 46.9361188,7.7869515 46.9360856,7.7869952 46.9360793,7.7870059 46.9361123,7.7870300 46.9361087,7.7870312 46.9361124,7.7870944 46.9361028,7.7870933 46.9360991,7.7872340 46.9360778,7.7873147 46.9363299,7.7871740 46.9363510,7.7871728 46.9363473,7.7871099 46.9363568,7.7871110 46.9363605,7.7868341 46.9364021,7.7867531 46.9361500))', 4326).STArea() AS geogArea 
-//	,geometry::STPolyFromText('POLYGON((7.7867531 46.9361500,7.7869622 46.9361188,7.7869515 46.9360856,7.7869952 46.9360793,7.7870059 46.9361123,7.7870300 46.9361087,7.7870312 46.9361124,7.7870944 46.9361028,7.7870933 46.9360991,7.7872340 46.9360778,7.7873147 46.9363299,7.7871740 46.9363510,7.7871728 46.9363473,7.7871099 46.9363568,7.7871110 46.9363605,7.7868341 46.9364021,7.7867531 46.9361500))', 4326).STArea() AS geomArea 
-//";
+                        //	-- Geometry is BAD for area
+                        //	,geography::STPolyFromText('POLYGON((7.7867531 46.9361500,7.7869622 46.9361188,7.7869515 46.9360856,7.7869952 46.9360793,7.7870059 46.9361123,7.7870300 46.9361087,7.7870312 46.9361124,7.7870944 46.9361028,7.7870933 46.9360991,7.7872340 46.9360778,7.7873147 46.9363299,7.7871740 46.9363510,7.7871728 46.9363473,7.7871099 46.9363568,7.7871110 46.9363605,7.7868341 46.9364021,7.7867531 46.9361500))', 4326).STArea() AS geogArea 
+                        //	,geometry::STPolyFromText('POLYGON((7.7867531 46.9361500,7.7869622 46.9361188,7.7869515 46.9360856,7.7869952 46.9360793,7.7870059 46.9361123,7.7870300 46.9361087,7.7870312 46.9361124,7.7870944 46.9361028,7.7870933 46.9360991,7.7872340 46.9360778,7.7873147 46.9363299,7.7871740 46.9363510,7.7871728 46.9363473,7.7871099 46.9363568,7.7871110 46.9363605,7.7868341 46.9364021,7.7867531 46.9361500))', 4326).STArea() AS geomArea 
+                        //";
 
 
 
@@ -727,7 +727,7 @@ SELECT
                 } // End Using dt 
 
             } // End using cmd 
-            
+
         } // End Sub 
 
 
@@ -739,28 +739,28 @@ SELECT
 
             GeoApis.Polygon poly = new Polygon();
             poly.PopulateV1();
-            
+
             System.Console.WriteLine(poly.MathematicalArea);
             System.Console.WriteLine(poly.Centroid);
             System.Console.WriteLine(poly.Midpoint);
-            
+
 
 
             string origin = "47.378141,8.540168"; // Zürich HB
             string destination = "47.551635,9.226241"; // Erlen
             string transit_mode = "rail";
-            
+
             Directions(origin, destination, transit_mode);
-            
-            
+
+
             string sourceXML = @"info/steuern/gemeinden.svg";
             string targetXML = @"info/steuern/gemeinden.min.svg";
             string newSourceXML = @"info/steuern/gemeinden.minimax.svg";
 
             XmlMinifierBeautifier.Minify(sourceXML, targetXML);
             XmlMinifierBeautifier.Prettify(targetXML, newSourceXML);
-            
-            
+
+
             using (System.Data.IDbCommand cmd = SQL.CreateCommand(@"
 SELECT 
 	 gemeindenummer AS gemeinde_nummer 
@@ -788,7 +788,7 @@ FROM TestDb.dbo.__Steuern_2016
 LEFT JOIN TestDb.dbo.__Steuern_2014 ON __Steuern_2016.gemeindenummer = __Steuern_2014.gemeindenummer 
 WHERE __Steuern_2014.gemeindenummer IS NULL 
 ";
-                
+
                 using (System.Data.DataTable dt = SQL.GetDataTable(cmd))
                 {
                     cmd.CommandText = "UPDATE __Steuern_2016 SET latitude = @lat, longitude = @lng WHERE gemeindenummer = @gem_nr; ";
@@ -802,7 +802,7 @@ WHERE __Steuern_2014.gemeindenummer IS NULL
                         string city = System.Convert.ToString(dr["gemeinde"]);
                         string state = System.Convert.ToString(dr["kanton"]);
                         string geocodeName = System.Convert.ToString(dr["gemeinde_adresse"]);
-                        
+
                         System.Console.WriteLine(geocodeName);
                         Wgs84Coordinates gc = GeoCode(geocodeName);
                         // Wgs84Coordinates gc = OsmGeoCode(city, state, "Switzerland");
@@ -811,23 +811,23 @@ WHERE __Steuern_2014.gemeindenummer IS NULL
                         pgem.Value = id;
                         plat.Value = gc.Latitude;
                         plng.Value = gc.Longitude;
-                        
+
                         SQL.ExecuteNonQuery(cmd);
                         System.Threading.Thread.Sleep(1000);
                     } // Next dr 
-                    
+
                 } // End Using dt 
-                
+
             } // End using cmd 
-            
-            
+
+
             System.Console.WriteLine(System.Environment.NewLine);
             System.Console.WriteLine(" --- Press any key to continue --- ");
             System.Console.ReadKey();
         } // End Sub Main 
-        
-        
+
+
     } // End Class 
-    
-    
+
+
 } // End Namespace 

@@ -1,0 +1,35 @@
+
+// https://jsfiddle.net/koldev/cW7W5/
+var svg = document.querySelector('svg'); // or whatever you call it
+var serializer = new XMLSerializer();
+var ser = serializer.serializeToString(svg);
+
+
+
+// var strDimension = JSON.stringify(document.getElementById("mapContainer").getBoundingClientRect())
+// var html = document.getElementById("mapContainer").innerHTML;
+
+
+var str = ser;
+// var str = strDimension + "\r\n\r\n" + html;
+
+var saveData = (function () {
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    return function (fileName) {
+        var json = str,
+            blob = new Blob([json], {type: "octet/stream"}),
+            url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };
+}());
+
+
+//fileName = "my-download.htm";
+fileName = "my-download.svg";
+
+saveData(fileName);

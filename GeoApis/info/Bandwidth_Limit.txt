@@ -1,0 +1,15 @@
+
+https://github.com/openstreetmap/openstreetmap-website
+
+
+Bandwidth Limit Exceeded:
+https://github.com/openstreetmap/cgimap
+https://github.com/openstreetmap/cgimap/blob/e78578817f4b8f66dfc4e0b91ca1bcfe82cd047c/src/request_helpers.cpp
+https://github.com/openstreetmap/cgimap/blob/e78578817f4b8f66dfc4e0b91ca1bcfe82cd047c/src/http.cpp
+
+https://github.com/openstreetmap/iD/issues/2262
+
+https://wiki.openstreetmap.org/wiki/API_usage_policy
+https://operations.osmfoundation.org/policies/api/
+
+https://help.openstreetmap.org/questions/2565/bandwidth-limit-exceeded
