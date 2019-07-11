@@ -89,9 +89,8 @@ namespace GeoApis
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(html);
 
-            string selector = "//table[id=\"proxylisttable\"]";
-            selector = "//table[id='proxylisttable']";
-            selector = "//table";
+            string selector = "//table[@id='proxylisttable']";
+            
             HtmlAgilityPack.HtmlNode tableNode = doc.DocumentNode.SelectSingleNode(selector);
             System.Console.WriteLine(tableNode);
 

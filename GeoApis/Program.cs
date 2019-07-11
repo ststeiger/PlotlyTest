@@ -731,6 +731,8 @@ SELECT
 
         static void Main(string[] args)
         {
+            ProxyHelper.GetProxyList("foo", "bar");
+
             GetAndInsertBuildingPolygon();
 
             // UpdateBuildingsWithYandex();
