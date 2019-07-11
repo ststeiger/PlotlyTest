@@ -1,8 +1,7 @@
-﻿using System;
-
+﻿
 namespace HtmlAgilityPack
 {
-    public class Class1
+    public class AssemblyMarkerClass
     {
     }
 }
