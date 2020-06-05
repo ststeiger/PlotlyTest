@@ -733,7 +733,13 @@ SELECT
 
         static void Main(string[] args)
         {
+            // ProxyHelper.GetProxyList("proxylist2.htm", "proxyList2.json");
+
+
             GetAndInsertBuildingPolygon();
+
+            
+
 
             // UpdateBuildingsWithYandex();
 

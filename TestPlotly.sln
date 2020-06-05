@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlotly", "TestPlotly\TestPlotly.csproj", "{364A9318-6848-466F-884C-788BC4EFEC81}"
 EndProject
@@ -13,11 +13,12 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HtmlAgilityPack.Shared", "H
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "oldGeoApis", "oldGeoApis\oldGeoApis.csproj", "{48E71B70-C265-4774-BEF1-E1C1969BB30C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoApis", "GeoApis\GeoApis.csproj", "{17C515BF-E108-49BC-AFBF-53A65CF9E63C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoApis", "GeoApis\GeoApis.csproj", "{17C515BF-E108-49BC-AFBF-53A65CF9E63C}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		HtmlAgilityPack.Shared\HtmlAgilityPack.Shared.projitems*{5ba9a0d7-173f-4c4f-affa-3dd6dc2f9a79}*SharedItemsImports = 13
+		HtmlAgilityPack.Shared\HtmlAgilityPack.Shared.projitems*{64c52aed-1897-438a-b3f9-60b9531b9b8e}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

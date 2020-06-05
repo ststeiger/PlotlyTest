@@ -16,14 +16,11 @@ namespace TestPlotly
             csb.DataSource = System.Environment.MachineName;
             if(System.StringComparer.OrdinalIgnoreCase.Equals("COR", System.Environment.UserDomainName))
             {
-                csb.DataSource += @"\SqlExpress";
+                // csb.DataSource += @"\SqlExpress";
+                csb.DataSource = System.Environment.MachineName;
             }
 
             // csb.InitialCatalog = "COR_Basic_Demo_V4";
-            // csb.InitialCatalog = "COR_Basic_Helvetia_IS";
-            // csb.InitialCatalog = "TestDb";
-            // csb.InitialCatalog = "COR_Basic_Helvetia_PS";
-            csb.InitialCatalog = "COR_Basic_SwissLife_UAT";
 
 
             csb.IntegratedSecurity = false;
